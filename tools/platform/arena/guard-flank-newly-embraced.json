@@ -1,0 +1,22 @@
+{
+  // An arena spec: the combat rules' newly Embraced
+  // (sandbox.newly_embraced) against two of the combat rules' trained guards (sandbox.guard_trained), all three with 1.1's Rapier and no
+  // shield, the second guard coming at him from his flank, 65° off the line to the first (inside the guard's 70° arc, outside an
+  // ordinary observer's 60° sight cone: the world's default kind, which the arena's fighters see by). His brain faces and fights
+  // the first; the second closes on him from the side. The rules package's automatic guard turns only toward a threat its
+  // owner can see. Run it as it is (the guard's sight on, the default) and with --guard-sight-off (the earlier build's guard: any threat in
+  // the arc), the same seeds. ENGINE_SANDBOX: the places and the 65° are ours, to put a blow where the sight and the arc differ.
+  "title": "The guard's sight: newly Embraced against two trained guards, one at his flank (65°), the same sword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [40, 3], "facing": 0, "brain": "duel", "foe": "Guard" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel", "foe": "Christof" },
+    { "name": "Flank", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [40.85, 4.81], "facing": 245, "brain": "duel", "foe": "Christof" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

@@ -1,0 +1,245 @@
+{
+  "title": "Controls",
+  "veil": "veil",
+  "back": "cancel",
+  "root": {
+    "type": "anchor", "at": "centre", "margin": 48,
+    "child": {
+      "type": "panel", "id": "page", "framed": true, "width": "fill", "maxWidth": 1840, "height": "fill", "padding": [64, 34],
+      "child": {
+        "type": "column", "gap": 14,
+        "children": [
+          { "type": "text", "id": "title", "text": "Controls", "style": "title", "align": "centre" },
+          { "type": "panel", "fill": "rule", "height": 2 },
+          {
+            "type": "row", "id": "body", "height": "fill", "gap": 56, "align": "stretch",
+            "children": [
+              {
+                "type": "column", "id": "keys", "width": "fill", "gap": 6,
+                "children": [
+                  { "type": "text", "text": "Key Bindings", "style": "heading" },
+                  {
+                    "type": "row", "gap": 16, "padding": [16, 0, 34, 0],
+                    "children": [
+                      { "type": "text", "text": "Action", "style": "column", "width": "fill" },
+                      { "type": "text", "text": "Primary", "style": "column", "width": 290, "align": "centre" },
+                      { "type": "text", "text": "Secondary", "style": "column", "width": 290, "align": "centre" }
+                    ]
+                  },
+                  {
+                    "type": "scroll", "id": "bindingsArea", "step": 34,
+                    "child": {
+                      "type": "column",
+                      "children": [
+                        {
+                          "type": "list", "id": "bindings", "items": "actions", "stripes": ["band", "bandAlt"],
+                          "template": {
+                            "type": "panel", "fill": "{rowFill}", "padding": [16, 1],
+                            "child": {
+                              "type": "row", "gap": 16,
+                              "children": [
+                                { "type": "text", "text": "{label}", "style": "label", "width": "fill", "height": 32 },
+                                { "type": "keycell", "text": "{key0}", "state": "state0", "action": "cell", "arg": "{action}.0", "width": 290, "height": 32 },
+                                { "type": "keycell", "text": "{key1}", "state": "state1", "action": "cell", "arg": "{action}.1", "width": 290, "height": 32 }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "panel", "fill": "none", "padding": [16, 14, 16, 4], "visible": "hasQuickSlots",
+                          "child": { "type": "text", "id": "quickSlotsHeading", "text": "Quick Slots", "style": "group" }
+                        },
+                        {
+                          "type": "list", "id": "quickSlotBindings", "items": "slotActions", "stripes": ["band", "bandAlt"],
+                          "template": {
+                            "type": "panel", "fill": "{rowFill}", "padding": [16, 1],
+                            "child": {
+                              "type": "row", "gap": 16,
+                              "children": [
+                                { "type": "text", "text": "{label}", "style": "label", "width": "fill", "height": 32 },
+                                { "type": "keycell", "text": "{key0}", "state": "state0", "action": "cell", "arg": "{action}.0", "width": 290, "height": 32 },
+                                { "type": "keycell", "text": "{key1}", "state": "state1", "action": "cell", "arg": "{action}.1", "width": 290, "height": 32 }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              { "type": "panel", "fill": "rule", "width": 2 },
+              {
+                "type": "column", "id": "view", "width": 600, "gap": 8,
+                "children": [
+                  { "type": "text", "text": "Mouse and View", "style": "heading" },
+                  {
+                    "type": "scroll", "id": "viewArea", "step": 34,
+                    "child": {
+                      "type": "column", "id": "viewRows", "gap": 10,
+                      "children": [
+                        {
+                          "type": "row",
+                          "children": [
+                            { "type": "text", "text": "Mouse Sensitivity", "style": "label", "width": "fill" },
+                            { "type": "text", "text": "{sensitivityText}", "style": "value", "align": "end" }
+                          ]
+                        },
+                        { "type": "slider", "id": "sensitivity", "bind": "sensitivity", "min": 0.0005, "max": 0.006, "step": 0.0001, "action": "changed" },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Invert the View", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "invert", "bind": "invert", "options": ["Off", "On"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "children": [
+                            { "type": "text", "text": "Head Motion", "style": "label", "width": "fill" },
+                            { "type": "text", "text": "{headMotionText}", "style": "value", "align": "end" }
+                          ]
+                        },
+                        { "type": "slider", "id": "headMotion", "bind": "headMotion", "min": 0, "max": 100, "step": 5, "action": "changed" },
+                        {
+                          "type": "row",
+                          "children": [
+                            { "type": "text", "text": "Field of View", "style": "label", "width": "fill" },
+                            { "type": "text", "text": "{fieldOfViewText}", "style": "value", "align": "end" }
+                          ]
+                        },
+                        { "type": "slider", "id": "fieldOfView", "bind": "fieldOfView", "min": 60, "max": 110, "step": 1, "action": "changed", "visible": "fovVertical" },
+                        { "type": "slider", "id": "fieldOfViewHorizontal", "bind": "fieldOfViewHorizontal", "min": 70, "max": 140, "step": 1, "action": "changed", "visible": "fovAcross" },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Field of View Axis", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "fieldOfViewAxis", "bind": "fieldOfViewAxis", "options": ["Vertical", "Horizontal"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        { "type": "panel", "fill": "none", "padding": [0, 12, 0, 0], "child": { "type": "text", "id": "cameraHeading", "text": "Camera", "style": "group" } },
+                        {
+                          "type": "row",
+                          "children": [
+                            { "type": "text", "text": "First-Person Action Sway", "style": "label", "width": "fill" },
+                            { "type": "text", "text": "{actionSwayText}", "style": "value", "align": "end" }
+                          ]
+                        },
+                        { "type": "slider", "id": "actionSway", "bind": "actionSway", "min": 0, "max": 100, "step": 1, "action": "changed" },
+                        {
+                          "type": "row",
+                          "children": [
+                            { "type": "text", "text": "Third-Person Follow", "style": "label", "width": "fill" },
+                            { "type": "text", "text": "{followText}", "style": "value", "align": "end" }
+                          ]
+                        },
+                        { "type": "slider", "id": "follow", "bind": "follow", "min": 0, "max": 0.3, "step": 0.01, "action": "changed" },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Third-Person Facing", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "facing", "bind": "facing", "options": ["Move", "View"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Melee Framing", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "meleeFraming", "bind": "meleeFraming", "options": ["Off", "On"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        { "type": "panel", "fill": "none", "padding": [0, 12, 0, 0], "child": { "type": "text", "id": "movementHeading", "text": "Movement", "style": "group" } },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Always Run", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "alwaysRun", "bind": "alwaysRun", "options": ["Off", "On"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Double-Tap Dodge", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "doubleTap", "bind": "doubleTap", "options": ["Off", "On"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "children": [
+                            { "type": "text", "text": "Double Tap Window", "style": "label", "width": "fill" },
+                            { "type": "text", "text": "{doubleTapText}", "style": "value", "align": "end" }
+                          ]
+                        },
+                        { "type": "slider", "id": "doubleTapSeconds", "bind": "doubleTapSeconds", "min": 0.1, "max": 0.6, "step": 0.01, "action": "changed" },
+                        { "type": "panel", "fill": "none", "padding": [0, 12, 0, 0], "child": { "type": "text", "id": "combatHeading", "text": "Combat", "style": "group" } },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Attack Direction", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "attackDirection", "bind": "attackDirection", "options": ["Automatic", "Mouse", "Keys"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Swing Arc", "style": "label", "width": "fill" },
+                            { "type": "slider", "id": "swingArcOpacity", "bind": "swingArcOpacity", "min": 0, "max": 100, "step": 5, "action": "changed", "width": 230 },
+                            { "type": "text", "text": "{swingArcText}", "style": "value", "align": "end", "width": 80 }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "children": [
+                            { "type": "text", "text": "Crosshair in Melee", "style": "label", "width": "fill" },
+                            { "type": "text", "text": "{meleeReticleText}", "style": "value", "align": "end" }
+                          ]
+                        },
+                        { "type": "slider", "id": "meleeReticle", "bind": "meleeReticle", "min": 0, "max": 100, "step": 5, "action": "changed" },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Combat Log", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "combatLog", "bind": "combatLog", "options": ["Off", "Top Right", "Top Left", "Bottom Right", "Bottom Left"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        { "type": "panel", "fill": "none", "padding": [0, 12, 0, 0], "child": { "type": "text", "id": "platformHeading", "text": "Platform", "style": "group" } },
+                        {
+                          "type": "row", "gap": 16,
+                          "children": [
+                            { "type": "text", "text": "Streamer Mode", "style": "label", "width": "fill" },
+                            { "type": "toggle", "id": "streamer", "bind": "streamer", "options": ["Off", "On"], "action": "changed", "width": 230 }
+                          ]
+                        },
+                        { "type": "text", "id": "viewNote", "text": "{viewNote}", "style": "hint", "wrap": true }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          { "type": "panel", "fill": "rule", "height": 2 },
+          { "type": "text", "id": "message", "text": "{message}", "style": "message" },
+          {
+            "type": "row", "id": "asking", "gap": 24, "visible": "asking",
+            "children": [
+              { "type": "button", "id": "share", "text": "Share", "action": "share", "width": 280 },
+              { "type": "button", "id": "move", "text": "Move", "action": "move", "width": 280 },
+              { "type": "button", "id": "keepKey", "text": "Cancel", "action": "keepKey", "width": 280 }
+            ]
+          },
+          { "type": "text", "id": "hint", "text": "{hint}", "style": "hint" },
+          {
+            "type": "row", "gap": 24,
+            "children": [
+              { "type": "button", "id": "defaults", "text": "Defaults", "action": "defaults", "width": 280 },
+              { "type": "space", "width": "fill" },
+              { "type": "button", "id": "cancel", "text": "Cancel", "action": "cancel", "width": 280 },
+              { "type": "button", "id": "ok", "text": "OK", "action": "ok", "width": 280 }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

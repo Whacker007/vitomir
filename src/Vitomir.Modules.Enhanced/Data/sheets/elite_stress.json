@@ -1,0 +1,21 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.elite_stress",
+  "title": "An elite stress vampire (the combat rules' reference)",
+  "note": "SANDBOX (the rules package's research-only baseline reference sheets): Strength 400, Dexterity 330, Stamina 380 as the combat rules give them; the other six Attributes 370 (ours: the rounded mean of the three, a flat profile); an elite stress fixture: Melee 5, Dodge 4, Brawl 3, Athletics 4; no powers; every Ability not listed 0. Dresses nobody by default (no role, no characters): a template for the arena and --sheet. Health from rules/harm (the engine-sandbox Health). A research fixture, not a rule.",
+  "species": "vampire",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 370,
+  "purchased": {
+    "strength": 400,
+    "dexterity": 330,
+    "stamina": 380,
+    "melee": 5,
+    "brawl": 3,
+    "dodge": 4,
+    "athletics": 4
+  },
+  "powers": []
+}

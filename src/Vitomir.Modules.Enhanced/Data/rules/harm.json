@@ -1,0 +1,112 @@
+{
+  "schema": "VITOMIR_ENHANCED_HARM",
+  "status": "SANDBOX",
+  "title": "The staged harm's own numbers: weapon classes, who soaks what, the engine-sandbox Health (bought, 1 to 1000)",
+  "note": "Ours, not the rules package's. The profile's values (raw_to_damage_dice, weapon_damage_bonus_one_hand_sword, damage_d10_difficulty, potence_damage_auto_success_per_rank, raw_to_soak_dice, soak_d10_difficulty, vampire_bashing_halves_postsoak) are read from the profile, never from here; this file holds only what the profile does not give. Every number here is SANDBOX or ENGINE_SANDBOX: a development control, not a rule, until the rules package answers.",
+  "dice": {
+    "policy": "H1_C4_PROTOTYPE",
+    "policy_note": "H1 C4: each d10 +1 at or above the difficulty, -1 on a 1, else 0; net max(0, sum). The rules package calls it an invented adaptation; gate-11 is open.",
+    "fractional_pool": "H1_C4_NEIGHBOUR",
+    "fractional_note": "H1 C4: a fractional pool is the integer below or above it, the above with the chance of the fraction (one unit draw).",
+    "streams": {
+      "pool": "enhanced.harm.pool",
+      "damage": "enhanced.harm.damage",
+      "soak": "enhanced.harm.soak"
+    }
+  },
+  "classes": {
+    "sword_one_hand": { "kind": "lethal", "bonus_profile_value": "weapon_damage_bonus_one_hand_sword", "source": "the profile (gate-10); the combat rules' sword add 2" },
+    "sword_two_hand": { "kind": "lethal", "bonus": 3.0, "status": "SANDBOX", "source": "ours: one more than the one-handed sword" },
+    "axe_one_hand": { "kind": "lethal", "bonus": 2.0, "status": "SANDBOX", "source": "ours: as the one-handed sword" },
+    "axe_two_hand": { "kind": "lethal", "bonus": 3.0, "status": "SANDBOX", "source": "ours: as the two-handed sword" },
+    "dagger": { "kind": "lethal", "bonus": 1.0, "status": "SANDBOX", "source": "ours: one less than the sword" },
+    "polearm": { "kind": "lethal", "bonus": 3.0, "status": "SANDBOX", "source": "ours: as the two-handed sword" },
+    "stake": { "kind": "lethal", "bonus": 1.0, "status": "SANDBOX", "source": "ours: as the dagger (no staking: its own contract, later)" },
+    "blunt_one_hand": { "kind": "bashing", "bonus": 2.0, "status": "SANDBOX", "source": "ours: a mace or a club as heavy as a sword, bashing" },
+    "blunt_two_hand": { "kind": "bashing", "bonus": 3.0, "status": "SANDBOX", "source": "ours: a war hammer, bashing" },
+    "staff": { "kind": "bashing", "bonus": 1.0, "status": "SANDBOX", "source": "ours" },
+    "improvised": { "kind": "bashing", "bonus": 1.0, "status": "SANDBOX", "source": "ours: a torch, a bucket, a cane swung" },
+    "fists": { "kind": "bashing", "bonus": 0.0, "status": "SANDBOX", "source": "ours: Strength alone, bashing (the source's punch)" },
+    "arrow": { "kind": "lethal", "bonus": 0.0, "status": "SANDBOX", "source": "ours: an arrow's potential is its work's dice (ranged.json's arrow_harm), no addend; lethal as a war arrow's head" },
+    "claws": { "kind": "aggravated", "bonus": 1.0, "status": "SANDBOX", "source": "ours: our reading of the source's claws (aggravated; the combat rules name CLAW a subtype soaked by Fortitude and eligible armour); a question for the rules package" },
+    "fangs": { "kind": "aggravated", "bonus": 1.0, "status": "SANDBOX", "source": "ours: as the claws (the combat rules' FANG); a question for the rules package" }
+  },
+  "weapons": {
+    "war_bow": "arrow",
+    "BroadSword": "sword_one_hand", "BroadSwordExq": "sword_one_hand", "BroadSwordFine": "sword_one_hand", "BroadSwordRusty": "sword_one_hand",
+    "BroadSwordSilver": "sword_one_hand", "BroadSwordDread": "sword_one_hand", "Falchion": "sword_one_hand", "FalchionExq": "sword_one_hand",
+    "FalchionFine": "sword_one_hand", "Flamberge": "sword_one_hand", "Rapier": "sword_one_hand", "Rapier_NH": "sword_one_hand",
+    "RapierExq": "sword_one_hand", "RapierFine": "sword_one_hand", "weapRapier_shield": "sword_one_hand", "Scimitar": "sword_one_hand",
+    "weapTorchsword": "sword_one_hand",
+    "GreatSword": "sword_two_hand", "GreatSwordExq": "sword_two_hand", "GreatSwordFine": "sword_two_hand", "Claymore": "sword_two_hand",
+    "BastardSword": "sword_two_hand",
+    "axe": "axe_one_hand", "axeExq": "axe_one_hand", "axeFine": "axe_one_hand", "axeRusty": "axe_one_hand", "axeSilver": "axe_one_hand",
+    "battleaxe": "axe_two_hand", "battleaxe2": "axe_two_hand", "battleaxeExq": "axe_two_hand", "battleaxeFine": "axe_two_hand", "evilAxe": "axe_two_hand",
+    "Dagger": "dagger", "DaggerExq": "dagger", "DaggerFine": "dagger", "DaggerRusty": "dagger", "DaggerSilver": "dagger", "Dirk": "dagger",
+    "MoroDagger": "dagger", "Poignard": "dagger", "brokenBottle": "dagger",
+    "Halberd": "polearm", "HalberdExq": "polearm", "HalberdFine": "polearm", "Poleaxe": "polearm", "Spear": "polearm", "Lance": "polearm",
+    "Bastion": "polearm", "Pitch_fork": "polearm",
+    "Stake": "stake", "weap_Stake": "stake",
+    "Club": "blunt_one_hand", "Mace": "blunt_one_hand", "MaceExq": "blunt_one_hand", "MaceFine": "blunt_one_hand", "argentBaton": "blunt_one_hand",
+    "femur": "blunt_one_hand",
+    "PointyMace": "blunt_two_hand", "PointyMaceExq": "blunt_two_hand", "PointyMaceFine": "blunt_two_hand", "WarHammer": "blunt_two_hand",
+    "WarHammerExq": "blunt_two_hand", "WarHammerFine": "blunt_two_hand",
+    "Quarterstaff": "staff",
+    "weapTorch": "improvised", "weapBucket": "improvised", "weapCane": "improvised",
+    "Punch": "fists", "_punch": "fists", "Tremere_punch": "fists",
+    "Claw": "claws", "Claw01": "claws", "Claw02": "claws", "Claw03": "claws", "Claw04": "claws", "Claw05": "claws",
+    "Claw_szlachta": "claws",
+    "Bite": "fangs"
+  },
+  "bare_hands": "fists",
+  "soak": {
+    "source": "H1 C2: soak eligibility precedes computation; a vampire soaks bashing and lethal with Stamina; ordinary Stamina does not soak aggravated (learned Fortitude does); historical humans cannot soak lethal with bare Stamina",
+    "species": {
+      "vampire": { "bashing": ["stamina", "fortitude"], "lethal": ["stamina", "fortitude"], "aggravated": ["fortitude"] },
+      "human": { "bashing": ["stamina", "fortitude"], "lethal": ["fortitude"], "aggravated": ["fortitude"] }
+    },
+    "bashing_halved_for": ["vampire"],
+    "bashing_halved_profile_value": "vampire_bashing_halves_postsoak"
+  },
+  "fortitude": {
+    "status": "ENGINE_SANDBOX",
+    "power": "fortitude",
+    "option": "fortitude.passive",
+    "soak_dice_per_rank": 1.0,
+    "aggravated_permission": true,
+    "source": "the power contract fortitude.passive (outputs soak.fortitude and soak.aggravated_permission; numerical_coefficients OPEN_UNLESS_MODULE_PROFILE_OVERRIDE) and the combat rules ('plus one Fortitude rank'), read as one soak die per rank; the profile has no value for it: a question for the rules package"
+  },
+  "potence": {
+    "power": "potence",
+    "option": "potence.passive",
+    "per_rank_profile_value": "potence_damage_auto_success_per_rank",
+    "rounding": "floor",
+    "source": "the power contract potence.passive (outputs damage.auto_successes); the combat rules' 'Potence N_auto=rank'"
+  },
+  "health": {
+    "status": "ENGINE_SANDBOX",
+    "profile_value": "health_max_purchase_curve",
+    "resource": "health",
+    "purchase": {
+      "id": "health_pool",
+      "min": 1,
+      "max": 1000,
+      "default": 100,
+      "source": "Blood and Health are both on a scale of 1 to 1000. The rules package: purchased maximum Health is a capacity bought on its own, independently of Stamina ('Buying ... independently greater Health/Blood capacity is allowed by the schema'); 100 by default for every person, every species (by design, ENGINE_SANDBOX; the package's 'flat 100-HP fixture ... proposed for E3 transaction testing')"
+    },
+    "maximum": "purchase",
+    "maximum_source": "the purchase 1:1 while the profile's health_max_purchase_curve is null (gate-17, OPEN_NUMERIC; asked), as Blood's maximum is its purchase (rules/blood). A new person is full; the current is held to the maximum when it falls, and a full pool stays full when it rises",
+    "hp_per_wound": 15,
+    "hp_per_wound_source": "ENGINE_SANDBOX (by design): the stages keep wounds as their unit (injury units) and convert each to 15 Health. 7 x 15 = 105 >= 100, so the default person still stops at the seventh wound (the seven-level calibration of the earlier bouts kept); buying more Health endures more of the same fixed harm ('compare same injury with different bought Hmax (absolute harm unchanged)'); the rules package's 'a deliberate wounds-to-HP translator', 'store resolved injury units and HP conversion units distinctly'. The package's HP conversion constants are OPEN",
+    "bands": {
+      "status": "ENGINE_SANDBOX",
+      "injured_below": 0.25,
+      "crippled_below": 0.10,
+      "of": "the purchased maximum",
+      "effects": "none: labels only",
+      "source": "the rules package: 'Broad candidate global status guidance was under ~25% Health injured; under ~10% severe/Crippled; zero incapacitated. Those percentages were discussed as provisional thresholds; exact onset, rounding and penalties remain OPEN.' So: labels only, below (not at) each share of the purchased maximum; no penalty reads them"
+    },
+    "at_nothing": "died",
+    "source": "the profile's health_max_purchase_curve is null (gate-17, OPEN_NUMERIC; asked). The earlier builds gave every person 7 (the combat rules' seven Health levels, 'an ordinary comparison fixture only'); the module puts Health on the 1-1000 scale chosen for it, bought as health_pool, a wound 15 of it. At nothing: the zero-Health stop (not death; no torpor, no final-death distinction: the combat rules forbid inventing those in core)"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  // Worked example 9: 1.1's szlachta closing on a standing Christof from 15 m — at its 1.1 template's own walk and run
+  // ("movement": "template": ACTOR_WALKSPEED and ACTOR_RUNSPEED read from the 1.1 install) and with 1.1's manoeuvre
+  // ("approach": "oneone": a step every moveRate seconds, turned within 30 degrees of the line to Christof, up to its AI file's chaseDist,
+  // standing when a step ends early) — against the earlier build's szlachta (the switch foes-uniform: the human's run, straight at him, no pause).
+  // The szlachta preset says both already; they are written out here so the fields show. Christof stands (he never strikes back).
+  "format": "vitomir-scenario/1",
+  "title": "1.1's szlachta closes slowly and pauses; the earlier build's ran straight in",
+  "notes": "Point 0 is 1.1's szlachta (this build's default), point 1 the same seeds with foes-uniform. In 1.1 (the 1.1 engine's own manoeuvre, measured) it reaches 2 m in 9.5 s on average, closing at 1.39 m/s and standing about a tenth of the time; the earlier build's in 4.7 s.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.player", "values": { "health_pool": 1000 } },
+      "place": [24, 9],
+      "facing": { "toward": "Szlachta" },
+      "control": { "ai": "stand" }
+    },
+    {
+      "name": "Szlachta",
+      "preset": "szlachta",
+      "movement": "template",                                          // its 1.1 template's walk and run (1.11 and 1.67 m/s)
+      "place": { "from": "Christof", "distanceMetres": 15, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "foe": "Christof",
+      "control": { "ai": { "kind": "duel", "approach": "oneone" } }     // 1.1's manoeuvre; within its striking range the duelling brain
+    }
+  ],
+
+  "sweep": [ { "set": "overrides.switches.foes-uniform", "values": [false, true] } ],
+  "stop": { "afterSeconds": 20 },
+  "runs": 10, "seed": 9000,
+
+  "measures": [
+    { "name": "firstBlowSeconds", "timeOf": { "event": "AttackBegun", "by": "Szlachta" } },
+    { "name": "closedTo", "value": "Szlachta.distanceTo.Christof", "atEvent": { "event": "AttackBegun", "by": "Szlachta" } }
+  ],
+
+  "assertions": [
+    { "name": "1.1's szlachta takes over 7 s to strike", "measure": "firstBlowSeconds", "atLeast": 7, "scope": "eachRun",
+      "points": { "overrides.switches.foes-uniform": false } },
+    { "name": "the earlier build's struck within 7 s", "measure": "firstBlowSeconds", "atMost": 7, "scope": "eachRun",
+      "points": { "overrides.switches.foes-uniform": true } },
+    { "name": "at 4 s 1.1's szlachta is still over 6.5 m off", "value": "Szlachta.distanceTo.Christof", "atSeconds": 4, "atLeast": 6.5,
+      "scope": "eachRun", "points": { "overrides.switches.foes-uniform": false } }
+  ],
+
+  "outputs": { "tracePolicy": "SAMPLED", "traceRuns": 1, "ticks": { "everyTicks": 12, "runs": "first" } }
+}

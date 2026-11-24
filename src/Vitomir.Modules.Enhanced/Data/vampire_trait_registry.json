@@ -1,0 +1,254 @@
+{
+  "abilities": [
+    {
+      "category": "Talents",
+      "id": "alertness",
+      "source_name": "Alertness"
+    },
+    {
+      "category": "Talents",
+      "id": "athletics",
+      "source_name": "Athletics"
+    },
+    {
+      "alias": {
+        "enhanced_working_name": "Grappling",
+        "status": "USER_AGREED_WORKING_ALIAS"
+      },
+      "category": "Talents",
+      "id": "brawl",
+      "source_name": "Brawl"
+    },
+    {
+      "category": "Talents",
+      "id": "dodge",
+      "source_name": "Dodge"
+    },
+    {
+      "category": "Talents",
+      "id": "empathy",
+      "source_name": "Empathy"
+    },
+    {
+      "category": "Talents",
+      "id": "expression",
+      "source_name": "Expression"
+    },
+    {
+      "category": "Talents",
+      "id": "intimidation",
+      "source_name": "Intimidation"
+    },
+    {
+      "category": "Talents",
+      "id": "leadership",
+      "source_name": "Leadership"
+    },
+    {
+      "category": "Talents",
+      "id": "streetwise",
+      "source_name": "Streetwise"
+    },
+    {
+      "category": "Talents",
+      "id": "subterfuge",
+      "source_name": "Subterfuge"
+    },
+    {
+      "category": "Skills",
+      "id": "animal_ken",
+      "source_name": "Animal Ken"
+    },
+    {
+      "category": "Skills",
+      "id": "crafts",
+      "source_name": "Crafts"
+    },
+    {
+      "alias": {
+        "candidate": "Mechanics",
+        "enhanced_working_name": null,
+        "status": "UNDECIDED_DO_NOT_RENAME_BY_DEFAULT"
+      },
+      "category": "Skills",
+      "id": "drive",
+      "source_name": "Drive"
+    },
+    {
+      "category": "Skills",
+      "id": "etiquette",
+      "source_name": "Etiquette"
+    },
+    {
+      "alias": {
+        "enhanced_working_name": "Range",
+        "status": "USER_AGREED_WORKING_ALIAS"
+      },
+      "category": "Skills",
+      "id": "firearms",
+      "source_name": "Firearms"
+    },
+    {
+      "category": "Skills",
+      "id": "melee",
+      "source_name": "Melee"
+    },
+    {
+      "category": "Skills",
+      "id": "performance",
+      "source_name": "Performance"
+    },
+    {
+      "category": "Skills",
+      "id": "security",
+      "source_name": "Security"
+    },
+    {
+      "category": "Skills",
+      "id": "stealth",
+      "source_name": "Stealth"
+    },
+    {
+      "category": "Skills",
+      "id": "survival",
+      "source_name": "Survival"
+    },
+    {
+      "category": "Knowledges",
+      "id": "academics",
+      "source_name": "Academics"
+    },
+    {
+      "alias": {
+        "enhanced_working_name": "Technology",
+        "status": "USER_AGREED_WORKING_ALIAS"
+      },
+      "category": "Knowledges",
+      "id": "computer",
+      "source_name": "Computer"
+    },
+    {
+      "category": "Knowledges",
+      "id": "finance",
+      "source_name": "Finance"
+    },
+    {
+      "category": "Knowledges",
+      "id": "investigation",
+      "source_name": "Investigation"
+    },
+    {
+      "category": "Knowledges",
+      "id": "law",
+      "source_name": "Law"
+    },
+    {
+      "category": "Knowledges",
+      "id": "linguistics",
+      "source_name": "Linguistics"
+    },
+    {
+      "category": "Knowledges",
+      "id": "medicine",
+      "source_name": "Medicine"
+    },
+    {
+      "category": "Knowledges",
+      "id": "occult",
+      "source_name": "Occult"
+    },
+    {
+      "category": "Knowledges",
+      "id": "politics",
+      "source_name": "Politics"
+    },
+    {
+      "category": "Knowledges",
+      "id": "science",
+      "source_name": "Science"
+    }
+  ],
+  "ability_domain": {
+    "integral": true,
+    "max": 10,
+    "min": 0
+  },
+  "attribute_domain": {
+    "effective_temp_overcap": true,
+    "integral": true,
+    "max_purchased": 1000,
+    "min": 0,
+    "score_as_latent_potential": true
+  },
+  "attributes": [
+    {
+      "category": "physical",
+      "display": "Strength",
+      "id": "strength"
+    },
+    {
+      "category": "physical",
+      "display": "Dexterity",
+      "id": "dexterity"
+    },
+    {
+      "category": "physical",
+      "display": "Stamina",
+      "id": "stamina"
+    },
+    {
+      "category": "social",
+      "display": "Charisma",
+      "id": "charisma"
+    },
+    {
+      "category": "social",
+      "display": "Manipulation",
+      "id": "manipulation"
+    },
+    {
+      "category": "social",
+      "display": "Appearance",
+      "id": "appearance"
+    },
+    {
+      "category": "mental",
+      "display": "Perception",
+      "id": "perception"
+    },
+    {
+      "category": "mental",
+      "display": "Intelligence",
+      "id": "intelligence"
+    },
+    {
+      "category": "mental",
+      "display": "Wits",
+      "id": "wits"
+    }
+  ],
+  "discipline_domain": {
+    "integral": true,
+    "max": 10,
+    "min": 0,
+    "option_learned_separately": true
+  },
+  "distinguish_species_clan_story_and_actual_genealogy": true,
+  "engine_must_support_arbitrary_traits": true,
+  "familiarity": {
+    "domain_percent": [
+      0,
+      100
+    ],
+    "families": [
+      "weapons",
+      "worn_armor",
+      "stealth_hiding",
+      "stealth_sneaking"
+    ],
+    "numeric_curves": "OPEN",
+    "optional": true
+  },
+  "module": "enhanced-vampire",
+  "schema": "VTMR_VAMPIRE_TRAIT_REGISTRY_H1"
+}

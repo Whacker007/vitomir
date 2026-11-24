@@ -1,0 +1,90 @@
+{
+  // Worked example 13: which defence happened, and why the guard's brain chose it. Christof (scripted) strikes a
+  // guard eight times; the guard's duelling brain may block (it never attacks or moves: muted). Its block chance is swept: 1 (the
+  // positive fixture: blocks raised against the blows, told reactiveBlock or guardHeld; each Block decision the parent of the block it
+  // raised) and 0 (the negative: no block decided, none raised; every blow that meets him is told "none", a body; the brain's draws are
+  // still told, NoDefence against a threshold of 0). A blade stopped at the guard is told "stopped", never "missed".
+  // The receipts are in the traced runs' streams (outputs.decisions: "traced", the default) and in actors.csv's last columns.
+  "format": "vitomir-scenario/1",
+  "title": "Receipts: the guard's defences and his brain's decisions, block chance 1 against 0",
+  "notes": "The combat rules' newly Embraced and the combat rules' trained guard, the Rapier each, no shields, no armour; the guard's Health 1000 so the eight blows all fall. The guard's numbers but blockChance are the brain's defaults (SANDBOX); his guard skill scales the chance (Data/combat/guard.json).",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.newly_embraced" },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": [38, 3],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard",
+      "control": {
+        "script": [
+          { "wait": 0.5 },
+          { "mark": "blows begin" },
+          { "repeat": 2, "steps": [
+              { "attack": "right",    "holdSeconds": 0.3, "aimAt": "chest" },
+              { "wait": 0.6 },
+              { "attack": "left",     "holdSeconds": 0.3, "aimAt": "upperArm" },
+              { "wait": 0.6 },
+              { "attack": "overhead", "holdSeconds": 0.4, "aimAt": "head" },
+              { "wait": 0.6 },
+              { "attack": "thrust",   "holdSeconds": 0.2, "aimAt": "belly" },
+              { "wait": 0.6 }
+          ] },
+          { "mark": "blows end" },
+          { "wait": 1.0 }
+        ],
+        "then": "end"
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 1.3, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "foe": "Christof",
+      "control": {
+        "ai": { "kind": "duel", "pace": "none", "blockChance": 1 },   // swept below
+        "mute": ["attack", "move"]
+      }
+    }
+  ],
+
+  "stop": { "afterSeconds": 20, "onHarnessStops": "first" },
+  "runs": 10, "seed": 12000,
+  "sweep": [ { "set": "Guard.ai.blockChance", "values": [1, 0] } ],
+
+  "measures": [
+    { "name": "blocksMet",      "count": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "defence": ["reactiveBlock", "guardHeld"] } } },
+    { "name": "bodyMet",        "count": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "defence": "none" } } },
+    { "name": "blowsStopped",   "count": { "event": "SwingEnded", "by": "Christof", "where": { "outcome": "stopped" } } },
+    { "name": "blowsMissed",    "count": { "event": "SwingEnded", "by": "Christof", "where": { "outcome": "missed" } } },
+    { "name": "blockDecisions", "count": { "event": "BrainDecided", "by": "Guard", "where": { "choice": "Block", "executed": true } } },
+    { "name": "noDefenceDecisions", "count": { "event": "BrainDecided", "by": "Guard", "where": { "choice": "NoDefence" } } },
+    { "name": "blocksRaised",   "count": { "event": "BlockRaised", "by": "Guard" } }
+  ],
+
+  "assertions": [
+    { "name": "positive: blocks met the blows (reactiveBlock or guardHeld)", "points": { "Guard.ai.blockChance": 1 },
+      "measure": "blocksMet", "atLeast": 1, "scope": "anyRun" },   // his guard skill scales the chance: not every run blocks
+    { "name": "positive: a blade stopped at the guard is told stopped", "points": { "Guard.ai.blockChance": 1 },
+      "measure": "blowsStopped", "atLeast": 1, "scope": "anyRun" },
+    { "name": "a blocked blade is never a miss (every blow at 1.3 m landed or was stopped)", "measure": "blowsMissed", "equals": 0, "scope": "eachRun" },
+    { "name": "positive: the brain decided its blocks, and each raised one (traced runs)", "points": { "Guard.ai.blockChance": 1 },
+      "measure": "blockDecisions", "atLeast": 1, "scope": "anyRun" },
+    { "name": "negative: no block met a blow", "points": { "Guard.ai.blockChance": 0 },
+      "measure": "blocksMet", "equals": 0, "scope": "eachRun" },
+    { "name": "negative: no block raised", "points": { "Guard.ai.blockChance": 0 },
+      "measure": "blocksRaised", "equals": 0, "scope": "eachRun" },
+    { "name": "negative: the brain saw the blows and chose no defence (traced runs)", "points": { "Guard.ai.blockChance": 0 },
+      "measure": "noDefenceDecisions", "atLeast": 1, "scope": "anyRun" },
+    { "name": "no wound through a held guard", "check": "blockedBodyNoWound", "isTrue": true, "scope": "eachRun" }
+  ],
+
+  "outputs": { "events": "first", "traceRuns": 1, "csv": true, "summaryPage": false, "wideBouts": false }
+}

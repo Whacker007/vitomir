@@ -1,0 +1,12 @@
+{
+  // Receipt: a physical stress vampire cuts a trained guard from his sword side (his shield on the other): enough to
+  // reach the zero-Health stop at once (a harness stop, not a ruled death).
+  "title": "Receipt: the zero-Health stop",
+  "fighters": [
+    { "name": "Elder", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.elite_stress",
+      "place": [39, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1" } },
+    { "name": "Guard", "template": "rudolfGuard", "sheet": "sandbox.guard_trained", "place": [40.6, 3], "facing": 270,
+      "brain": { "kind": "dummy", "mode": "stand" } }
+  ],
+  "bouts": 1, "seed": 1, "seconds": 4, "tapes": 1
+}

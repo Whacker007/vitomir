@@ -1,0 +1,28 @@
+{
+  "schema": "VITOMIR_ENHANCED_ATTACK_DIRECTIONS",
+  "status": "ENGINE_SANDBOX",
+  "title": "The blows by direction, stitched part: the overhead and the thrust for a one-handed blade",
+  "note": "Ours, the two directions 1.1 has no motion for, for table (Data/combat/directions.json, with left and right: 1.1's backhand chrisAttack2Sword and forehand chrisAttackSword) — written as its own file; directions.json names them (its row for every one-handed bearer: overhead stitched:overhead, thrust stitched:thrust, resolved from the kind's own action set), and this file stays as their provenance (what each is stitched from, its ready frame, its status). The aim: something stitched together for the two missing blows, an overhand swing down for the one above and a stab for the one below. Each clip is named as the platform registers it (StitchedAttacks.ClipName: stitched:overhead, stitched:thrust; a kind's ActionSet.Stitched finds it by direction, StitchedMotions.Stitched). Every kind of 1.1's skeleton 0 carrying a one-handed weapon that has a quick blow has both (Christof with any one-handed weapon, rudolfGuard, KnightOfStJohn_torch, viennaGuard_sword); bare hands, two-handed weapons and other skeletons have none: a direction with no clip falls back as table says.",
+  "directions": [
+    {
+      "carry": "onehand",
+      "kind": "*",
+      "direction": "overhead",
+      "clip": "stitched:overhead",
+      "from": "chrisAttackWarHammer",
+      "ready_frame": 11,
+      "status": "ENGINE_SANDBOX",
+      "source": "ours: 1.1's two-handed war hammer overhead (Christof.nms mode 71 bluntbash2, chrisAttackWarHammer, 34 frames, Strike at 15) on the kind's own skeleton, the off hand from the kind's stand, the bow kept half (OneOneStitched.OverheadBowKept 0.5), the upper body turned 6 degrees to the centre line (OverheadTurnDegrees); played at the weapon's first STRIKETIME, busy its RELOADTIME; ready at frame 11 (the sword raised over the head; the window opens at 11.3)"
+    },
+    {
+      "carry": "onehand",
+      "kind": "*",
+      "direction": "thrust",
+      "clip": "stitched:thrust",
+      "from": "chrisAttackHalberd",
+      "ready_frame": 13,
+      "status": "ENGINE_SANDBOX",
+      "source": "ours: 1.1's halberd thrust (Christof.nms mode 84 polethrust, chrisAttackHalberd, 29 frames, Strike at 16) on the kind's own skeleton, the off hand from the kind's stand, the sword drawn back from the stance (ThrustDrawBackFrames), the upper body turned 12 degrees to the centre line (ThrustTurnDegrees); the second pass: the halberd's lunge (its frames 13-20) played in 3.5 frames and the sword driven straight along the aim by the arm's IK, toward the centre line 1.8 m ahead at the eyes' height (ThrustDriveFrom/To, ThrustAimDistance, ThrustAimOverHead), the Strike mark with it at 14.5; played at the weapon's first STRIKETIME, busy its RELOADTIME; ready at frame 13 (the hand drawn back by the right hip, the point on the line; the window opens at 13.3)"
+    }
+  ]
+}

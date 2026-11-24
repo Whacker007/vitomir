@@ -1,0 +1,24 @@
+{
+  "schema": "VITOMIR_ENHANCED_PACE",
+  "status": "SANDBOX",
+  "title": "The pace of a fight between humans: a global combat tempo, the fighting pace, the dodge's pace",
+  "note": "Ours, not the rules package's: every number here is SANDBOX, a development control, until the rules package gives them. Combat was far too fast, like substantially buffed combat. This is a game about supernatural beings, but at its heart it involves humans moving at human speeds: about the pace of Mount and Blade and KCD, as an idea of the speed of combat between humans, with our own mechanics and approaches. The measurements and the reasoning: the combat pace survey.",
+  "tempo": {
+    "global": 0.70,
+    "why": "SANDBOX. One number for everyone, multiplied into every fighter's body tempo (the platform's CombatTempo) on the swing and the recovery, under Melee's or Brawl's rate (skill.json's tempo) and Celerity's attack factor: at Ability 0 a blow plays at 0.70 of 1.1's STRIKETIME, at Melee 5 at 0.70 x 1.14 = 0.80. Every blow's clip (1.1's, the flattened side blows, the stitched overhead and thrust) plays slower and its busy time grows to match (1.1's 1.1 s broadsword blow busy 1.57 s); none is replaced. The tap's press to contact goes from 0.46-0.55 s to about 0.66-0.79 s, the held blow's release to strike from 0.23 to 0.33 s, the blade's tip at contact from a median of 28-37 m/s to about 20-26 (a one-handed sword's cut is about 15-25). Not the block's rise (it keeps 0.10 s: slower blows already give the defender time), not a hurt or a death (the stagger keeps 1.1's whole 1.3 s), not the parry's window or the attacker's stun (guard.json, weapons.json). 0.70 is the survey's point estimate; 0.65-0.75 is the range worth a play test. The switch combat-tempo-off plays 1 (the earlier build's pace exactly); --combat-tempo <x> (or an arena spec's combat_tempo) overrides this number for a run."
+  },
+  "fighting_pace": {
+    "most_metres_per_second": 1.8,
+    "why": "SANDBOX. While a body's blow is swinging or held ready, it moves on the ground at most this fast, whatever gait it asks for: a brisk walk short of a run (the human's walk 1.3, run 3.0, sprint 5.5). The player and every brain alike, in one place (the platform's FightingPace, in the bodies' movement). Until then nothing but the block slowed a fighter: the player could close or circle at a run, or sprint, mid-blow. Blocking stays a walk. A pace scale (Celerity's movement) multiplies it as it does the gaits. The switch fighting-pace-off turns it off."
+  },
+  "dodge": {
+    "use": false,
+    "move_seconds": 0.35,
+    "recover_seconds": 0.45,
+    "why": "SANDBOX, built and off by default. With use true (or the switch dodge-paced) a human's dodge (skill.json's dodge.human) bursts over its 1 m in 0.35 s, not 0.30, and recovers in 0.45, not 0.40: about 0.95 s in all with its 0.15 s start, so it is not quicker than half a slower swing. The Dodge Ability, Dexterity, Celerity and the masquerade act on these as on skill.json's. Off by default: the paced blows are slower, which gives a dodge more time, not less, and the dodge (3.3 m/s over a metre) is already a human's lunge (the combat pace survey)."
+  },
+  "rush_unpaced": {
+    "templates": ["sandbox.szlachta"],
+    "why": "SANDBOX (ours: a fight the player can go after one in). With the switch rush-unpaced, a body whose sheet is one of these templates keeps its own pace through its blows: the fighting pace (fighting_pace above) does not hold it to a walk while it swings. found the fighting pace held the szlachta's clawing rush too, so it reached its foe and was reached less, and about 40 % of the newly Embraced's fights against it were undecided at 60 s. A rushing creature is not a human fencer: the szlachta (1.1's ghoul creature, sandbox.szlachta's sheet); later the beasts (wolves, rats) when they come. Off by default."
+  }
+}

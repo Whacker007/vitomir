@@ -1,0 +1,25 @@
+{
+  // An arena spec: the combat rules' newly Embraced, his Strength swept
+  // from his own 15 to the stress fixtures' 400 and 1000, against the combat rules' trained guard, both with the same Rapier and no shield
+  // (matched-blade-no-shield.json's fighters, places and seeds). The guard is a human: his bare Stamina does not soak lethal
+  // harm, so a blow's harm after soak is its wounds x 15 Health. The thresholds are shares of his purchased maximum (100):
+  // hand 45, forearm 60, upper arm 75, neck 90, trunk 200 (rules/severance, ENGINE_SANDBOX).
+  // Strength 15 (2.75 damage dice, at most three wounds: 45) cuts a hand off at best; 200 (12 dice, ~70 Health)
+  // hands and forearms; 400 (22 dice, ~130) the arms and the neck; 1000 (52 dice, ~310) cuts through the trunk and goes on
+  // with what is left. Paired
+  // seeds: bout b has seed 3000 + b at every Strength. Its twin without severance: the same spec with --severance-off (every
+  // body contact stops the blade: the earlier build's harm). Cutting through into a second body contact needs the platform's
+  // follow-through: without it a cut that goes on meets nothing more.
+  "title": "Strength 15 to 1000 (newly Embraced) against a trained guard, matched, no shields: severance",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [15, 200, 400, 1000] }
+}

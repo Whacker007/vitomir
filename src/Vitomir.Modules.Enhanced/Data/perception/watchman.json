@@ -1,0 +1,31 @@
+{
+  "schema": "VITOMIR_OBSERVER_KIND",
+  "status": "SANDBOX",
+  "title": "A night watchman: on duty, night eyes, patrols",
+  "note": "SANDBOX (by design: broad and diverse profiles, each with traits). Traits 0 to 1; SightRange in metres (daylight, open ground, a running body), ConeDegrees the half-angle, NoticeSeconds, MakeOutSeconds, ConcludeSeconds (each step up the ladder), HoldSeconds and CoolDownSeconds (calming down) in seconds (the proposed values). Keeps the peace (Duty 0.9). At night he sees a running body 30 x 0.85 x 0.58 = 14.8 m off. \"duel\" is how one of this kind fights when it does (the duelling brain's numbers by the arena's names; the rest the brain's defaults), SANDBOX.",
+  "characters": [
+    "KnightOfStJohn_torch"
+  ],
+  "duel": {
+    "strongShare": 0.2,
+    "blockChance": 0.5,
+    "backOffChance": 0.4
+  },
+  "numbers": {
+    "SightRange": 30.0,
+    "ConeDegrees": 65.0,
+    "Eyesight": 0.85,
+    "NightEyes": 0.8,
+    "Attention": 0.85,
+    "Bravery": 0.7,
+    "Curiosity": 0.6,
+    "Duty": 0.9,
+    "Excitability": 0.4,
+    "Voice": 1.0,
+    "NoticeSeconds": 0.5,
+    "MakeOutSeconds": 2.0,
+    "ConcludeSeconds": 2.5,
+    "HoldSeconds": 30.0,
+    "CoolDownSeconds": 240.0
+  }
+}

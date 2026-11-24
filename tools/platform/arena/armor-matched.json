@@ -1,0 +1,20 @@
+{
+  // An arena spec: matched-blade-no-shield.json's bout (the combat rules' newly
+  // Embraced against the combat rules' trained guard, both with 1.1's Rapier and no shield, the same places and seeds) with the guard in
+  // a mail shirt (chest, belly, hips, upper arms: 2.25 lethal soak dice, 1.1's chainMail) and a light helm (the head: 0.75,
+  // 1.1's lightHelm) - the set-up (in play 1.1's rudolfGuard wears the same mail cut longer, a hauberk, by his template
+  // and his model: data/combat/armor.json's dress). The guard is a human: his bare Stamina soaks no lethal harm, so the armour
+  // is all his soak where it covers; his forearms, hands, neck and legs are gaps. Its twins: the same with --armor-off (armour soaks nothing: the bout of matched-blade-no-shield.json,
+  // outcome for outcome) and matched-blade-no-shield.json itself (nobody in armour).
+  "title": "Matched: newly Embraced against a trained guard in a mail shirt and a light helm, the same sword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel", "armor": ["mail_shirt", "light_helm"] }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

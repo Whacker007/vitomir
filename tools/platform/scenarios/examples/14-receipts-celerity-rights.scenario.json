@@ -1,0 +1,82 @@
+{
+  // Worked example 14: Celerity's rights ledger. Christof uses Celerity at 2 s, then strikes a standing guard four
+  // times. Swept: Celerity's rank (1: learned; 0: not learned) and his Blood (100; 10, short of the 30 it costs). The positive fixture
+  // (rank 1, Blood 100): one activation paid, its live window, the swings begun in it and the extra blows its landed swings carried —
+  // each a logical strike re-meeting its swing's one contact (FlurryStrike: parentContact, its own Strike id, checked at its own
+  // moment), used or unused and why — in activations.csv and results.json's receipts. The negatives: rank 0 (no slot shows it: the
+  // script's step refused, nothing paid, no right) and Blood 10 (the module refuses NoBlood: nothing paid, no right).
+  "format": "vitomir-scenario/1",
+  "title": "Receipts: Celerity's rights — learned and paid, not learned, not enough Blood",
+  "notes": "The guard stands (no guard raised, no shield, Health 1000), so every blow's contact is the blow's own. Celerity costs 30 Blood at every rank; its tempo and flurry are SANDBOX.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "blood_pool": 100 },
+                 "powers": { "celerity": { "rank": 1, "options": ["celerity.active"] } } },   // rank swept (0 unlearns it)
+      "blood": 100,                                                                             // swept
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": [39, 3],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard",
+      "control": {
+        "script": [
+          { "usePower": "celerity", "at": 2.0, "label": "celerity" },
+          { "attack": "right", "holdSeconds": 0.0 },
+          { "attack": "left",  "holdSeconds": 0.0 },
+          { "attack": "right", "holdSeconds": 0.0 },
+          { "attack": "left",  "holdSeconds": 0.0 },
+          { "wait": 1.5 }
+        ],
+        "then": "end"
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 1.25, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "control": { "ai": "stand" }
+    }
+  ],
+
+  "stop": { "afterSeconds": 15, "onHarnessStops": "first" },
+  "runs": 5, "seed": 13000,
+  "sweep": [
+    { "set": "Christof.sheet.powers.celerity.rank", "values": [1, 0] },
+    { "set": "Christof.blood", "values": [100, 10] }
+  ],
+
+  "measures": [
+    { "name": "paid",          "count": { "event": "PowerUsed", "by": "Christof", "where": { "power": "celerity" } } },
+    { "name": "refusedNoBlood", "count": { "event": "PowerRefused", "by": "Christof", "where": { "reason": "NoBlood" } } },
+    { "name": "stepRefused",   "count": { "event": "StepRefused", "by": "Christof", "where": { "why": "NoSlot" } } },
+    { "name": "extraBlows",    "count": { "event": "FlurryStrike", "by": "Christof" } },
+    { "name": "extraBlowsRechecked", "count": { "event": "FlurryStrike", "by": "Christof", "where": { "recheckedAtOwnMoment": true } } },
+    { "name": "bloodPaid",     "value": "Christof.bloodSpent" }
+  ],
+
+  "assertions": [
+    { "name": "positive: one activation paid (30 Blood)", "points": { "Christof.sheet.powers.celerity.rank": 1, "Christof.blood": 100 },
+      "measure": "bloodPaid", "equals": 30, "scope": "eachRun" },
+    { "name": "positive: extra blows granted, each re-checked at its own moment", "points": { "Christof.sheet.powers.celerity.rank": 1, "Christof.blood": 100 },
+      "difference": ["extraBlows", "extraBlowsRechecked"], "equals": 0, "scope": "eachRun" },
+    { "name": "positive: the landed swings carried extra blows", "points": { "Christof.sheet.powers.celerity.rank": 1, "Christof.blood": 100 },
+      "measure": "extraBlows", "atLeast": 1, "scope": "eachRun" },
+    { "name": "negative: not enough Blood — refused NoBlood, nothing paid, no extra blow", "points": { "Christof.sheet.powers.celerity.rank": 1, "Christof.blood": 10 },
+      "measure": "refusedNoBlood", "equals": 1, "scope": "eachRun" },
+    { "name": "negative: not enough Blood — no extra blow", "points": { "Christof.sheet.powers.celerity.rank": 1, "Christof.blood": 10 },
+      "measure": "extraBlows", "equals": 0, "scope": "eachRun" },
+    { "name": "negative: not learned — the step refused (no slot), nothing paid", "points": { "Christof.sheet.powers.celerity.rank": 0 },
+      "measure": "stepRefused", "equals": 1, "scope": "eachRun" },
+    { "name": "negative: not learned — no extra blow", "points": { "Christof.sheet.powers.celerity.rank": 0 },
+      "measure": "extraBlows", "equals": 0, "scope": "eachRun" }
+  ],
+
+  "outputs": { "events": "first", "traceRuns": 1, "csv": true, "summaryPage": false, "wideBouts": false }
+}

@@ -1,0 +1,26 @@
+{
+  // The stagger and Celerity: celerity-matched.json at Celerity 1 and 3
+  // only, to run with the stagger (the push alone, the default), --stagger-hurt-clip and --stagger-oneone.
+  // An arena spec: Celerity on the matched pair with no shields
+  // (matched-blade-no-shield.json's fighters and seeds). The combat rules' newly Embraced with Celerity 0 to 5 (the option
+  // celerity.active learned with each rank; 0 unlearns it: the baseline) against the combat rules' trained guard, both with the same
+  // Rapier and no shield. His duelling brain presses the slot that shows Celerity when engaged (within 1.5 x its reach) and
+  // renews it under 1 s left (1.1's cast: one payment of Blood for a time by rank); his Blood is the module's (full).
+  // The default curve now, split: the actions 1 + rank split into a body tempo (1 + rank)^0.5 (movement
+  // and the swing while live, the masquerade aside in the free yard) and a flurry of the same, the blows each swing that lands
+  // on a body carries. the earlier build's (1 + rank)x pure tempo: celerity-matched-tempo.json (the switch celerity-curve-tempo).
+  // Paired seeds: bout b has seed 3000 + b at every rank, so a rank's difference is the rank. Its twin under 1.1's curve:
+  // celerity-matched-oneone.json. Needs module (Blood, the cast, the slots).
+  "title": "Celerity 1 and 3 (newly Embraced) against a trained guard, matched, no shields: the stagger and Celerity",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "power": "celerity", "options": ["celerity.active"], "values": [1, 3] }
+}

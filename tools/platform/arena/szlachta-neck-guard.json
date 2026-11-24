@@ -1,0 +1,17 @@
+{
+  // An arena spec: szlachta-neck.json's Christof (the combat rules' human reference with Melee 2 and his broadsword)
+  // against the combat rules' trained guard (sandbox.guard_trained, his Rapier, no shield) on the same seeds, for comparison: a man's neck is
+  // cut at 90 % of his bought Health (90 of 100), which Christof's 2.75 damage dice (at most three wounds, 45 Health) never reach.
+  "title": "Christof the human (Melee 2, broadsword) against a trained guard: the comparison for the szlachta's neck",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false,
+      "sheet": { "template": "sandbox.human_reference", "values": { "melee": 2 } },
+      "place": [38.5, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [41.5, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 5000,
+  "seconds": 60,
+  "tapes": 2
+}

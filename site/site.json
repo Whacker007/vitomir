@@ -1,0 +1,18 @@
+{
+  // The site's pages, in the menu's order: the Markdown file in site/pages (without .md), the menu's word, and the
+  // line search engines and link previews show for it. tools/site/build.cs reads this.
+  // Where the site is served (GitHub Pages, from the public repository): the link previews' picture and each page's own
+  // address are written in full with it, as the previews need.
+  "url": "https://whacker007.github.io/vitomir/",
+  "pages": [
+    { "file": "index", "menu": "Home", "description": "Vitomir: a new engine for Vampire: The Masquerade – Redemption, free for anyone who owns the game." },
+    { "file": "install", "menu": "Install", "description": "Download Vitomir, unzip it somewhere safe, and import your copy of the game." },
+    { "file": "features", "menu": "Features", "description": "What Vitomir keeps of the original game, and what it adds." },
+    { "file": "faq", "menu": "FAQ", "description": "Questions players ask about Vitomir." },
+    { "file": "roadmap", "menu": "What's next", "description": "Where Vitomir is going after its first release." },
+    { "file": "support", "menu": "Support", "description": "How to support Vitomir: buy the game first." },
+    { "file": "credits", "menu": "Credits", "description": "Who made Vitomir, and who helped." },
+    { "file": "changelog", "menu": "Changes", "description": "What changed in each release of Vitomir." },
+    { "file": "licence", "menu": "Licence", "description": "Vitomir's licence, in plain words." }
+  ]
+}

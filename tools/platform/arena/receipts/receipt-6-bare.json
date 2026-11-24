@@ -1,0 +1,17 @@
+{
+  // Receipt (vi), an earlier build ("the same strike on a bare and an armoured part"): receipt (i)'s set-up on seed 4: the combat rules'
+  // newly Embraced's level quick blow meets the combat rules' standing trained guard's left upper arm square on. Here he wears nothing; in
+  // its twin receipt-6-armoured.json he wears 1.1's mail shirt (mail_shirt: chest, belly, hips and both upper arms; lethal 45 points,
+  // 2.25 soak dice: data/combat/armor.json). The same seed, the same swing, the same contact and the same damage draws (the
+  // armour's pool is drawn after the body's soak, from the soak streams): only the armour differs. Seed 4: bare, 1 wound; in
+  // the mail, its 3 dice (2.25 made whole) keep it off — no wound, resisted by the armour. Seeds 2 to 6 (this build):
+  // bare 1, 2, 1, 1, 1 wounds; armoured 1, 1, 0, 0, 1 (the mail kept 0, 1, 1, 1, 0).
+  "title": "Receipt (vi), bare: the same strike on a part no armour covers",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [39, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1" } },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [40.6, 3], "facing": 180, "brain": { "kind": "dummy", "mode": "stand" } }
+  ],
+  "bouts": 1, "seed": 4, "seconds": 3, "tapes": 1
+}

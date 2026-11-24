@@ -1,0 +1,22 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.guard",
+  "title": "A town guard: a human soldier, armed with his rapier and shield",
+  "note": "HIGH-STAT STRESS fixture (the combat rules' baseline reference sheets are the fair baselines, sandbox.human_reference and the rest; this one is kept with its id so the specs that name it still work; it dresses nobody: the combat rules' fixtures do). SANDBOX (ours): a trained, fit human. Strength 60, Dexterity 50, Stamina 60 (three, two and a half and three of the source's dots at raw/20), the other six Attributes 25 (the townsfolk's placeholder); Melee 3, Brawl 2, Athletics 2, Alertness 2, Dodge 1. No powers. Health from rules/harm (the engine-sandbox Health).",
+  "species": "human",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 25,
+  "purchased": {
+    "strength": 60,
+    "dexterity": 50,
+    "stamina": 60,
+    "melee": 3,
+    "brawl": 2,
+    "athletics": 2,
+    "alertness": 2,
+    "dodge": 1
+  },
+  "powers": []
+}

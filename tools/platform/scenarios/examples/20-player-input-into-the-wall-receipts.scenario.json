@@ -1,0 +1,37 @@
+{
+  // Worked example 20 (B1/CP-04): the player's own controls into the free yard's 4.5 m wall at x = 32,
+  // along it, and back on clear ground — with the player's receipts in the tick trace (ticks/p000-r000.ticks.jsonl, "player" on the
+  // input-driven actor every 6 ticks): the frame fed in (the move keys, the look turned, the buttons held and pressed), the camera (its
+  // view: firstPerson, rightShoulder or leftShoulder; the eye, yaw, pitch, field of view, boom), the crosshair's ray and what it meets
+  // first, the movement the controls asked (the way, the gait, its speed) against what the body did (its velocity, its displacement since
+  // the last line, its speed along the asked way), and the level that blocked it (derived: a sphere swept from the waist along the asked
+  // way). The body stops at x = 31.698 (its 0.3 m radius against the wall's face at x = 32), slides along it at about 1.4 m/s with
+  // forward and right held, and backpedals at 2.1 m/s on clear ground.
+  "format": "vitomir-scenario/1",
+  "title": "The player's controls into a wall, along it and back, with the controller's receipts",
+  "notes": "PLAYER_INPUT_REPLAY: the camera and the rules as in play. The receipts are in ticks.jsonl; the assertions read the body's speed.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    { "name": "Christof", "template": "Christof", "sheet": "sandbox.newly_embraced", "place": [27, 3], "facing": 0,
+      "control": { "playerInput": [
+        { "atSeconds": 0.2, "forSeconds": 2.5, "moveForward": 1, "label": "into the wall" },
+        { "atSeconds": 2.8, "forSeconds": 1.5, "moveForward": 1, "moveRight": 1, "label": "along it" },
+        { "atSeconds": 4.4, "forSeconds": 1.5, "moveForward": -1, "label": "back on clear ground" } ] } },
+    { "name": "Onlooker", "preset": "guard", "place": [24, 15], "facing": 0, "control": { "ai": "stand" } }
+  ],
+
+  "objectives": [
+    { "name": "keep near the start", "actor": "Christof", "hold": { "point": [27, 3], "radiusMetres": 4.8 }, "untilSeconds": 6 }
+  ],
+  "stop": { "afterSeconds": 6.5, "onHarnessStops": "never" },
+  "runs": 1, "seed": 16000,
+
+  "assertions": [
+    { "name": "stopped by the wall", "value": "Christof.speed", "atSeconds": 2.5, "below": 0.1, "scope": "eachRun" },
+    { "name": "slides along it", "value": "Christof.speed", "atSeconds": 3.6, "above": 1.0, "scope": "eachRun" },
+    { "name": "back on clear ground", "value": "Christof.speed", "atSeconds": 5.2, "above": 1.5, "scope": "eachRun" }
+  ],
+  "outputs": { "tracePolicy": "ALL", "ticks": { "everyTicks": 6, "runs": "all" } }
+}

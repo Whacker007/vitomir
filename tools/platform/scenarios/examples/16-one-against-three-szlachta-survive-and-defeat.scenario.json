@@ -1,0 +1,39 @@
+{
+  // Worked example 16: one against three, with objectives. A human Christof (the combat rules' human reference sheet, Melee 2,
+  // his broadsword) against three of 1.1's szlachta (the preset: 1.1's template, its own walk and run, 1.1's manoeuvre), every actor
+  // on its duelling brain (NATIVE_AI). Christof's objectives: defeat the szlachta's side (every one of them at a harness stop) within 90 s,
+  // and survive (never reach a harness stop himself). The first objective decided ends the run ("onObjectives": "first"); a harness stop is
+  // never a death. "swap": { "sides": true } runs every seed again with the field turned round (each side where the other stood, its
+  // formation kept), so results.json's "swaps" sets each seed against its twin: a result that follows who stood where shows there.
+  "format": "vitomir-scenario/1",
+  "title": "One against three: a human Christof against three szlachta, to survive and defeat them",
+  "notes": "Objectives measure; they change nothing in the world. Christof's 'defeat' is his side's result, not whoever dealt the last blow.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    { "name": "Christof", "template": "Christof", "sheet": { "template": "sandbox.human_reference", "values": { "melee": 2 } },
+      "gear": { "weapon": "BroadSword" }, "place": [28, 9], "facing": 0, "foe": "Szlachta1", "side": "christof",
+      "control": { "ai": { "kind": "duel" } } },
+    { "name": "Szlachta1", "preset": "szlachta", "place": [44, 7], "foe": "Christof", "side": "szlachta", "control": { "ai": { "kind": "duel" } } },
+    { "name": "Szlachta2", "preset": "szlachta", "place": [46, 9], "foe": "Christof", "side": "szlachta", "control": { "ai": { "kind": "duel" } } },
+    { "name": "Szlachta3", "preset": "szlachta", "place": [44, 11], "foe": "Christof", "side": "szlachta", "control": { "ai": { "kind": "duel" } } }
+  ],
+
+  "objectives": [
+    { "name": "defeat them", "actor": "Christof", "defeat": { "side": "szlachta" }, "bySeconds": 90 },
+    { "name": "survive", "actor": "Christof", "survive": true }
+  ],
+  "swap": { "sides": true },
+  "stop": { "afterSeconds": 90, "onHarnessStops": "never", "onObjectives": "first" },
+  "runs": 10, "seed": 12000,
+
+  "measures": [
+    { "name": "christofHealthEnd", "value": "Christof.health" },
+    { "name": "harnessStops", "count": { "event": "ActorDied" } }
+  ],
+  "assertions": [
+    { "name": "most runs end at a harness stop", "count": { "event": "ActorDied" }, "atLeast": 1, "scope": "eachRun", "passShare": 0.6 }
+  ],
+  "outputs": { "tracePolicy": "SAMPLED", "traceRuns": 1 }
+}

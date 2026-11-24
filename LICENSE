@@ -1,0 +1,213 @@
+# The Vitomir Licence 1.0
+
+<https://github.com/Whacker007/vitomir>
+
+Required Notice: Copyright (c) 2026 Whacker007 (https://github.com/Whacker007/vitomir)
+
+## Acceptance
+
+In order to get any licence under these terms, you must agree
+to them as both strict obligations and conditions to all
+your licences.
+
+## Copyright Licence
+
+The licensor grants you a copyright licence for the
+software to do everything you might do with the software
+that would otherwise infringe the licensor's copyright
+in it for any permitted purpose.  However, you may
+only distribute the software according to [Distribution
+Licence](#distribution-licence) and make changes or new works
+based on the software according to [Changes and New Works
+Licence](#changes-and-new-works-licence).
+
+## Distribution Licence
+
+The licensor grants you an additional copyright licence
+to distribute copies of the software, as [Where Vitomir
+Comes From](#where-vitomir-comes-from) allows.  Your licence
+to distribute covers distributing the software with
+changes and new works permitted by [Changes and New Works
+Licence](#changes-and-new-works-licence).
+
+## Notices
+
+You must ensure that anyone who gets a copy of any part of
+the software from you also gets a copy of these terms or the
+URL for them above, as well as copies of any plain-text lines
+beginning with `Required Notice:` that the licensor provided
+with the software.  For example:
+
+> Required Notice: Copyright (c) 2026 Whacker007 (https://github.com/Whacker007/vitomir)
+
+## Changes and New Works Licence
+
+The licensor grants you an additional copyright licence to
+make changes and new works based on the software for any
+permitted purpose.
+
+## Patent Licence
+
+The licensor grants you a patent licence for the software that
+covers patent claims the licensor can license, or becomes able
+to license, that you would infringe by using the software.
+
+## Noncommercial Purposes
+
+Any noncommercial purpose is a permitted purpose.
+
+Selling the software, or anything based on it, is never a
+permitted purpose.  That includes offering it, or any part of
+it, for a price, a fee or a subscription; with paid features,
+unlocks or in-app purchases; with advertising built into it;
+or as part of anything that is sold.
+
+Two things are permitted purposes even where money is involved:
+
+- asking for or accepting voluntary donations, tips or
+  patronage for your own changes, new works or modules, as long
+  as they are free to everyone and nothing in them is held back
+  from anyone who does not pay; and
+
+- playing the software and showing it, in videos, streams,
+  screenshots, articles or reviews, even where those earn money.
+
+## Personal Uses
+
+Personal use for research, experiment, and testing for
+the benefit of public knowledge, personal study, private
+entertainment, hobby projects, amateur pursuits, or religious
+observance, without any anticipated commercial application,
+is use for a permitted purpose.
+
+## Noncommercial Organizations
+
+Use by any charitable organization, educational institution,
+public research organization, public safety or health
+organization, environmental protection organization,
+or government institution is use for a permitted purpose
+regardless of the source of funding or obligations resulting
+from the funding.
+
+## Fair Use
+
+You may have "fair use" rights for the software under the
+law. These terms do not limit them.
+
+## The Original Game
+
+The software plays Vampire: The Masquerade - Redemption, which
+the licensor does not own and these terms do not provide.  To use
+the software with it, you must own your own copy of it.
+
+You may not distribute any of the original game's content (its
+archives, levels, models, textures, sounds, music, movies,
+scripts or any other of its files, or files converted from
+them), other than what the licensor itself distributes with the
+software, together with the software, with changes or new works
+based on it, or with modules.  You may not use the software, or
+anything based on it, to help anyone get the original game other
+than by buying it from someone entitled to sell it.
+
+## Where Vitomir Comes From
+
+The licensor publishes the software, and the programs built from
+its unchanged source, only in the official repository.  You may
+not publish them anywhere else or offer them for download
+anywhere else: link to the official repository instead.
+
+You may publish the software's source code, changed or not, only
+in a public fork of the official repository on GitHub.  A changed
+version must carry a name other than Vitomir.
+
+A module is a new work that runs on the software but contains
+none of it.  You may publish a module anywhere, as long as it is
+free to everyone, follows [The Original
+Game](#the-original-game), and contains only your own work or
+work whose owners have given you permission to share it.  Work
+made by someone else, such as another person's mod, stays theirs
+when it is made into a module or changed: publishing it needs
+their permission.
+
+## Names
+
+The name Vitomir and its wordmark are the licensor's.  These
+terms grant no rights in them.  A changed version must use
+another name and must not present itself as Vitomir or as
+official; it and a module may say truthfully that they run on
+Vitomir or are based on it.
+
+## Contributions
+
+If you offer the licensor a change or a new work for the
+software (a pull request, a patch, or the like), you give the
+licensor permission to use, change and distribute it as part of
+the software, and to license it under these terms or any later
+terms the licensor chooses, and you confirm that you have the
+right to do so and that it contains none of the original game's
+content.
+
+## No Other Rights
+
+These terms do not allow you to sublicense or transfer any of
+your licences to anyone else, or prevent the licensor from
+granting licences to anyone else.  These terms do not imply
+any other licences.
+
+## Patent Defense
+
+If you make any written claim that the software infringes or
+contributes to infringement of any patent, your patent licence
+for the software granted under these terms ends immediately. If
+your company makes such a claim, your patent licence ends
+immediately for work on behalf of your company.
+
+## Violations
+
+The first time you are notified in writing that you have
+violated any of these terms, or done anything with the software
+not covered by your licences, your licences can nonetheless
+continue if you come into full compliance with these terms,
+and take practical steps to correct past violations, within
+32 days of receiving notice.  Otherwise, all your licences
+end immediately.
+
+## No Liability
+
+***As far as the law allows, the software comes as is, without
+any warranty or condition, and the licensor will not be liable
+to you for any damages arising out of these terms or the use
+or nature of the software, under any kind of legal claim.***
+
+## Definitions
+
+The **licensor** is the individual or entity offering these
+terms, and the **software** is the software the licensor makes
+available under these terms: Vitomir's programs, source code,
+art, documents and other files.  The software does not include
+the third-party components named in `THIRD_PARTY.txt` or
+`docs/THIRD_PARTY.md`, or Vitomir's typefaces, which keep their
+own licences, or anything of the original game.
+
+The **original game** is Vampire: The Masquerade - Redemption, in
+any release or version.
+
+The **official repository** is
+<https://github.com/Whacker007/vitomir>.
+
+**You** refers to the individual or entity agreeing to these
+terms.
+
+**Your company** is any legal entity, sole proprietorship,
+or other kind of organization that you work for, plus all
+organizations that have control over, are under the control of,
+or are under common control with that organization.  **Control**
+means ownership of substantially all the assets of an entity,
+or the power to direct its management and policies by vote,
+contract, or otherwise.  Control can be direct or indirect.
+
+**Your licences** are all the licences granted to you for the
+software under these terms.
+
+**Use** means anything you do with the software requiring one
+of your licences.

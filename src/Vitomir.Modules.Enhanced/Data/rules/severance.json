@@ -1,0 +1,114 @@
+{
+  "schema": "VITOMIR_ENHANCED_SEVERANCE",
+  "status": "ENGINE_SANDBOX",
+  "title": "Severance and the swing's attack budget: which blows cut a part off, what a cut leaves of the swing, and what missing anatomy takes off the effective maximum Health",
+  "note": "Ours, not the rules package's: every number here is ENGINE_SANDBOX, a development control, until the rules package gives its own ('Exact severing thresholds and visual dismemberment support are open'; thresholds 'not selected'). By design: each hit gets its own calculation of damage and what it does, so a swing hard enough from a strong enough character can go through the arm it severs and keep going.",
+  "edged": {
+    "classes": ["sword_one_hand", "sword_two_hand", "axe_one_hand", "axe_two_hand", "dagger", "polearm", "claws"],
+    "kinds": ["lethal", "aggravated"],
+    "source": "by design: blades only, never bashing ('eligible cutting contact'). Ours: the classes of rules/harm with an edge; the: the claws cut (aggravated), the stake (a point) and the fangs do not. 1.1's own precedent is a flag on the weapon (Vitomir.Engine/Rpg/Beheading.cs: WeaponFlag.CanBehead, the SDK's BLADED)"
+  },
+  "harm": {
+    "measure": "post_soak_health",
+    "threshold_of": "purchased_maximum",
+    "threshold_rounding": "up",
+    "threshold_source": "the, after run (0.6 cuts a bout at 30/45/60 Health): each part's threshold a share of the victim's purchased maximum Health (the least whole Health at or above it), raised (hand 45 %, forearm 60 %, upper arm 75 %, neck 90 %, trunk 200 %), ENGINE_SANDBOX. Severance is the work of a swing hard enough from a strong enough character; shares make bought Health resist severance and, every threshold above its structural share, rule out the package's HOLD case (a cut whose structural loss exceeds its harm). The rules package leaves 'fixed HP versus percent thresholds' not selected",
+    "source": "the rules package: 'evaluate post-defense/post-armor/post-soak damage at that contact, before capping actual global HP loss to the victim's remaining current HP'. So the blow's wounds times health.hp_per_wound (rules/harm), not the Health it could still take"
+  },
+  "continuation": {
+    "rule": "residual_share",
+    "source": "the proposal (ENGINE_SANDBOX): a severing blow goes on with (harm - threshold) / harm of the budget it had; one that does not sever stops (nothing left). The rules package (agreed): 'Initialize the attack budget once; each eligible collision can redirect, stop or attenuate it, but no subsequent contact independently refreshes full striking capability'. A later body contact of the chain is its own staged harm from the share left: Strength's dice and the weapon's addend times the share, Potence's automatic successes times the share floored"
+  },
+  "structural": {
+    "of": "purchased_maximum",
+    "union": "by_limb_most",
+    "rounding": "nearest",
+    "condition": "missing_anatomy",
+    "source": "the rules package / AGREED_DETAILS_OPEN): the contact's harm off current Health once; the newly missing anatomy's share of the purchased maximum off the effective maximum, from the union of what is missing ('hand 5, elbow-total 15 -> additional max Health loss 10; effective max deficit 15, not 20'); the purchased maximum, the bands' denominator, unchanged; healing stops at the effective maximum. By limb the most of its missing parts' shares (a nested loss subsumes the distal one); distinct limbs add ('their aggregate interaction formula is still open'). The shares are the package's 'illustrative only' figures (hand 5 %, elbow-level 15 %, shoulder 25 %). The sheet keeps what is missing as its condition missing_anatomy (saved with it)"
+  },
+  "angle": {
+    "measure": "impact_speed_over_point_speed",
+    "normal_from_degrees": 33,
+    "acute_from_degrees": 10,
+    "cut_share": { "normal": 1.0, "acute": 0.6, "glancing": 0.0, "unmeasured": 1.0 },
+    "source": "the rules package (the limits): 'Use 90 degrees as the direct impact angle perpendicular to a struck surface, 0 degrees as a tangential skim; explore approximately normal 33-90, acute 10-33, glancing 0-10 for mundane sword slashes. Exact endpoint ties and effectiveness coefficients remain TUNABLE/UNADOPTED and do not justify extra miss rolls.' The measure (ours): the contact's ImpactSpeed (the striking point's speed along the struck surface's normal: a capsule's radial direction or its cap's) over its PointSpeed (the point's whole speed against the target) is the sine of the angle; a tie at a limit goes to the squarer band. The shares are the (ENGINE_SANDBOX; by the angle the attack lands at): of a blow's post-soak harm, the share that counts toward cutting a part off — normal 1, acute about 0.6, glancing 0 (a skim never cuts). The harm to Health is not touched by the angle (the angle's effect on every blow is Melee's blow quality, gate-08, open). 'unmeasured' (ours): a contact with no measured speed is judged as before every blow"
+  },
+  "melee_edge": {
+    "ability": "melee",
+    "ability_by_class": { "claws": "brawl" },
+    "curve": "base^((rank-reference)/ranks)",
+    "base": 2.25,
+    "ranks": 10,
+    "reference_rank": 2,
+    "most": 1.0,
+    "bands": ["normal", "acute"],
+    "source": "ours (ENGINE_SANDBOX), by design: the attacker's Melee raises the cut share of the normal and acute bands toward 1 (the edge landed better; as the strength and combat stats go up, it becomes more and more common; the rules package: 'Dexterity/Melee delivery ... angle category'). The curve is the package's chapter 03 moderate Ability candidate, 2.25^(rank/10) ('These measure research sensitivity in one eligible lane only. The engine may use the moderate candidate as an explicit sandbox reference'), normalised to Melee 2 (the combat rules' trained guard's, and Christof the human's in the runs), where the bands' shares are as listed: a factor 2.25^((Melee - 2)/10), the share at most 1. Normal: 0.85 at Melee 0, 0.92 at 1, 1 from 2. Acute: 0.51 at 0, 0.55 at 1, 0.60 at 2, 0.65 at 3, 0.76 at 5, 0.97 at 8, 1 from 9. Glancing stays 0. The claws read Brawl (the module's bare-handed Ability); bare hands (fists, bashing) never cut. The rules package assumes the edge correctly oriented for everyone: here that is the trained reference's edge, and skill moves it (a question for the rules package)"
+  },
+  "default_body": "man",
+  "default_body_source": "ours: where the world draws no bodies (the rules alone, a test) the man's table is used, as before used it for everyone; where it does, each person by its skeleton's anatomy table (the platform's Combat/BodyRegions.cs), and a skeleton no body names is never cut",
+  "bodies": {
+    "man": {
+      "anatomy": ["1.1 man (40 bones)", "1.1 woman (48 bones)"],
+      "source": "the earlier build's table (the thresholds, the package's illustrative structural shares), for 1.1's man and woman (every person the platform drew until then): a human body's parts",
+      "parts": {
+        "left hand": { "threshold_share": 0.45, "structural_share": 0.05, "limb": "left arm", "takes": [], "stops_body": false,
+          "source": "threshold the (ENGINE_SANDBOX: 45 % of the purchased maximum, 45 Health of the default 100); share the package's illustrative hand 5 %" },
+        "right hand": { "threshold_share": 0.45, "structural_share": 0.05, "limb": "right arm", "takes": [], "stops_body": false,
+          "source": "as the left hand" },
+        "left forearm": { "threshold_share": 0.60, "structural_share": 0.15, "limb": "left arm", "takes": ["left hand"], "stops_body": false,
+          "source": "threshold the (ENGINE_SANDBOX: 60 % of the purchased maximum); share the package's illustrative elbow-level 15 %, the hand with it" },
+        "right forearm": { "threshold_share": 0.60, "structural_share": 0.15, "limb": "right arm", "takes": ["right hand"], "stops_body": false,
+          "source": "as the left forearm" },
+        "left upper arm": { "threshold_share": 0.75, "structural_share": 0.25, "limb": "left arm", "takes": ["left forearm", "left hand"], "stops_body": false,
+          "source": "threshold the (ENGINE_SANDBOX: 75 % of the purchased maximum); share the package's illustrative shoulder 25 %, the forearm and hand with it" },
+        "right upper arm": { "threshold_share": 0.75, "structural_share": 0.25, "limb": "right arm", "takes": ["right forearm", "right hand"], "stops_body": false,
+          "source": "as the left upper arm" },
+        "neck": { "threshold_share": 0.90, "structural_share": null, "limb": "", "takes": ["head"], "stops_body": true,
+          "source": "threshold the (ENGINE_SANDBOX: 90 % of the purchased maximum); the head goes with it and the body stops (ActorStop.SeveredStop, a harness stop: what it is for a mortal and a vampire is the rules package's); no structural share (the body stops). 1.1's beheading is a roll, rand01 x 100 < Strength x 0.1 + damage, on a blow the victim survives (Vitomir.Engine/Rpg/Beheading.cs): not copied" },
+        "chest": { "threshold_share": 2.00, "structural_share": null, "limb": "", "takes": [], "stops_body": true,
+          "source": "the (ENGINE_SANDBOX: 200 % of the purchased maximum, so a cut through the trunk is also more than the Health a person has): the trunk cut through; the body stops" },
+        "belly": { "threshold_share": 2.00, "structural_share": null, "limb": "", "takes": [], "stops_body": true,
+          "source": "as the chest" },
+        "hips": { "threshold_share": 2.00, "structural_share": null, "limb": "", "takes": [], "stops_body": true,
+          "source": "as the chest" },
+        "head": null,
+        "left thigh": "unavailable", "right thigh": "unavailable", "left shin": "unavailable", "right shin": "unavailable", "left foot": "unavailable", "right foot": "unavailable"
+      }
+    },
+    "szlachta": {
+      "anatomy": ["1.1 szlachta (34 bones)"],
+      "source": "ours (ENGINE_SANDBOX): 1.1's szlachta (template Szlachta, SZLACHTA.NOD), the Tzimisce war-ghoul Christof fights as a human. Its parts are a man's but for the long weak neck",
+      "parts": {
+        "left hand": { "threshold_share": 0.45, "structural_share": 0.05, "limb": "left arm", "takes": [], "stops_body": false,
+          "source": "as the man's (the szlachta's arms are a man's in their parts: upper arm, forearm, a clawed hand; ours, ENGINE_SANDBOX)" },
+        "right hand": { "threshold_share": 0.45, "structural_share": 0.05, "limb": "right arm", "takes": [], "stops_body": false,
+          "source": "as the left hand" },
+        "left forearm": { "threshold_share": 0.60, "structural_share": 0.15, "limb": "left arm", "takes": ["left hand"], "stops_body": false,
+          "source": "as the man's" },
+        "right forearm": { "threshold_share": 0.60, "structural_share": 0.15, "limb": "right arm", "takes": ["right hand"], "stops_body": false,
+          "source": "as the left forearm" },
+        "left upper arm": { "threshold_share": 0.75, "structural_share": 0.25, "limb": "left arm", "takes": ["left forearm", "left hand"], "stops_body": false,
+          "source": "as the man's" },
+        "right upper arm": { "threshold_share": 0.75, "structural_share": 0.25, "limb": "right arm", "takes": ["right forearm", "right hand"], "stops_body": false,
+          "source": "as the left upper arm" },
+        "neck": { "threshold_share": 0.30, "structural_share": null, "limb": "", "takes": ["head"], "stops_body": true,
+          "source": "ours (ENGINE_SANDBOX), by design: they have long necks and are fairly weak, so a well-placed hit there generally has a better chance of severing the head. 30 % of the purchased maximum: a third of a man's neck (90 %), below even a man's hand (45 %), the weakest part it has. Its neck is six bones about 0.64 m along from the shoulders to the head (SZLACHTA.NOD's bones 12 to 17; a man's one bone about 0.1 m), 6 to 12 cm across, thinning to the head. With 1.1's 80 Health bought (the sandbox sheet) it is 24 Health: two wounds square on (30 Health) cut it, two acute (18 of 30 cutting) do not, three acute (27 of 45) do. 1.1's own precedent: the template Szlachta is THING_AF_CANBEHEAD and 1.1 ships its head and its headless body (szlachta_head, szlachta_noHead.nod); 1.1's beheading roll is not copied (Vitomir.Engine/Rpg/Beheading.cs)" },
+        "chest": { "threshold_share": 2.00, "structural_share": null, "limb": "", "takes": [], "stops_body": true,
+          "source": "as the man's (the trunk cut through)" },
+        "belly": { "threshold_share": 2.00, "structural_share": null, "limb": "", "takes": [], "stops_body": true,
+          "source": "as the chest" },
+        "hips": { "threshold_share": 2.00, "structural_share": null, "limb": "", "takes": [], "stops_body": true,
+          "source": "as the chest" },
+        "head": null,
+        "left thigh": "unavailable", "right thigh": "unavailable", "left shin": "unavailable", "right shin": "unavailable", "left foot": "unavailable", "right foot": "unavailable"
+      }
+    }
+  },
+  "parts_null_source": "not severable: the head is taken at the neck",
+  "unavailable_counterfactual": {
+    "left thigh": "left upper arm", "right thigh": "right upper arm", "left shin": "left forearm", "right shin": "right forearm",
+    "left foot": "left hand", "right foot": "right hand",
+    "source": "ours (by design), ENGINE_SANDBOX, TRACE ONLY: a blow on an unavailable part is read, in the trace's severance stage ('counterfactual'), against the threshold of its arm's counterpart — a thigh as its side's upper arm, a shin as its forearm, a foot as its hand — so the data shows how often a leg would have been cut, for the rules package to give leg thresholds (and the movement that goes with a lost leg). Nothing is cut and no outcome reads it"
+  },
+  "parts_unavailable_source": "the legs and feet are \"unavailable\", not null — the rules package: 'Foot and leg severance need associated movement restrictions; until implemented, label leg severance UNAVAILABLE in sandbox, do not allow silent walking on an absent leg. No injury tier forces crawling from HP fraction alone.' A severed leg means crawling, a changed gait and jump, which are not built: a blade never cuts a leg off here, and the trace's severance stage says UNAVAILABLE (verdict Unavailable)"
+}

@@ -1,0 +1,22 @@
+{
+  // An arena spec: celerity-matched.json's bout (the combat rules'
+  // newly Embraced with Celerity against the combat rules' trained guard, the same Rapier, no shields, the same places and seeds) at
+  // Celerity 0, 1, 3 and 5, to be run under each of the three models of Celerity's extra blows (the rules package
+  // asked for them side by side): as it is (the default: each extra blow its own strike at its own
+  // moment, landing only where the blade's line still meets the target then), with --flurry-compressed (every extra
+  // blow resolved at once on the swing's one contact) and with --flurry-off (pure tempo: no extra blows). Celerity 0 is the
+  // same bout under all three. Its twins: flurry-shield.json (the guard with a shield), flurry-mail.json (the guard in mail)
+  // and flurry-dodging.json (the guard dodging).
+  "title": "Celerity's extra blows: newly Embraced with Celerity 0 to 5 against a trained guard, matched, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "power": "celerity", "options": ["celerity.active"], "values": [0, 1, 3, 5] }
+}

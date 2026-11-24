@@ -1,0 +1,35 @@
+# Builds Vitomir and its release package on GitHub's Windows machines, on each push to the public repository's main
+# branch and on each pull request, or by hand from the Actions tab: the programs build with no warnings, the package's own
+# checks pass (tools/package.ps1), and the zip is kept with the run for a few days to download and try. The tests are run
+# on the developer's PC: most of them read the original game, which is never on GitHub's machines.
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - name: Build
+        run: dotnet build src\Vitomir.slnx -c Release -warnaserror
+      - name: Package
+        shell: pwsh
+        run: tools\package.ps1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Vitomir-package
+          path: |
+            out/package/*.zip
+            out/package/SHA256SUMS.txt
+          retention-days: 14

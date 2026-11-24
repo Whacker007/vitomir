@@ -1,0 +1,47 @@
+# Builds Vitomir's web site from site/ (tools/site/build.cs) and publishes it with GitHub Pages, on each push to the
+# public repository's main branch that changes the site, or by hand from the Actions tab. The build refuses while a page
+# still has a place to fill in, so the published site never shows one. Pages must be set to deploy from GitHub Actions
+# (the repository's Settings, Pages, Source).
+name: Site
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", "tools/site/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # GitHub Pages serves a private repository only on a paid plan: nothing is published until the repository is public.
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - name: Build the site
+        run: dotnet run tools/site/build.cs -- --strict --out _site
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v5

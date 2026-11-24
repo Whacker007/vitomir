@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- vitomir-launcher.exe: the place a player starts from, as Mount and Blade Bannerlord's launcher
+       is (the setup a part of it, built from scratch by us, the setup a page of it). A program of its own,
+       drawn with the platform's own windowing and interface (Vitomir.Platform.Render, Vitomir.Platform.Interface: SDL and the GPU, the
+       screens in JSON), no other UI framework. Its pages: Play (vitomir-platform.exe started as a process of its own, watched), Setup
+       (the setup's SetupService), Modules, Folders, About; at its start, a check of the folder it runs from. -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>vitomir-launcher</AssemblyName>
+    <RootNamespace>Vitomir.Launcher</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Vitomir's icon in the program (the platform's program carries the same). -->
+    <ApplicationIcon>..\Vitomir.Platform.Render\Art\vitomir.ico</ApplicationIcon>
+    <!-- The platform's programs are published self-contained into one bin\ (tools\package-platform.ps1): a program may reference the
+         desktop one, as vitomir-platform-cli does. -->
+    <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- The platform's program: its version line, its user data, the setup's start rule (SetupCommand.Resolve), and vitomir-platform
+         itself laid beside the launcher, which Play starts as a process of its own (never in this process: one game a process). -->
+    <ProjectReference Include="..\Vitomir.Platform.Host\Vitomir.Platform.Host.csproj" />
+    <ProjectReference Include="..\Vitomir.Platform.Render\Vitomir.Platform.Render.csproj" />
+    <ProjectReference Include="..\Vitomir.Platform.Interface\Vitomir.Platform.Interface.csproj" />
+    <PackageReference Include="ppy.SDL3-CS" Version="2026.722.0" />
+    <!-- The modules laid out beside it as beside the platform's program, so the vitomir-platform beside a developer's launcher runs
+         (and `dotnet publish` of this project alone gives a launcher that plays; the package's second layout leaves the first's files). -->
+    <ProjectReference Include="..\Vitomir.Modules.Enhanced\Vitomir.Modules.Enhanced.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+    <ProjectReference Include="..\Vitomir.Modules.Classic\Vitomir.Modules.Classic.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The launcher's screen, read by the interface's loader as the platform's own screens are. -->
+    <EmbeddedResource Include="Screens\*.json" LogicalName="Launcher/%(Filename)%(Extension)" />
+    <!-- Its look, the Court of Night kit (CourtKit, CourtLook): the kit's pieces, their slices and colours, the background, the
+         wordmark and the pages' names as pictures. -->
+    <EmbeddedResource Include="Art\court\uikit.json;Art\court\*.png" LogicalName="Launcher/court/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Art\launcher_background.png;Art\vitomir_wordmark.png" LogicalName="Launcher/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Art\page-names\*.png" LogicalName="Launcher/page-names/%(Filename)%(Extension)" />
+    <InternalsVisibleTo Include="Vitomir.Platform.Host.Tests" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+</Project>

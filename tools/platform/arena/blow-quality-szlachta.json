@@ -1,0 +1,19 @@
+{
+  // The szlachta moves at its 1.1 template's own walk and run (movement template) and comes on as 1.1's szlachta (approach
+  // oneone: its AI file's manoeuvre); --foes-uniform gives the bout earlier.
+  // An arena spec: the szlachta's claws' references (q_ref,
+  // rules/quality.json) — szlachta-neck.json's bout (1.1's szlachta against Christof the human with his broadsword) with
+  // Christof's bought Health 1000, so a bout gives the szlachta many contacts. Run with --blow-quality-off.
+  "title": "Blow quality's references: a szlachta's claws against Christof the human (1000 Health, broadsword)",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false,
+      "sheet": { "template": "sandbox.human_reference", "values": { "melee": 2, "health_pool": 1000 } },
+      "place": [38.5, 3], "facing": 0, "brain": "duel" },
+    { "name": "Szlachta", "template": "Szlachta", "sheet": "sandbox.szlachta",
+      "place": [41.5, 3], "facing": 180, "movement": "template", "brain": { "kind": "duel", "approach": "oneone" } }
+  ],
+  "bouts": 200,
+  "seed": 5000,
+  "seconds": 60,
+  "tapes": 1
+}

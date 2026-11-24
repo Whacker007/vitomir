@@ -1,0 +1,139 @@
+# The models repository's files the platform's package carries (by design: the repository is read from disk while
+# developing, and the package copies what is used). One path a line, relative to the models repository (VITOMIR_MODELS_DIR
+# by default: -ModelsRepo), copied into a package's People\ keeping it (tools/package.ps1 -WithPeople, tools/package-platform.ps1); a
+# line starting with # is a comment. The player (PersonRecipe.Player: base_male, townsman_male, hair_collar_male, beard_short_male) and the woman
+# (PersonRecipe.Woman: base_female, townswoman_female, hair_braids_female), each file with its .json and its fit, and the motions.
+# The townsfolk drawn as the models repository's crowd (TownsfolkBodies): the crowd's file, and what its people wear by role and
+# grooming (the townsman's tunic, the townswoman's dress, the maiden's, the monk's habit, the priest's tunic, the old man's and the
+# beggar's hood; the crowd's cuts and beards). A crowd that names a file not listed here builds the townsfolk on 1.1's bodies, said once.
+# The crowd as the models repository baked it, each townsperson's own folder (its body, its outfit, hair and beard
+# fitted to it, its record), at the end. Not the guards' (person_00, person_02: they fight, on 1.1's bodies) nor the nun's (person_10:
+# no 1.1 townsperson is drawn as her). The run-time build's files above stay: a baked person's outfit, hair and beard take what they
+# cover and hide from the files they were fitted from (their .json and _fit.npz), and --crowd-built (or a folder missing) builds on them.
+# The two field hands' hoods (files.hood), the four laymen added (person_11 to person_14), and the
+# maps the baked files share, written once in crowd/shared/ and referred to from each file as ../shared/<file> (without them every baked
+# person falls back to the run-time build: as a run of the tests found). Only the shared maps the listed people use (not the
+# guards' mail and helmet).
+assets/characters/base_male/base_male.glb
+assets/characters/base_male/base_male.json
+# an earlier build: the player's own skin map (PersonRecipe.PlayerSkinMap), in place of the base man's colour map.
+assets/characters/base_male/player/skin_male_player_basecolor.png
+assets/characters/base_female/base_female.glb
+assets/characters/base_female/base_female.json
+assets/motions/motions_male.glb
+assets/motions/motions_female.glb
+assets/motions/gait_numbers.json
+assets/outfits/townsman/townsman_male.glb
+assets/outfits/townsman/townsman_male.json
+assets/outfits/townsman/townsman_male_fit.npz
+assets/outfits/townswoman/townswoman_female.glb
+assets/outfits/townswoman/townswoman_female.json
+assets/outfits/townswoman/townswoman_female_fit.npz
+assets/hair/hair_collar_male.glb
+assets/hair/hair_collar_male.json
+assets/hair/hair_collar_male_fit.npz
+assets/hair/beard_short_male.glb
+assets/hair/beard_short_male.json
+assets/hair/beard_short_male_fit.npz
+assets/hair/hair_braids_female.glb
+assets/hair/hair_braids_female.json
+assets/hair/hair_braids_female_fit.npz
+assets/characters/crowd/crowd.json
+assets/outfits/maiden/maiden_female.glb
+assets/outfits/maiden/maiden_female.json
+assets/outfits/maiden/maiden_female_fit.npz
+assets/outfits/monk/monk_male.glb
+assets/outfits/monk/monk_male.json
+assets/outfits/monk/monk_male_fit.npz
+assets/outfits/priest/priest_male.glb
+assets/outfits/priest/priest_male.json
+assets/outfits/priest/priest_male_fit.npz
+assets/outfits/hood/hood_male.glb
+assets/outfits/hood/hood_male.json
+assets/outfits/hood/hood_male_fit.npz
+assets/hair/hair_ear_male.glb
+assets/hair/hair_ear_male.json
+assets/hair/hair_ear_male_fit.npz
+assets/hair/hair_crop_male.glb
+assets/hair/hair_crop_male.json
+assets/hair/hair_crop_male_fit.npz
+assets/hair/hair_monk_male.glb
+assets/hair/hair_monk_male.json
+assets/hair/hair_monk_male_fit.npz
+assets/hair/hair_priest_male.glb
+assets/hair/hair_priest_male.json
+assets/hair/hair_priest_male_fit.npz
+assets/hair/beard_full_male.glb
+assets/hair/beard_full_male.json
+assets/hair/beard_full_male_fit.npz
+assets/characters/crowd/person_01/person_01.glb
+assets/characters/crowd/person_01/person_01.json
+assets/characters/crowd/person_01/person_01_townswoman.glb
+assets/characters/crowd/person_03/person_03.glb
+assets/characters/crowd/person_03/person_03.json
+assets/characters/crowd/person_03/person_03_townswoman.glb
+assets/characters/crowd/person_04/person_04.glb
+assets/characters/crowd/person_04/person_04.json
+assets/characters/crowd/person_04/person_04_townsman.glb
+assets/characters/crowd/person_04/person_04_hood.glb
+assets/characters/crowd/person_04/person_04_hair.glb
+assets/characters/crowd/person_05/person_05.glb
+assets/characters/crowd/person_05/person_05.json
+assets/characters/crowd/person_05/person_05_maiden.glb
+assets/characters/crowd/person_05/person_05_hair.glb
+assets/characters/crowd/person_06/person_06.glb
+assets/characters/crowd/person_06/person_06.json
+assets/characters/crowd/person_06/person_06_townsman.glb
+assets/characters/crowd/person_06/person_06_hood.glb
+assets/characters/crowd/person_06/person_06_hair.glb
+assets/characters/crowd/person_07/person_07.glb
+assets/characters/crowd/person_07/person_07.json
+assets/characters/crowd/person_07/person_07_townswoman.glb
+assets/characters/crowd/person_08/person_08.glb
+assets/characters/crowd/person_08/person_08.json
+assets/characters/crowd/person_08/person_08_monk.glb
+assets/characters/crowd/person_08/person_08_hair.glb
+assets/characters/crowd/person_09/person_09.glb
+assets/characters/crowd/person_09/person_09.json
+assets/characters/crowd/person_09/person_09_priest.glb
+assets/characters/crowd/person_09/person_09_hair.glb
+assets/characters/crowd/person_11/person_11.glb
+assets/characters/crowd/person_11/person_11.json
+assets/characters/crowd/person_11/person_11_townsman.glb
+assets/characters/crowd/person_11/person_11_hair.glb
+assets/characters/crowd/person_11/person_11_beard.glb
+assets/characters/crowd/person_12/person_12.glb
+assets/characters/crowd/person_12/person_12.json
+assets/characters/crowd/person_12/person_12_townsman.glb
+assets/characters/crowd/person_12/person_12_hair.glb
+assets/characters/crowd/person_13/person_13.glb
+assets/characters/crowd/person_13/person_13.json
+assets/characters/crowd/person_13/person_13_townsman.glb
+assets/characters/crowd/person_13/person_13_hair.glb
+assets/characters/crowd/person_13/person_13_beard.glb
+assets/characters/crowd/person_14/person_14.glb
+assets/characters/crowd/person_14/person_14.json
+assets/characters/crowd/person_14/person_14_townsman.glb
+assets/characters/crowd/person_14/person_14_hair.glb
+assets/characters/crowd/shared/binding_basecolor_ff5534c1.png
+assets/characters/crowd/shared/binding_normal_16fef96e.png
+assets/characters/crowd/shared/binding_orm_72b060be.png
+assets/characters/crowd/shared/eye_blue_basecolor_d9e27f12.png
+assets/characters/crowd/shared/eye_brown_basecolor_9becc96c.png
+assets/characters/crowd/shared/eye_green_basecolor_d0d3d195.png
+assets/characters/crowd/shared/eye_hazel_basecolor_c180a7d7.png
+assets/characters/crowd/shared/eyelashes_basecolor_e2673c9c.png
+assets/characters/crowd/shared/hair_basecolor_4dfeeb30.png
+assets/characters/crowd/shared/hair_normal_61ccd4a5.png
+assets/characters/crowd/shared/hair_orm_9a77637c.png
+assets/characters/crowd/shared/iron_basecolor_a299bf79.png
+assets/characters/crowd/shared/iron_normal_3388570a.png
+assets/characters/crowd/shared/iron_orm_fe6036c1.png
+assets/characters/crowd/shared/leather_basecolor_f86d409a.png
+assets/characters/crowd/shared/leather_normal_6d1286c1.png
+assets/characters/crowd/shared/leather_orm_5d958933.png
+assets/characters/crowd/shared/skin_female_normal_37aa2a53.png
+assets/characters/crowd/shared/skin_male_normal_9f84b0e7.png
+assets/characters/crowd/shared/wool_basecolor_63f45057.png
+assets/characters/crowd/shared/wool_normal_c8228819.png
+assets/characters/crowd/shared/wool_orm_78765527.png

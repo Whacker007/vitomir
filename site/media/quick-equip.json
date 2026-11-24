@@ -1,0 +1,40 @@
+{
+ "source": "quick-equip",
+ "size": [
+  1280,
+  720
+ ],
+ "keep": [
+  [
+   18.0,
+   40.6
+  ]
+ ],
+ "poster": 15.0,
+ "segments": [
+  {
+   "from": 18.0,
+   "to": 29.0,
+   "tag": "original",
+   "title": "Equip by dragging",
+   "line": "Pick an item up and put it in its place.",
+   "mouse": true,
+   "ring": true,
+   "only": [
+    "Act"
+   ],
+   "hold": 0.8
+  },
+  {
+   "from": 29.0,
+   "to": 40.6,
+   "tag": "new",
+   "title": "Quick Equip",
+   "line": "Shift + right-click puts an item on or takes it off.",
+   "mouse": true,
+   "ring": true,
+   "keys": "shift",
+   "hold": 0.5
+  }
+ ]
+}

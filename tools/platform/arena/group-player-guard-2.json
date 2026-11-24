@@ -1,0 +1,16 @@
+{
+  // An arena spec: the player's
+  // own sheet (sandbox.player: Melee 0, Christof's starting BroadSword, no quick slots; the duelling brain drives him, as in every arena
+  // run) alone (side christof) against two of the combat rules' trained guard (sandbox.guard_trained) as 1.1 arms him: rudolfGuard with weapRapier_shield (side foes); each foe fights the subject, the subject the nearest foe
+  // still up; the bout ends when one side is left. The proving ground's free yard, seeds 3000 on (as the pace survey's player-*.json).
+  "title": "One against two: the player's sheet (Melee 0, broadsword) against two of guard",
+  "fighters": [
+    {"name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false, "sheet": "sandbox.player", "slots": [], "place": [38, 3], "facing": 0, "brain": "duel", "side": "christof"},
+    {"name": "Guard1", "template": "rudolfGuard", "weapon": "weapRapier_shield", "shield": true, "sheet": "sandbox.guard_trained", "place": [42, 1.5], "facing": 180, "brain": "duel", "side": "foes"},
+    {"name": "Guard2", "template": "rudolfGuard", "weapon": "weapRapier_shield", "shield": true, "sheet": "sandbox.guard_trained", "place": [42, 4.5], "facing": 180, "brain": "duel", "side": "foes"}
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

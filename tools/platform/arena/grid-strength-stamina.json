@@ -1,0 +1,15 @@
+{
+  // A grid: Christof's Strength against the guard's Stamina, every pair (the second sweep inside the first). Christof
+  // fights bare-handed: a fist's harm is bashing, which a human soaks with Stamina; a blade's is lethal, which a human
+  // does not (Data/rules/harm.json's soak table, SANDBOX), so with a sword the guard's Stamina would change nothing.
+  "title": "Strength against Stamina, bare-handed",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Punch", "sheet": "sandbox.christof" },
+    { "name": "Guard", "template": "rudolfGuard", "sheet": "sandbox.guard" }
+  ],
+  "bouts": 10, "seed": 1, "seconds": 60, "tapes": 1,
+  "sweeps": [
+    { "fighter": "Christof", "trait": "strength", "values": [25, 100, 300] },
+    { "fighter": "Guard", "trait": "stamina", "values": [25, 60, 150] }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  // An arena spec: Christof drawn with his broadsword on the combat rules' newly embraced sheet
+  // (sandbox.newly_embraced: the reference human's 15/23/20 on a vampire, no powers) against a guard with his rapier and
+  // shield on the combat rules' trained guard (sandbox.guard_trained: 21/26/25, Melee 2, Dodge 1), in the proving ground's free yard.
+  // A paired run: one dot of Melee, 4 against 5, over 40 bouts each on the same seeds (common random numbers), the tempo
+  // alone; add --skill-contest for both channels.
+  "title": "One dot of Melee, 4 to 5 (newly embraced against a trained guard)",
+  "fighters": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "weapon": "BroadSword",
+      "sheet": "sandbox.newly_embraced",
+      "place": [38, 3],
+      "facing": 0,
+      "brain": { "kind": "duel", "strongShare": 0.3, "blockChance": 0.4 }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": "sandbox.guard_trained",
+      "place": [42, 3],
+      "facing": 180,
+      "brain": "duel"
+    }
+  ],
+  "bouts": 40,
+  "seed": 2000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "melee", "values": [4, 5] }
+}

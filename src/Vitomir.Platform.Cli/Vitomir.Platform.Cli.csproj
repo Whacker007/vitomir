@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- vitomir-platform-cli.exe: the platform's program built for a console, for runs from the command line
+       (the arena, the snag check, the replay check, the stills): the console waits for it and shows its log as it
+       goes. vitomir-platform.exe is the same program built for Windows' desktop, which a console starts and leaves
+       (its lines go only to its log file). Everything it does is the host's (Entry.Run). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>vitomir-platform-cli</AssemblyName>
+    <RootNamespace>Vitomir.Platform.Cli</RootNamespace>
+    <!-- Both programs are published self-contained into one bin\: a console program may reference the desktop one. -->
+    <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform.Host\Vitomir.Platform.Host.csproj" />
+    <!-- The console program lays the modules out
+         beside itself as the desktop one does, so `dotnet publish` of this project alone gives a program that runs (the packaging
+         script publishes both into one bin\, where the second layout finds the first's files and leaves them as they are). -->
+    <ProjectReference Include="..\Vitomir.Modules.Enhanced\Vitomir.Modules.Enhanced.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+    <ProjectReference Include="..\Vitomir.Modules.Classic\Vitomir.Modules.Classic.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+</Project>

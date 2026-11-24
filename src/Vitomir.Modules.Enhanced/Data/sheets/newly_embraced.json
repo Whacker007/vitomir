@@ -1,0 +1,24 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.newly_embraced",
+  "title": "A newly embraced vampire (the combat rules' reference)",
+  "note": "SANDBOX (the rules package's research-only baseline reference sheets): Strength 15, Dexterity 23, Stamina 20 as the combat rules give them; the other six Attributes the rules package's Option B means, rounded (research-only): Charisma 17, Manipulation 17, Appearance 22, Perception 17, Intelligence 17, Wits 14 (until then ours: a flat mean of the three); the reference human's bought sheet on a vampire, no powers, to isolate vampire physiology: every Ability 0 but Alertness 1; every Ability not listed 0. Dresses nobody by default (no role, no characters): a template for the arena and --sheet. Health from rules/harm (the engine-sandbox Health). A research fixture, not a rule.",
+  "species": "vampire",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 19,
+  "purchased": {
+    "strength": 15,
+    "dexterity": 23,
+    "stamina": 20,
+    "charisma": 17,
+    "manipulation": 17,
+    "appearance": 22,
+    "perception": 17,
+    "intelligence": 17,
+    "wits": 14,
+    "alertness": 1
+  },
+  "powers": []
+}

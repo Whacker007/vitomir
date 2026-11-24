@@ -1,0 +1,34 @@
+Third-party components in this package
+======================================
+
+Vitomir itself is under the Vitomir Licence 1.0 (LICENSE.txt). The programs
+in bin\ also carry these components, each under its own licence. Each
+one's licence in full, its copyright lines and where its source is are in the
+licences\ folder, in the file named on the right.
+
+  .NET runtime and libraries         MIT. The runtime the programs run   dotnet.txt
+    (Microsoft; with the             on, so no .NET install is needed.
+    Microsoft.Extensions
+    abstractions and
+    System.Data.Odbc)
+  SDL3                               zlib. Window, input, GPU, sound.    SDL3.txt
+  ppy.SDL3-CS                        MIT. SDL3 for C#.                   SDL3-CS.txt
+  IKVM 8.16.0                        zlib-style. Runs the game's Java    IKVM.txt
+                                     scripts.
+  IKVM.Java (the OpenJDK class       GPLv2 with the Classpath            IKVM.txt
+    library, as IKVM ships it)       Exception. Its source is in
+                                     Vitomir's source repository, in
+                                     third-party\ikvm-8.16.0.
+  ECJ 4.6.1 (Eclipse Compiler        EPL-1.0. Compiles scripts at load   ECJ.txt
+    for Java)                        time.
+  NLayer                             MIT. Decodes the game's MP3 sound.  NLayer.txt
+  DotRecast (Core, Recast, Detour)   zlib. Navigation meshes.            DotRecast.txt
+  BCnEncoder.Net                     MIT (or the Unlicense). Texture     BCnEncoder.NET.txt
+                                     compression.
+  CommunityToolkit.HighPerformance   MIT.                                CommunityToolkit.HighPerformance.txt
+
+FFmpeg, which plays the game's films, is not in this package: Vitomir uses one
+you install yourself, if you do.
+
+None of the game's own files are in this package. Vitomir reads them from your
+own copy of Vampire: The Masquerade - Redemption.

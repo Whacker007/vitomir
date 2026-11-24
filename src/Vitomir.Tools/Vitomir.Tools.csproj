@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- vitomir-tools: the developer's tools, moved as they were out of the old program
+       (retired since): the level cook, convert, export, relayout, probes and stream-fly commands, the glTF viewer, the data commands,
+       the reports (before and after a place loads), the interface art tool, the sweeps and the replay folder, and the engine's
+       tool code nothing in a game runs (the glTF export, the level converter, the modern renderer's bench, the story sweep).
+       vitomir-platform references none of it (PlatformBoundaryTests). -->
+  <PropertyGroup>
+    <!-- Windowed, so a viewer's window has no console beside it; a run that is all text
+         attaches to the terminal it was started from (TextRuns). -->
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>vitomir-tools</AssemblyName>
+    <RootNamespace>Vitomir</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Engine\Vitomir.Engine.csproj" />
+    <!-- The old renderer: the cell world under 1.1's things (a level package played, and a cooked one), the glTF viewer, the stream-fly. -->
+    <ProjectReference Include="..\Vitomir.Render\Vitomir.Render.csproj" />
+    <ProjectReference Include="..\Vitomir.Scripting\Vitomir.Scripting.csproj" />
+    <!-- 1.1's frame controller (the Classic module's library): the reports that need a run's start or a loaded place run in it,
+         on this program's SDL host. -->
+    <ProjectReference Include="..\Vitomir.Classic\Vitomir.Classic.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Vitomir.Render.Tests" />
+    <!-- ToolsProgramTests reads the list of commands (ToolsProgram.Commands). -->
+    <InternalsVisibleTo Include="Vitomir.Engine.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+    <!-- The platform renderer's device (Gpu, GpuDrivers, Png, the presenter) and, the 1.1 look. -->
+    <Using Include="Vitomir.Platform.Render" />
+    <!-- The 1.1 look, moved from Vitomir.Render. -->
+    <Using Include="Vitomir.Platform.Render.Classic" />
+  </ItemGroup>
+</Project>

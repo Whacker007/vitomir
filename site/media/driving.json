@@ -1,0 +1,33 @@
+{
+ "source": "driving",
+ "size": [
+  1280,
+  720
+ ],
+ "keep": [
+  [
+   1.7,
+   25.0
+  ]
+ ],
+ "poster": 3.0,
+ "segments": [
+  {
+   "from": 1.7,
+   "to": 15.6,
+   "tag": "new",
+   "title": "Driving",
+   "line": "Steer the character with the keyboard.",
+   "keys": "wasd",
+   "hold": 0.8
+  },
+  {
+   "from": 15.6,
+   "to": 25.0,
+   "tag": "new",
+   "title": "Run",
+   "line": "Hold Shift to run.",
+   "keys": "wasd+shift"
+  }
+ ]
+}

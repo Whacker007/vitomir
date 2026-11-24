@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The game: the file system over the player's install, the formats turned into a world, the
+       simulation that runs it, and every rule of the original game. It knows nothing about SDL,
+       about a GPU, or about a window — drawing is Vitomir.Render's, and the two are kept apart by
+       a test (`BoundaryTests`) as well as by this file. -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Engine</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Formats\Vitomir.Formats.csproj" />
+    <!-- The Classic snapshot's contract: the engine fills it, the old renderer reads it. -->
+    <ProjectReference Include="..\Vitomir.Platform\Vitomir.Platform.csproj" />
+    <!-- The platform's draw list: 1.1's interface passes emit into it, the old renderer's 2D backend draws it. -->
+    <ProjectReference Include="..\Vitomir.Platform.Interface\Vitomir.Platform.Interface.csproj" />
+    <!-- The logging API only: ILogger, LogLevel and the LoggerMessage source generator. It has no
+         dependencies of its own; the factory, the sinks and the settings are the engine's. -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+    <!-- MPEG audio decoding for the conversation voices, the music and the stereo ambients, which
+         the game ships as `.mp3`. Fully managed, MIT, no dependencies of its own. -->
+    <PackageReference Include="NLayer" Version="3.0.0" />
+    <!-- Recast & Detour in C#, zlib: the navigation meshes of the levels fork's cell levels. -->
+    <PackageReference Include="DotRecast.Recast" Version="2026.3.1" />
+    <PackageReference Include="DotRecast.Detour" Version="2026.3.1" />
+    <PackageReference Include="BCnEncoder.Net" Version="2.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Our own lettering: each face's distance-field atlas and its measures, made by
+         tools/ui/font/atlas.py from our own outlines. Nothing of the game's. -->
+    <EmbeddedResource Include="Fonts\*.json;Fonts\*.png" LogicalName="Fonts/%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+  </ItemGroup>
+</Project>

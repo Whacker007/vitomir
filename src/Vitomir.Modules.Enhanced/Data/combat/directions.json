@@ -1,0 +1,62 @@
+{
+  "schema": "VITOMIR_ATTACK_DIRECTIONS",
+  "status": "ENGINE_SANDBOX",
+  "title": "Directional attacks: which blow each direction plays, how the direction is chosen, and holding a blow ready",
+  "note": "Ours, not the rules package's: every number here is ENGINE_SANDBOX, the engine's development control. The swing is tied to the direction, as in Bannerlord: aimed at a side, a swing that seemed to start at random from the left or right missed it (1.1 alternates its two quick blows). All of the modes are options, as in the Mount and Blade series, the default the side of the enemy the cursor is on (freedom of movement); the spin attack is out for now, so left or right; the blow above is an overhand swing down, the one below a stab. Bannerlord's - the press readies the chosen blow, the release strikes, holding waits. The module's switch attack-spin brings 1.1's tap-and-hold back exactly (quick blows in turn, the whirl when held: an earlier build).",
+  "blows": [
+    {
+      "kind": "any",
+      "carry": "any",
+      "left": "stitched:left|quick:1",
+      "right": "stitched:right|quick:0",
+      "note": "Every kind's own two quick blows (1.1's first attack mode's entries in order, OneOneActions): the first is the forehand, from the right; the second the backhand, from the left. A kind with one quick blow (rudolfGuard's chrisAttackSword, the fists) has no left: a blow from the left falls back to its right. Not shipped, measured: a row {\"kind\": \"any\", \"carry\": 1, \"left\": \"quick:1|lend:chrisAttack2Sword\"} lends Christof's backhand to every one-handed bearer on his skeleton (rudolfGuard, the watchmen), at the borrower's own STRIKETIME and RELOADTIME; it made the shielded trained guard easier (the newly Embraced's wins 30.5 % to 39.5 % in 200 bouts), so the guards keep 1.1's one blow by default. Measured on Christof's broadsword (ActionTests' order; DirectionTests: the forehand's tip sweeps from his right to his left through its window, the backhand's from his left to his right). first the blow with its wind-up into a ready pose (stitched:left, stitched:right) for a kind that has it - a one-handed blade on 1.1's skeleton 0, its side blows flattened (not with swings-oneone); the guards and the watchmen have the forehand's, from the right, and keep their one blow. the guards and the watchmen (rudolfGuard, KnightOfStJohn_torch, viennaGuard_sword) are lent Christof's backhand as their left - flattened as his, the off hand (shield, torch) from their own stand, with the left's wind-up into the left ready pose, at their own weapon's STRIKETIME and RELOADTIME (OneOneWindUps.LentLeft) - so stitched:left resolves for them too and the duelling brain draws all four directions for them, as for Christof (a third, a third, a sixth, a sixth). The switch guards-one-blow keeps the earlier build's three (no left: a blow from the left falls back to the right)."
+    },
+    {
+      "kind": "Christof",
+      "carry": 1,
+      "left": "stitched:left|flat:chrisAttack2Sword|chrisAttack2Sword",
+      "right": "stitched:right|flat:chrisAttackSword|chrisAttackSword",
+      "note": "Christof's one-handed sword, by name: 1.1's backhand from the left, its forehand from the right; their sweeps brought level (flat...) unless the switch swings-oneone keeps 1.1's own (the first name that resolves is played). Overhead and thrust: stitched blows (the row below this one). each with its wind-up into its ready pose (stitched:left, stitched:right: the blade cocked over the left shoulder, at the right shoulder; windups.json), the flattened and 1.1's own when the switch swings-oneone keeps 1.1's."
+    },
+    {
+      "kind": "any",
+      "carry": 1,
+      "overhead": "stitched:overhead",
+      "thrust": "stitched:thrust",
+      "note": "Stitched blows (their provenance in directions-stitched.json) for every one-handed bearer that has them - the kinds of 1.1's skeleton 0 carrying a one-handed weapon with a quick blow: Christof (any one-handed weapon), rudolfGuard, KnightOfStJohn_torch, viennaGuard_sword. The overhead from 1.1's war hammer's overhead, the thrust from its halberd's thrust, each held ready at its own ready point (frames 11 and 13); with the flattened side blows (not with swings-oneone), each with its wind-up into its ready pose (raised above the head; drawn back at the hip, the point forward: windups.json), held ready there. A kind without them (another skeleton) falls back to the side the choice leaned to (the crosshair's side of the foe's centre line, the flick's side, the key's), else the forehand. Axes, maces and clubs get the sword's thrust too (1.1 swings them all with the sword's clips): still to be chosen (blades only, or none for them)."
+    }
+  ],
+  "choosing": {
+    "foe_reach_metres": 3.0,
+    "foe_cone_degrees": 60,
+    "foe_note": "Automatic (the default): the nearest living person within 3 m feet to feet and 60 degrees either side of the body's facing is the foe the crosshair is judged against: a broadsword's reach (about 1.7 m centre to centre, DuelBrains.ReachOf) and a step, and the guard's own arc (guard.json's 70) a little narrowed so a man at the edge of the picture does not decide.",
+    "overhead_above_share": 0.80,
+    "thrust_below_share": 0.52,
+    "regions_note": "Where the crosshair's line passes nearest the foe's centre line (the vertical through his feet; seen from above): on its left the blow comes from the left, on its right (or on it) from the right; and the line's height there against the foe's height (his capsule's: lower when he crouches) - above 0.80 (his shoulders: 1.44 m on a 1.8 m man) overhead, below 0.52 (his waist: 0.94 m) a thrust. The design intent: 'what side of the enemy my cursor is on will dictate where the weapon swings from'.",
+    "no_foe_overhead_degrees": 20,
+    "no_foe_thrust_degrees": -25,
+    "no_foe_side_degrees": 10,
+    "default_side": "right",
+    "no_foe_note": "With no one in front: the view pitched 20 degrees up or more is overhead, 25 down or more a thrust; else the view turned 10 degrees or more from the body's facing that side (third person with the body following the move), else the forehand from the right (1.1's first quick blow). A body facing the view (first person; third person's default now) has the view on its facing, so with no foe its side is the forehand's.",
+    "eye_share": 0.92,
+    "eye_note": "A body that is not the player (a script's townsman, a person with no brain) looks from 0.92 of its height along its facing and its aim's pitch.",
+    "mouse_window_seconds": 0.15,
+    "mouse_dead_zone_degrees": 1.0,
+    "mouse_vertical_scale": 1.0,
+    "mouse_invert": false,
+    "mouse_note": "The mouse (Bannerlord's): the view's turn summed over about the last 0.15 s before and at the press (a leaky sum, its time constant 0.15 s: a flick in the last tenth of a second counts about two thirds). Under 1 degree summed is no flick: automatic chooses. The larger part decides - left (the view turned left) from the left, right from the right, up overhead, down a thrust; the up-down part counted 1.0 times (Bannerlord's 'vertical movement scale'); mouse_invert is its 'inverted attack direction'. The calibration rule: what is uncontrollable for one player is likely to be an issue for most players.",
+    "keys_threshold": 0.5,
+    "keys_note": "The keys (Warband's 'movement direction'): A from the left, D from the right, W overhead, S a thrust, the side keys first when two are held (A with W is from the left); none held, automatic. 0.5 of the move counts as held (the keys give 1; a stick half-way)."
+  },
+  "ready": {
+    "rule": "turn",
+    "ready_before_window_seconds": 0.02,
+    "turn_search_share": 0.5,
+    "ready_before_strike_seconds": 0.2,
+    "hold_most_seconds": 0,
+    "switch_while_held": true,
+    "switch_fade_seconds": 0.25,
+    "switch_note": "ENGINE_SANDBOX (ours, as in Mount and Blade: hold attack, then change the movement to change the attack direction): while a blow is held ready (or still winding up to its ready point) and the player's mode chooses another direction - keys: the move key held now; mouse: a flick now, over the same window and dead zone as at the press; automatic: where the crosshair sits on the foe now; no key and no flick keep the blow - the held blow becomes the new direction's: the channel cross-fades from where it is into the new blow at its ready point (or at the same share of its wind-up, before the ready point was reached) over switch_fade_seconds, and the release strikes the new blow. 0.15 s: half again the channel's 0.1 s cross-fade, so the blade is seen to swing over to the other side, and well inside the quickest press-to-ready (0.21 s) so a switch never feels slower than a fresh press. 0.25 s — its four ready poses stand 0.31 to 1.0 m apart (the overhead's to the thrust's the longest), the wind-ups move the hand at 0.9-2.9 m/s, so 0.15 s threw the blade across faster than any blow.",
+    "note": "Ready and release (Bannerlord's): the press plays the chosen blow's wind-up to its ready point and holds it there while attack is held; the release plays the rest. The ready point: the wind-up's turn - the moment the blade's tip moves slowest over the last half of the wind-up before the blow's active window (contact's: where the tip moves at least 40 % of its fastest), at most 0.02 clip seconds before the window - so the blade is held cocked, not frozen mid-swing ('window': the window's start less 0.02 s); a clip with no window, its Strike mark less 0.2 s; a stitched blow's own when it gives one. Measured on Christof's broadsword. The hold has no limit (0) and no strength bonus (no strong blow): holding waits. A quick tap is a whole blow: the release during the wind-up lets it play through without a stop. The busy time is each clip's own (1.1's RELOADTIME), not counting the hold."
+  }
+}

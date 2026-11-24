@@ -1,0 +1,84 @@
+/* Vitomir's web site: the launcher's Court of Night colours (the art thread's palette.json) and the Vitomir fonts. */
+@font-face { font-family: "Vitomir Text"; src: url("fonts/VitomirText-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Vitomir Text"; src: url("fonts/VitomirText-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Vitomir Wedge"; src: url("fonts/VitomirWedge-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --page: #050405; --panel: #09080a; --band: #100d0e; --band-alt: #0b090a;
+  --body: #e6dccb; --gold: #d6b25a; --muted: #9c9384; --warn: #d65c60;
+  --oxblood: #8a1a24; --velvet: #2e070c; --rule: #6e5524; --gold-line: #8f6a22; --gold-bright: #c4a356;
+  --link: #d6b25a; --link-hover: #f0d48a; --link-visited: #b8974a;
+}
+* { box-sizing: border-box; }
+html { background: var(--page); }
+body { margin: 0; color: var(--body); background: var(--page); font: 400 18px/1.6 "Vitomir Text", Georgia, serif; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+a:hover, a:focus { color: var(--link-hover); }
+
+.top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; padding: 14px 32px;
+  background: var(--panel); border-bottom: 1px solid var(--gold-line); position: sticky; top: 0; z-index: 2; }
+.brand img { display: block; height: 44px; width: auto; }
+.menu { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.menu a { color: var(--body); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; padding: 4px 0; border-bottom: 2px solid transparent; }
+.menu a:hover { color: var(--link-hover); border-bottom-color: var(--rule); }
+.menu a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--oxblood); }
+
+.content { max-width: 920px; margin: 0 auto; padding: 32px 24px 48px; }
+h1, h2, h3 { font-family: "Vitomir Wedge", "Vitomir Text", Georgia, serif; font-weight: 600; color: var(--gold); line-height: 1.2; }
+h1 { font-size: 2.6em; margin: 0.4em 0 0.5em; }
+h2 { font-size: 1.8em; margin: 1.6em 0 0.5em; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.3em; margin: 1.3em 0 0.4em; }
+p, ul, ol { margin: 0 0 1em; }
+li { margin: 0.2em 0; }
+strong { color: #f2e9d8; font-weight: 600; }
+code { font-family: Consolas, "Courier New", monospace; font-size: 0.88em; background: var(--band); padding: 1px 5px; border: 1px solid #2a2224; }
+pre { background: var(--band); border: 1px solid #2a2224; padding: 12px 16px; overflow-x: auto; }
+pre code { background: none; border: 0; padding: 0; }
+table { border-collapse: collapse; width: 100%; margin: 0 0 1.2em; font-size: 0.94em; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid #241d1f; }
+th { color: var(--gold); font-weight: 600; border-bottom: 1px solid var(--rule); }
+tr:nth-child(even) td { background: var(--band-alt); }
+img { max-width: 100%; height: auto; }
+figure.clip { margin: 1.4em 0; }
+figure.clip video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--gold-line); border-radius: 6px; }
+figure.clip figcaption { color: var(--muted); font-size: 0.9em; margin-top: 0.5em; }
+
+/* The art thread's icons (decorative: the words beside them say the same). In a list, each item's icon sits in a column of
+   its own to the left; in a heading, before the words. */
+.icon { width: 48px; height: 48px; }
+li:has(> .icon) { list-style: none; position: relative; padding-left: 64px; min-height: 52px; margin: 0 0 0.9em; }
+li > .icon { position: absolute; left: 0; top: 2px; }
+ul:has(> li > .icon) { padding-left: 0; }
+h2 .icon { width: 40px; height: 40px; vertical-align: -7px; margin-right: 12px; }
+hr { border: 0; height: 24px; background: url("art/divider.svg") center / auto 24px no-repeat; margin: 2em 0; }
+
+/* A place still waiting for Whacker007's own words, or for a picture: plain to see until it is filled. */
+blockquote { margin: 1.2em 0; padding: 12px 18px; background: var(--velvet); border-left: 4px solid var(--oxblood); color: #f2e9d8; }
+blockquote p:last-child { margin-bottom: 0; }
+
+/* The home page's opening. */
+.hero { position: relative; margin: -32px -24px 24px; min-height: 340px; display: flex; align-items: flex-end;
+  background: var(--page) center / cover no-repeat; background-image: image-set(url("art/hero-1920.webp") type("image/webp"), url("art/hero-1920.jpg") type("image/jpeg")); }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,4,5,0) 40%, rgba(5,4,5,0.95)); }
+.hero div { position: relative; z-index: 1; padding: 24px; }
+.hero p { font-size: 1.25em; margin: 0; max-width: 40em; }
+.button { display: inline-block; margin: 8px 12px 8px 0; padding: 10px 22px; background: var(--oxblood); color: #f2e9d8 !important;
+  border: 1px solid var(--gold-line); text-decoration: none; font-weight: 600; letter-spacing: 0.03em; }
+.button:hover { background: #a3202c; }
+.button.quiet { background: transparent; }
+
+.foot { max-width: 920px; margin: 0 auto; padding: 8px 24px 40px; color: var(--muted); font-size: 0.85em; text-align: center; }
+.foot .divider { display: block; width: 240px; margin: 0 auto 16px; }
+.foot a { color: var(--muted); }
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .top { padding: 12px 16px; position: static; }
+  h1 { font-size: 2em; }
+  .hero { min-height: 220px; }
+}
+
+/* The home page opens on the picture: its title is the wordmark above. */
+.page-index .content > h1:first-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.page-index .hero { margin-top: -32px; }

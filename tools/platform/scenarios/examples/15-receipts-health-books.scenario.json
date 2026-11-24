@@ -1,0 +1,62 @@
+{
+  // Worked example 15: Health's books. One fixed contact on the guard's left forearm at 0.5 s, the guard's Health 5
+  // at the start. Swept: the contact's closing speed — 40 m/s (the positive fixture: a wound by region, the Health it took, the harness
+  // stop ZERO_HEALTH_STOP told as a stop, never a death; a severance and the effective maximum below the purchased one when the cut
+  // goes through) and 1 m/s (the negative: no wound; the books at the end are the books at the start). The books are in actors.csv's
+  // last columns (purchased and effective maximum at the start and the end, Health now, band, wounds by region, parts severed, the stop),
+  // in results.json's receipts, and on each harm (HarmResolved's derived harmRegion, healthMaxPurchased, healthMaxEffective, blood).
+  "format": "vitomir-scenario/1",
+  "title": "Receipts: Health's books — a wounding contact against one that does nothing",
+  "notes": "The combat rules' newly Embraced (the Rapier) against the combat rules' trained guard (the Rapier, no shield, no armour). The contact is the module's ENGINE_SANDBOX harm, soak and severance; the guard's Health 5 is set so that a wound stops him.",
+  "kind": "contact",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.newly_embraced" },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": [38, 3],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard"
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained" },
+      "health": 5,
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 1.2, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "foe": "Christof"
+    }
+  ],
+
+  "contacts": [
+    { "label": "the forearm", "atSeconds": 0.5, "attacker": "Christof", "defender": "Guard", "region": "leftForearm", "part": "edge",
+      "closingSpeedMetresPerSecond": 40, "squarenessDegrees": 90, "swing": "right" }
+  ],
+
+  "stop": { "afterSeconds": 1.0, "onHarnessStops": "never" },
+  "runs": 5, "seed": 14000,
+  "sweep": [ { "set": "contacts.0.closingSpeedMetresPerSecond", "values": [40, 1] } ],
+
+  "measures": [
+    { "name": "wounds",  "count": { "event": "HarmResolved", "by": "Christof", "on": "Guard", "sum": "wounds" } },
+    { "name": "stopped", "count": { "event": "ActorDied", "where": { "harnessStop": "ZERO_HEALTH_STOP", "finalDeath": false } } },
+    { "name": "healthEnd", "value": "Guard.health" },
+    { "name": "woundedRuns", "count": { "event": "HarmResolved", "by": "Christof", "on": "Guard", "where": { "fixed": true, "resistedBy": "None" } } }
+  ],
+
+  "assertions": [
+    { "name": "positive: the contact wounded", "points": { "contacts.0.closingSpeedMetresPerSecond": 40 }, "measure": "wounds", "atLeast": 1, "scope": "anyRun" },   // the damage roll's dice: not every run wounds
+    { "name": "positive: a harness stop, never a death", "points": { "contacts.0.closingSpeedMetresPerSecond": 40 }, "measure": "stopped", "equals": 1, "scope": "anyRun" },
+    { "name": "a stop follows a wound, never without one", "difference": ["stopped", "woundedRuns"], "atMost": 0, "scope": "eachRun" },
+    { "name": "negative: no wound", "points": { "contacts.0.closingSpeedMetresPerSecond": 1 }, "measure": "wounds", "equals": 0, "scope": "eachRun" },
+    { "name": "negative: Health unchanged", "points": { "contacts.0.closingSpeedMetresPerSecond": 1 }, "measure": "healthEnd", "equals": 5, "scope": "eachRun" }
+  ],
+
+  "outputs": { "events": "first", "traceRuns": 1, "csv": true, "summaryPage": false, "wideBouts": false }
+}

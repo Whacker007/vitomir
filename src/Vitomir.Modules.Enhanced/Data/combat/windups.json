@@ -1,0 +1,104 @@
+{
+  "schema": "VITOMIR_WIND_UPS",
+  "status": "ENGINE_SANDBOX",
+  "title": "The four directions' wind-ups and ready poses: how a held blow is cocked, and how long the wind-up and the strike take",
+  "note": "Ours, not the rules package's: every number here is ENGINE_SANDBOX. The wind-ups for all four directions, with Mount & Blade's 'hold attack, and then switch movements to change the attack direction'. Each blow plays: press -> its wind-up into its ready pose (held there while attack is held: the ready point is the wind-up's end) -> the strike from that pose (the blow's own clip from strike_from_frame; the blade its own again by join_at_frame, so its path through the active window is the earlier builds') -> the recovery. Times are 1.1's frames (30 a second) of the blow, played at the blow's own rate (the weapon's: 1.1 stretches an attack so the whole clip takes its STRIKETIME; the broadsword plays 0.88 frames a frame, so 9 frames are 0.34 s): wind_up_frames from the press to the ready pose; strike_frames from the ready pose to the clip's end (-1: as the blow plays them, its frames strike_from_frame to its end). The wind-ups take as long as each blow took to its ready point before (7, 9, 11 and 13 frames), so the pace is unchanged until the pace survey: combat was far too fast. Places are in the kind's model space before the aim offset bends the upper body (metres; +X its right, +Y its front, +Z up, the feet at 0), for 1.1's skeleton 0 (Christof, the guards, the watchmen: the same bones): guard is where the ready pose holds the blade's guard, blade the way the blade points from it, via the control point of the guard's curve from the stance, turn_degrees the upper body turned to its left (negative: its right) at the ready pose. Read by the session (OneOneWindUps); the platform's own numbers (OneOneWindUps.Defaults) are these.",
+  "blows": [
+    {
+      "direction": "left",
+      "from_blow": "the flattened backhand (flat:chrisAttack2Sword, 29 frames; its sweep slowed to the forehand's peak, its window 10.5-16.1)",
+      "wind_up_frames": 7,
+      "strike_from_frame": 9,
+      "join_at_frame": 11,
+      "strike_frames": -1,
+      "guard": [
+        -0.16,
+        0.42,
+        1.45
+      ],
+      "blade": [
+        -0.5,
+        -0.25,
+        0.83
+      ],
+      "via": [
+        0.15,
+        0.5,
+        1.25
+      ],
+      "turn_degrees": 0
+    },
+    {
+      "direction": "right",
+      "from_blow": "the flattened forehand (flat:chrisAttackSword, and the watchman's Christof_attackSword_util; 29 frames, its window 9.5-17.0)",
+      "wind_up_frames": 9,
+      "strike_from_frame": 12.0,
+      "join_at_frame": 13.5,
+      "strike_frames": -1,
+      "guard": [
+        0.26,
+        0.45,
+        1.5
+      ],
+      "blade": [
+        0.4,
+        -0.1,
+        0.91
+      ],
+      "via": [
+        0.55,
+        0.35,
+        1.25
+      ],
+      "turn_degrees": 35.0
+    },
+    {
+      "direction": "overhead",
+      "from_blow": "the stitched overhead (stitched:overhead, 34 frames, its window 11.25-14.75)",
+      "wind_up_frames": 11,
+      "strike_from_frame": 9,
+      "join_at_frame": 11,
+      "strike_frames": -1,
+      "guard": [
+        0.14,
+        0.42,
+        1.78
+      ],
+      "blade": [
+        0.12,
+        -0.6,
+        0.79
+      ],
+      "via": [
+        0.45,
+        0.25,
+        1.55
+      ],
+      "turn_degrees": 0
+    },
+    {
+      "direction": "thrust",
+      "from_blow": "the stitched thrust (stitched:thrust, 29 frames, its window 13.25-16.25)",
+      "wind_up_frames": 13,
+      "strike_from_frame": 13,
+      "join_at_frame": 13.5,
+      "strike_frames": -1,
+      "guard": [
+        0.36,
+        -0.3,
+        1.12
+      ],
+      "blade": [
+        -0.165,
+        0.963,
+        0.22
+      ],
+      "via": [
+        0.55,
+        -0.05,
+        1.05
+      ],
+      "turn_degrees": 0
+    }
+  ]
+}

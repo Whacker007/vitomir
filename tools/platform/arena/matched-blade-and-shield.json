@@ -1,0 +1,18 @@
+{
+  // An arena spec: matched-blade-no-shield.json's twin with BOTH
+  // fighters shielded — the combat rules' newly Embraced (sandbox.newly_embraced) against the combat rules' trained guard (sandbox.guard_trained),
+  // both with 1.1's weapRapier_shield (rapier_shield_0: the same 0.98 m blade and the kite shield on the left hand; checked
+  // by "shield": true), the same brain, the same seeds. Christof raises his own set's shield block (chrisShieldBlock); the
+  // guard his composed guard (SANDBOX). Nothing swept.
+  "title": "Matched: newly Embraced against a trained guard, the same sword, both shielded",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "weapRapier_shield", "shield": true, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "weapRapier_shield", "shield": true, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

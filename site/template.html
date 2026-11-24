@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{url}}assets/art/social-preview.jpg">
+<meta property="og:url" content="{{address}}">
+<link rel="canonical" href="{{address}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/art/favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/art/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/art/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="page-{{page}}">
+<header class="top">
+  <a class="brand" href="index.html"><img src="assets/art/vitomir-wordmark.svg" alt="Vitomir" width="180" height="48"></a>
+  <nav class="menu" aria-label="Pages">{{menu}}</nav>
+</header>
+<main class="content">
+{{content}}
+</main>
+<footer class="foot">
+  <img class="divider" src="assets/art/divider.svg" alt="">
+  <p>The Vitomir platform and all of its original content are copyright &copy; 2026 Whacker007, under the
+  <a href="licence.html">Vitomir Licence</a>: free for any noncommercial purpose, never to be sold.</p>
+  <p><em>Vampire: The Masquerade</em>, <em>Vampire: The Masquerade &ndash; Redemption</em>, <em>White Wolf</em>,
+  <em>World of Darkness</em> and all related names, characters and properties are trademarks or copyrights of their
+  respective owners, not of this project. Vitomir is an unofficial fan project, not affiliated with or endorsed by these entities.</p>
+  <p><a href="https://github.com/Whacker007/vitomir">Vitomir on GitHub</a></p>
+</footer>
+<script>
+// The clips play while they are on screen, and only then load; with reduced motion asked for, they wait for a click.
+(function () {
+  var clips = document.querySelectorAll("video.clip");
+  if (!clips.length) return;
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (still || !("IntersectionObserver" in window)) { clips.forEach(function (v) { v.controls = true; }); return; }
+  var seen = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) e.target.play().catch(function () {}); else e.target.pause(); });
+  }, { threshold: 0.25 });
+  clips.forEach(function (v) { seen.observe(v); });
+})();
+</script>
+</body>
+</html>

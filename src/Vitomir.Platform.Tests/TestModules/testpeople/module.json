@@ -1,0 +1,8 @@
+{
+  "id": "testpeople",
+  "name": "A test content module (the tests' own, no game content)",
+  "description": "The shape of a content module: assets under Content/, no code, no rules; depended on by rules modules.",
+  "version": "1.2.0",
+  "platform": "1.0.0",
+  "kind": "content"
+}

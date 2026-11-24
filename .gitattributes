@@ -1,0 +1,16 @@
+# Line endings: LF in the repository and in the working tree, on every platform (matches .editorconfig).
+* text=auto eol=lf
+# Batch files keep CRLF: cmd.exe misreads some lines of an LF-only one.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.png binary
+*.ico binary
+*.ttf binary
+*.jpg binary
+*.tga binary
+*.dll binary
+*.exe binary
+*.jar binary
+*.zip binary
+*.xz binary
+*.nob binary

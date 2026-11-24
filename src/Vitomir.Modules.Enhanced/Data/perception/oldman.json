@@ -1,0 +1,26 @@
+{
+  "schema": "VITOMIR_OBSERVER_KIND",
+  "status": "SANDBOX",
+  "title": "An old man: poor eyes, slow to make out, timid",
+  "note": "SANDBOX (by design: broad and diverse profiles, each with traits). Traits 0 to 1; SightRange in metres (daylight, open ground, a running body), ConeDegrees the half-angle, NoticeSeconds, MakeOutSeconds, ConcludeSeconds (each step up the ladder), HoldSeconds and CoolDownSeconds (calming down) in seconds (the proposed values). By design, an old man has poorer eyes and slower reactions. At night he sees a running body 20 x 0.55 x 0.335 = 3.7 m off.",
+  "characters": [
+    "OldMan"
+  ],
+  "numbers": {
+    "SightRange": 20.0,
+    "ConeDegrees": 50.0,
+    "Eyesight": 0.55,
+    "NightEyes": 0.1,
+    "Attention": 0.5,
+    "Bravery": 0.2,
+    "Curiosity": 0.3,
+    "Duty": 0.0,
+    "Excitability": 0.3,
+    "Voice": 0.5,
+    "NoticeSeconds": 1.2,
+    "MakeOutSeconds": 4.0,
+    "ConcludeSeconds": 5.0,
+    "HoldSeconds": 20.0,
+    "CoolDownSeconds": 120.0
+  }
+}

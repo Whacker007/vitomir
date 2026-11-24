@@ -1,0 +1,79 @@
+{
+  "schema": "VITOMIR_PERCEPTION",
+  "status": "SANDBOX",
+  "title": "Who sees: the world's numbers and how each act is taken",
+  "note": "SANDBOX: the engine's research numbers (by design: light and cover matter a lot) until the rules package prices them. A body is seen within the observer's SightRange x Eyesight x the light at the body as the observer's eyes take it (DayLight or NightLight, or the light of an area keyed \"light\"; NightEyes wins back NightEyes x NightEyesWeight of the dark) x the body's concealment (an area keyed \"conceal\") x its motion (MotionStill, MotionCrouched, MotionWalk, MotionRun - or in the air -, MotionSprint), and only when at least CoverFloor of its points (head, chest, hips, knees) are in clear sight. A guard (30 m, eyes 1.0, night eyes 0.3) at night sees a running body 30 x 0.405 = 12 m off, a still one 6 m, one in a bush (conceal 0.2) 1.2 to 2.4 m; by day a still one in the open 15 m. Each observer looks every LookSeconds (or a sixth, a third or a half more). Awareness rises while an act is seen: GainPerSecond x clarity (1 - distance / sight, x the share of the body in sight) x the act's size (its measure over a human's limit, to BiggestAct) x its strangeness x the observer's Attention x (0.5 + Excitability) per second, to the act's highest rung (the evidence); aware, alerted and alarmed at AwareAt, AlertedAt and AlarmedAt, it holds at most Ceiling. the rung climbs one step at a time, each after the observer's own wait on the rung below (NoticeSeconds, MakeOutSeconds, ConcludeSeconds) while the evidence is at or over the next rung's threshold, and goes on after the act has left view; after the last sight of anything the evidence holds the observer's HoldSeconds, then falls from Ceiling to nothing over its CoolDownSeconds; a rung is kept at least MinRungSeconds before it steps down. A shout heard puts the listener straight on alerted. An act stays in view ActSeconds at least (a jump while in the air, a speed while over a human's). An alarmed observer shouts, heard within ShoutRadius x its Voice. An alarm adds HeatPerAlarm to its area's heat (0 to 1), which cools over HeatCoolSeconds, HeatAwayFactor times faster while the player is elsewhere; a full heat lowers the thresholds there by HeatWariness. The reaction rule: Duty at least DutyAt keeps the peace (goes to look, searches, runs at and challenges, never flees); else pull = Curiosity x the act's strangeness, fear = the act's threat x (1 - Bravery): alerted, it edges closer when the pull reaches LookAt and the fear, backs off when the fear is the greater, else watches; alarmed, it flees when the fear reaches FleeAt, else watches. The rest are the reactions' distances (m), pauses (s) and turning (degrees a second); a keeper of the peace running at the one it is wary of challenges within ChallengeWalkMetres, in sight, then faces them and follows at a walk (standing within ChallengeMetres), and runs again only when they are farther than ChallengeRunMetres or out of sight. defaultKind is the kind of a character no kind names. Violence is a blow that met a person (their body or their shield) in a public place, raised for the one who struck whatever their mode: ordinary violence, little strange and very threatening, its size the biggest (it has no human limit), so townsfolk flee and the watch comes. an earlier build, people fight back: one struck (a blow on its body or its shield) who holds a blade fights the one who struck, one who holds none flees; a keeper of the peace (Duty at least JoinDutyAt) who holds a blade joins a fight it only saw (a blow struck at another, violence seen) once that sight has carried it to rung JoinRung (2 alerted, 3 alarmed, 4 or more never); a fighter gives up and searches when its foe has been farther than GiveUpMetres for GiveUpSeconds, flees when Crippled with Bravery under CrippledFleeBravery, runs to its foe by a route beyond ChaseRouteMetres and leaves the duelling brain to steer within it. the follow-up: one struck answers after FightReactSeconds (it turns to face the one who struck it meanwhile; ours, to be read from Wits later; joining on sight or a shout keeps the ladder's timing), and a fighter gives up and searches where it last saw its foe when it has been out of its sight (perception's own sight test) for GiveUpUnseenSeconds.",
+  "defaultKind": "townsman",
+  "numbers": {
+    "DayLight": 1.0,
+    "NightLight": 0.3,
+    "NightEyesWeight": 0.5,
+    "MotionStill": 0.5,
+    "MotionCrouched": 0.6,
+    "MotionWalk": 0.8,
+    "MotionRun": 1.0,
+    "MotionSprint": 1.3,
+    "CoverFloor": 0.2,
+    "LookSeconds": 0.15,
+    "AwareAt": 0.1,
+    "AlertedAt": 0.4,
+    "AlarmedAt": 1.0,
+    "Ceiling": 1.5,
+    "MinRungSeconds": 10.0,
+    "GainPerSecond": 4.0,
+    "BiggestAct": 4.0,
+    "ActSeconds": 1.0,
+    "ShoutRadius": 15.0,
+    "HeatPerAlarm": 1.0,
+    "HeatCoolSeconds": 180.0,
+    "HeatAwayFactor": 3.0,
+    "HeatWariness": 0.5,
+    "DutyAt": 0.5,
+    "LookAt": 0.3,
+    "FleeAt": 0.15,
+    "BackOffMetres": 4.0,
+    "EdgeCloserMetres": 6.0,
+    "FleeMetres": 25.0,
+    "SearchRadius": 5.0,
+    "SearchPauseSeconds": 1.5,
+    "ChallengeMetres": 2.5,
+    "ChallengeWalkMetres": 6.0,
+    "ChallengeRunMetres": 10.0,
+    "TurnDegreesPerSecond": 240.0,
+    "JoinDutyAt": 0.5,
+    "JoinRung": 2.0,
+    "GiveUpMetres": 25.0,
+    "GiveUpSeconds": 8.0,
+    "CrippledFleeBravery": 0.8,
+    "ChaseRouteMetres": 4.0,
+    "FightReactSeconds": 0.3,
+    "GiveUpUnseenSeconds": 8.0
+  },
+  "acts": {
+    "Jump": {
+      "strangeness": 0.9,
+      "threat": 0.5,
+      "highest": "alarmed"
+    },
+    "Speed": {
+      "strangeness": 0.6,
+      "threat": 0.15,
+      "highest": "alerted"
+    },
+    "Fall": {
+      "strangeness": 0.7,
+      "threat": 0.3,
+      "highest": "alarmed"
+    },
+    "Move": {
+      "strangeness": 0.8,
+      "threat": 0.4,
+      "highest": "alarmed"
+    },
+    "Violence": {
+      "strangeness": 0.3,
+      "threat": 0.9,
+      "highest": "alarmed"
+    }
+  }
+}

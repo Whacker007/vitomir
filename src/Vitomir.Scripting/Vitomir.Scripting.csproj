@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The scripting layer: the game's own Java scripts, compiled and run inside the engine.
+       No JDK and no JVM are installed on the player's machine — IKVM converts the Eclipse batch
+       compiler to a .NET assembly at build time, and the engine calls it in process. The scripts
+       themselves are the player's; nothing from them is checked in. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Vitomir.Scripting</RootNamespace>
+    <!-- Eclipse batch compiler. 4.6.1 is the last release whose bytecode IKVM's Java 8 runtime
+         accepts, and it still supports -source 1.3. Fetched once into lib\ (gitignored: *.jar). -->
+    <EcjVersion>4.6.1</EcjVersion>
+    <EcjDir>$(MSBuildThisFileDirectory)..\..\lib</EcjDir>
+    <EcjJar>$(EcjDir)\ecj-$(EcjVersion).jar</EcjJar>
+    <EcjUrl>https://repo1.maven.org/maven2/org/eclipse/jdt/core/compiler/ecj/$(EcjVersion)/ecj-$(EcjVersion).jar</EcjUrl>
+    <!-- IKVM0100 "class not found", nine of them, every time it actually converts the jar rather
+         than reusing its cache. They are all the same thing: ecj-4.6.1.jar ships Eclipse's **Ant
+         task adapter** (org.eclipse.jdt.core.JDTCompilerAdapter), and that class references Ant's
+         own Task and DefaultCompilerAdapter plus seven JDT Core indexing types (IType,
+         ISourceElementRequestor and its nested Info classes). None of the nine are in the jar,
+         because the standalone batch compiler does not bundle Ant or JDT Core - checked against the
+         jar's 591 classes. What this project calls is
+         org.eclipse.jdt.internal.compiler.batch.Main, which **is** in it, and the scripting tests
+         compile all 467 shipped scripts through it. So the warnings are noise about a corner of the
+         jar nothing here touches. Suppressed by name and by version: the jar is pinned, so the set
+         of unresolved classes is fixed, and if EcjVersion ever moves this suppression should come
+         off first and be re-read. -->
+    <NoWarn>$(NoWarn);IKVM0100</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Engine\Vitomir.Engine.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="IKVM" Version="8.16.0" />
+    <IkvmReference Include="$(EcjJar)" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Compiled by the engine at run time, not by MSBuild, and embedded so it travels with the
+         assembly instead of as a loose file a referencing project would have to copy. -->
+    <EmbeddedResource Include="host\**\*.java" LogicalName="host/%(Filename)%(Extension)" />
+  </ItemGroup>
+  <Target Name="FetchEcj" BeforeTargets="PrepareForBuild" Condition="!Exists('$(EcjJar)')">
+    <Message Importance="high" Text="Fetching ECJ $(EcjVersion) from Maven Central into $(EcjDir)" />
+    <DownloadFile SourceUrl="$(EcjUrl)" DestinationFolder="$(EcjDir)" />
+  </Target>
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+  </ItemGroup>
+</Project>

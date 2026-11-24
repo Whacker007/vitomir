@@ -1,0 +1,18 @@
+{
+  // Receipt (v), an earlier build ("a timed parry meeting the blade"): guard-parry-newly-embraced.json's bout 20 at Melee 3 (seed
+  // 3020) alone — the combat rules' newly Embraced, his brain parrying (parryChance 0.5, blockChance 0: when the guard begins a blow within
+  // reach, half the time he presses block timed to the blow's strike), against the combat rules' trained guard, the Rapier each, no shields.
+  // Found in that run's contacts.csv (this build): the guard's blade meets Christof's moving blade inside his parry window
+  // (ContactMade.Guard Parry) and the rules' contest turns it aside (GuardResolved Parried; its trace: VITOMIR_GUARD_TRACE in
+  // the harm trace). 16 of the run's 20 blades met in a parry window were parried, of about 0.6 parries pressed a bout
+  // : the window is real, the geometry rarely gives it.
+  "title": "Receipt (v): a timed parry meeting the blade",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "melee": 3 } },
+      "place": [38, 3], "facing": 0, "brain": { "kind": "duel", "parryChance": 0.5, "blockChance": 0 } },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 1, "seed": 3020, "seconds": 60, "tapes": 1
+}

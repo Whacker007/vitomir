@@ -1,0 +1,122 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <!--
+    The release version: one number for the whole build, semantic (1.0.0 at the public release), set here and moved by the
+    release batches. Every assembly carries it; the programs' version lines read it at run time from the assembly's
+    informational version (Vitomir.Platform's ReleaseVersion), so no source file holds a version of its own.
+
+    A development build may carry a development tag beside the number: a props file beside src/, when
+    there is one, sets VitomirBatch, and Vitomir.Platform alone records it, in a file beside its assembly
+    (vitomir-batch.txt), so the version line reads "Vitomir Platform 1.0.0-rc.1 (tag)". Without the file the line is the release version alone.
+  -->
+  <PropertyGroup>
+    <Version>1.0.0-rc.1</Version>
+  </PropertyGroup>
+  <!--
+    The notice after the version line where a player sees it (the game's main menu, the launcher's footer and About):
+    empty here, so a developer's build shows none; tools/package.ps1 sets it (-Notice, "Private beta - please do not
+    distribute" until public 1.0). Recorded like the tag, in a file beside Vitomir.Platform (vitomir-notice.txt).
+  -->
+  <PropertyGroup>
+    <VitomirNotice Condition="'$(VitomirNotice)' == ''"></VitomirNotice>
+  </PropertyGroup>
+
+  <!--
+    The same code builds the same assemblies, wherever it is built: a network game's join compares what the
+    engine's, the classic game's, the scripts' and the formats' assemblies' code is (Engine.Net.NetIdentity.CodeOf: their
+    metadata and IL, not their module versions), so a friend's Release build of the public copy and a Release build of this
+    tree of the same code agree. The build is
+    deterministic (above); the source revision is not added to the informational version (no "+commit": the packaging script's
+    build-info.json and the log's first line carry the commit instead); and in Release the source folder is mapped to /_/,
+    so the folder a tree is built in is not compiled in. Debug keeps the real paths, for the debugger. The development tag
+    (VitomirBatch, above) is a file beside Vitomir.Platform, not compiled into it: a portable PDB records the module version
+    of every assembly a project is compiled against, so a tag in Vitomir.Platform would reach the four through it.
+  -->
+  <PropertyGroup>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <PathMap Condition="'$(Configuration)' == 'Release'">$([MSBuild]::EnsureTrailingSlash($([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..'))))=/_/</PathMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildThisFileDirectory)..\build\batch.props" Condition="Exists('$(MSBuildThisFileDirectory)..\build\batch.props')" />
+
+  <!--
+    A warning fails the build. Every warning the C# compiler or an analyzer gives (nullable warnings
+    and the .NET code-analysis rules below among them) is an error, in every project, so a warning cannot be left to pile up
+    unread. `dotnet build Vitomir.slnx` lists them, each with its rule id and its file and line; a build that compiles nothing
+    new lists none, so a rebuild (the build command with the no-incremental switch) shows them all again.
+
+    The analyzers are the .NET SDK's own (Microsoft's code-analysis rules, CAxxxx) in the SDK's default mode. AnalysisLevel is
+    pinned to 10.0, not "latest", so a newer SDK on a Windows PC or in the cloud cannot turn new rules on and fail the build by
+    itself; raising it is a change of its own. Code style (IDExxxx) is `.editorconfig`'s business, not the build's, so
+    EnforceCodeStyleInBuild stays off.
+
+    MSBuild's own warnings (a <Warning> task's, such as the renderers' "dxc is not on PATH" note in the cloud, which has no
+    dxc) are not compiler warnings and stay warnings: MSBuildTreatWarningsAsErrors is deliberately not set.
+
+    NuGet takes TreatWarningsAsErrors too. Its audit warnings (NU1901 to NU1904: a package we use has a published security
+    advisory, low to critical) stay warnings: an advisory is published about a package, not made by a change here, so as an
+    error it would fail a build of an unchanged tree on the day it appeared (as a new SDK's rules would, above). It is
+    still shown on every restore, and answered by a change of its own (moving the package). NuGet's other warnings fail.
+
+    An exception is made where it is needed and nowhere else, with its reason written beside it: a `#pragma warning disable
+    CAxxxx // why` around the lines, or the rule set off for a folder or for generated code in `.editorconfig` with a comment
+    (the README's "Build, test and run").
+  -->
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>10.0</AnalysisLevel>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <!--
+    Build for the machine doing the building, and for no other.
+
+    Without a runtime identifier the SDK copies every platform's native assets into every project's
+    output, because a portable build has to be able to run anywhere. For this tree that is SDL3 for
+    thirteen platforms — four Android ABIs and an iOS xcframework among them — and IKVM's 64 MB Java
+    class library three times over, once each for Windows, Linux and macOS. It came to roughly 280 MB
+    per project and about 3 GB across the tree.
+
+    `UseCurrentRuntimeIdentifier` is the SDK's own switch for "whatever this machine is", so it
+    picks `win-x64` on a Windows PC and `linux-x64` in the cloud without either being written
+    down, and an arm64 machine would get the right answer too. It has to be the SDK's switch rather
+    than our own copy of `NETCoreSdkRuntimeIdentifier`: this file is imported before the SDK sets
+    that property, so reading it here gives an empty string and nothing happens at all.
+
+    `SelfContained` is pinned off because a runtime identifier has implied it in some SDK versions
+    and we want a framework-dependent build either way. `AppendRuntimeIdentifierToOutputPath` is off
+    so the output stays at `bin/<config>/net10.0/` — there is only ever one runtime in it now, so
+    the extra folder would buy nothing and every path in the docs would have to change.
+
+    `BuildOutputTests` asserts that only one platform's natives reach the output.
+  -->
+  <PropertyGroup>
+    <UseCurrentRuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">true</UseCurrentRuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <!--
+    The plain test run leaves out the timing tests (the README's "Build, test and run"). A test that holds a
+    wall-clock figure to a bound is marked [Trait("Category", "Timing")]; `dotnet test Vitomir.slnx` runs all ten test
+    assemblies at once, and under that load the figure measures the others' work too (HitVolumeTests once measured 21.76 µs
+    against its 20 µs bound so, 1.98 µs alone). They run by a second command of their own, one assembly after another and one
+    test after another (`-m:1` and Timing.runsettings).
+
+    This is the filter `dotnet test` takes when it is given none: the command line's filter arrives as the global property
+    VSTestTestCaseFilter, which this condition then leaves alone, so a FullyQualifiedName~ line runs what it names exactly as
+    before, a timing test among them. (A runsettings file's TestCaseFilter was tried first and rejected: VSTest applies it
+    on top of the command line's, so a named timing test would not run.)
+  -->
+  <PropertyGroup>
+    <VSTestTestCaseFilter Condition="'$(VSTestTestCaseFilter)' == ''">Category!=Timing</VSTestTestCaseFilter>
+  </PropertyGroup>
+</Project>

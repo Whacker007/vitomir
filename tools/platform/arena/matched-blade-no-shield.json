@@ -1,0 +1,20 @@
+{
+  // An arena spec: the first return to the rules package found the
+  // guard's lowered shield took 46 % of the newly Embraced's blows, so before an ability or a power curve means anything both
+  // fighters are equipped alike. Here: the combat rules' newly Embraced (sandbox.newly_embraced) against the combat rules' trained guard
+  // (sandbox.guard_trained), both with the same sword (1.1's Rapier: archerssword_0, a 0.98 m blade) and NO shield
+  // ("shield": false is checked when the bout is made: in 1.1 a shield is part of the weapon, as the guard's own
+  // weapRapier_shield), the same brain (the duelling brain's defaults), in the proving ground's free yard. Nothing swept.
+  // Its twin with both shielded: matched-blade-and-shield.json (the same seeds).
+  "title": "Matched: newly Embraced against a trained guard, the same sword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

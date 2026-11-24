@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The platform's renderer, and the only platform project
+       that knows SDL exists. It draws what the program hands it — a level package loaded once, then each
+       frame's FrameView (the view, the characters posed, the reticle) — and decides nothing about the
+       world. Taken from the earlier build's modern renderer (src/Vitomir.Render/Modern), each file marked with where it
+       came from; it references nothing of the old engine.
+
+       Shaders are HLSL, compiled at build time by DXC to SPIR-V (Vulkan) and DXIL (Direct3D 12) and
+       embedded in this assembly, as the old renderer's are. On Windows DXC comes from the
+       Microsoft.Direct3D.DXC package; elsewhere set DXC_PATH (or put dxc on PATH). -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Platform.Render</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform\Vitomir.Platform.csproj" />
+    <!-- The interface's draw list, drawn by the overlay. -->
+    <ProjectReference Include="..\Vitomir.Platform.Interface\Vitomir.Platform.Interface.csproj" />
+    <PackageReference Include="ppy.SDL3-CS" Version="2026.722.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Direct3D.DXC" Version="1.9.2607.13" Condition="'$(OS)' == 'Windows_NT'"
+                      GeneratePathProperty="true" ExcludeAssets="all" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Vitomir.Platform.Render.Tests" />
+  </ItemGroup>
+  <!-- Our lettering (made by tools/ui/font), copied from src/Vitomir.Engine/Fonts at b4185ef:
+       the book face for the status line and the banner; the uncial and the capitals' atlases for the interface,
+       whose measures Vitomir.Platform.Interface reads. -->
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\book.json;Fonts\book.png;Fonts\uncial.png;Fonts\capitals.png" LogicalName="Fonts/%(Filename)%(Extension)" />
+    <!-- The delivered faces' atlases (made by tools/ui/font/build.py from assets/fonts/): Vitomir Text Regular and SemiBold,
+         Wedge SemiBold and Knife, the launcher's; their measures are Vitomir.Platform.Interface's. -->
+    <!-- Vitomir's icon, for the windows (WindowIcon); the .ico beside it is the programs' (their ApplicationIcon). -->
+    <EmbeddedResource Include="Art\vitomir_icon_256.png" LogicalName="Art/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Fonts\text.png;Fonts\text-semibold.png;Fonts\wedge-semibold.png;Fonts\knife.png" LogicalName="Fonts/%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- ===== Shader build: every Shaders/*.hlsl provides VSMain and PSMain (as src/Vitomir.Render's) ===== -->
+  <ItemGroup>
+    <HlslShader Include="Shaders\*.hlsl" />
+    <HlslInclude Include="Shaders\*.hlsli" />
+    <None Include="@(HlslShader);@(HlslInclude)" />
+  </ItemGroup>
+  <PropertyGroup>
+    <DxcExe Condition="'$(DxcExe)' == '' and '$(OS)' == 'Windows_NT'">$(PkgMicrosoft_Direct3D_DXC)\build\native\bin\x64\dxc.exe</DxcExe>
+    <DxcExe Condition="'$(DxcExe)' == '' and '$(DXC_PATH)' != ''">$(DXC_PATH)</DxcExe>
+    <DxcExe Condition="'$(DxcExe)' == ''">dxc</DxcExe>
+    <ShaderOutDir>$(BaseIntermediateOutputPath)shaders\</ShaderOutDir>
+  </PropertyGroup>
+  <Target Name="ProbeDxc" BeforeTargets="CompileHlsl" Condition="'$(OS)' != 'Windows_NT' and '$(DxcExe)' == 'dxc'">
+    <Exec Command="command -v dxc 2&gt;/dev/null || echo __missing__" ConsoleToMSBuild="true" StandardOutputImportance="low" StandardErrorImportance="low">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_DxcProbe" />
+    </Exec>
+    <PropertyGroup>
+      <SkipShaderCompile Condition="$(_DxcProbe.Contains('__missing__'))">true</SkipShaderCompile>
+    </PropertyGroup>
+    <Warning Condition="'$(SkipShaderCompile)' == 'true'" Text="dxc is not on PATH; keeping the shader binaries already in $(ShaderOutDir). Install DirectXShaderCompiler to rebuild them." />
+  </Target>
+  <Target Name="CompileHlsl" BeforeTargets="BeforeBuild" Condition="'$(SkipShaderCompile)' != 'true' and '@(HlslShader)' != ''" Inputs="@(HlslShader);@(HlslInclude)"
+          Outputs="@(HlslShader->'$(ShaderOutDir)%(Filename).vert.spv');@(HlslShader->'$(ShaderOutDir)%(Filename).frag.spv');@(HlslShader->'$(ShaderOutDir)%(Filename).vert.dxil');@(HlslShader->'$(ShaderOutDir)%(Filename).frag.dxil')">
+    <MakeDir Directories="$(ShaderOutDir)" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -T vs_6_0 -E VSMain -spirv -fspv-target-env=vulkan1.0 -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).vert.spv&quot; &quot;%(HlslShader.FullPath)&quot;" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -T ps_6_0 -E PSMain -spirv -fspv-target-env=vulkan1.0 -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).frag.spv&quot; &quot;%(HlslShader.FullPath)&quot;" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -Wno-ignored-attributes -T vs_6_0 -E VSMain -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).vert.dxil&quot; &quot;%(HlslShader.FullPath)&quot;" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -Wno-ignored-attributes -T ps_6_0 -E PSMain -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).frag.dxil&quot; &quot;%(HlslShader.FullPath)&quot;" />
+  </Target>
+  <Target Name="EmbedShaders" AfterTargets="CompileHlsl" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <_CompiledShader Include="$(ShaderOutDir)*.spv;$(ShaderOutDir)*.dxil" />
+      <EmbeddedResource Include="@(_CompiledShader)" LogicalName="Shaders/%(_CompiledShader.Filename)%(_CompiledShader.Extension)" />
+    </ItemGroup>
+  </Target>
+</Project>

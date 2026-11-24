@@ -1,0 +1,27 @@
+{
+  "schema": "VITOMIR_OBSERVER_KIND",
+  "status": "SANDBOX",
+  "title": "A monk or a priest: calmer, curious about the uncanny, slower to make out",
+  "note": "SANDBOX (by design: broad and diverse profiles, each with traits). Traits 0 to 1; SightRange in metres (daylight, open ground, a running body), ConeDegrees the half-angle, NoticeSeconds, MakeOutSeconds, ConcludeSeconds (each step up the ladder), HoldSeconds and CoolDownSeconds (calming down) in seconds (the proposed values). The one ordinary person who edges closer to look at a leap.",
+  "characters": [
+    "Monk",
+    "Civ10monk2"
+  ],
+  "numbers": {
+    "SightRange": 22.0,
+    "ConeDegrees": 55.0,
+    "Eyesight": 0.7,
+    "NightEyes": 0.2,
+    "Attention": 0.6,
+    "Bravery": 0.5,
+    "Curiosity": 0.6,
+    "Duty": 0.2,
+    "Excitability": 0.4,
+    "Voice": 0.6,
+    "NoticeSeconds": 0.6,
+    "MakeOutSeconds": 2.5,
+    "ConcludeSeconds": 3.0,
+    "HoldSeconds": 20.0,
+    "CoolDownSeconds": 150.0
+  }
+}

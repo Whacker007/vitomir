@@ -1,0 +1,23 @@
+{
+  // Receipt (vii), part 2: a cut and then a separate TORSO contact of the same swing — what part 1
+  // (receipt-7-hand-then-forearm.json) could not give. cc-7's set-up with the guard standing (no guard raised: his arms at his sides)
+  // and his purchased Health 350 (the left upper arm's threshold 263, the trunk's 700): blow 1, the quick forehand at Strength
+  // 1000, meets his left upper arm square on: 22 wounds, 330 Health after soak, 280.6 of it cutting (cut share 0.85) — the upper
+  // arm CUT OFF (structural 25 % of 350) — and the blade GOES ON with the budget the cut did not need into his CHEST, a separate
+  // contact, its own staged harm from that share (chain 1: 6.3 % of the budget, 3 dice, 1 wound, 15 Health; the rules package: one non-refreshing budget, unique
+  // ordered contacts); he is left 5 Health. Blow 2 meets his left thigh: its severance UNAVAILABLE, the zero-Health stop.
+  // Seed 6 of a scan of 64 at Health 350 (21 seeds gave a cut and a chest contact so; at 380, 410, 440: 12, 7, 6). The
+  // bystander is part 1's (here not needed: his weapon hand is not cut), kept so the bout is the scan's.
+  "title": "Receipt (vii), part 2: an upper arm cut off and the blade going on into the chest (Strength 1000)",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "strength": 1000 } },
+      "place": [39, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1, attack@3, attack@5^10, attack@7^-5, attack@9^5, attack@11^20" }, "foe": "Guard" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 350 } },
+      "place": [40.6, 3], "facing": 180, "brain": { "kind": "dummy", "mode": "stand" }, "foe": "Christof" },
+    { "name": "Bystander", "template": "Civ12male", "sheet": "sandbox.human_reference", "place": [40, 12], "facing": 0,
+      "brain": { "kind": "dummy", "mode": "stand" }, "foe": "Christof" }
+  ],
+  "bouts": 1, "seed": 6, "seconds": 13, "tapes": 1
+}

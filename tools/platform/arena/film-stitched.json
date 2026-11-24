@@ -1,0 +1,16 @@
+{
+  // A scene for the stitched blows' films - Christof (the newly Embraced's
+  // sheet, the broadsword) taps one blow at 1.0 s and another at 2.2 s at a townsman standing 1.4 m before him. Played with
+  // --stitched-as-quick overhead (the overhead twice), thrust (the thrust twice), or as it is (1.1's two quick blows: the
+  // forehand, then the backhand). Film it with --film-at 0.9:3.3 --film-view side,first,third.
+  "title": "A film: Christof's blows at a standing townsman",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.newly_embraced",
+      "place": [38.6, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1,attack@2.2" } },
+    { "name": "Townsman", "template": "Civ12male", "sheet": "sandbox.townsperson_reference",
+      "place": [40, 3], "facing": 180, "brain": "dummy" }
+  ],
+  "bouts": 1,
+  "seed": 3000,
+  "seconds": 4
+}

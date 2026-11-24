@@ -1,0 +1,22 @@
+{
+  "title": "Paused",
+  "veil": "veil",
+  "back": "resume",
+  "root": {
+    "type": "anchor", "at": "centre",
+    "child": {
+      "type": "panel", "id": "plate", "framed": true, "width": 640, "padding": [72, 48, 72, 64],
+      "child": {
+        "type": "column", "gap": 22,
+        "children": [
+          { "type": "text", "id": "title", "text": "Paused", "style": "title", "align": "centre" },
+          { "type": "panel", "fill": "rule", "height": 2, "maxWidth": 260 },
+          { "type": "space", "height": 14 },
+          { "type": "button", "id": "resume", "text": "Resume", "action": "resume" },
+          { "type": "button", "id": "controls", "text": "Controls", "action": "controls" },
+          { "type": "button", "id": "quit", "text": "Quit", "action": "quit" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Readers for the NOD-engine file formats of Vampire: The Masquerade - Redemption.
+       One reader a format, each reading the whole file into plain records.
+       Strict by design: every reader consumes exactly the whole file or throws NodFormatException,
+       which is how each format hypothesis is validated against every shipped file. -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Formats</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- The documentation file is made so the doc comments the readers have are checked (a malformed one, CS1570 and
+         its kin, fails the build) and reach the editor; not every public member has one, so a missing comment (CS1591) or
+         a <param> missing beside the others (CS1573) is not an error here. -->
+    <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
+  </PropertyGroup>
+</Project>

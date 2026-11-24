@@ -1,0 +1,401 @@
+{
+  "format": "vitomir-scenario/1",
+  "title": "The A/B's fixed half: p000-r000's body contacts as fixed contacts",
+  "notes": "Made by tools/platform/scenarios/contact_ab.py make from e06's p000-r000 (seed 6000): each of Christof's body contacts at its own tick, region, closing speed, squareness, place on the blade, peak speed and blow; the actors standing.",
+  "kind": "contact",
+  "ground": "free-yard",
+  "time": "night",
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": {
+        "template": "sandbox.newly_embraced",
+        "values": {
+          "melee": 2
+        }
+      },
+      "foe": "Guard",
+      "gear": {
+        "weapon": "Rapier",
+        "armor": [],
+        "shield": false
+      },
+      "place": [
+        39.7,
+        3
+      ],
+      "facing": {
+        "toward": "Guard"
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": {
+        "template": "sandbox.guard_trained",
+        "values": {
+          "health_pool": 1000
+        }
+      },
+      "foe": "Christof",
+      "gear": {
+        "weapon": "Rapier",
+        "armor": [],
+        "shield": false
+      },
+      "place": [
+        41,
+        3
+      ],
+      "facing": {
+        "toward": "Christof"
+      }
+    }
+  ],
+  "contacts": [
+    {
+      "label": "p000-r000 contact 224000 (swing 1, chain 0)",
+      "atSeconds": 1.8666666666666667,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftUpperArm",
+      "alongBladeShare": 0.426829,
+      "closingSpeedMetresPerSecond": 20.858795,
+      "squarenessDegrees": 47.455893,
+      "swing": "right",
+      "peakSpeedMetresPerSecond": 39.536564
+    },
+    {
+      "label": "p000-r000 contact 389000 (swing 2, chain 0)",
+      "atSeconds": 3.2416666666666667,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "rightUpperArm",
+      "alongBladeShare": 0.87302,
+      "closingSpeedMetresPerSecond": 26.744492,
+      "squarenessDegrees": 66.573176,
+      "swing": "left",
+      "peakSpeedMetresPerSecond": 39.393337
+    },
+    {
+      "label": "p000-r000 contact 563000 (swing 3, chain 0)",
+      "atSeconds": 4.691666666666666,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "head",
+      "alongBladeShare": 0.644544,
+      "closingSpeedMetresPerSecond": 19.864502,
+      "squarenessDegrees": 63.769895,
+      "swing": "overhead",
+      "peakSpeedMetresPerSecond": 27.982592
+    },
+    {
+      "label": "p000-r000 contact 730000 (swing 4, chain 0)",
+      "atSeconds": 6.083333333333333,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftHand",
+      "alongBladeShare": 1,
+      "closingSpeedMetresPerSecond": 13.973652,
+      "squarenessDegrees": 26.894429,
+      "swing": "thrust",
+      "peakSpeedMetresPerSecond": 16.576494
+    },
+    {
+      "label": "p000-r000 contact 880000 (swing 5, chain 0)",
+      "atSeconds": 7.333333333333333,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftUpperArm",
+      "alongBladeShare": 0.423165,
+      "closingSpeedMetresPerSecond": 20.785177,
+      "squarenessDegrees": 47.616244,
+      "swing": "right",
+      "peakSpeedMetresPerSecond": 39.536564
+    },
+    {
+      "label": "p000-r000 contact 1044000 (swing 6, chain 0)",
+      "atSeconds": 8.7,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "chest",
+      "alongBladeShare": 0.725598,
+      "closingSpeedMetresPerSecond": 21.790976,
+      "squarenessDegrees": 56.83692,
+      "swing": "left",
+      "peakSpeedMetresPerSecond": 39.393337
+    },
+    {
+      "label": "p000-r000 contact 1219000 (swing 7, chain 0)",
+      "atSeconds": 10.158333333333333,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "head",
+      "alongBladeShare": 0.651944,
+      "closingSpeedMetresPerSecond": 19.993214,
+      "squarenessDegrees": 46.470374,
+      "swing": "overhead",
+      "peakSpeedMetresPerSecond": 27.982592
+    },
+    {
+      "label": "p000-r000 contact 1386000 (swing 8, chain 0)",
+      "atSeconds": 11.55,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftForearm",
+      "alongBladeShare": 1,
+      "closingSpeedMetresPerSecond": 13.967846,
+      "squarenessDegrees": 82.582883,
+      "swing": "thrust",
+      "peakSpeedMetresPerSecond": 16.576494
+    },
+    {
+      "label": "p000-r000 contact 1535000 (swing 9, chain 0)",
+      "atSeconds": 12.791666666666666,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftUpperArm",
+      "alongBladeShare": 0.395975,
+      "closingSpeedMetresPerSecond": 23.352188,
+      "squarenessDegrees": 47.992815,
+      "swing": "right",
+      "peakSpeedMetresPerSecond": 39.536564
+    },
+    {
+      "label": "p000-r000 contact 1700000 (swing 10, chain 0)",
+      "atSeconds": 14.166666666666666,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "rightUpperArm",
+      "alongBladeShare": 0.969557,
+      "closingSpeedMetresPerSecond": 25.873549,
+      "squarenessDegrees": 63.687505,
+      "swing": "left",
+      "peakSpeedMetresPerSecond": 39.393337
+    },
+    {
+      "label": "p000-r000 contact 1875000 (swing 11, chain 0)",
+      "atSeconds": 15.625,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "head",
+      "alongBladeShare": 0.657755,
+      "closingSpeedMetresPerSecond": 20.12456,
+      "squarenessDegrees": 44.265658,
+      "swing": "overhead",
+      "peakSpeedMetresPerSecond": 27.982592
+    },
+    {
+      "label": "p000-r000 contact 2042000 (swing 12, chain 0)",
+      "atSeconds": 17.016666666666666,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftForearm",
+      "alongBladeShare": 1,
+      "closingSpeedMetresPerSecond": 13.970346,
+      "squarenessDegrees": 84.221418,
+      "swing": "thrust",
+      "peakSpeedMetresPerSecond": 16.576494
+    },
+    {
+      "label": "p000-r000 contact 2191000 (swing 13, chain 0)",
+      "atSeconds": 18.258333333333333,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftUpperArm",
+      "alongBladeShare": 0.395975,
+      "closingSpeedMetresPerSecond": 23.352188,
+      "squarenessDegrees": 47.992815,
+      "swing": "right",
+      "peakSpeedMetresPerSecond": 39.536564
+    },
+    {
+      "label": "p000-r000 contact 2356000 (swing 14, chain 0)",
+      "atSeconds": 19.633333333333333,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "chest",
+      "alongBladeShare": 0.730318,
+      "closingSpeedMetresPerSecond": 21.868652,
+      "squarenessDegrees": 58.128721,
+      "swing": "left",
+      "peakSpeedMetresPerSecond": 39.393337
+    },
+    {
+      "label": "p000-r000 contact 2531000 (swing 15, chain 0)",
+      "atSeconds": 21.091666666666665,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "head",
+      "alongBladeShare": 0.652588,
+      "closingSpeedMetresPerSecond": 20.01639,
+      "squarenessDegrees": 46.122792,
+      "swing": "overhead",
+      "peakSpeedMetresPerSecond": 27.982592
+    },
+    {
+      "label": "p000-r000 contact 2698000 (swing 16, chain 0)",
+      "atSeconds": 22.483333333333334,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftForearm",
+      "alongBladeShare": 1,
+      "closingSpeedMetresPerSecond": 13.969075,
+      "squarenessDegrees": 83.137597,
+      "swing": "thrust",
+      "peakSpeedMetresPerSecond": 16.576494
+    },
+    {
+      "label": "p000-r000 contact 2847000 (swing 17, chain 0)",
+      "atSeconds": 23.725,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftUpperArm",
+      "alongBladeShare": 0.395975,
+      "closingSpeedMetresPerSecond": 23.352194,
+      "squarenessDegrees": 47.992806,
+      "swing": "right",
+      "peakSpeedMetresPerSecond": 39.536564
+    },
+    {
+      "label": "p000-r000 contact 3012000 (swing 18, chain 0)",
+      "atSeconds": 25.1,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "chest",
+      "alongBladeShare": 0.727786,
+      "closingSpeedMetresPerSecond": 21.824978,
+      "squarenessDegrees": 58.130435,
+      "swing": "left",
+      "peakSpeedMetresPerSecond": 39.393337
+    },
+    {
+      "label": "p000-r000 contact 3187000 (swing 19, chain 0)",
+      "atSeconds": 26.558333333333334,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "head",
+      "alongBladeShare": 0.646324,
+      "closingSpeedMetresPerSecond": 19.881212,
+      "squarenessDegrees": 48.294152,
+      "swing": "overhead",
+      "peakSpeedMetresPerSecond": 27.982592
+    },
+    {
+      "label": "p000-r000 contact 3354000 (swing 20, chain 0)",
+      "atSeconds": 27.95,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftForearm",
+      "alongBladeShare": 1,
+      "closingSpeedMetresPerSecond": 13.969016,
+      "squarenessDegrees": 84.1158,
+      "swing": "thrust",
+      "peakSpeedMetresPerSecond": 16.576494
+    },
+    {
+      "label": "p000-r000 contact 3504000 (swing 21, chain 0)",
+      "atSeconds": 29.2,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftUpperArm",
+      "alongBladeShare": 0.425258,
+      "closingSpeedMetresPerSecond": 20.827415,
+      "squarenessDegrees": 47.513569,
+      "swing": "right",
+      "peakSpeedMetresPerSecond": 39.536564
+    },
+    {
+      "label": "p000-r000 contact 3669000 (swing 22, chain 0)",
+      "atSeconds": 30.575,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "rightUpperArm",
+      "alongBladeShare": 0.872303,
+      "closingSpeedMetresPerSecond": 26.741093,
+      "squarenessDegrees": 66.555295,
+      "swing": "left",
+      "peakSpeedMetresPerSecond": 39.393337
+    },
+    {
+      "label": "p000-r000 contact 3843000 (swing 23, chain 0)",
+      "atSeconds": 32.025,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "head",
+      "alongBladeShare": 0.645718,
+      "closingSpeedMetresPerSecond": 19.880512,
+      "squarenessDegrees": 63.800171,
+      "swing": "overhead",
+      "peakSpeedMetresPerSecond": 27.982592
+    },
+    {
+      "label": "p000-r000 contact 4010000 (swing 24, chain 0)",
+      "atSeconds": 33.416666666666664,
+      "attacker": "Christof",
+      "defender": "Guard",
+      "region": "leftHand",
+      "alongBladeShare": 1,
+      "closingSpeedMetresPerSecond": 13.975058,
+      "squarenessDegrees": 28.990039,
+      "swing": "thrust",
+      "peakSpeedMetresPerSecond": 16.576494
+    }
+  ],
+  "stop": {
+    "afterSeconds": 34.417,
+    "onHarnessStops": "first"
+  },
+  "runs": 1,
+  "seed": 6000,
+  "measures": [
+    {
+      "name": "bodyContacts",
+      "count": {
+        "event": "ContactMade",
+        "by": "Christof",
+        "where": {
+          "met": "body"
+        }
+      }
+    },
+    {
+      "name": "woundsPerContact",
+      "rate": {
+        "of": {
+          "event": "HarmResolved",
+          "by": "Christof",
+          "sum": "wounds"
+        },
+        "per": {
+          "event": "ContactMade",
+          "by": "Christof",
+          "where": {
+            "met": "body"
+          }
+        }
+      }
+    },
+    {
+      "name": "meanQuality",
+      "rate": {
+        "of": {
+          "event": "HarmResolved",
+          "by": "Christof",
+          "sum": "quality"
+        },
+        "per": {
+          "event": "HarmResolved",
+          "by": "Christof"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "tracePolicy": "ALL",
+    "csv": true,
+    "summaryPage": false,
+    "wideBouts": false
+  }
+}

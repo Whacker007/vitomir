@@ -1,0 +1,1 @@
+a placeholder for the sword attack motion (ours, a test file)

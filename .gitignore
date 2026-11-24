@@ -1,0 +1,74 @@
+# --- Never commit game content (OpenMW posture) ---------------------------------------------
+*.nob
+*.nil
+*.nsd
+*.nod
+*.nad
+*.not
+*.nms
+*.nag
+*.nam
+*.npd
+*.ncd
+*.ndd
+*.ndg
+*.nco
+*.nvo
+*.nls
+*.nqd
+*.ntt
+*.nsc
+*.nmf
+*.nss
+*.nst
+*.nsl
+*.ncp
+*.nai
+*.nex
+*.npc
+*.nbs
+*.ned
+*.nui
+*.tga
+*.bik
+*.mp3
+*.wav
+*.nlp
+*.map
+*.sav
+*.npf
+*.class
+*.jar
+*.ntx
+*.nfd
+*.nsg
+*.nsw
+Codex/
+NodSDK/
+out/
+
+# --- what a run leaves behind -----------------------------------------------------------------
+# `--headless shot.png` writes its still wherever the run started, which is usually the repo root,
+# and a 1280x720 frame is two megabytes. Only the root is covered, so docs keep their images.
+# Play-session journals (`--journal`). They are evidence about one run, not source.
+journal/
+/*.png
+/*.log
+
+# --- .NET ------------------------------------------------------------------------------------
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.swp
+TestResults/
+
+# --- Python ----------------------------------------------------------------------------------
+__pycache__/
+*.pyc
+.venv/
+
+# --- OS ---------------------------------------------------------------------------------------
+Thumbs.db
+.DS_Store

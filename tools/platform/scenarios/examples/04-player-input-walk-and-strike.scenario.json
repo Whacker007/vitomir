@@ -1,0 +1,60 @@
+{
+  // Worked example 4: an actor driven through the player's OWN controls (PLAYER_INPUT_REPLAY), as a tape replays a
+  // player: the move keys, the look turned, attack held and released, a dodge pressed — the camera, the crosshair and the automatic
+  // blow directions work as in play. The standing guard does nothing (the arena's dummy), so every contact is Christof's.
+  // Needs the runner to step with the program's input frames (ScenarioFrame; run loop).
+  "format": "vitomir-scenario/1",
+  "title": "The player's controls: walk in, turn, a held blow, a dodge back",
+  "notes": "Checks that input-driven play reaches the rules: a blow begun by the attack button, contacts on the guard, a dodge begun by its key.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": "sandbox.newly_embraced",
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": [36, 3],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard",
+      "control": {
+        "playerInput": [
+          { "atSeconds": 0, "attackMode": "automatic", "label": "automatic directions" },
+          { "atSeconds": 0.5, "forSeconds": 1.6, "moveForward": 1, "label": "walk in" },        // a walk of about 2.4 m
+          { "atSeconds": 2.3, "forSeconds": 0.4, "turnLeftDegrees": 10 },                      // the look a little to the left
+          { "atSeconds": 2.8, "forSeconds": 0.4, "hold": ["attack"], "label": "held blow" },   // attack held 0.4 s, then released
+          { "atSeconds": 4.5, "forSeconds": 0.2, "moveForward": -1 },
+          { "atSeconds": 4.5, "press": ["dodge"], "label": "dodge back" }                      // a dodge in the way he moves: back
+        ]
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 4, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "control": { "ai": "stand" }
+    }
+  ],
+
+  "stop": { "afterSeconds": 7, "onHarnessStops": "first" },
+  "runs": 4, "seed": 7000,
+
+  "measures": [
+    { "name": "blowsBegun", "count": { "event": "AttackBegun", "by": "Christof" } },
+    { "name": "bodyContacts", "count": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "met": "body" } } },
+    { "name": "dodges", "count": { "event": "DodgeBegun", "by": "Christof" } },
+    { "name": "closedTo", "value": "Christof.distanceTo.Guard", "atEvent": { "event": "AttackBegun", "by": "Christof" } }
+  ],
+
+  "assertions": [
+    { "name": "the attack button began a blow", "measure": "blowsBegun", "atLeast": 1, "scope": "eachRun" },
+    { "name": "the dodge key began a dodge", "measure": "dodges", "equals": 1, "scope": "eachRun" },
+    { "name": "no harm without a contact", "check": "noHarmWithoutContact", "isTrue": true, "scope": "eachRun" }
+  ],
+
+  "outputs": { "tracePolicy": "ALL", "ticks": { "everyTicks": 12, "runs": "first" } }
+}

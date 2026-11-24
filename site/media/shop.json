@@ -1,0 +1,74 @@
+{
+ "source": "shop-original",
+ "size": [
+  1280,
+  720
+ ],
+ "corner": "bottom-right",
+ "keep": [
+  [
+   107.0,
+   132.8
+  ],
+  [
+   133.4,
+   147.6
+  ],
+  [
+   153.5,
+   159.6
+  ]
+ ],
+ "poster": 5.0,
+ "segments": [
+  {
+   "from": 107.0,
+   "to": 123.5,
+   "tag": "new",
+   "title": "Quick buy",
+   "line": "Right-click buys a shelf item at once.",
+   "mouse": true,
+   "ring": true,
+   "only": [
+    "Cast"
+   ],
+   "hold": 0.8
+  },
+  {
+   "from": 123.5,
+   "to": 132.8,
+   "tag": "new",
+   "title": "Quick sell",
+   "line": "Right-click sells one of yours at once.",
+   "mouse": true,
+   "ring": true,
+   "only": [
+    "Cast"
+   ]
+  },
+  {
+   "from": 133.4,
+   "to": 147.6,
+   "tag": "original",
+   "title": "Buying, the original way",
+   "line": "Pick an item, then the buy button.",
+   "mouse": true,
+   "ring": true,
+   "only": [
+    "Act"
+   ],
+   "hold": 0.6
+  },
+  {
+   "from": 153.5,
+   "to": 159.6,
+   "tag": "new",
+   "title": "Equip in the shop",
+   "line": "Shift + right-click puts it on.",
+   "mouse": true,
+   "ring": true,
+   "keys": "shift",
+   "hold": 0.8
+  }
+ ]
+}

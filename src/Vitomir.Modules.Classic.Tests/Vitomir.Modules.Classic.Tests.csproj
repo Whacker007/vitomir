@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The Classic module's own tests: its pieces in-process, against the module's project (so the engine and the
+       scripting are the test's own references), and laid out as Modules\Classic\ beside the tests, as beside the program.
+       The proof under the loader, with the module's libraries found only in its bin\, is the program's
+       (Vitomir.Platform.Host.Tests' ClassicHeadlessTests). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Vitomir.Modules.Classic.Tests</RootNamespace>
+    <!-- IKVM0100: the converted ecj's nine Ant and JDT Core classes, as in the module's own project
+         (Vitomir.Scripting.csproj says why they are noise). -->
+    <NoWarn>$(NoWarn);IKVM0100</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Modules.Classic\Vitomir.Modules.Classic.csproj" LayOutAsModule="true" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+</Project>

@@ -1,0 +1,11 @@
+{
+  // A guard on a schedule (--npc-actions's grammar, without the who) against the duelling brain: the same blows at the
+  // same times every bout, so only the brain's draws (and the seed) differ.
+  "title": "The duelling brain against a scripted guard",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "sheet": "sandbox.christof", "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "sheet": "sandbox.guard", "place": [41.3, 3], "facing": 180,
+      "brain": { "kind": "script", "actions": "attack@1, strong@3, block@5+1.5, attack@7^15, attack@8.5^-20" } }
+  ],
+  "bouts": 10, "seed": 500, "seconds": 12, "tapes": 1
+}

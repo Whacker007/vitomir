@@ -1,0 +1,41 @@
+{
+  // Worked example 17: routing round a wall. Christof's script walks to [44, 3], behind the free yard's 4.5 m wall
+  // (x 32 to 34, y 0 to 6): its straight line meets the wall, so the moveTo runs the navigation mesh's route round its end
+  // (MoveToRouted names the corners); then his duelling brain takes over. A trained guard waits behind the wall at [38, 3] and closes on him
+  // with his duelling brain — which now runs the mesh's route round the wall when its straight line to Christof meets the level.
+  // Point 1 is the earlier build's brain on the same seeds (the switch brain-straight): the guard runs straight at Christof and stands pressed
+  // against the wall. Christof's objective: reach [44, 3] within 1.5 m by 20 s; the guard's: defeat Christof by 30 s.
+  "format": "vitomir-scenario/1",
+  "title": "Reach past a wall while a guard closes on him by route",
+  "notes": "The guard's routing is only taken when the straight line to his foe meets the level: an open arena is the earlier build's cell for cell.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    { "name": "Christof", "template": "Christof", "sheet": { "template": "sandbox.human_reference", "values": { "melee": 2 } },
+      "gear": { "weapon": "BroadSword" }, "place": [26, 3], "facing": 0, "foe": "Guard",
+      "control": { "ai": { "kind": "duel" },
+                   "script": [ { "moveTo": [44, 3], "gait": "run", "withinMetres": 0.5, "forSeconds": 20, "label": "past the wall" } ],
+                   "then": "ai" } },
+    { "name": "Guard", "preset": "guard", "place": [38, 3], "facing": 180, "foe": "Christof", "control": { "ai": { "kind": "duel" } } }
+  ],
+
+  "objectives": [
+    { "name": "reach the far side", "actor": "Christof", "reach": { "point": [44, 3], "radiusMetres": 1.5 }, "bySeconds": 20 },
+    { "name": "stop him", "actor": "Guard", "defeat": "Christof", "bySeconds": 30 }
+  ],
+  "sweep": [ { "set": "overrides.switches.brain-straight", "values": [false, true] } ],
+  "stop": { "afterSeconds": 30, "onObjectives": "all" },
+  "runs": 10, "seed": 13000,
+
+  "measures": [
+    { "name": "christofRouted", "count": { "event": "MoveToRouted", "by": "Christof" } },
+    { "name": "guardFirstBlowSeconds", "timeOf": { "event": "AttackBegun", "by": "Guard" } }
+  ],
+  "assertions": [
+    { "name": "Christof's moveTo takes a route round the wall", "measure": "christofRouted", "atLeast": 1, "scope": "eachRun" },
+    { "name": "the routing guard strikes within 15 s", "measure": "guardFirstBlowSeconds", "atMost": 15, "scope": "eachRun",
+      "points": { "overrides.switches.brain-straight": false } }
+  ],
+  "outputs": { "tracePolicy": "SAMPLED", "traceRuns": 1, "ticks": { "everyTicks": 30, "runs": "first" } }
+}

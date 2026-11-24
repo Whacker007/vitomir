@@ -1,0 +1,27 @@
+{
+  // An arena spec: the Blood commands on the matched pair with
+  // no shields (matched-blade-no-shield.json's fighters and seeds). The combat rules' newly Embraced with Blood Strength, Blood Dexterity,
+  // Blood Stamina and Blood Healing at rank 1, each with its option (the rules package names), against the combat rules' trained guard, both
+  // with the same Rapier and no shield. His quick slots 1 to 4 hold them in rules/powers' order; his duelling brain presses
+  // the three rises when engaged (within 1.5 x its reach) and renews them under 1 s left (1.1's cast: 5 Blood for 15 s at
+  // rank 1), and Blood Healing (5 Blood, 20 Health at rank 1) when his Health is below healBelow (0.3, the default: 1.1's AI's lowhealth) of its
+  // maximum; his Blood is the module's (full, 100). Paired seeds: bout b has seed 3000 + b here and in its twin without the
+  // commands, common-commands-without.json, so the difference is the commands. Health is the earlier build's (1-1000 scale,
+  // 100 by default).
+  "title": "The Blood commands at 1 (newly Embraced) against a trained guard, matched, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "powers": {
+        "blood_strength": { "rank": 1, "options": ["common.blood_strength"] },
+        "blood_dexterity": { "rank": 1, "options": ["common.blood_dexterity"] },
+        "blood_stamina": { "rank": 1, "options": ["common.blood_stamina"] },
+        "blood_healing": { "rank": 1, "options": ["common.blood_healing"] } } },
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

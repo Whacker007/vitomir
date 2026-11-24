@@ -1,0 +1,29 @@
+{
+ "source": "click-to-move",
+ "size": [
+  1280,
+  720
+ ],
+ "keep": [
+  [
+   1.0,
+   15.2
+  ]
+ ],
+ "poster": 3.0,
+ "segments": [
+  {
+   "from": 1.0,
+   "to": 15.2,
+   "tag": "original",
+   "title": "Click to move",
+   "line": "Click the floor and the character walks there.",
+   "mouse": true,
+   "ring": true,
+   "only": [
+    "Act"
+   ],
+   "hold": 1.0
+  }
+ ]
+}

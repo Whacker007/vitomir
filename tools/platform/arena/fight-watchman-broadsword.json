@@ -1,0 +1,19 @@
+{
+  // An arena spec for the tuning goal - guards hard one on one,
+  // most people not - under the pace and the blade guard by training. The combat rules' newly Embraced (sandbox.newly_embraced,
+  // 1.1's Rapier, no shield) against a watchman (sandbox.watchman: Melee 3, Dexterity 45; drawn as rudolfGuard, the town's guard,
+  // with 1.1's BroadSword and no shield), both with the default duelling brain, in the proving ground's free yard; the newly
+  // Embraced's Melee 0, 3, 5. Paces by kind: the newly Embraced a vampire (fierce), the watchman trained (guards).
+  "title": "The watchman: newly Embraced (Melee 0-5) against a watchman with a broadsword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Watchman", "template": "rudolfGuard", "weapon": "BroadSword", "shield": false, "sheet": "sandbox.watchman",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "melee", "values": [0, 3, 5] }
+}

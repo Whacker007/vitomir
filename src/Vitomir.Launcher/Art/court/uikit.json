@@ -1,0 +1,1525 @@
+{
+ "treatment": "court-of-night (registers)",
+ "scale": 2,
+ "format": "PNG, 8-bit RGBA, straight alpha, no metadata",
+ "slice_px": "insets in the PNG's own pixels (2x); halve for laid-out units",
+ "layout": {
+  "order": [
+   "panel",
+   "title band: velvet tile + velvet_shade",
+   "frieze",
+   "body on field",
+   "frieze",
+   "action band (colour band_dark)",
+   "corner_plate x4 (the quatrefoil knot), last"
+  ],
+  "title_band_height": 60,
+  "frieze_height": 17,
+  "body_padding": [
+   20,
+   40
+  ],
+  "action_band_padding": [
+   16,
+   40
+  ]
+ },
+ "colours": {
+  "field": [
+   9,
+   8,
+   10
+  ],
+  "band_dark": [
+   5,
+   4,
+   5
+  ],
+  "text": [
+   230,
+   220,
+   203
+  ],
+  "text_gold": [
+   214,
+   178,
+   90
+  ],
+  "text_muted": [
+   156,
+   147,
+   132
+  ],
+  "rule": [
+   110,
+   85,
+   36
+  ],
+  "oxblood": [
+   138,
+   26,
+   36
+  ],
+  "text_warn": [
+   214,
+   92,
+   96
+  ],
+  "text_caution": [
+   248,
+   160,
+   40
+  ],
+  "band": [
+   16,
+   13,
+   14
+  ],
+  "bandAlt": [
+   11,
+   9,
+   10
+  ],
+  "scrim": [
+   0,
+   0,
+   0,
+   176
+  ],
+  "mark_selected": [
+   196,
+   163,
+   86
+  ]
+ },
+ "text_styles": {
+  "_note": "For launcher.json's text styles: face, weight and colour; keep your sizes. 'heading' can instead be the page-name pictures in exports/launcher/page-names/.",
+  "title": {
+   "use": "the wordmark picture (exports/launcher/vitomir_wordmark.png)"
+  },
+  "heading": {
+   "face": "Vitomir Display",
+   "colour": "text_gold"
+  },
+  "group": {
+   "face": "Vitomir Wedge",
+   "weight": "SemiBold",
+   "colour": "text_gold"
+  },
+  "label": {
+   "face": "Vitomir Wedge",
+   "weight": "SemiBold",
+   "colour": "text"
+  },
+  "body": {
+   "face": "Vitomir Text",
+   "weight": "Regular",
+   "colour": "text"
+  },
+  "value": {
+   "face": "Vitomir Text",
+   "weight": "Regular",
+   "colour": "text",
+   "_why": "paths and ids must be plainly readable"
+  },
+  "note": {
+   "face": "Vitomir Text",
+   "weight": "Regular",
+   "colour": "text_muted"
+  },
+  "warn": {
+   "face": "Vitomir Text",
+   "weight": "SemiBold",
+   "colour": "text_warn"
+  },
+  "caution": {
+   "face": "Vitomir Text",
+   "weight": "SemiBold",
+   "colour": "text_caution"
+  },
+  "tab": {
+   "face": "Vitomir Wedge",
+   "weight": "SemiBold",
+   "colour": "nav_selected/nav_hover text_rgb, else text_gold"
+  },
+  "button": {
+   "face": "Vitomir Wedge",
+   "weight": "SemiBold",
+   "colour": "the button state's text_rgb"
+  },
+  "buttonSmall": {
+   "face": "Vitomir Wedge",
+   "weight": "SemiBold",
+   "colour": "the button state's text_rgb",
+   "_frame": "button_quiet_* (the nine-slice takes the smaller height)"
+  }
+ },
+ "mapping": {
+  "panel framed": "panel + corner_plate x4; the page's heading in a velvet title band, the rule under it as frieze",
+  "notice": "colours.scrim over the screen, then the same framed panel",
+  "button": "button_*",
+  "buttonSmall": "button_quiet_*",
+  "tab (nav)": "nav_selected / nav_hover / nav_focused",
+  "nav mark (8 wide)": "colours.mark_selected when chosen, nothing otherwise (nav_selected already carries a bar)",
+  "textbox": "field_*",
+  "scroll": "scroll_track + scroll_thumb_*",
+  "meter": "meter_track + meter_fill",
+  "toggle": "toggle_on / toggle_off / toggle_off_hover / toggle_*_disabled",
+  "checkbox": "checkbox_{off,on}[_hover|_pressed|_disabled|_focused]",
+  "radio": "radio_{off,on}[_hover|_pressed|_disabled|_focused]",
+  "switch": "switch_{off,on}[_hover|_disabled|_focused]",
+  "list row (keyboard)": "row_focused",
+  "list stripes band/bandAlt": "colours.band / colours.bandAlt",
+  "list rowEdge (chosen)": "row_chosen",
+  "rule": "frieze (under headings) or colours.rule (thin rules)"
+ },
+ "assets": {
+  "panel": {
+   "file": "panel.png",
+   "size_px": [
+    192,
+    192
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 24,
+    "top": 24,
+    "right": 24,
+    "bottom": 24
+   },
+   "kind": "nine-slice",
+   "content_inset_px": [
+    14,
+    14,
+    14,
+    14
+   ],
+   "note": "Frame and field. Draw bands, friezes and content inside content_inset, then corner_plate on all four corners last."
+  },
+  "corner_plate": {
+   "file": "corner_plate.png",
+   "size_px": [
+    72,
+    72
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "note": "Free-standing quatrefoil knot, its diamond filled dark so lines beneath end at its edge. Place the image's top-left on each corner of a panel (no mirroring needed); draw after everything else."
+  },
+  "frieze": {
+   "file": "frieze.png",
+   "size_px": [
+    240,
+    34
+   ],
+   "scale": 2,
+   "kind": "tile-x",
+   "note": "The rolled-seal band between registers; repeat across."
+  },
+  "velvet": {
+   "file": "velvet.png",
+   "size_px": [
+    256,
+    256
+   ],
+   "scale": 2,
+   "kind": "tile",
+   "note": "Velvet ground; tile it, then stretch velvet_shade over the same rectangle."
+  },
+  "velvet_shade": {
+   "file": "velvet_shade.png",
+   "size_px": [
+    8,
+    128
+   ],
+   "scale": 2,
+   "kind": "stretch",
+   "note": "Light from above on velvet; stretch to the band."
+  },
+  "button_normal": {
+   "file": "button_normal.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_hover": {
+   "file": "button_hover.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_pressed": {
+   "file": "button_pressed.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_disabled": {
+   "file": "button_disabled.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    138,
+    130,
+    120
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_focused": {
+   "file": "button_focused.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_quiet_normal": {
+   "file": "button_quiet_normal.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    214,
+    178,
+    90
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_quiet_hover": {
+   "file": "button_quiet_hover.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    240,
+    212,
+    138
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_quiet_pressed": {
+   "file": "button_quiet_pressed.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    214,
+    178,
+    90
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_quiet_disabled": {
+   "file": "button_quiet_disabled.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "button_quiet_focused": {
+   "file": "button_quiet_focused.png",
+   "size_px": [
+    100,
+    112
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 26,
+    "top": 26,
+    "right": 26,
+    "bottom": 26
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    214,
+    178,
+    90
+   ],
+   "content_inset_px": [
+    54,
+    10,
+    54,
+    10
+   ]
+  },
+  "tab_selected": {
+   "file": "tab_selected.png",
+   "size_px": [
+    48,
+    68
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 8,
+    "top": 8,
+    "right": 8,
+    "bottom": 8
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "text_rgb_unselected": [
+    156,
+    147,
+    132
+   ]
+  },
+  "tab_rule": {
+   "file": "tab_rule.png",
+   "size_px": [
+    32,
+    4
+   ],
+   "scale": 2,
+   "kind": "tile-x",
+   "note": "Under the tab row."
+  },
+  "nav_selected": {
+   "file": "nav_selected.png",
+   "size_px": [
+    48,
+    88
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 8,
+    "right": 8,
+    "bottom": 8
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    243,
+    230,
+    207
+   ],
+   "text_rgb_unselected": [
+    214,
+    178,
+    90
+   ]
+  },
+  "list_row_selected": {
+   "file": "list_row_selected.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "stretch"
+  },
+  "list_row_hover": {
+   "file": "list_row_hover.png",
+   "size_px": [
+    16,
+    64
+   ],
+   "scale": 2,
+   "kind": "stretch"
+  },
+  "list_frame": {
+   "file": "list_frame.png",
+   "size_px": [
+    48,
+    48
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 8,
+    "top": 8,
+    "right": 8,
+    "bottom": 8
+   },
+   "kind": "nine-slice"
+  },
+  "sep_chevron": {
+   "file": "sep_chevron.png",
+   "size_px": [
+    204,
+    24
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 80,
+    "top": 0,
+    "right": 80,
+    "bottom": 0
+   },
+   "kind": "three-slice-x",
+   "note": "Stretch the two arms; the centre stays."
+  },
+  "checkbox_off": {
+   "file": "checkbox_off.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_off_hover": {
+   "file": "checkbox_off_hover.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_off_pressed": {
+   "file": "checkbox_off_pressed.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_off_disabled": {
+   "file": "checkbox_off_disabled.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_off_focused": {
+   "file": "checkbox_off_focused.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_on": {
+   "file": "checkbox_on.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_on_hover": {
+   "file": "checkbox_on_hover.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_on_pressed": {
+   "file": "checkbox_on_pressed.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_on_disabled": {
+   "file": "checkbox_on_disabled.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "checkbox_on_focused": {
+   "file": "checkbox_on_focused.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "slider_track": {
+   "file": "slider_track.png",
+   "size_px": [
+    48,
+    12
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 8,
+    "top": 0,
+    "right": 8,
+    "bottom": 0
+   },
+   "kind": "three-slice-x"
+  },
+  "slider_fill": {
+   "file": "slider_fill.png",
+   "size_px": [
+    48,
+    12
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 8,
+    "top": 0,
+    "right": 8,
+    "bottom": 0
+   },
+   "kind": "three-slice-x"
+  },
+  "slider_thumb_normal": {
+   "file": "slider_thumb_normal.png",
+   "size_px": [
+    28,
+    44
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "anchor_px": [
+    14,
+    22
+   ],
+   "note": "Anchor on the track at the value."
+  },
+  "slider_thumb_hover": {
+   "file": "slider_thumb_hover.png",
+   "size_px": [
+    28,
+    44
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "anchor_px": [
+    14,
+    22
+   ],
+   "note": "Anchor on the track at the value."
+  },
+  "slider_thumb_disabled": {
+   "file": "slider_thumb_disabled.png",
+   "size_px": [
+    28,
+    44
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "anchor_px": [
+    14,
+    22
+   ],
+   "note": "Anchor on the track at the value."
+  },
+  "field_normal": {
+   "file": "field_normal.png",
+   "size_px": [
+    48,
+    80
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "placeholder_rgb": [
+    156,
+    147,
+    132
+   ],
+   "content_inset_px": [
+    24,
+    0,
+    24,
+    0
+   ]
+  },
+  "field_hover": {
+   "file": "field_hover.png",
+   "size_px": [
+    48,
+    80
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "placeholder_rgb": [
+    156,
+    147,
+    132
+   ],
+   "content_inset_px": [
+    24,
+    0,
+    24,
+    0
+   ]
+  },
+  "field_focused": {
+   "file": "field_focused.png",
+   "size_px": [
+    48,
+    80
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "placeholder_rgb": [
+    156,
+    147,
+    132
+   ],
+   "content_inset_px": [
+    24,
+    0,
+    24,
+    0
+   ]
+  },
+  "field_disabled": {
+   "file": "field_disabled.png",
+   "size_px": [
+    48,
+    80
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "placeholder_rgb": [
+    156,
+    147,
+    132
+   ],
+   "content_inset_px": [
+    24,
+    0,
+    24,
+    0
+   ]
+  },
+  "field_error": {
+   "file": "field_error.png",
+   "size_px": [
+    48,
+    80
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "placeholder_rgb": [
+    156,
+    147,
+    132
+   ],
+   "content_inset_px": [
+    24,
+    0,
+    24,
+    0
+   ]
+  },
+  "scroll_track": {
+   "file": "scroll_track.png",
+   "size_px": [
+    24,
+    96
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 0,
+    "top": 12,
+    "right": 0,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "note": "Vertical; stretch the middle."
+  },
+  "scroll_thumb_normal": {
+   "file": "scroll_thumb_normal.png",
+   "size_px": [
+    24,
+    96
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 0,
+    "top": 18,
+    "right": 0,
+    "bottom": 18
+   },
+   "kind": "nine-slice",
+   "note": "A pointed bar; stretch the middle to the thumb's length."
+  },
+  "scroll_thumb_hover": {
+   "file": "scroll_thumb_hover.png",
+   "size_px": [
+    24,
+    96
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 0,
+    "top": 18,
+    "right": 0,
+    "bottom": 18
+   },
+   "kind": "nine-slice",
+   "note": "A pointed bar; stretch the middle to the thumb's length."
+  },
+  "scroll_thumb_pressed": {
+   "file": "scroll_thumb_pressed.png",
+   "size_px": [
+    24,
+    96
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 0,
+    "top": 18,
+    "right": 0,
+    "bottom": 18
+   },
+   "kind": "nine-slice",
+   "note": "A pointed bar; stretch the middle to the thumb's length."
+  },
+  "meter_track": {
+   "file": "meter_track.png",
+   "size_px": [
+    48,
+    32
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 6,
+    "top": 6,
+    "right": 6,
+    "bottom": 6
+   },
+   "kind": "nine-slice",
+   "note": "The meter's trough; the fill goes inside it, inset 2."
+  },
+  "meter_fill": {
+   "file": "meter_fill.png",
+   "size_px": [
+    48,
+    24
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 4,
+    "top": 4,
+    "right": 4,
+    "bottom": 4
+   },
+   "kind": "nine-slice",
+   "note": "Stretch across the done part, inside the track."
+  },
+  "toggle_on": {
+   "file": "toggle_on.png",
+   "size_px": [
+    48,
+    72
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 10,
+    "top": 10,
+    "right": 10,
+    "bottom": 10
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "One segment of a two-way toggle (Leave / Import); draw the options side by side, 2 apart."
+  },
+  "toggle_off": {
+   "file": "toggle_off.png",
+   "size_px": [
+    48,
+    72
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 10,
+    "top": 10,
+    "right": 10,
+    "bottom": 10
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    214,
+    178,
+    90
+   ],
+   "note": "One segment of a two-way toggle (Leave / Import); draw the options side by side, 2 apart."
+  },
+  "toggle_off_hover": {
+   "file": "toggle_off_hover.png",
+   "size_px": [
+    48,
+    72
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 10,
+    "top": 10,
+    "right": 10,
+    "bottom": 10
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    214,
+    178,
+    90
+   ],
+   "note": "One segment of a two-way toggle (Leave / Import); draw the options side by side, 2 apart."
+  },
+  "toggle_on_disabled": {
+   "file": "toggle_on_disabled.png",
+   "size_px": [
+    48,
+    72
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 10,
+    "top": 10,
+    "right": 10,
+    "bottom": 10
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "One segment of a two-way toggle (Leave / Import); draw the options side by side, 2 apart."
+  },
+  "toggle_off_disabled": {
+   "file": "toggle_off_disabled.png",
+   "size_px": [
+    48,
+    72
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 10,
+    "top": 10,
+    "right": 10,
+    "bottom": 10
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "One segment of a two-way toggle (Leave / Import); draw the options side by side, 2 apart."
+  },
+  "nav_hover": {
+   "file": "nav_hover.png",
+   "size_px": [
+    48,
+    88
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 8,
+    "right": 8,
+    "bottom": 8
+   },
+   "kind": "nine-slice",
+   "text_rgb": [
+    240,
+    212,
+    138
+   ]
+  },
+  "nav_focused": {
+   "file": "nav_focused.png",
+   "size_px": [
+    48,
+    88
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "note": "Drawn over a menu item (selected or not) when it has the keyboard focus."
+  },
+  "row_chosen": {
+   "file": "row_chosen.png",
+   "size_px": [
+    48,
+    48
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "note": "The chosen row of a list (the copy of the game in use): its edge and a light wash."
+  },
+  "row_focused": {
+   "file": "row_focused.png",
+   "size_px": [
+    48,
+    48
+   ],
+   "scale": 2,
+   "slice_px": {
+    "left": 12,
+    "top": 12,
+    "right": 12,
+    "bottom": 12
+   },
+   "kind": "nine-slice",
+   "note": "Drawn over a list row (chosen or not) when the keyboard is on it, e.g. a radio list whose whole row is the radio."
+  },
+  "radio_off": {
+   "file": "radio_off.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_off_hover": {
+   "file": "radio_off_hover.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_off_pressed": {
+   "file": "radio_off_pressed.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_off_disabled": {
+   "file": "radio_off_disabled.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_off_focused": {
+   "file": "radio_off_focused.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_on": {
+   "file": "radio_on.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_on_hover": {
+   "file": "radio_on_hover.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_on_pressed": {
+   "file": "radio_on_pressed.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_on_disabled": {
+   "file": "radio_on_disabled.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "radio_on_focused": {
+   "file": "radio_on_focused.png",
+   "size_px": [
+    64,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference and laid out at 32 (64 px at 2x), as the launcher draws it; the label beside it on the same baseline. Focused replaces the plain state; pressed shows while the button is held."
+  },
+  "switch_off": {
+   "file": "switch_off.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  },
+  "switch_off_hover": {
+   "file": "switch_off_hover.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  },
+  "switch_off_disabled": {
+   "file": "switch_off_disabled.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  },
+  "switch_off_focused": {
+   "file": "switch_off_focused.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  },
+  "switch_on": {
+   "file": "switch_on.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  },
+  "switch_on_hover": {
+   "file": "switch_on_hover.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    255,
+    243,
+    224
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  },
+  "switch_on_disabled": {
+   "file": "switch_on_disabled.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    110,
+    100,
+    90
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  },
+  "switch_on_focused": {
+   "file": "switch_on_focused.png",
+   "size_px": [
+    128,
+    64
+   ],
+   "scale": 2,
+   "kind": "fixed",
+   "text_rgb": [
+    230,
+    220,
+    203
+   ],
+   "note": "Drawn on the 16-unit reference (32x16) and laid out at 64x32 (128x64 px at 2x), beside its label on the checkbox's baseline. The knob is left when off, right when on, so the state never rests on colour."
+  }
+ }
+}

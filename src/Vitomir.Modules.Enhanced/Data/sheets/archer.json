@@ -1,0 +1,28 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.archer",
+  "title": "A trained archer",
+  "note": "SANDBOX (ours): the foe preset archer's sheet (Data/combat/foes.json), a trained town guard's Attributes and Abilities (sandbox.guard_trained, the combat rules' research-only baseline) with the ranged Skill: Firearms 2, the registry's firearms, whose agreed working name in the enhanced module is Range (Data/combat/ranged.json's aim_spread: 1.0 degree at 2). Dresses nobody by role or character: only --foe archer and a scenario's sheet give it. Health from rules/harm (the engine-sandbox Health). A research fixture, not a rule.",
+  "species": "human",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 24,
+  "purchased": {
+    "strength": 21,
+    "dexterity": 26,
+    "stamina": 25,
+    "charisma": 17,
+    "manipulation": 17,
+    "appearance": 22,
+    "perception": 17,
+    "intelligence": 17,
+    "wits": 14,
+    "melee": 2,
+    "dodge": 1,
+    "athletics": 1,
+    "alertness": 2,
+    "firearms": 2
+  },
+  "powers": []
+}

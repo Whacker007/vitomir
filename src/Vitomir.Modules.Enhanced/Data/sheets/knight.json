@@ -1,0 +1,20 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.knight",
+  "title": "A knight (the combat rules' reference)",
+  "note": "SANDBOX (the rules package's research-only baseline reference sheets): Strength 29, Dexterity 30, Stamina 29 as the combat rules give them; the other six Attributes 29 (ours: the rounded mean of the three, a flat profile); a knight: Melee 3, Athletics 2, Dodge 2; every Ability not listed 0. Dresses nobody by default (no role, no characters): a template for the arena and --sheet. Health from rules/harm (the engine-sandbox Health). A research fixture, not a rule.",
+  "species": "human",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 29,
+  "purchased": {
+    "strength": 29,
+    "dexterity": 30,
+    "stamina": 29,
+    "melee": 3,
+    "dodge": 2,
+    "athletics": 2
+  },
+  "powers": []
+}

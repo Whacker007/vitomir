@@ -1,0 +1,17 @@
+{
+  // Receipt (iv), an earlier build ("a glancing, low-work contact"): matched-blade-no-shield.json's bout 4 (seed 3004) alone — the combat rules'
+  // newly Embraced against the combat rules' trained guard, the Rapier each, no shields, the duelling brain's defaults. Found in that run's
+  // contacts.csv (this build): Christof's blow meets the guard's right forearm sliding along it — its point at 7.4 m/s
+  // against him but only 0.36 m/s along the surface's normal (sine 0.049: the glancing band, under 10°). A real contact (no hidden
+  // miss), cut share 0 (a skim never cuts a part off: rules/severance), and yet its staged harm is the full blow's — 2 wounds:
+  // nothing reads a contact's work for harm until Melee's blow quality (gate-08; the rules package's harnesses). The
+  // bout is the run's bout 4 exactly: every bout b of a run has seed (base + b), so one bout on seed 3004 is that bout.
+  "title": "Receipt (iv): a glancing, low-work contact",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 1, "seed": 3004, "seconds": 60, "tapes": 1
+}

@@ -1,0 +1,62 @@
+{
+  // Worked example 10 (aim first): the player's own bow, through the player's controls (PLAYER_INPUT_REPLAY)
+  // as a tape replays a player: swapWeapon (F) takes the bow from the sword (0.6 s, the bow's swap_seconds); aim held (Q: the aim
+  // mode) raises it into the ready pose with an arrow nocked; attack held while aiming draws (1.0 s to full draw at Range 3), released
+  // looses — in third person over the right shoulder, the arrow leaving along the line to the point the crosshair is on (the camera's
+  // offset solved; no random spread for the player) and dropping as a real arrow does (aimed at his chest at 15 m, it meets
+  // him about 0.38 m lower, at the belly). Attack without aim does nothing with the bow. The standing guard does nothing (the arena's
+  // dummy) and has no shield.
+  "format": "vitomir-scenario/1",
+  "title": "The player's bow: F to the bow, aim held, two full draws held and loosed at a standing guard 15 m away",
+  "notes": "Checks that the player's controls reach the bow: the swap, aim mode, the draw by attack held while aiming, the loose by its release, at the crosshair.",
+  "ground": "free-yard",
+  "time": "day",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.human_reference", "values": { "firearms": 3 } },   // the aim's spread by Range (firearms): 0.7 degrees at 3
+      "gear": { "weapon": "BroadSword", "shield": false, "ranged": { "weapon": "war_bow", "arrows": 6 } },
+      "place": [26, 9],
+      "facing": { "toward": "Guard" },
+      "control": {
+        "playerInput": [
+          { "atSeconds": 0.2, "press": ["swapWeapon"], "label": "to the bow" },                // F: the sword away, the bow in hand
+          { "atSeconds": 0.5, "forSeconds": 0.2, "turnLeftDegrees": 1.6, "turnUpDegrees": -2, "label": "the crosshair on his chest" },   // over the right shoulder the crosshair starts 0.5 m right of him and over his head
+          { "atSeconds": 1.4, "forSeconds": 6.4, "hold": ["aim"], "label": "aim mode" },       // Q held: the bow up in the ready pose, nocked
+          { "atSeconds": 2.0, "forSeconds": 1.6, "hold": ["attack"], "label": "first draw" },  // drawn 1.0 s, held; released: loosed
+          { "atSeconds": 5.0, "forSeconds": 1.6, "hold": ["attack"], "label": "second draw" }  // the next arrow nocked by itself while aiming
+        ]
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 15, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "control": { "ai": "stand" }
+    }
+  ],
+
+  "stop": { "afterSeconds": 8, "onHarnessStops": "first" },
+  "runs": 4, "seed": 7100,
+
+  "measures": [
+    { "name": "swaps", "count": { "event": "WeaponSwap", "by": "Christof" } },
+    { "name": "arrowsLoosed", "count": { "event": "ArrowLoosed", "by": "Christof" } },
+    { "name": "arrowsOnBody", "count": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "weaponClass": "arrow", "met": "body" } } },
+    { "name": "firstLoose", "timeOf": { "event": "ArrowLoosed", "by": "Christof" } }
+  ],
+
+  "assertions": [
+    { "name": "F swapped to the bow (its start and end)", "measure": "swaps", "equals": 2, "scope": "eachRun" },
+    { "name": "each held draw loosed an arrow", "measure": "arrowsLoosed", "equals": 2, "scope": "eachRun" },
+    { "name": "both arrows met him", "measure": "arrowsOnBody", "equals": 2, "scope": "eachRun" }, // no spread for the player now: the same place each time, below the crosshair by the drop
+    { "name": "every arrow accounted for", "check": "arrowsAccounted", "isTrue": true, "scope": "eachRun" }
+  ],
+
+  "outputs": { "tracePolicy": "ALL" }
+}

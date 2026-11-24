@@ -1,0 +1,31 @@
+{
+  // An example arena spec: Christof with his broadsword against a guard with his rapier
+  // and shield, in the proving ground's free yard, sweeping Christof's Strength from a townsman's to his own. Christof
+  // has his sandbox sheet (sandbox.christof); the guard his (sandbox.guard), named (every fighter names its sheet, so
+  // a change in who the module dresses by what changes no result). Comments and trailing commas are allowed.
+  "title": "Christof's Strength against a guard",
+  "fighters": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "weapon": "BroadSword",
+      "sheet": "sandbox.christof",
+      "place": [38, 3],
+      "facing": 0,
+      "brain": { "kind": "duel", "strongShare": 0.3, "blockChance": 0.4 }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": "sandbox.guard",
+      "place": [42, 3],
+      "facing": 180,
+      "brain": "duel"
+    }
+  ],
+  "bouts": 10,
+  "seed": 1000,
+  "seconds": 30,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [25, 60, 150, 300] }
+}

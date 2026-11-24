@@ -1,0 +1,23 @@
+{
+  // An arena spec: Celerity on the matched pair with no shields
+  // (matched-blade-no-shield.json's fighters and seeds). The combat rules' newly Embraced with Celerity 0 to 5 (the option
+  // celerity.active learned with each rank; 0 unlearns it: the baseline) against the combat rules' trained guard, both with the same
+  // Rapier and no shield. His duelling brain presses the slot that shows Celerity when engaged (within 1.5 x its reach) and
+  // renews it under 1 s left (1.1's cast: one payment of Blood for a time by rank); his Blood is the module's (full).
+  // Paired seeds: bout b has seed 3000 + b at every rank, so a rank's difference is the rank. THIS ONE runs under the switch
+  // celerity-curve-oneone: 1.1's own curve (effects.ned v1-v5: move 1.5, 2.0, 2.5, 3.0, 3.5x; attack 1.1 to 1.5x) to compare
+  // with celerity-matched.json's (1 + rank)x, on the same seeds. Needs module (Blood, the cast, the slots).
+  "title": "Celerity 0 to 5 under 1.1's curve (newly Embraced) against a trained guard, matched, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "switches": ["celerity-curve-oneone"],
+  "sweep": { "fighter": "Christof", "power": "celerity", "options": ["celerity.active"], "from": 0, "to": 5 }
+}

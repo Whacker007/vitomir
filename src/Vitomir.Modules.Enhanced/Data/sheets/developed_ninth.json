@@ -1,0 +1,27 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.developed_ninth",
+  "title": "A developed ninth-equivalent vampire (the combat rules' reference)",
+  "note": "SANDBOX (the rules package's research-only baseline reference sheets): Strength 42, Dexterity 43, Stamina 41 as the combat rules give them; the other six Attributes the rules package's Option B means, rounded (research-only): Charisma 38, Manipulation 39, Appearance 37, Perception 44, Intelligence 44, Wits 43 (until then ours: a flat mean of the three); a developed vampire: Melee 3, Dodge 3, Brawl 2, Athletics 3; no powers; every Ability not listed 0. Dresses nobody by default (no role, no characters): a template for the arena and --sheet. Health from rules/harm (the engine-sandbox Health). A research fixture, not a rule.",
+  "species": "vampire",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 42,
+  "purchased": {
+    "strength": 42,
+    "dexterity": 43,
+    "stamina": 41,
+    "charisma": 38,
+    "manipulation": 39,
+    "appearance": 37,
+    "perception": 44,
+    "intelligence": 44,
+    "wits": 43,
+    "melee": 3,
+    "brawl": 2,
+    "dodge": 3,
+    "athletics": 3
+  },
+  "powers": []
+}

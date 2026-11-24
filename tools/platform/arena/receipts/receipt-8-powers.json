@@ -1,0 +1,24 @@
+{
+  // Receipt (viii), an earlier build ("a Celerity and a Blood Healing spent, refused and renewed"), part 1 of 2 (the duelling brain's
+  // own presses). The combat rules' newly Embraced with Celerity 1 (celerity.active: 30 Blood, 15 s, 1.1's game.ndd and Discipline.class) and
+  // Blood Healing 1 (common.blood_healing: 5 Blood for 20 Health, 1.1's), Blood 75 at the start and his purchased Health 300 (so
+  // the bout lasts past Celerity's first renewal), against the combat rules' trained guard with his purchased Health 1000; the Rapier each, no
+  // shields, the duelling brain's defaults (it presses a Ready Engage slot once engaged, renews a live one under 1 s left, heals
+  // below 30 % of its Health). What happens (seed 1, this build): Celerity SPENT at 0.4 s (Blood 75 -> 45), RENEWED at 14.4 s
+  // (-> 15), REFUSED twice for want of Blood at 28.4 and 28.9 s (NoBlood: the renewal pressed with 15 left), expired at 29.4 s;
+  // Blood Healing SPENT at 25.4 s (-> 10, +20 Health) and RENEWED (used again) at 26.4 s (-> 5) and 34.1 s (-> 0). The brain
+  // never presses a slot whose view is not Ready, so Blood Healing is never refused here: part 2, a recorded drive of the
+  // player's quick slots, has it refused (NoEffect: nothing to heal).
+  "title": "Receipt (viii), part 1: Celerity and Blood Healing spent, renewed and refused (the duelling brain)",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "health_pool": 300 }, "powers": {
+        "celerity": { "rank": 1, "options": ["celerity.active"] },
+        "blood_healing": { "rank": 1, "options": ["common.blood_healing"] } } },
+      "blood": 75, "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 1, "seed": 1, "seconds": 60, "tapes": 1
+}

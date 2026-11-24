@@ -1,0 +1,19 @@
+{
+  // An arena spec: dodge-newly-embraced.json's set-up — the combat rules'
+  // newly Embraced (sandbox.newly_embraced) against the combat rules' trained guard (sandbox.guard_trained), both with 1.1's Rapier and no
+  // shield, in the proving ground's free yard, the same seeds — with the newly Embraced's brain DODGING (dodgeChance 0.5, blockChance 0),
+  // sweeping his Melee 0, 3, 5. The guard's brain is the default (it blocks half the blows). Its twins: guard-parry-, guard-block-,
+  // guard-dodge- and guard-nothing-newly-embraced.json, the same seeds (paired bout for bout).
+  "title": "The guard: newly Embraced (Melee 0-5, dodge) against a trained guard, the same sword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": { "kind": "duel", "dodgeChance": 0.5, "blockChance": 0 } },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "melee", "values": [0, 3, 5] }
+}

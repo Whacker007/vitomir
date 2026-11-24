@@ -1,0 +1,81 @@
+<Project>
+  <!-- Modules as folders.
+
+       Today's modules are built with the solution, as projects, and laid out as the folders the loader reads:
+
+         Modules\<VitomirModuleFolder>\module.json
+         Modules\<VitomirModuleFolder>\bin\<the module's assembly>
+         Modules\<VitomirModuleFolder>\Data\...
+
+       A module project sets VitomirModuleFolder and imports this file: it then answers GetModuleLayout with its
+       files and where each goes. A project that runs modules (the program, a module's tests) references each
+       module's project with LayOutAsModule="true" and imports this file: after its build (and its publish) the
+       modules are laid out under Modules\ in its output (and publish) folder, and files left there from an
+       earlier layout are removed, so a renamed data file never lingers to be read. The program references a
+       module with ReferenceOutputAssembly="false" (built first, never compiled against). -->
+
+  <!-- The module's side. -->
+  <ItemGroup Condition="'$(VitomirModuleFolder)' != ''">
+    <VitomirModuleFile Include="module.json" LayoutPath="module.json" />
+    <VitomirModuleFile Include="Data\**\*" LayoutPath="Data\%(RecursiveDir)%(Filename)%(Extension)" />
+    <VitomirModuleFile Include="Content\**\*" LayoutPath="Content\%(RecursiveDir)%(Filename)%(Extension)" />
+    <VitomirModuleFile Include="Interface\**\*" LayoutPath="Interface\%(RecursiveDir)%(Filename)%(Extension)" />
+    <VitomirModuleFile Include="Overrides\**\*" LayoutPath="Overrides\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <Target Name="GetModuleLayout" Returns="@(_VitomirModuleLayout)" Condition="'$(VitomirModuleFolder)' != ''">
+    <ItemGroup>
+      <_VitomirModuleLayout Include="@(VitomirModuleFile->'%(FullPath)')" ModuleFolder="$(VitomirModuleFolder)" />
+      <_VitomirModuleLayout Include="$(TargetDir)$(TargetFileName)" LayoutPath="bin\$(TargetFileName)" ModuleFolder="$(VitomirModuleFolder)" />
+      <_VitomirModuleLayout Include="$(TargetDir)$(TargetName).pdb" Condition="Exists('$(TargetDir)$(TargetName).pdb')" LayoutPath="bin\$(TargetName).pdb" ModuleFolder="$(VitomirModuleFolder)" />
+    </ItemGroup>
+    <!-- A module that ships libraries of its own (VitomirModuleDependencies, the Classic module's engine, scripting,
+         IKVM's runtime and its ikvm\ folder, the converted ecj, NLayer, DotRecast, BCnEncoder) has its whole output folder
+         laid out in bin\, but for the platform's own libraries (the program has those, and one copy serves every module)
+         and what only a program reads (deps.json, runtimeconfig.json) or a run leaves (cache\); nor SDL, managed or native,
+         which the Classic module's frame controller reaches through the platform's renderer and the program's host, and the
+         program has (one copy, as for the platform's libraries). The loader finds them there
+         (ModuleDependencies). The module's project copies its packages' assemblies into its output
+         (CopyLocalLockFileAssemblies) so the folder holds the whole closure. -->
+    <ItemGroup Condition="'$(VitomirModuleDependencies)' == 'true'">
+      <_VitomirModuleOwn Include="$(TargetDir)**\*"
+                         Exclude="$(TargetDir)$(TargetFileName);$(TargetDir)$(TargetName).pdb;$(TargetDir)Vitomir.Platform.*;$(TargetDir)Vitomir.Formats.*;$(TargetDir)SDL3-CS.*;$(TargetDir)libSDL3*;$(TargetDir)SDL3.dll;$(TargetDir)*.deps.json;$(TargetDir)*.runtimeconfig.json;$(TargetDir)cache\**;$(TargetDir)Modules\**" />
+      <_VitomirModuleLayout Include="@(_VitomirModuleOwn->'%(FullPath)')" LayoutPath="bin\%(RecursiveDir)%(Filename)%(Extension)" ModuleFolder="$(VitomirModuleFolder)" />
+    </ItemGroup>
+  </Target>
+
+  <!-- The side that runs modules. -->
+  <Target Name="VitomirGatherModules">
+    <ItemGroup>
+      <_VitomirModuleProject Include="@(ProjectReference)" Condition="'%(ProjectReference.LayOutAsModule)' == 'true'" />
+    </ItemGroup>
+    <MSBuild Projects="@(_VitomirModuleProject)" Targets="GetModuleLayout" Properties="Configuration=$(Configuration)"
+             RemoveProperties="RuntimeIdentifier;SelfContained;PublishDir;_IsPublishing" Condition="'@(_VitomirModuleProject)' != ''">
+      <Output TaskParameter="TargetOutputs" ItemName="_VitomirModuleLayoutFile" />
+    </MSBuild>
+  </Target>
+
+  <Target Name="VitomirLayOutModules" AfterTargets="Build" DependsOnTargets="VitomirGatherModules;_VitomirCopyModules" />
+
+  <Target Name="VitomirPublishModules" AfterTargets="Publish" DependsOnTargets="VitomirGatherModules">
+    <PropertyGroup><_VitomirModulesRoot>$([System.IO.Path]::GetFullPath('$(PublishDir)Modules'))</_VitomirModulesRoot></PropertyGroup>
+    <ItemGroup>
+      <_VitomirModulePublished Include="@(_VitomirModuleLayoutFile->'$(_VitomirModulesRoot)/%(ModuleFolder)/%(LayoutPath)')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_VitomirModuleLayoutFile)" DestinationFiles="@(_VitomirModulePublished)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="_VitomirCopyModules" Condition="'@(_VitomirModuleLayoutFile)' != ''">
+    <PropertyGroup><_VitomirModulesRoot>$([System.IO.Path]::GetFullPath('$(OutDir)Modules'))</_VitomirModulesRoot></PropertyGroup>
+    <ItemGroup>
+      <_VitomirModuleDest Include="@(_VitomirModuleLayoutFile->'$(_VitomirModulesRoot)/%(ModuleFolder)/%(LayoutPath)')" />
+      <_VitomirModuleDestFull Include="@(_VitomirModuleDest->'%(FullPath)')" />
+      <_VitomirModuleName Include="@(_VitomirModuleLayoutFile->'%(ModuleFolder)'->Distinct())" />
+      <_VitomirModuleThere Include="$(_VitomirModulesRoot)/%(_VitomirModuleName.Identity)/**/*" />
+      <_VitomirModuleThereFull Include="@(_VitomirModuleThere->'%(FullPath)')" />
+      <_VitomirModuleStale Include="@(_VitomirModuleThereFull)" Exclude="@(_VitomirModuleDestFull)" />
+    </ItemGroup>
+    <Delete Files="@(_VitomirModuleStale)" />
+    <Copy SourceFiles="@(_VitomirModuleLayoutFile)" DestinationFiles="@(_VitomirModuleDest)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

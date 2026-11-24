@@ -1,0 +1,23 @@
+{
+  // The szlachta moves at its 1.1 template's own walk and run (movement template) and comes on as 1.1's szlachta (approach
+  // oneone: its AI file's manoeuvre); --foes-uniform gives the bout earlier.
+  // An arena spec: Christof as a
+  // human (the combat rules' human reference, sandbox.human_reference, with Melee 2, as the rules package has him in the mines) with
+  // his broadsword against 1.1's szlachta (template Szlachta; sandbox.szlachta: 1.1's stats on the combat rules' scale, 80 Health bought,
+  // a human's soak). The szlachta's long neck is cut at 30 % of its bought Health (24: two wounds square on), a man's at 90 %
+  // (rules/severance bodies). Its twin against the trained guard: szlachta-neck-guard.json (the same Christof, the same seeds).
+  // The szlachta fights with the duelling brain (it swings its claws: SzlachtaAttack, SzlachtaBite; their striking point its
+  // right hand's last bone by its anatomy table) and has no block.
+  "title": "Christof the human (Melee 2, broadsword) against a szlachta: its neck",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false,
+      "sheet": { "template": "sandbox.human_reference", "values": { "melee": 2 } },
+      "place": [38.5, 3], "facing": 0, "brain": "duel" },
+    { "name": "Szlachta", "template": "Szlachta", "sheet": "sandbox.szlachta",
+      "place": [41.5, 3], "facing": 180, "movement": "template", "brain": { "kind": "duel", "approach": "oneone" } }
+  ],
+  "bouts": 200,
+  "seed": 5000,
+  "seconds": 60,
+  "tapes": 2
+}

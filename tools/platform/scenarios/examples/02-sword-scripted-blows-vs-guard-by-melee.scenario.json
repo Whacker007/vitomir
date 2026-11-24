@@ -1,0 +1,97 @@
+{
+  // Worked example 2: a sword duel where the attacker's blows are scripted (direction, hold, timing, aim) against a guard whose AI
+  // blocks by its skill, measuring the guard's block share and the wounds by the attacker's Melee 0 to 5. Format vitomir-scenario/1.
+  //
+  // NEEDS (not): the runner, the director's moveTo and region aims, "mute" (a guard that guards but never attacks or steps
+  // in), measures and assertions — all an earlier build. Runs TODAY in part as an arena spec: today/02-sword-scripted-blows-arena.json (blows at
+  // absolute times from a fixed place, aim by pitch, the guard's attacks suppressed by a brain number; no assertions).
+  "format": "vitomir-scenario/1",
+  "title": "Scripted blows against a guard who guards by his skill, by the attacker's Melee",
+  "notes": "The combat rules' newly Embraced and the combat rules' trained guard, the Rapier each, no shields, no armour. The guard's duelling brain guards by its skill (Data/combat/guard.json's skill) but is muted on attack and move, so every scripted blow meets a guard that is only defending.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "melee": 0 } },   // Melee swept below
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": [38, 3],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard",
+      "control": {
+        "script": [
+          { "moveTo": { "actor": "Guard", "distanceMetres": 1.3 }, "gait": "walk", "faceWhileMoving": "Guard", "withinMetres": 0.1,
+            "forSeconds": 6, "label": "close in" },
+          { "mark": "blows begin" },
+          { "repeat": 6, "steps": [
+              { "attack": "right",    "holdSeconds": 0.3, "aimAt": "chest" },
+              { "wait": 0.6 },
+              { "attack": "left",     "holdSeconds": 0.3, "aimAt": "upperArm" },
+              { "wait": 0.6 },
+              { "attack": "overhead", "holdSeconds": 0.4, "aimAt": "head" },
+              { "wait": 0.6 },
+              { "attack": "thrust",   "holdSeconds": 0.2, "aimAt": "belly" },
+              { "wait": 0.6 },
+              { "keepDistance": { "from": "Guard", "metres": 1.3, "toleranceMetres": 0.1 }, "gait": "walk", "forSeconds": 0.5 }
+          ] },
+          { "mark": "blows end" }
+        ],
+        "then": "stand"
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } }, // 1000 Health, so the 24 scripted blows all fall before he is stopped
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 3.0, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "foe": "Christof",
+      "control": {
+        "ai": { "kind": "duel", "pace": "none" }, // guards and parries by his skill; his own numbers otherwise default
+        "mute": ["attack", "move"]                   // never attacks, holds his ground; still faces, blocks, parries and dodges
+      }
+    }
+  ],
+
+  "overrides": { "switches": [] },                   // add "skill-contest" for the contest lane, "guard-skill-off" to compare
+  "stop": { "afterSeconds": 40, "onHarnessStops": "first",
+            "when": [ { "count": { "event": "Marker", "by": "Christof", "where": { "text": "blows end" } }, "atLeast": 1 } ] },
+
+  "runs": 200, "seed": 3000,
+  "sweep": [ { "set": "Christof.sheet.values.melee", "values": [0, 1, 2, 3, 4, 5] } ],
+
+  "measures": [
+    { "name": "blowsBegun",       "count": { "event": "AttackBegun", "by": "Christof", "fromMarker": "blows begin" } },
+    { "name": "guardBlockShare",  "rate": { "of":  { "event": "GuardResolved", "by": "Christof", "on": "Guard", "where": { "verdict": ["held", "parried"] } },
+                                            "per": { "event": "AttackBegun", "by": "Christof", "fromMarker": "blows begin" } } },
+    { "name": "guardOverpoweredShare", "rate": { "of":  { "event": "GuardResolved", "by": "Christof", "on": "Guard", "where": { "verdict": "overpowered" } },
+                                                 "per": { "event": "AttackBegun", "by": "Christof", "fromMarker": "blows begin" } } },
+    { "name": "bodyContactShare", "rate": { "of":  { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "met": "body" } },
+                                            "per": { "event": "AttackBegun", "by": "Christof", "fromMarker": "blows begin" } } },
+    { "name": "regionAsAimed",    "rate": { "of":  { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "met": "body", "regionAsAimed": true } },
+                                            "per": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "met": "body" } } } },
+    { "name": "woundsPerBlow",    "rate": { "of":  { "event": "HarmResolved", "by": "Christof", "on": "Guard", "sum": "wounds" },
+                                            "per": { "event": "AttackBegun", "by": "Christof", "fromMarker": "blows begin" } } },
+    { "name": "windUpSeconds",    "delay": { "from": { "event": "AttackBegun", "by": "Christof" }, "to": { "event": "ContactMade", "by": "Christof" },   // press to the blade's first contact (StrikeMoment is published only for a blow that meets nothing)
+
+                                             "pairBy": "swing" } }
+  ],
+
+  "assertions": [
+    { "name": "the script was carried out: 24 blows begun in every run",
+      "measure": "blowsBegun", "equals": 24, "scope": "eachRun" },
+    { "name": "the guard never attacked (muted)",
+      "count": { "event": "AttackBegun", "by": "Guard" }, "equals": 0, "scope": "eachRun" },
+    { "name": "no wound through a held guard (the rules package's acceptance negative)",
+      "check": "blockedBodyNoWound", "isTrue": true, "scope": "eachRun" },
+    { "name": "Melee quickens the wind-up",
+      "measure": "windUpSeconds", "statistic": "median", "scope": "trend", "over": "Christof.sheet.values.melee", "direction": "falling" },
+    { "name": "the guard blocks less as the attacker's Melee rises",
+      "measure": "guardBlockShare", "scope": "trend", "over": "Christof.sheet.values.melee", "direction": "falling" }
+  ],
+
+  "outputs": { "events": "first", "traceRuns": 2, "csv": true, "summaryPage": true }
+}

@@ -1,0 +1,16 @@
+{
+  // Receipt (i) (the rules package's first return: an unblocked clean sword hit): the combat rules' newly Embraced
+  // with his broadsword strikes the combat rules' trained guard, who stands and does nothing (no guard raised, no shield, no armour). One
+  // quick blow, level: it meets his left upper arm square on (the normal band, sine 0.84), 26 m/s. Its combat trace and event
+  // trace sit beside the tape (--tapes 1, the spec's). Seed 2: the contact is the same at every seed (no draw moves a swing);
+  // only the dice differ — seed 1 rolled no success from the 2 dice (a contact resisted: no damage), seeds 2 to 5 wound 1, 2,
+  // 1 and 1. The seed is chosen to show a wound; seed 1's bout is the same hit resisted.
+  "title": "Receipt (i): a clean unblocked sword hit",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [39, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1" } },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [40.6, 3], "facing": 180, "brain": { "kind": "dummy", "mode": "stand" } }
+  ],
+  "bouts": 1, "seed": 2, "seconds": 3, "tapes": 1
+}

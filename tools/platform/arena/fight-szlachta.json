@@ -1,0 +1,21 @@
+{
+  // The szlachta moves at its 1.1 template's own walk and run (movement template) and comes on as 1.1's szlachta (approach
+  // oneone: its AI file's manoeuvre); --foes-uniform gives the bout earlier.
+  // An arena spec under the pace and the
+  // blade guard by training. The combat rules' newly Embraced (sandbox.newly_embraced, 1.1's Rapier, no shield) against 1.1's szlachta
+  // (template Szlachta, sandbox.szlachta: its claws, Brawl 2, no block motion), both with the default duelling brain, in the
+  // proving ground's free yard; the newly Embraced's Melee 0, 3, 5. Paces by kind: both fierce (the szlachta named in
+  // guard.json's brain_pace templates).
+  "title": "The szlachta: newly Embraced (Melee 0-5, rapier) against a szlachta's claws",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38.5, 3], "facing": 0, "brain": "duel" },
+    { "name": "Szlachta", "template": "Szlachta", "sheet": "sandbox.szlachta",
+      "place": [41.5, 3], "facing": 180, "movement": "template", "brain": { "kind": "duel", "approach": "oneone" } }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "melee", "values": [0, 3, 5] }
+}

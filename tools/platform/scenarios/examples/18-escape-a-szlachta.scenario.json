@@ -1,0 +1,36 @@
+{
+  // Worked example 18: an escape. A townsman with a dagger, scripted, runs from a szlachta 6 m behind him toward the free
+  // yard's east end along its clear line (y = 9); the szlachta closes on its duelling brain. The townsman's objective: be farther than
+  // 12 m from every foe still standing by 15 s ("escape": { "fromFoesMetres": 12 }); the szlachta's: defeat him by 30 s. Point 0 is 1.1's
+  // szlachta (its template's own walk and run and 1.1's manoeuvre: it closes slowly and pauses), point 1 the same seeds with foes-uniform
+  // (the earlier build's szlachta: the human's run, straight at him). The run ends when both are decided ("all").
+  "format": "vitomir-scenario/1",
+  "title": "Escape: a townsman runs from a szlachta",
+  "notes": "An escape is met at the first moment the distance holds, and fails when its bySeconds passes undone or its owner reaches a harness stop.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    { "name": "Townsman", "preset": "townsman-dagger", "place": [34, 9], "facing": 0, "foe": "Szlachta",
+      "control": { "script": [ { "moveTo": [55, 9], "gait": "run", "forSeconds": 20, "label": "run east" } ], "then": "stand" } },
+    { "name": "Szlachta", "preset": "szlachta", "place": [28, 9], "facing": 0, "foe": "Townsman", "control": { "ai": { "kind": "duel" } } }
+  ],
+
+  "objectives": [
+    { "name": "get away", "actor": "Townsman", "escape": { "fromFoesMetres": 12 }, "bySeconds": 15 },
+    { "name": "catch him", "actor": "Szlachta", "defeat": "Townsman", "bySeconds": 30 }
+  ],
+  "sweep": [ { "set": "overrides.switches.foes-uniform", "values": [false, true] } ],
+  "stop": { "afterSeconds": 30, "onObjectives": "all" },
+  "runs": 10, "seed": 14000,
+
+  "measures": [
+    { "name": "gapAtEnd", "value": "Szlachta.distanceTo.Townsman" },
+    { "name": "escapedAt", "timeOf": { "event": "ObjectiveMet", "where": { "objective": "get away" } } }
+  ],
+  "assertions": [
+    { "name": "he gets away from 1.1's szlachta", "count": { "event": "ObjectiveMet", "where": { "objective": "get away" } }, "equals": 1,
+      "scope": "eachRun", "points": { "overrides.switches.foes-uniform": false } }
+  ],
+  "outputs": { "tracePolicy": "SAMPLED", "traceRuns": 1 }
+}

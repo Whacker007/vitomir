@@ -1,0 +1,38 @@
+{
+ "source": "swivel-lock",
+ "size": [
+  1280,
+  720
+ ],
+ "keep": [
+  [
+   4.2,
+   28.8
+  ]
+ ],
+ "poster": 6.0,
+ "segments": [
+  {
+   "from": 4.2,
+   "to": 15.5,
+   "tag": "new",
+   "title": "Swivel lock",
+   "line": "Ctrl + middle click, and the mouse turns the camera.",
+   "mouse": true,
+   "keys": "ctrl",
+   "lock": true,
+   "gauge": true,
+   "hold": 0.8
+  },
+  {
+   "from": 15.5,
+   "to": 28.8,
+   "tag": "new",
+   "title": "Still click to move",
+   "line": "The pointer stays in the centre; click to walk there.",
+   "mouse": true,
+   "ring": true,
+   "lock": true
+  }
+ ]
+}

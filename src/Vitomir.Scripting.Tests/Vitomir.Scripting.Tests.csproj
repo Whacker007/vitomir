@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Runs the game's own Java scripts. Needs the player's install (VTMR_GAME_DIR, else
+       C:\Games\VTMR); without one the tests skip rather than fail. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Vitomir.Scripting.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Scripting\Vitomir.Scripting.csproj" />
+    <ProjectReference Include="..\Vitomir.Engine\Vitomir.Engine.csproj" />
+    <!-- The engine's tool code moved to vitomir-tools: the story sweep (StorySweepTests). -->
+    <ProjectReference Include="..\Vitomir.Tools\Vitomir.Tools.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+  </ItemGroup>
+</Project>

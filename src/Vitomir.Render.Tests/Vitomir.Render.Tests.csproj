@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Rendering tests: they draw real frames of the player's own levels with no window at all, so
+       they run in a terminal, over a remote session or in CI. They need game data (VTMR_GAME_DIR,
+       else C:\Games\VTMR) and a GPU SDL can reach (Direct3D 12, Vulkan, Metal, or a software
+       Vulkan); without either, they skip rather than fail. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Vitomir.Render.Tests</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Engine\Vitomir.Engine.csproj" />
+    <ProjectReference Include="..\Vitomir.Render\Vitomir.Render.csproj" />
+    <ProjectReference Include="..\Vitomir.Scripting\Vitomir.Scripting.csproj" />
+    <!-- The frame controller's library: a place's frame as the module says it, its layers, the developer overlay's laying out. -->
+    <ProjectReference Include="..\Vitomir.Classic\Vitomir.Classic.csproj" />
+    <!-- The engine's tool code moved to vitomir-tools: the PNG writer its tests draw test pictures with (PngEncoder). -->
+    <ProjectReference Include="..\Vitomir.Tools\Vitomir.Tools.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+    <!-- The platform renderer's device (Gpu, GpuDrivers, Png, the presenter) and, the 1.1 look. -->
+    <Using Include="Vitomir.Platform.Render" />
+    <!-- The 1.1 look, moved from Vitomir.Render. -->
+    <Using Include="Vitomir.Platform.Render.Classic" />
+    <!-- The module's side of a frame: its layers (ListLayers.Of), the developer overlay's laying out. -->
+    <Using Include="Vitomir.Classic" />
+  </ItemGroup>
+</Project>

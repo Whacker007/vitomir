@@ -1,0 +1,20 @@
+{
+  // The szlachta moves at its 1.1 template's own walk and run (movement template) and comes on as 1.1's szlachta (approach
+  // oneone: its AI file's manoeuvre); --foes-uniform gives the bout earlier.
+  // An arena spec:
+  // 'the real danger comes from getting overwhelmed by too many foes'. The combat rules' newly Embraced (sandbox.newly_embraced, 1.1's Rapier, no
+  // shield) alone (side christof) against two of 1.1's szlachta (template Szlachta, sandbox.szlachta: its claws) (side foes), every fighter with the default duelling brain:
+  // each foe fights the subject, the subject the nearest foe still up; the bout ends when one side is left. The proving ground's free
+  // yard; the newly Embraced's Melee 0, 3, 5; seeds as fight-*.json's (3000 on). Its one-against-one twin: fight-*.json.
+  "title": "One against two: newly Embraced (Melee 0-5, rapier) against two of szlachta",
+  "fighters": [
+    {"name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced", "place": [38, 3], "facing": 0, "brain": "duel", "side": "christof"},
+    {"name": "Szlachta1", "template": "Szlachta", "sheet": "sandbox.szlachta", "place": [42, 1.5], "facing": 180, "movement": "template", "brain": { "kind": "duel", "approach": "oneone" }, "side": "foes"},
+    {"name": "Szlachta2", "template": "Szlachta", "sheet": "sandbox.szlachta", "place": [42, 4.5], "facing": 180, "movement": "template", "brain": { "kind": "duel", "approach": "oneone" }, "side": "foes"}
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": {"fighter": "Christof", "trait": "melee", "values": [0, 3, 5]}
+}

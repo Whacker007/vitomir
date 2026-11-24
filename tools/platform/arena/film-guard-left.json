@@ -1,0 +1,17 @@
+{
+  // The guards' left: a scene for the films of the guards' new blow
+  // from the left beside their blow from the right. The combat rules' trained guard (1.1's rudolfGuard with his
+  // rapier, no shield) strikes from the right at 1.0 s and from the left at 3.0 s (taps: the scripted directions, as the duelling
+  // brain chooses them), at Christof standing 1.6 m before him (a dummy: the player's place). Film it with --film-at 0.9:4.9
+  // --film-view side,first (first: Christof's eyes, the player's view of the guard's blows).
+  "title": "A film: the guard's blow from the right, then his new blow from the left",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.newly_embraced",
+      "place": [38.4, 3], "facing": 0, "brain": "dummy" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [40, 3], "facing": 180, "brain": { "kind": "script", "actions": "right@1+0.05,left@3+0.05" } }
+  ],
+  "bouts": 1,
+  "seed": 3000,
+  "seconds": 5.0
+}

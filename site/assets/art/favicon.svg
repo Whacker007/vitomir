@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32"><defs>
+<filter id="bone" x="-2%" y="-5%" width="104%" height="110%" color-interpolation-filters="sRGB">
+ <feFlood flood-color="#ddd1b6" result="base"/>
+ <feTurbulence type="fractalNoise" baseFrequency=".018 .05" numOctaves="4" seed="7" result="stain"/>
+ <feColorMatrix in="stain" type="matrix" values="0 0 0 0 .55  0 0 0 0 .45  0 0 0 0 .3  1.3 0 0 0 -.55" result="st"/>
+ <feTurbulence type="turbulence" baseFrequency=".9" numOctaves="2" seed="3" result="pore"/>
+ <feColorMatrix in="pore" type="matrix" values="0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .28  0 0 0 -1.1 .42" result="po"/>
+ <feTurbulence type="fractalNoise" baseFrequency=".11 .007" numOctaves="2" seed="21" result="crk"/>
+ <feColorMatrix in="crk" type="matrix" values="0 0 0 0 .33  0 0 0 0 .26  0 0 0 0 .18  -16 0 0 0 5.4" result="cr"/>
+ <feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="ab"/>
+ <feComponentTransfer in="ab" result="edge"><feFuncA type="table" tableValues=".85 .5 .15 0 0"/></feComponentTransfer>
+ <feFlood flood-color="#3a2c1c"/><feComposite in2="edge" operator="in" result="ed"/>
+ <feMerge result="m"><feMergeNode in="base"/><feMergeNode in="st"/><feMergeNode in="po"/><feMergeNode in="cr"/><feMergeNode in="ed"/></feMerge>
+ <feComposite in="m" in2="SourceAlpha" operator="in"/>
+</filter>
+<filter id="blood" x="-2%" y="-5%" width="104%" height="110%" color-interpolation-filters="sRGB">
+ <feFlood flood-color="#6e141b" result="base"/>
+ <feTurbulence type="fractalNoise" baseFrequency=".03 .06" numOctaves="3" seed="9" result="n"/>
+ <feColorMatrix in="n" type="matrix" values="0 0 0 0 .2  0 0 0 0 .02  0 0 0 0 .04  1.4 0 0 0 -.55" result="dk"/>
+ <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="ab"/>
+ <feComponentTransfer in="ab" result="edge"><feFuncA type="table" tableValues=".8 .45 .1 0 0"/></feComponentTransfer>
+ <feFlood flood-color="#1e0507"/><feComposite in2="edge" operator="in" result="ed"/>
+ <feMerge result="m"><feMergeNode in="base"/><feMergeNode in="dk"/><feMergeNode in="ed"/></feMerge>
+ <feComposite in="m" in2="SourceAlpha" operator="in"/>
+</filter></defs><rect width="100" height="100" rx="18" fill="#141214"/><rect x="1.5" y="1.5" width="97" height="97" rx="16.5" fill="none" stroke="#3a3530" stroke-width="1.5"/><g transform="translate(30.35,35.27) scale(0.4700)"><path d="M29.85,-45.06 L-14.45,-31.94 L1.25,-2.17 L51.70,110.00 L32.90,-11.55 Z M100.73,-21.39 L68.67,-29.21 L71.03,-8.25 L51.70,110.00 L88.99,-3.87 Z" fill="#ddd1b6"/></g></svg>

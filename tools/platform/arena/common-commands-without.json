@@ -1,0 +1,17 @@
+{
+  // An arena spec: common-commands.json's twin without the
+  // commands — the combat rules' newly Embraced (power-free) against the combat rules' trained guard, the same Rapier, no shields, the same brain and
+  // the same seeds (bout b has seed 3000 + b), so a bout here and its pair there differ by the commands alone. The same as
+  // matched-blade-no-shield.json but for its title.
+  "title": "Without the Blood commands (newly Embraced) against a trained guard, matched, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

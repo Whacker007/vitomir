@@ -1,0 +1,31 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.szlachta",
+  "title": "A szlachta: the Tzimisce war-ghoul of the mines and the convent (1.1's template Szlachta)",
+  "note": "SANDBOX (ours): 1.1's szlachta (Global.not, template Szlachta: STAT_STRENGTH 20, STAT_DEXTERITY 15, STAT_STAMINA 30, STAT_PERCEPTION 15, STAT_INTELLIGENCE 15, STAT_WITS 15, STAT_CHARISMA 0, STAT_MANIPULATION 0, STAT_APPEARANCE 0, ACTOR_HEALTH 80, ACTOR_TYPE GHOUL, ACTOR_WEAPON Claw_szlachta, THING_AF_CANBEHEAD) brought onto the combat rules' scale by our bridge: each Attribute is 1.1's value over 1.1's Christof's as a human (STAT 20 each, ACTOR_HEALTH 100) times the combat rules' human reference (Christof the human: Strength 15, Dexterity 23, Stamina 20; Perception 17, Intelligence 17, Wits 14, the rules package Option B means), rounded half up: Strength 15, Dexterity 17 (17.25), Stamina 30, Perception 13 (12.75), Intelligence 13, Wits 11 (10.5), Charisma, Manipulation and Appearance 0 (1.1's 0). Health bought 80 (1.1's 80 against its people's 100; the engine-sandbox default 100). Species human: the module has no ghoul, and a ghoul's body is a mortal's (bare Stamina soaks bashing, not lethal); an open question for the rules package. Abilities ours: Brawl 2 (it fights with its claws: Brawl is the bare-handed Ability the contest and the tempo read), Athletics 1, Alertness 1; every other 0. No powers (1.1 gives it none; a Revised ghoul often has Potence 1: a question). Its body is judged by its own part table (rules/severance bodies.szlachta: the long weak neck). Dresses 1.1's Szlachta wherever one is drawn; a template for the arena and --sheet. A research fixture, not a rule.",
+  "role": "townsperson",
+  "characters": [
+    "Szlachta"
+  ],
+  "species": "human",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 0,
+  "purchased": {
+    "strength": 15,
+    "dexterity": 17,
+    "stamina": 30,
+    "charisma": 0,
+    "manipulation": 0,
+    "appearance": 0,
+    "perception": 13,
+    "intelligence": 13,
+    "wits": 11,
+    "health_pool": 80,
+    "brawl": 2,
+    "athletics": 1,
+    "alertness": 1
+  },
+  "powers": []
+}

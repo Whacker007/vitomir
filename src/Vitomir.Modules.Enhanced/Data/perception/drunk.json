@@ -1,0 +1,26 @@
+{
+  "schema": "VITOMIR_OBSERVER_KIND",
+  "status": "SANDBOX",
+  "title": "A drunk: poor attention, slow, seldom alarmed, bold with drink, unreliable",
+  "note": "SANDBOX (by design: broad and diverse profiles, each with traits). Traits 0 to 1; SightRange in metres (daylight, open ground, a running body), ConeDegrees the half-angle, NoticeSeconds, MakeOutSeconds, ConcludeSeconds (each step up the ladder), HoldSeconds and CoolDownSeconds (calming down) in seconds (the proposed values). He may wander over to look; he seldom gets past alerted.",
+  "characters": [
+    "Civ07drunk"
+  ],
+  "numbers": {
+    "SightRange": 18.0,
+    "ConeDegrees": 45.0,
+    "Eyesight": 0.5,
+    "NightEyes": 0.2,
+    "Attention": 0.25,
+    "Bravery": 0.7,
+    "Curiosity": 0.6,
+    "Duty": 0.0,
+    "Excitability": 0.15,
+    "Voice": 0.7,
+    "NoticeSeconds": 1.5,
+    "MakeOutSeconds": 5.0,
+    "ConcludeSeconds": 6.0,
+    "HoldSeconds": 10.0,
+    "CoolDownSeconds": 60.0
+  }
+}

@@ -1,0 +1,544 @@
+{
+  // The launcher's one screen: the pages down the left, the page selected beside them, and a notice
+  // over everything when one is up (the folder it runs from, a save to replace, a game that ended badly), its default button worked by
+  // Enter and its cancel button by Escape. A control that cannot be used now is shown disabled, its reason in a line under it (its "why"). The launcher fills the data
+  // (Launcher.Fill) and answers the actions (Launcher.Handle); the words are all the launcher's. It is drawn in the Court of Night
+  // kit (CourtLook): the pieces named backdrop, pageBand, pageFrieze, noticePanel, noticeBand, noticeFrieze, noticeFrieze2 and
+  // noticeActions are its background, title bands, friezes, scrim and action band; the framed panels its frame, field and knots.
+  "title": "Vitomir",
+  "back": "escape",
+  "root": {
+    "type": "layer",
+    "children": [
+      { "type": "panel", "id": "backdrop", "fill": "#120c0aff", "width": "fill", "height": "fill" },
+      {
+        "type": "row", "id": "main", "visible": "noNotice", "width": "fill", "height": "fill", "padding": [30, 30, 30, 30], "gap": 24, "align": "stretch",
+        "children": [
+          {
+            "type": "column", "id": "nav", "width": 360, "gap": 16,
+            "children": [
+              { "type": "text", "text": "Vitomir", "style": "title" },
+              { "type": "text", "id": "version", "text": "{version}", "style": "number" },
+              { "type": "panel", "fill": "rule", "height": 2 },
+              { "type": "space", "height": 8 },
+              {
+                "type": "row", "gap": 8, "align": "stretch",
+                "children": [ { "type": "panel", "fill": "{markPlay}", "width": 8 }, { "type": "button", "id": "tabPlay", "text": "Play", "style": "tab", "action": "page", "arg": "play", "selected": "onPlay", "width": "fill" } ]
+              },
+              {
+                "type": "row", "gap": 8, "align": "stretch",
+                "children": [ { "type": "panel", "fill": "{markSetup}", "width": 8 }, { "type": "button", "id": "tabSetup", "text": "Setup", "style": "tab", "action": "page", "arg": "setup", "selected": "onSetup", "width": "fill" } ]
+              },
+              {
+                "type": "row", "gap": 8, "align": "stretch",
+                "children": [ { "type": "panel", "fill": "{markModules}", "width": 8 }, { "type": "button", "id": "tabModules", "text": "Modules", "style": "tab", "action": "page", "arg": "modules", "selected": "onModules", "width": "fill" } ]
+              },
+              {
+                "type": "row", "gap": 8, "align": "stretch",
+                "children": [ { "type": "panel", "fill": "{markFilms}", "width": 8 }, { "type": "button", "id": "tabFilms", "text": "Movies", "style": "tab", "action": "page", "arg": "films", "selected": "onFilms", "width": "fill" } ]
+              },
+              {
+                "type": "row", "gap": 8, "align": "stretch",
+                "children": [ { "type": "panel", "fill": "{markFolders}", "width": 8 }, { "type": "button", "id": "tabFolders", "text": "Folders", "style": "tab", "action": "page", "arg": "folders", "selected": "onFolders", "width": "fill" } ]
+              },
+              {
+                "type": "row", "gap": 8, "align": "stretch",
+                "children": [ { "type": "panel", "fill": "{markAbout}", "width": 8 }, { "type": "button", "id": "tabAbout", "text": "About", "style": "tab", "action": "page", "arg": "about", "selected": "onAbout", "width": "fill" } ]
+              },
+              { "type": "space", "height": "fill" },
+              { "type": "text", "id": "where", "text": "{whereLine}", "style": "warn", "wrap": true, "visible": "whereWarn" },
+              { "type": "button", "id": "quit", "text": "Quit", "action": "quit", "quiet": true }
+            ]
+          },
+          {
+            "type": "panel", "id": "page", "framed": true, "width": "fill", "height": "fill", "padding": [7, 7, 7, 7],
+            "child": {
+              "type": "column", "gap": 0,
+              "children": [
+                { "type": "panel", "id": "pageBand", "fill": "none", "height": 60, "padding": [37, 0, 33, 0],
+                  "child": { "type": "text", "id": "pageTitle", "text": "{pageTitle}", "style": "heading" } },
+                { "type": "panel", "id": "pageFrieze", "fill": "rule", "height": 17 },
+                { "type": "panel", "id": "pageBody", "fill": "none", "height": "fill", "padding": [37, 20, 33, 27], "child":
+                {
+                  "type": "scroll", "id": "pageArea", "step": 60,
+                  "child": {
+                    "type": "column", "gap": 16, "padding": [0, 8, 0, 8],
+                    "children": [
+
+                      { "type": "column", "id": "play", "visible": "onPlay", "gap": 16, "children": [
+                        { "type": "column", "gap": 4, "children": [
+                          { "type": "text", "id": "playGame", "text": "{playGame}", "style": "label", "wrap": true },
+                          { "type": "text", "id": "gameLine", "text": "{gameLine}", "style": "note", "wrap": true }
+                        ] },
+                        { "type": "text", "id": "playFrom", "text": "{playFrom}", "style": "body", "wrap": true, "visible": "playFrom" },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "play", "text": "Play", "action": "play", "minWidth": 320, "enabled": "canPlay", "why": "{playButtonWhy}" },
+                          { "type": "button", "id": "playAnywayHere", "text": "Play anyway", "action": "playanyway", "quiet": true, "visible": "acceptOnPlay", "minWidth": 260 }
+                        ] },
+                        { "type": "text", "id": "playWhy", "text": "{playWhy}", "style": "body", "wrap": true, "visible": "playWhy" },
+                        { "type": "row", "gap": 16, "visible": "problemsOnPlay", "children": [
+                          { "type": "text", "id": "playModulesNote", "text": "{playModulesNote}", "style": "body", "wrap": true, "width": "fill" },
+                          { "type": "button", "id": "toModules", "text": "Go to Modules", "style": "buttonSmall", "action": "page", "arg": "modules", "minWidth": 220 }
+                        ] },
+                        { "type": "panel", "id": "folderChoices", "fill": "bandAlt", "edge": "rule", "padding": [16, 16, 16, 16], "visible": "askFolder",
+                          "child": { "type": "column", "gap": 8, "children": [
+                            { "type": "text", "text": "{choicesIntro}", "style": "label", "wrap": true },
+                            { "type": "row", "children": [ { "type": "button", "id": "useUsual", "text": "Use the usual place", "action": "usefolderusual", "enabled": "canUseUsual", "why": "{useUsualWhy}", "minWidth": 340 } ] },
+                            { "type": "text", "text": "{choiceUsualNote}", "style": "note", "wrap": true },
+                            { "type": "row", "children": [ { "type": "button", "id": "useExisting", "text": "Use an existing one\u2026", "style": "buttonSmall", "action": "usefolderexisting", "enabled": "canUseIni", "why": "{useIniWhy}", "minWidth": 340 } ] },
+                            { "type": "text", "text": "{choiceExistingNote}", "style": "note", "wrap": true },
+                            { "type": "row", "children": [ { "type": "button", "id": "makePortable", "text": "Make portable", "style": "buttonSmall", "action": "makeportable", "enabled": "canUseIni", "why": "{useIniWhy}", "minWidth": 340 } ] },
+                            { "type": "text", "text": "{choicePortableNote}", "style": "note", "wrap": true },
+                            { "type": "text", "id": "choicesWhy", "text": "{choicesWhy}", "style": "warn", "wrap": true, "visible": "choicesWhy" }
+                          ] } },
+                        { "type": "list", "id": "folderResult", "items": "folderResult", "gap": 4,
+                          "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" } ] } },
+                        { "type": "row", "id": "readySummary", "gap": 16, "children": [
+                          { "type": "mark", "id": "readyAllMark", "bind": "readyMark" },
+                          { "type": "text", "id": "readyTitle", "text": "{readyTitle}", "style": "group", "width": "fill" },
+                          { "type": "button", "id": "readyDetails", "text": "{readyDetailsWord}", "style": "buttonSmall", "action": "readydetails", "visible": "readyFolds", "minWidth": 220 }
+                        ] },
+                        { "type": "list", "id": "readyList", "items": "ready", "gap": 4, "stripes": ["band", "bandAlt"], "visible": "readyOpen",
+                          "template": {
+                            "type": "panel", "fill": "none", "padding": [16, 8, 16, 8],
+                            "child": { "type": "column", "gap": 4, "children": [
+                              { "type": "row", "gap": 16, "children": [
+                                { "type": "mark", "id": "readyMark", "bind": "mark" },
+                                { "type": "text", "text": "{name}", "style": "label", "width": "fill" },
+                                { "type": "button", "id": "readyFix", "text": "{fixLabel}", "style": "buttonSmall", "action": "page", "arg": "{fixPage}", "visible": "hasFix", "minWidth": 220 }
+                              ] },
+                              { "type": "panel", "fill": "none", "padding": [48, 0, 0, 0], "child": { "type": "column", "children": [
+                                { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "lineReady" },
+                                { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "lineFailed" },
+                                { "type": "text", "text": "{line}", "style": "caution", "wrap": true, "visible": "lineWarning" },
+                                { "type": "text", "text": "{line}", "style": "note", "wrap": true, "visible": "lineWaiting" }
+                              ] } }
+                            ] }
+                          } },
+                        { "type": "text", "id": "playResult", "text": "{playResult}", "style": "body", "wrap": true, "visible": "playResult" },
+                        { "type": "checkbox", "id": "closeOnStart", "bind": "closeOnStart", "text": "Close the launcher when the game starts", "action": "closeonstart", "wrap": true, "width": "fill", "enabled": "canCloseOnStart", "why": "{closeOnStartWhy}" },
+                        { "type": "text", "id": "playNote", "text": "{playNote}", "style": "note", "wrap": true, "visible": "playNote" },
+                        { "type": "checkbox", "id": "skipOpening", "bind": "skipOpening", "text": "Skip the opening movies (the logo and the trailer)", "action": "skipopening", "wrap": true, "width": "fill", "enabled": "canCloseOnStart", "why": "{closeOnStartWhy}" },
+                        { "type": "text", "id": "closeOnStartWhy", "text": "{closeOnStartWhy}", "style": "note", "wrap": true, "visible": "closeOnStartWhy" }
+                      ] },
+
+                      { "type": "column", "id": "setup", "visible": "onSetup", "gap": 16, "children": [
+                        { "type": "text", "text": "{setupIntro}", "style": "note", "wrap": true },
+                        { "type": "text", "text": "1. Your copy of the game", "style": "group" },
+                        { "type": "list", "id": "installs", "items": "installs", "gap": 8,
+                          "template": {
+                            "type": "panel", "fill": "{rowFill}", "edge": "{rowEdge}",
+                            "child": { "type": "radio", "id": "copy", "bind": "copySelected", "value": "{n}", "group": "copy", "action": "choose", "arg": "{n}",
+                              "enabled": "notBusy", "why": "{busyWhy}", "padding": [14, 10, 14, 10], "width": "fill",
+                              "child": { "type": "column", "gap": 4, "children": [
+                                { "type": "text", "text": "{store}", "style": "label" },
+                                { "type": "text", "text": "{folder}", "style": "body", "wrap": true },
+                                { "type": "text", "text": "{how}", "style": "note", "wrap": true }
+                              ] } }
+                          } },
+                        { "type": "text", "id": "installsNone", "text": "{installsNone}", "style": "body", "wrap": true, "visible": "installsNone" },
+                        { "type": "panel", "id": "otherRow", "fill": "{otherFill}", "edge": "{otherEdge}",
+                          "child": { "type": "radio", "id": "copyOther", "bind": "copySelected", "value": "other", "group": "copy", "action": "chooseother",
+                            "enabled": "notBusy", "why": "{busyWhy}", "padding": [14, 10, 14, 10], "width": "fill",
+                            "child": { "type": "column", "gap": 8, "children": [
+                              { "type": "text", "text": "Another folder:", "style": "label" },
+                              { "type": "row", "gap": 16, "children": [
+                                { "type": "textbox", "id": "path", "bind": "path", "action": "usefolder", "error": "pathWhy", "placeholder": "C:\\Games\\VTMR", "width": "fill", "enabled": "notBusy", "why": "{busyWhy}" },
+                                { "type": "button", "id": "browse", "text": "Browse…", "style": "buttonSmall", "action": "browse", "enabled": "notBusy", "why": "{busyWhy}" },
+                                { "type": "button", "id": "useFolder", "text": "Use this folder", "style": "buttonSmall", "action": "usefolder", "enabled": "notBusy", "why": "{busyWhy}" }
+                              ] },
+                              { "type": "text", "id": "pathHint", "text": "{pathHint}", "style": "note", "wrap": true },
+                              { "type": "text", "id": "pathWhy", "text": "{pathWhy}", "style": "warn", "wrap": true, "visible": "pathWhy" }
+                            ] } } },
+                        { "type": "text", "id": "copyWhy", "text": "{copyWhy}", "style": "note", "wrap": true, "visible": "copyWhy" },
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "2. Check and import its files", "style": "group" },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "import", "text": "{importWord}", "action": "import", "enabled": "canStart", "why": "{startWhy}", "minWidth": 220 },
+                          { "type": "button", "id": "check", "text": "Check files", "action": "check", "quiet": true, "enabled": "canStart", "why": "{startWhy}", "minWidth": 220 },
+                          { "type": "button", "id": "cancel", "text": "Cancel", "action": "cancel", "visible": "canCancel", "minWidth": 220 }
+                        ] },
+                        { "type": "text", "id": "startWhy", "text": "{startWhy}", "style": "note", "wrap": true, "visible": "startWhy" },
+                        { "type": "row", "gap": 16, "visible": "imported", "children": [
+                          { "type": "button", "id": "verify", "text": "Verify files", "action": "verify", "quiet": true, "enabled": "canVerify", "why": "{busyWhy}", "minWidth": 220 },
+                          { "type": "button", "id": "repair", "text": "Repair", "action": "repair", "quiet": true, "visible": "offerRepair", "enabled": "canRepair", "why": "{busyWhy}", "minWidth": 220 }
+                        ] },
+                        { "type": "text", "id": "verifyWhy", "text": "{verifyWhy}", "style": "note", "wrap": true, "visible": "verifyWhy" },
+                        { "type": "meter", "id": "progress", "bind": "progress", "height": 16, "edge": "cellEdge", "visible": "busy" },
+                        { "type": "text", "id": "progressText", "text": "{progressText}", "style": "note", "visible": "busy" },
+                        { "type": "list", "id": "result", "items": "result", "gap": 4,
+                          "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" }, { "type": "text", "text": "{line}", "style": "note", "wrap": true, "visible": "detail" } ] } },
+                        { "type": "row", "visible": "resultHasDetails", "children": [
+                          { "type": "button", "id": "resultDetails", "text": "{resultDetailsWord}", "style": "buttonSmall", "action": "setupdetails", "minWidth": 220 }
+                        ] },
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "3. Your saves and characters from the original game", "style": "group" },
+                        { "type": "list", "id": "saves", "items": "saves", "gap": 4, "stripes": ["band", "bandAlt"],
+                          "template": {
+                            "type": "checkbox", "id": "pick", "bind": "selected", "action": "pick", "arg": "{n}", "enabled": "canPick", "why": "{pickWhy}",
+                            "padding": [14, 6, 14, 6], "width": "fill",
+                            "child": { "type": "column", "gap": 0, "children": [
+                              { "type": "text", "text": "{id}   {desc}", "style": "value" },
+                              { "type": "text", "text": "{sub}", "style": "note" }
+                            ] }
+                          } },
+                        { "type": "text", "id": "savesNone", "text": "{savesNone}", "style": "note", "wrap": true, "visible": "savesNone" },
+                        { "type": "row", "gap": 16, "visible": "hasSaves", "children": [
+                          { "type": "button", "id": "selectAll", "text": "Select all", "style": "buttonSmall", "action": "selectall", "enabled": "canSelectAll", "why": "{selectAllWhy}" },
+                          { "type": "button", "id": "clearSelection", "text": "Clear selection", "style": "buttonSmall", "action": "clearselection", "enabled": "canClear", "why": "{clearWhy}" }
+                        ] },
+                        { "type": "row", "gap": 16, "visible": "hasSaves", "children": [
+                          { "type": "button", "id": "importSaves", "text": "Import selected", "action": "importsaves", "quiet": true, "enabled": "canImportSaves", "why": "{importSavesWhy}", "minWidth": 220 }
+                        ] },
+                        { "type": "text", "id": "savesWhy", "text": "{savesWhy}", "style": "note", "wrap": true, "visible": "savesWhy" },
+                        { "type": "list", "id": "saveResult", "items": "saveResult", "gap": 4,
+                          "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" } ] } },
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "4. FFmpeg, for the movies", "style": "group" },
+                        { "type": "text", "id": "ffmpegLine", "text": "{ffmpegLine}", "style": "body", "wrap": true },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "ffmpeg", "text": "Install FFmpeg with winget", "style": "buttonSmall", "action": "ffmpeg", "visible": "noFFmpeg", "enabled": "notBusy", "why": "{busyWhy}" },
+                          { "type": "button", "id": "ffmpegLook", "text": "Check again", "style": "buttonSmall", "action": "ffmpeglook" }
+                        ] },
+                        { "type": "text", "id": "ffmpegWhy", "text": "{ffmpegWhy}", "style": "note", "wrap": true, "visible": "ffmpegWhy" },
+                        { "type": "text", "text": "{ffmpegNote}", "style": "note", "wrap": true, "visible": "noFFmpeg" },
+                        { "type": "space", "height": 4, "visible": "hasShortcuts" },
+                        { "type": "text", "text": "Shortcuts", "style": "group", "visible": "hasShortcuts" },
+                        { "type": "switch", "id": "shortcutDesktop", "bind": "shortcutDesktop", "text": "Desktop shortcut", "action": "shortcut", "arg": "desktop", "enabled": "shortcutDesktopCan", "why": "{shortcutDesktopWhy}", "visible": "hasShortcuts" },
+                        { "type": "row", "gap": 16, "visible": "shortcutDesktopMoved", "children": [
+                          { "type": "text", "text": "{shortcutDesktopNote}", "style": "warn", "wrap": true, "width": "fill" },
+                          { "type": "button", "id": "shortcutDesktopUpdate", "text": "Update", "style": "buttonSmall", "action": "shortcutupdate", "arg": "desktop" }
+                        ] },
+                        { "type": "switch", "id": "shortcutStart", "bind": "shortcutStart", "text": "Start menu shortcut", "action": "shortcut", "arg": "startmenu", "enabled": "shortcutStartCan", "why": "{shortcutStartWhy}", "visible": "hasShortcuts" },
+                        { "type": "row", "gap": 16, "visible": "shortcutStartMoved", "children": [
+                          { "type": "text", "text": "{shortcutStartNote}", "style": "warn", "wrap": true, "width": "fill" },
+                          { "type": "button", "id": "shortcutStartUpdate", "text": "Update", "style": "buttonSmall", "action": "shortcutupdate", "arg": "startmenu" }
+                        ] },
+                        { "type": "text", "id": "shortcutLine", "text": "{shortcutLine}", "style": "note", "wrap": true, "visible": "shortcutLine" }
+                      ] },
+
+                      { "type": "column", "id": "films", "visible": "onFilms", "gap": 16, "children": [
+                        { "type": "text", "text": "{filmsIntro}", "style": "body", "wrap": true },
+                        { "type": "list", "id": "filmsWarn", "items": "filmsWarn", "gap": 4,
+                          "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" }, { "type": "text", "text": "{line}", "style": "caution", "wrap": true, "visible": "caution" } ] } },
+
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "Upscaling tools", "style": "group" },
+                        { "type": "text", "id": "filmToolsLine", "text": "{filmToolsLine}", "style": "body", "wrap": true },
+                        { "type": "meter", "id": "filmFetchProgress", "bind": "filmFetchProgress", "height": 16, "edge": "cellEdge", "visible": "filmFetching" },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "filmFetch", "text": "Download the tools…", "style": "buttonSmall", "action": "filmfetch", "visible": "filmCanFetch", "enabled": "filmFetchFree", "why": "{filmBusyWhy}", "minWidth": 260 },
+                          { "type": "button", "id": "filmCancelFetch", "text": "Cancel", "style": "buttonSmall", "action": "filmcancelfetch", "visible": "filmFetching", "minWidth": 220 },
+                          { "type": "button", "id": "filmRemoveTools", "text": "Remove the tools…", "style": "buttonSmall", "action": "filmremovetools", "visible": "filmHasTools", "enabled": "filmIdle", "why": "{filmBusyWhy}", "minWidth": 260 }
+                        ] },
+                        { "type": "text", "id": "filmFetchWhy", "text": "{filmFetchWhy}", "style": "warn", "wrap": true, "visible": "filmFetchWhy" },
+
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "How long video upscaling takes on this PC", "style": "group" },
+                        { "type": "text", "id": "filmMeasureLine", "text": "{filmMeasureLine}", "style": "body", "wrap": true },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "filmMeasure", "text": "{filmMeasureLabel}", "style": "buttonSmall", "action": "filmmeasure", "enabled": "filmCanMeasure", "why": "{filmMeasureWhy}", "minWidth": 260 },
+                          { "type": "button", "id": "filmCancelMeasure", "text": "Cancel", "style": "buttonSmall", "action": "filmcancelmeasure", "visible": "filmMeasuring", "minWidth": 220 }
+                        ] },
+                        { "type": "text", "id": "filmMeasureWhy", "text": "{filmMeasureWhyShown}", "style": "note", "wrap": true, "visible": "filmMeasureWhyShown" },
+
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "Your movies", "style": "group" },
+                        { "type": "text", "id": "filmBusyLine", "text": "{filmBusyWhy}", "style": "note", "wrap": true, "visible": "filmBusyWhy" },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "text", "text": "Set every movie to:", "style": "note" },
+                          { "type": "button", "id": "filmAllOriginal", "text": "Original", "style": "buttonSmall", "action": "filmall", "arg": "original", "minWidth": 150 },
+                          { "type": "button", "id": "filmAllBest", "text": "Best (4\u00d7)", "style": "buttonSmall", "action": "filmall", "arg": "best", "minWidth": 150 },
+                          { "type": "button", "id": "filmAllFast", "text": "Fast (2\u00d7)", "style": "buttonSmall", "action": "filmall", "arg": "fast", "minWidth": 150 }
+                        ] },
+                        { "type": "column", "id": "filmTable", "gap": 4, "children": [
+                          { "type": "list", "id": "filmRows", "items": "films", "gap": 4, "stripes": ["band", "bandAlt"],
+                            "template": {
+                              "type": "panel", "padding": [14, 6, 14, 6],
+                              "child": { "type": "column", "gap": 6, "children": [
+                                { "type": "row", "gap": 16, "children": [
+                                  { "type": "text", "text": "{title}", "style": "label" },
+                                  { "type": "text", "text": "{length}", "style": "note", "width": "fill" }
+                                ] },
+                                { "type": "row", "gap": 16, "align": "start", "children": [
+                                  { "type": "column", "gap": 2, "width": "fill", "children": [
+                                    { "type": "radio", "id": "filmOriginal", "bind": "choice", "value": "original", "group": "{stem}", "action": "filmchoice", "arg": "{stem}:original", "text": "Original" },
+                                    { "type": "text", "text": "{originalText}", "style": "note", "wrap": true }
+                                  ] },
+                                  { "type": "column", "gap": 2, "width": "fill", "children": [
+                                    { "type": "radio", "id": "filmBest", "bind": "choice", "value": "best", "group": "{stem}", "action": "filmchoice", "arg": "{stem}:best", "text": "Best (4\u00d7)" },
+                                    { "type": "text", "text": "{bestText}", "style": "body", "wrap": true, "visible": "bestPlain" },
+                                    { "type": "text", "text": "{bestText}", "style": "caution", "wrap": true, "visible": "bestCaution" },
+                                    { "type": "text", "text": "{bestText}", "style": "warn", "wrap": true, "visible": "bestWarn" },
+                                    { "type": "text", "text": "{bestText}", "style": "note", "wrap": true, "visible": "bestNote" },
+                                    { "type": "row", "visible": "bestMade", "children": [
+                                      { "type": "button", "id": "filmRemoveBest", "text": "Remove\u2026", "style": "buttonSmall", "action": "filmremove", "arg": "{stem}:best", "enabled": "removeFree", "why": "{removeWhy}", "minWidth": 160 } ] }
+                                  ] },
+                                  { "type": "column", "gap": 2, "width": "fill", "children": [
+                                    { "type": "radio", "id": "filmFast", "bind": "choice", "value": "fast", "group": "{stem}", "action": "filmchoice", "arg": "{stem}:fast", "text": "Fast (2\u00d7)" },
+                                    { "type": "text", "text": "{fastText}", "style": "body", "wrap": true, "visible": "fastPlain" },
+                                    { "type": "text", "text": "{fastText}", "style": "caution", "wrap": true, "visible": "fastCaution" },
+                                    { "type": "text", "text": "{fastText}", "style": "warn", "wrap": true, "visible": "fastWarn" },
+                                    { "type": "text", "text": "{fastText}", "style": "note", "wrap": true, "visible": "fastNote" },
+                                    { "type": "row", "visible": "fastMade", "children": [
+                                      { "type": "button", "id": "filmRemoveFast", "text": "Remove\u2026", "style": "buttonSmall", "action": "filmremove", "arg": "{stem}:fast", "enabled": "removeFree", "why": "{removeWhy}", "minWidth": 160 } ] }
+                                  ] }
+                                ] }
+                              ] }
+                            } }
+                        ] },
+                        { "type": "text", "id": "filmNoGame", "text": "{filmNoGame}", "style": "warn", "wrap": true, "visible": "filmNoGame" },
+
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "Upscaling", "style": "group" },
+                        { "type": "text", "id": "filmToMake", "text": "{filmToMake}", "style": "body", "wrap": true },
+                        { "type": "meter", "id": "filmProgress", "bind": "filmProgress", "height": 16, "edge": "cellEdge", "visible": "filmWorking" },
+                        { "type": "text", "id": "filmProgressText", "text": "{filmProgressText}", "style": "body", "wrap": true, "visible": "filmWorking" },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "filmStart", "text": "Start upscaling\u2026", "action": "filmstart", "visible": "filmIdle", "enabled": "filmCanStart", "why": "{filmStartWhy}", "minWidth": 320 },
+                          { "type": "button", "id": "filmStop", "text": "Cancel\u2026", "action": "filmstop", "visible": "filmWorking", "minWidth": 220 }
+                        ] },
+                        { "type": "text", "id": "filmStartWhy", "text": "{filmStartWhyShown}", "style": "note", "wrap": true, "visible": "filmStartWhyShown" },
+                        { "type": "list", "id": "filmResult", "items": "filmResult", "gap": 4,
+                          "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" }, { "type": "text", "text": "{line}", "style": "caution", "wrap": true, "visible": "caution" } ] } },
+
+                        { "type": "space", "height": 4 },
+                        { "type": "text", "text": "Disk space", "style": "group" },
+                        { "type": "text", "id": "filmSpaceLine", "text": "{filmSpaceLine}", "style": "body", "wrap": true },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "filmRemoveAll", "text": "Remove all upscaled movies\u2026", "style": "buttonSmall", "action": "filmremoveall", "visible": "filmHasMade", "enabled": "filmIdle", "why": "{filmBusyWhy}", "minWidth": 320 }
+                        ] }
+                      ] },
+
+                      { "type": "column", "id": "modules", "visible": "onModules", "gap": 16, "children": [
+                        { "type": "text", "text": "{modulesIntro}", "style": "note", "wrap": true },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "addModule", "text": "Add a module\u2026", "action": "addmodule", "enabled": "canAddModule", "why": "{addWhy}", "minWidth": 280 },
+                          { "type": "button", "id": "sortModules", "text": "Sort by dependencies", "action": "sortmodules", "quiet": true, "visible": "offerSort", "enabled": "canSort", "why": "{sortWhy}", "minWidth": 280 }
+                        ] },
+                        { "type": "text", "id": "modulesWhy", "text": "{modulesWhy}", "style": "note", "wrap": true, "visible": "modulesWhy" },
+                        { "type": "meter", "id": "moduleProgress", "bind": "moduleProgress", "height": 16, "edge": "cellEdge", "visible": "moduleBusy" },
+                        { "type": "text", "id": "moduleProgressText", "text": "{moduleProgressText}", "style": "note", "wrap": true, "visible": "moduleBusy" },
+                        { "type": "row", "gap": 16, "visible": "moduleBusy", "children": [
+                          { "type": "button", "id": "cancelAdd", "text": "Cancel", "action": "canceladd", "minWidth": 220 }
+                        ] },
+                        { "type": "list", "id": "moduleResult", "items": "moduleResult", "gap": 4,
+                          "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" }, { "type": "text", "text": "{line}", "style": "note", "wrap": true, "visible": "detail" } ] } },
+                        { "type": "row", "visible": "moduleResultHasDetails", "children": [
+                          { "type": "button", "id": "moduleResultDetails", "text": "{moduleResultDetailsWord}", "style": "buttonSmall", "action": "moduledetails", "minWidth": 220 }
+                        ] },
+                        { "type": "space", "height": 8 },
+                        { "type": "text", "text": "Your modules, in load order", "style": "group" },
+                        { "type": "column", "id": "moduleTable", "gap": 4, "children": [
+                          { "type": "row", "id": "moduleHeader", "gap": 8, "padding": [8, 0, 10, 0], "children": [
+                            { "type": "space", "width": 46 }, { "type": "space", "width": 28 }, { "type": "space", "width": 62 },
+                            { "type": "row", "gap": 16, "width": "fill", "padding": [14, 0, 0, 0], "children": [
+                              { "type": "text", "text": "Name", "style": "note", "width": "fill" },
+                              { "type": "text", "text": "Version", "style": "note", "width": 110 },
+                              { "type": "text", "text": "Kind", "style": "note", "width": 260 },
+                              { "type": "space", "width": 32 }
+                            ] }
+                          ] },
+                          { "type": "panel", "id": "classicRow", "fill": "band", "padding": [8, 4, 10, 4],
+                            "child": { "type": "row", "gap": 8, "children": [
+                              { "type": "checkbox", "id": "classicOn", "bind": "classicOn", "enabled": "classicToggle", "why": "{classicWhy}", "width": 46 },
+                              { "type": "space", "width": 28 }, { "type": "space", "width": 62 },
+                              { "type": "row", "gap": 16, "width": "fill", "padding": [14, 4, 0, 4], "children": [
+                                { "type": "column", "gap": 0, "width": "fill", "children": [
+                                  { "type": "text", "text": "{classicName}", "style": "label", "wrap": true },
+                                  { "type": "text", "id": "classicGameLine", "text": "{gameLine}", "style": "note", "wrap": true },
+                                  { "type": "text", "id": "classicWhy", "text": "{classicLine}", "style": "note", "wrap": true }
+                                ] },
+                                { "type": "space", "width": 110 }, { "type": "space", "width": 260 }, { "type": "space", "width": 32 }
+                              ] }
+                            ] } },
+                          { "type": "list", "id": "moduleRows", "items": "modules", "gap": 4, "reorder": "modulemove",
+                            "template": {
+                              "type": "panel", "fill": "{rowFill}", "padding": [8, 4, 10, 4],
+                              "child": { "type": "column", "gap": 0, "children": [
+                                { "type": "row", "gap": 8, "children": [
+                                  { "type": "checkbox", "id": "moduleOn", "bind": "on", "action": "moduleon", "arg": "{id}", "enabled": "canToggle", "why": "{toggleWhy}", "width": 46 },
+                                  { "type": "handle", "id": "moduleGrip", "height": 40 },
+                                  { "type": "row", "gap": 2, "children": [
+                                    { "type": "button", "id": "moduleUp", "text": "Move up", "icon": "up", "style": "note", "action": "moduleup", "arg": "{id}", "enabled": "canUp", "why": "{upWhy}", "width": 30, "height": 40 },
+                                    { "type": "button", "id": "moduleDown", "text": "Move down", "icon": "down", "style": "note", "action": "moduledown", "arg": "{id}", "enabled": "canDown", "why": "{downWhy}", "width": 30, "height": 40 }
+                                  ] },
+                                  { "type": "checkbox", "id": "moduleOpen", "bind": "open", "action": "moduleopen", "arg": "{id}", "mark": 0, "width": "fill", "padding": [0, 4, 0, 4],
+                                    "child": { "type": "row", "gap": 16, "width": "fill", "children": [
+                                      { "type": "column", "gap": 0, "width": "fill", "children": [
+                                        { "type": "text", "text": "{name}", "style": "label", "wrap": true },
+                                        { "type": "text", "text": "{needs}", "style": "note", "wrap": true, "visible": "needsPlain" },
+                                        { "type": "text", "text": "{needs}", "style": "warn", "wrap": true, "visible": "needsWarn" }
+                                      ] },
+                                      { "type": "text", "text": "{version}", "style": "note", "width": 110 },
+                                      { "type": "list", "items": "tags", "across": true, "gap": 8, "width": 260,
+                                        "template": { "type": "panel", "fill": "bandAlt", "edge": "rule", "padding": [8, 0, 8, 0], "child": { "type": "column", "children": [
+                                          { "type": "text", "text": "{tag}", "style": "note", "visible": "plainTag" },
+                                          { "type": "text", "text": "{tag}", "style": "rules", "visible": "rulesTag" } ] } } },
+                                      { "type": "mark", "id": "moduleChevron", "bind": "chevron", "width": 32 }
+                                    ] } }
+                                ] },
+                                { "type": "text", "text": "{rowWarn}", "style": "warn", "wrap": true, "visible": "hasRowWarn" },
+                                { "type": "panel", "id": "moduleDetailsPanel", "fill": "none", "padding": [174, 8, 0, 8], "visible": "open",
+                                  "child": { "type": "panel", "fill": "none", "edge": "rule", "padding": [16, 8, 16, 12],
+                                    "child": { "type": "column", "gap": 4, "children": [
+                                      { "type": "list", "id": "moduleDetailLines", "items": "details", "gap": 4,
+                                        "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" } ] } },
+                                      { "type": "checkbox", "id": "notUsedToggle", "bind": "notUsedOpen", "action": "notusedopen", "arg": "{id}", "mark": 0, "visible": "hasNotUsed", "width": "fill",
+                                        "child": { "type": "row", "gap": 8, "width": "fill", "children": [
+                                          { "type": "text", "text": "{notUsedLine}", "style": "body", "wrap": true },
+                                          { "type": "mark", "id": "notUsedChevron", "bind": "notUsedChevron", "width": 32 }
+                                        ] } },
+                                      { "type": "list", "id": "notUsedLines", "items": "notUsed", "gap": 0,
+                                        "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "note", "wrap": true, "visible": "detail" } ] } },
+                                      { "type": "space", "height": 4 },
+                                      { "type": "row", "gap": 16, "children": [
+                                        { "type": "button", "id": "moduleUpdate", "text": "Update", "style": "buttonSmall", "action": "moduleupdate", "arg": "{id}", "enabled": "canUpdateModule", "why": "{updateModuleWhy}", "visible": "offerUpdate", "minWidth": 210 },
+                                        { "type": "button", "id": "moduleVerify", "text": "Verify", "style": "buttonSmall", "action": "moduleverify", "arg": "{id}", "enabled": "canVerifyModule", "why": "{verifyModuleWhy}", "minWidth": 210 },
+                                        { "type": "button", "id": "moduleRemove", "text": "Remove module\u2026", "style": "buttonSmall", "action": "moduleremove", "arg": "{id}", "enabled": "canRemoveModule", "why": "{removeModuleWhy}", "minWidth": 210 }
+                                      ] },
+                                      { "type": "text", "id": "detailsWhy", "text": "{detailsWhy}", "style": "note", "wrap": true, "visible": "detailsWhy" },
+                                      { "type": "text", "id": "verifyingLine", "text": "{verifyingLine}", "style": "note", "wrap": true, "visible": "verifyingLine" },
+                                      { "type": "list", "id": "moduleVerifyLines", "items": "verify", "gap": 4,
+                                        "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" } ] } }
+                                    ] } } }
+                              ] }
+                            } }
+                        ] },
+                        { "type": "text", "id": "modulesNone", "text": "{modulesNone}", "style": "note", "wrap": true, "visible": "modulesNone" },
+                        { "type": "space", "height": 8 },
+                        { "type": "text", "text": "Checks", "style": "group" },
+                        { "type": "text", "id": "problemsLine", "text": "{problemsLine}", "style": "body", "wrap": true },
+                        { "type": "list", "id": "problemList", "items": "problems", "gap": 4,
+                          "template": {
+                            "type": "panel", "fill": "band", "padding": [14, 6, 14, 6],
+                            "child": { "type": "column", "gap": 4, "children": [
+                              { "type": "text", "text": "{head}", "style": "warn", "wrap": true, "visible": "error" },
+                              { "type": "text", "text": "{head}", "style": "caution", "wrap": true, "visible": "warning" },
+                              { "type": "text", "text": "{head}", "style": "body", "wrap": true, "visible": "note" },
+                              { "type": "text", "text": "{files}", "style": "note", "wrap": true, "visible": "hasFiles" },
+                              { "type": "text", "text": "{todo}", "style": "note", "wrap": true, "visible": "hasTodo" }
+                            ] }
+                          } },
+                        { "type": "row", "gap": 16, "visible": "canAccept", "children": [
+                          { "type": "button", "id": "playAnyway", "text": "Play anyway", "action": "playanyway", "minWidth": 320 }
+                        ] },
+                        { "type": "text", "id": "acceptNote", "text": "{acceptNote}", "style": "note", "wrap": true, "visible": "canAccept" }
+                      ] },
+
+                      { "type": "column", "id": "folders", "visible": "onFolders", "gap": 8, "children": [
+                        { "type": "panel", "id": "userFolderPanel", "fill": "bandAlt", "edge": "rule", "padding": [16, 16, 16, 16],
+                          "child": { "type": "column", "gap": 8, "children": [
+                            { "type": "row", "gap": 16, "children": [
+                              { "type": "text", "text": "Your user folder", "style": "label", "width": "fill" },
+                              { "type": "button", "id": "openUserFolder", "text": "Open", "style": "buttonSmall", "action": "open", "arg": "user", "visible": "ufThere", "minWidth": 150 }
+                            ] },
+                            { "type": "text", "id": "ufPath", "text": "{ufPath}", "style": "value", "wrap": true },
+                            { "type": "text", "id": "ufHow", "text": "{ufHow}", "style": "note", "wrap": true, "visible": "ufHow" },
+                            { "type": "text", "id": "ufProblem", "text": "{ufProblem}", "style": "warn", "wrap": true, "visible": "ufProblem" },
+                            { "type": "text", "id": "ufWarning", "text": "{ufWarning}", "style": "caution", "wrap": true, "visible": "ufWarning" },
+                            { "type": "list", "id": "ufIni", "items": "ufIni", "gap": 4,
+                              "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "note", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" }, { "type": "text", "text": "{line}", "style": "note", "wrap": true, "visible": "detail" } ] } },
+                            { "type": "row", "gap": 16, "children": [
+                              { "type": "button", "id": "moveUserFolder", "text": "Move\u2026", "action": "moveuserfolder", "enabled": "canMove", "why": "{ufMoveWhy}", "minWidth": 220 },
+                              { "type": "button", "id": "cancelMove", "text": "Cancel", "action": "cancelmove", "visible": "canCancelMove", "minWidth": 220 },
+                              { "type": "button", "id": "ufDetails", "text": "{ufDetailsWord}", "style": "buttonSmall", "action": "ufdetails", "visible": "ufHasDetails", "minWidth": 220 }
+                            ] },
+                            { "type": "text", "id": "ufMoveWhy", "text": "{ufMoveWhy}", "style": "note", "wrap": true, "visible": "ufMoveWhy" },
+                            { "type": "meter", "id": "moveProgress", "bind": "moveProgress", "height": 16, "edge": "cellEdge", "visible": "ufMoving" },
+                            { "type": "text", "id": "moveProgressText", "text": "{moveProgressText}", "style": "note", "wrap": true, "visible": "ufMoving" },
+                            { "type": "list", "id": "moveResult", "items": "moveResult", "gap": 4,
+                              "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" } ] } },
+                            { "type": "column", "id": "folderChoicesHere", "gap": 8, "visible": "ufChoicesHere", "children": [
+                              { "type": "text", "text": "Choose your user folder again:", "style": "body", "wrap": true },
+                              { "type": "row", "children": [ { "type": "button", "id": "useUsualHere", "text": "Use the usual place", "style": "buttonSmall", "action": "usefolderusual", "enabled": "canUseUsual", "why": "{useUsualWhy}", "minWidth": 340 } ] },
+                              { "type": "row", "children": [ { "type": "button", "id": "useExistingHere", "text": "Use an existing one\u2026", "style": "buttonSmall", "action": "usefolderexisting", "enabled": "canUseIni", "why": "{useIniWhy}", "minWidth": 340 } ] },
+                              { "type": "row", "children": [ { "type": "button", "id": "makePortableHere", "text": "Make portable", "style": "buttonSmall", "action": "makeportable", "enabled": "canUseIni", "why": "{useIniWhy}", "minWidth": 340 } ] },
+                              { "type": "text", "text": "{choicesWhy}", "style": "note", "wrap": true, "visible": "choicesWhy" }
+                            ] }
+                          ] } },
+                        { "type": "list", "id": "folderList", "items": "folders", "gap": 8, "stripes": ["band", "bandAlt"],
+                          "template": {
+                            "type": "panel", "fill": "none", "padding": [16, 8, 16, 8],
+                            "child": { "type": "column", "gap": 4, "children": [
+                              { "type": "row", "gap": 16, "children": [
+                                { "type": "text", "text": "{label}", "style": "label", "width": "fill" },
+                                { "type": "button", "text": "Open", "style": "buttonSmall", "action": "open", "arg": "{key}", "visible": "there", "minWidth": 150 }
+                              ] },
+                              { "type": "text", "text": "{path}", "style": "value", "wrap": true },
+                              { "type": "text", "text": "{note}", "style": "note", "wrap": true, "visible": "note" }
+                            ] }
+                          } },
+                        { "type": "text", "id": "openWhy", "text": "{openWhy}", "style": "warn", "wrap": true, "visible": "openWhy" }
+                      ] },
+
+                      { "type": "column", "id": "about", "visible": "onAbout", "gap": 16, "children": [
+                        { "type": "list", "id": "aboutList", "items": "about", "gap": 8,
+                          "template": { "type": "column", "gap": 4, "children": [
+                            { "type": "text", "text": "{label}", "style": "label", "visible": "label" },
+                            { "type": "text", "text": "{value}", "style": "value", "wrap": true, "visible": "plain" },
+                            { "type": "text", "text": "{value}", "style": "warn", "wrap": true, "visible": "warn" }
+                          ] } },
+                        { "type": "column", "gap": 4, "children": [
+                          { "type": "text", "text": "Source and updates", "style": "label" },
+                          { "type": "row", "children": [ { "type": "button", "id": "aboutSource", "text": "{sourceUrl}", "style": "buttonSmall", "action": "opensource" } ] }
+                        ] },
+                        { "type": "column", "gap": 8, "children": [
+                          { "type": "text", "text": "Licence", "style": "label" },
+                          { "type": "text", "id": "aboutLicence", "text": "{licence}", "style": "value", "wrap": true },
+                          { "type": "text", "id": "aboutLicenceGame", "text": "{licenceGame}", "style": "value", "wrap": true },
+                          { "type": "text", "id": "aboutLicenceRights", "text": "{licenceRights}", "style": "value", "wrap": true }
+                        ] },
+                        { "type": "column", "gap": 4, "children": [
+                          { "type": "text", "text": "Fonts", "style": "label" },
+                          { "type": "text", "text": "{fontsLicence}", "style": "value", "wrap": true }
+                        ] },
+                        { "type": "column", "gap": 4, "children": [
+                          { "type": "text", "text": "Third-party components", "style": "label" },
+                          { "type": "row", "children": [ { "type": "button", "id": "aboutThirdParty", "text": "{thirdPartyFile}", "style": "buttonSmall", "action": "openthirdparty" } ] }
+                        ] },
+                        { "type": "row", "gap": 16, "children": [
+                          { "type": "button", "id": "copyDetails", "text": "Copy details for a bug report", "action": "copydetails", "quiet": true, "minWidth": 320 },
+                          { "type": "text", "id": "aboutResult", "text": "{aboutResult}", "style": "body", "wrap": true, "width": "fill", "visible": "aboutResultPlain" }
+                        ] },
+                        { "type": "text", "id": "aboutWhy", "text": "{aboutResult}", "style": "warn", "wrap": true, "visible": "aboutResultWarn" }
+                      ] }
+                    ]
+                  }
+                } }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "anchor", "id": "notice", "at": "centre", "margin": 60, "visible": "notice",
+        "child": {
+          "type": "panel", "id": "noticePanel", "framed": true, "width": 1240, "padding": [7, 7, 7, 7],
+          "child": {
+            "type": "column", "gap": 0,
+            "children": [
+              { "type": "panel", "id": "noticeBand", "fill": "none", "minHeight": 60, "padding": [49, 0, 49, 0],
+                "child": { "type": "text", "id": "noticeTitle", "text": "{noticeTitle}", "style": "heading", "wrap": true } },
+              { "type": "panel", "id": "noticeFrieze", "fill": "rule", "height": 17 },
+              { "type": "panel", "id": "noticeBody", "fill": "none", "padding": [49, 20, 49, 20],
+                "child": { "type": "column", "gap": 8, "children": [
+                  { "type": "list", "id": "noticeLines", "items": "noticeLines", "gap": 8,
+                    "template": { "type": "column", "children": [ { "type": "text", "text": "{line}", "style": "body", "wrap": true, "visible": "plain" }, { "type": "text", "text": "{line}", "style": "warn", "wrap": true, "visible": "warn" }, { "type": "text", "text": "{line}", "style": "caution", "wrap": true, "visible": "caution" } ] } },
+                  { "type": "checkbox", "id": "keepOld", "bind": "keepOld", "text": "Keep the old folder after the move", "action": "keepold", "wrap": true, "width": "fill", "visible": "noticeKeepOld" },
+                  { "type": "text", "id": "keepOldNote", "text": "{keepOldNote}", "style": "note", "wrap": true, "visible": "noticeKeepOld" }
+                ] } },
+              { "type": "panel", "id": "noticeFrieze2", "fill": "rule", "height": 17 },
+              { "type": "panel", "id": "noticeActions", "fill": "none", "padding": [49, 16, 49, 16],
+                "child": { "type": "row", "gap": 24, "children": [
+                  { "type": "button", "id": "noticeA", "text": "{noticeA}", "action": "notice", "arg": "a", "visible": "noticeA", "default": "noticeADefault", "cancel": "noticeACancel" },
+                  { "type": "button", "id": "noticeB", "text": "{noticeB}", "action": "notice", "arg": "b", "visible": "noticeB", "default": "noticeBDefault", "cancel": "noticeBCancel" },
+                  { "type": "button", "id": "noticeC", "text": "{noticeC}", "action": "notice", "arg": "c", "visible": "noticeC", "default": "noticeCDefault", "cancel": "noticeCCancel" }
+                ] } }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

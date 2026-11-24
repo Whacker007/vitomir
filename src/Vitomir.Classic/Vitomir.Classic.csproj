@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 1.1's frame controller, the Classic module's library:
+       the front end, the game run and its parts, the film screen, the run's start and the process's loop of runs,
+       the binding layer and the tape, the network game and the Storyteller, the console and the harness that needs a live
+       session. Moved out of the old program word for word; it asks its host through the platform's IClassicHost
+       (Vitomir.Platform.Render.Classic) and names no SDL type (ControllerBoundaryTests keeps it so, with the lists of what
+       it may still use of the old renderer's glue and of the platform's renderer).
+
+       As the module never draws, it draws nothing either: it says what each frame is (the Classic
+       snapshot, the interface's draw lists, the screen's effects, the developer overlay's quads) and hands it to the host's
+       renderer (IClassicRenderer, the platform renderer's), holding no GPU object; it references the old renderer's glue
+       (Vitomir.Render) no more, so that no longer ships in the module's bin\. It stays a library of its own beside the
+       module's assembly (the IModule and the headless loop) until the loops are folded into the platform's pushed frame.
+       vitomir-tools references it and is its SDL host for the tools. -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Engine\Vitomir.Engine.csproj" />
+    <ProjectReference Include="..\Vitomir.Scripting\Vitomir.Scripting.csproj" />
+    <!-- The platform's renderer: the host contract and what the controller hands the host's renderer (the old glue,
+         Vitomir.Render). -->
+    <ProjectReference Include="..\Vitomir.Platform.Render\Vitomir.Platform.Render.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- vitomir-tools: the tools, the SDL host and the process's body, which reach the controller's internals. -->
+    <InternalsVisibleTo Include="vitomir-tools" />
+    <InternalsVisibleTo Include="Vitomir.Modules.Classic" />
+    <InternalsVisibleTo Include="Vitomir.Render.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+    <!-- The platform renderer's picture and a still's file (GpuPicture, Png). -->
+    <Using Include="Vitomir.Platform.Render" />
+    <!-- The host contract (IClassicHost and its asks) and the host's renderer it hands each frame to. -->
+    <Using Include="Vitomir.Platform.Render.Classic" />
+  </ItemGroup>
+</Project>

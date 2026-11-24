@@ -1,0 +1,42 @@
+{
+ "source": "unstuck",
+ "size": [
+  1280,
+  720
+ ],
+ "keep": [
+  [
+   81.9,
+   84.4
+  ],
+  [
+   88.1,
+   91.9
+  ]
+ ],
+ "poster": 1.0,
+ "segments": [
+  {
+   "from": 81.9,
+   "to": 84.4,
+   "tag": "limit",
+   "title": "Caught on a corner",
+   "line": "The keys push straight into it.",
+   "keys": "wasd",
+   "hold": 2.6
+  },
+  {
+   "from": 88.1,
+   "to": 91.9,
+   "tag": "limit",
+   "title": "The way out",
+   "line": "Click a short way past it.",
+   "mouse": true,
+   "ring": true,
+   "only": [
+    "Act"
+   ],
+   "hold": 1.2
+  }
+ ]
+}

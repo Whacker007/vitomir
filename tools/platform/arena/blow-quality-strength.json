@@ -1,0 +1,22 @@
+{
+  // An arena spec (the measurement for Melee's blow
+  // quality, gate-08, the rules package's harnesses). matched-blade-no-shield.json's fighters (the combat rules' newly Embraced
+  // against the combat rules' trained guard, the Rapier each, no shields, the duelling brain's defaults) with the guard's purchased Health
+  // 1000 (so a bout lasts long enough to give many contacts whatever the Strength), the newly Embraced's Strength swept 100,
+  // 200, 400. Nothing in harm reads a contact's quality yet: contacts.csv's point_speed, impact_speed (along the normal), sine,
+  // along_blade, tip_speed, peak_speed and swing_kind / swing_clip are what a blow-quality rule would read.
+  // Its twin with Celerity 3: blow-quality-celerity.json, the same seeds.
+  "title": "Blow quality: newly Embraced (Strength 100, 200, 400) against a trained guard of 1000 Health, the same sword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 100,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [100, 200, 400] }
+}

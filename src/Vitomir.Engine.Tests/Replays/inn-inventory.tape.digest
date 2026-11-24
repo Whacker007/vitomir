@@ -1,0 +1,785 @@
+vitomir-digest 2
+# the simulation at the end of each frame of a replay tape; a thing's row only when it changed
+# inn-inventory.tape, recorded on linux-x64
+f 1 clock=33 guid=63 ai=6 combat=0 motions=4 particles=0 lcg=0xa7fb889e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=422357a3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=298,-74,0 turn=0,-0,90 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x0 mode=party action=None body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4e26f066bf151672 pack=5:158e1409ea815d08 arts=33ba021bedc37622 fx=1:3bc93830c4d69473
+t 6 template=gobletda2 pos=336,-344,168 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=40225ed350a1e4d1
+t 7 template=liquorbottle3 pos=284,-400,112 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=824a2295aebc7e54
+t 8 template=oillamp pos=96,-176,82 turn=0,0,0 hp=0 flags=0x8000040 mode=- action=- body=32ec7f02306107d2
+t 9 template=barbench pos=-360,-344,65 turn=0,0,270 hp=0 flags=0x840 mode=- action=- body=4ecbefaf821716a4
+t 10 template=keg pos=352,-368,64 turn=0,0,0 hp=0 flags=0x840 mode=- action=- body=91dbf9a65b9f759a
+t 11 template=bartable pos=-88,80,0 turn=0,0,-15 hp=0 flags=0x840 mode=- action=- body=3e629c93d60229b0
+t 12 template=barbench pos=-152,104,0 turn=0,0,-15 hp=0 flags=0x840 mode=- action=- body=4ecbefaf821716a4
+t 13 template=tracker_thing pos=484,-5,96 turn=0,0,0 hp=0 flags=0x204000 mode=- action=- body=6d95e3e11838a1a7
+t 14 template=lantern1 pos=-306,-156,160 turn=0,0,0 hp=0 flags=0x8000040 mode=- action=- body=d73970b53b8ae471
+t 15 template=lantern1 pos=332,-342,328 turn=0,0,0 hp=0 flags=0x8000040 mode=- action=- body=d73970b53b8ae471
+t 16 template=lantern1 pos=76,-342,328 turn=0,0,0 hp=0 flags=0x8000040 mode=- action=- body=d73970b53b8ae471
+t 17 template=lantern1 pos=-180,-342,328 turn=0,0,0 hp=0 flags=0x8000040 mode=- action=- body=d73970b53b8ae471
+t 18 template=lantern1 pos=430,108,208 turn=0,0,0 hp=0 flags=0x8000040 mode=- action=- body=d73970b53b8ae471
+t 19 template=bartable pos=-328,272,0 turn=0,0,240 hp=0 flags=0x840 mode=- action=- body=3e629c93d60229b0
+t 20 template=barbench pos=-352,184,0 turn=0,0,-90 hp=0 flags=0x840 mode=- action=- body=4ecbefaf821716a4
+t 21 template=barbench pos=-328,344,0 turn=0,0,-105 hp=0 flags=0x840 mode=- action=- body=4ecbefaf821716a4
+t 22 template=stoker pos=-140,434,0 turn=0,0,180 hp=0 flags=0x840 mode=- action=- body=8fffe566ef745add
+t 23 template=firewood pos=144,423,0 turn=0,0,0 hp=0 flags=0x840 mode=- action=- body=a85add4e89d8f87c
+t 24 template=bartable pos=-352,-368,0 turn=0,0,270 hp=0 flags=0x840 mode=- action=- body=3e629c93d60229b0
+t 25 template=barbench pos=-344,-384,65 turn=0,0,270 hp=0 flags=0x840 mode=- action=- body=4ecbefaf821716a4
+t 26 template=firewoodlit pos=0,480,0 turn=0,0,0 hp=0 flags=0x840 mode=- action=- body=74e303a216044e03
+t 27 template=flamelarge pos=-8,484,16 turn=0,0,0 hp=0 flags=0x20 mode=- action=- body=529737def16705e6
+t 28 template=flamelarge pos=6,476,16 turn=0,0,0 hp=0 flags=0x20 mode=- action=- body=529737def16705e6
+t 29 template=barbench pos=-24,80,0 turn=0,0,0 hp=0 flags=0x840 mode=- action=- body=4ecbefaf821716a4
+t 30 template=liquorbottle2 pos=246,-404,64 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=b853854597bf1323
+t 31 template=flask4_1 pos=314,-352,168 turn=0,0,45 hp=0 flags=0x840 mode=- action=- body=76ee44a65f328342
+t 32 template=flask4 pos=280,-400,64 turn=0,0,0 hp=0 flags=0x840 mode=- action=- body=2334d055b2d022a0
+t 33 template=mugda2 pos=248,-404,112 turn=0,0,45 hp=0 flags=0x8000840 mode=- action=- body=f2c69e4efe51bea9
+t 34 template=mugda2 pos=212,-404,112 turn=0,0,180 hp=0 flags=0x8000840 mode=- action=- body=f2c69e4efe51bea9
+t 35 template=mugda2 pos=240,-384,64 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=f2c69e4efe51bea9
+t 36 template=mugda3 pos=216,-392,64 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=8c142685a8fc3962
+t 37 template=liquorbottle1 pos=222,-392,112 turn=0,0,225 hp=0 flags=0x8000840 mode=- action=- body=7e5a29fe4d61d3e2
+t 38 template=mugda1 pos=432,-176,64 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=74fb8fe4af9029d4
+t 39 template=mugda2 pos=432,-192,64 turn=0,0,135 hp=0 flags=0x8000840 mode=- action=- body=f2c69e4efe51bea9
+t 40 template=mugda2 pos=88,-232,64 turn=0,0,45 hp=0 flags=0x8000840 mode=- action=- body=f2c69e4efe51bea9
+t 41 template=gobletda1 pos=416,-200,64 turn=0,0,45 hp=0 flags=0x8000840 mode=- action=- body=60212769b2ddbd7c
+t 42 template=mugda3 pos=-96,48,65 turn=0,0,225 hp=0 flags=0x8000840 mode=- action=- body=8c142685a8fc3962
+t 43 template=mugda3 pos=-272,256,65 turn=0,0,315 hp=0 flags=0x8000840 mode=- action=- body=8c142685a8fc3962
+t 44 template=gobletda2 pos=352,-352,168 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=40225ed350a1e4d1
+t 45 template=gobletda2 pos=320,-376,168 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=40225ed350a1e4d1
+t 46 template=gobletda2 pos=340,-360,168 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=40225ed350a1e4d1
+t 47 template=gobletda2 pos=352,-368,168 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=40225ed350a1e4d1
+t 48 template=liquorbottle1 pos=210,-384,112 turn=0,0,0 hp=0 flags=0x8000840 mode=- action=- body=7e5a29fe4d61d3e2
+t 49 template=gobletda1 pos=380,-356,168 turn=0,0,45 hp=0 flags=0x8000840 mode=- action=- body=60212769b2ddbd7c
+t 50 template=wolfhead pos=160,-392,157 turn=0,0,0 hp=0 flags=0x840 mode=- action=- body=34a2cb482ebf5e9a
+t 51 template=staghead pos=91,-379,139 turn=0,0,0 hp=0 flags=0x840 mode=- action=- body=2741c359d55cdcf3
+t 52 template=boarhead pos=416,0,216 turn=0,0,90 hp=0 flags=0x840 mode=- action=- body=b36c35eab4b4581e
+t 53 template=civ02passedout pos=389,397,0 turn=0,0,180 hp=100 flags=0x0 mode=donothing action=None body=1cd8e1b42e48c49e actor=0x40000,0x0,10,1 stats=799afdde9299b4b1 pack=0:cbf29ce484222325 fx=2:5a1fef3d4cde5035
+t 54 template=civ07drunk_sitting pos=-40,72,0 turn=0,0,90 hp=100 flags=0x0 mode=donothing action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:a140297161032d25
+t 56 template=knightofstjohn_pe pos=360,360,0 turn=0,0,135 hp=100 flags=0x0 mode=enemysearch action=None body=da808ffa238daad1 actor=0x44000,0x0,11,1 stats=108a8b8b23d3f986 pack=0:cbf29ce484222325 fx=2:45ade0a888c53b7d
+t 57 template=civ07drunk_pe pos=40,-224,0 turn=0,0,270 hp=100 flags=0x0 mode=pedwander action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:d153cf2f5a411b4d
+t 58 template=ghost pos=184,-192,64 turn=0,0,0 hp=0 flags=0x40 mode=- action=- body=529737def16705e6
+t 59 template=barkeep_prague pos=264,-234,0 turn=0,0,0 hp=100 flags=0x0 mode=- action=None body=aacb3c97977fca3f actor=0x85,0x0,9,1 stats=5ccd075865b31fbd pack=0:cbf29ce484222325 fx=2:e2b206c23e8aca95
+t 61 template=torchU pos=274.69797,-75.65775,74.42879 turn=40.933105,-65.756935,42.020023 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=260.1362,-65.13887,91.910614 turn=-43.539227,-64.66402,76.521835 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 2 clock=66 guid=63 ai=6 combat=0 motions=4 particles=86 lcg=0x42f6bf6a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0af8803b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=287.091,-42.290195,76.176765 turn=68.03119,39.36125,144.4986 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=268.97223,-79.88825,77.46601 turn=47.08282,-65.50166,51.553818 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.42963,-73.155495,96.74005 turn=-38.289684,-68.91515,83.44538 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 3 clock=99 guid=63 ai=6 combat=0 motions=4 particles=116 lcg=0xb9624ba6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9044ac9e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=284.75977,-39.880074,77.19484 turn=68.54735,24.167742,154.47571 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=264.76166,-84.263214,81.273056 turn=54.98732,-67.51486,60.481594 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=251.66202,-81.24438,102.42943 turn=-32.01491,-75.001755,87.2922 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 4 clock=132 guid=63 ai=6 combat=0 motions=4 particles=155 lcg=0x0e211d22 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f486224b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=282.52295,-37.875935,78.24321 turn=69.211876,7.7957993,165.6761 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=262.10754,-88.37695,85.499504 turn=64.02362,-72.62429,69.41165 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=251.622,-88.660965,108.26524 turn=-24.709227,-81.72142,88.60366 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 5 clock=164 guid=63 ai=6 combat=0 motions=4 particles=179 lcg=0xcee60fde explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=97a712ac detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=280.47342,-36.23405,79.10906 turn=69.889336,-9.97752,178.27077 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.87277,-91.90451,89.77381 turn=73.485504,-83.21149,80.66052 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=253.73438,-94.89886,113.6146 turn=-16.395435,-87.992805,87.73822 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 6 clock=197 guid=63 ai=6 combat=0 motions=4 particles=235 lcg=0xeb8c33ae explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=cf1d5078 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.67416,-34.890076,79.57448 turn=70.40483,-29.314884,-167.6446 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.77896,-94.64043,93.75944 turn=82.17451,-111.62732,106.58971 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.203,-99.72355,118.04277 turn=-7.2714977,-92.89981,84.77808 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 7 clock=230 guid=63 ai=6 combat=0 motions=4 particles=302 lcg=0x423f0792 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a4781c78 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.54095,-34.80894,79.337296 turn=70.60402,-29.902897,-167.33057 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.69125,-94.660164,93.7727 turn=82.37282,-112.78082,107.35964 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.18173,-99.75855,118.06253 turn=-7.029076,-92.9682,84.39647 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 8 clock=263 guid=63 ai=6 combat=0 motions=4 particles=335 lcg=0x1bde174e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=133c1400 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.5048,-34.800613,79.05813 turn=70.80145,-29.17494,-168.00401 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.56644,-94.52406,93.5309 turn=82.09649,-110.46354,104.886406 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.89194,-99.516365,117.81837 turn=-7.401871,-92.778625,84.243095 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 9 clock=296 guid=63 ai=6 combat=0 motions=4 particles=379 lcg=0xc883d71e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2c4ad4aa detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.4684,-34.792538,78.769135 turn=71.00263,-28.406895,-168.71568 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.43723,-94.379555,93.27821 turn=81.79419,-108.21556,102.468704 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.59015,-99.259834,117.56172 turn=-7.791977,-92.58101,84.07734 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 10 clock=329 guid=63 ai=6 combat=0 motions=4 particles=418 lcg=0x0593431a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b20576a2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.43268,-34.784943,78.476524 turn=71.202995,-27.6139,-169.45169 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.30615,-94.228714,93.0196 turn=81.47163,-106.08426,100.15561 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.28207,-98.99289,117.297485 turn=-8.192196,-92.37902,83.90095 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 11 clock=362 guid=63 ai=6 combat=0 motions=4 particles=470 lcg=0xed99f2be explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=969dbeca detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.39838,-34.77797,78.18648 turn=71.39815,-26.81246,-170.1967 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.17578,-94.073555,92.76016 turn=81.13572,-104.10258,97.9815 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.97351,-98.71936,117.03079 turn=-8.595067,-92.17621,83.71536 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 12 clock=395 guid=63 ai=6 combat=0 motions=4 particles=538 lcg=0x52844e8e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=39c1d0a4 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.36615,-34.771748,77.90522 turn=71.584045,-26.0204,-170.93411 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.0485,-93.916084,92.50507 turn=80.793945,-102.291,95.96847 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.67,-98.44311,116.767 turn=-8.993274,-91.976006,83.52206 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 13 clock=428 guid=63 ai=6 combat=0 motions=4 particles=597 lcg=0xb414de5e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=5869dd4e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.3366,-34.766346,77.63895 turn=71.7569,-25.256924,-171.64589 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.92648,-93.75824,92.259674 turn=80.454445,-100.66025,94.128914 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.37695,-98.16791,116.51174 turn=-9.379313,-91.78172,83.322495 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 14 clock=461 guid=63 ai=6 combat=0 motions=4 particles=641 lcg=0x7ca8a22e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d8c59573 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.3102,-34.761787,77.393906 turn=71.91323,-24.542488,-172.3128 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.8121,-93.60191,92.02937 turn=80.12571,-99.21394,92.468056 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.09988,-97.897514,116.27084 turn=-9.74564,-91.596504,83.118 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 15 clock=494 guid=63 ai=6 combat=0 motions=4 particles=668 lcg=0x5d14392a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9cc8b706 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.28745,-34.75807,77.17634 turn=72.04974,-23.898561,-172.9146 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.7073,-93.44897,91.81969 turn=79.816414,-97.951096,90.98656 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.8439,-97.63564,116.050354 turn=-10.084658,-91.42339,82.90986 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 16 clock=527 guid=63 ai=6 combat=0 motions=4 particles=715 lcg=0x4c41dffa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=33510cdb detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.26868,-34.755184,76.99252 turn=72.163414,-23.347376,-173.43019 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.6143,-93.30123,91.63622 turn=79.53534,-96.86813,89.68252 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.61435,-97.38601,115.85649 turn=-10.388731,-91.265305,82.69935 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 17 clock=560 guid=63 ai=6 combat=0 motions=4 particles=751 lcg=0x515ddf36 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=910c3e59 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.2543,-34.753075,76.84867 turn=72.25126,-22.911497,-173.83824 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.53488,-93.16054,91.48464 turn=79.29126,-95.96041,88.553055 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.41617,-97.152306,115.6956 turn=-10.650175,-91.12499,82.48778 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 18 clock=593 guid=63 ai=6 combat=0 motions=4 particles=807 lcg=0x3d653906 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=7882c720 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.2447,-34.751717,76.75105 turn=72.310326,-22.613401,-174.11745 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.4711,-93.02867,91.37069 turn=79.09291,-95.22383,87.595665 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.25447,-96.93821,115.574165 turn=-10.861241,-91.00512,82.27627 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 19 clock=626 guid=63 ai=6 combat=0 motions=4 particles=861 lcg=0xaffd9c82 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4bd9b7a6 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.2403,-34.751114,76.705894 turn=72.337494,-22.474876,-174.24724 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.42493,-92.907455,91.30005 turn=78.94891,-94.65585,86.80963 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.13432,-96.74744,115.498604 turn=-11.014166,-90.90823,82.0662 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 20 clock=659 guid=63 ai=6 combat=0 motions=4 particles=912 lcg=0x8ef2813e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f2d8750e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.4634,-35.30996,75.18435 turn=72.878105,-4.0345235,168.96329 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x0 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4e26f066bf151672 pack=5:158e1409ea815d08 arts=5711eb73af79f146 fx=1:3bc93830c4d69473
+t 61 template=torchU pos=258.51862,-86.77208,88.04705 turn=70.49651,-66.68205,53.904682 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=250.85728,-85.89378,111.89739 turn=-17.854149,-82.0192,78.47823 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 21 clock=692 guid=63 ai=6 combat=0 motions=4 particles=953 lcg=0xd13a7d0e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6838d837 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=276.9408,-36.593376,70.78776 turn=72.23506,28.120445,141.95293 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=257.56784,-81.966446,82.35503 turn=59.981487,-57.960175,41.23398 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=248.02951,-76.41092,104.85975 turn=-25.092257,-72.958755,77.09294 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 22 clock=725 guid=63 ai=6 combat=0 motions=4 particles=995 lcg=0x23946e0a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e53e8ed1 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=273.8569,-38.98369,64.435196 turn=66.310745,61.918858,116.98283 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=255.90027,-78.5966,75.12698 turn=50.397305,-56.970993,37.339554 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=244.63596,-69.55678,95.61364 turn=-32.306168,-65.72658,77.496956 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 23 clock=758 guid=63 ai=6 combat=0 motions=4 particles=1037 lcg=0xf2cda846 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=88caff91 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=270.02075,-43.398003,56.432575 turn=55.964825,87.23947,103.86186 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=254.30826,-76.17573,66.087654 turn=42.661705,-63.3419,40.739906 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=240.46106,-65.77174,84.207214 turn=-41.086517,-64.040085,77.271774 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 24 clock=791 guid=63 ai=6 combat=0 motions=4 particles=1067 lcg=0xb83fc7c2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=aa6c91a3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=267.60025,-50.822186,45.622826 turn=41.916832,107.68106,98.785 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=255.73604,-74.28654,53.052494 turn=34.23966,-78.74557,50.96881 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=237.65553,-64.85868,67.63045 turn=-54.173595,-73.99969,70.44582 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 25 clock=824 guid=63 ai=6 combat=0 motions=4 particles=1126 lcg=0x753b7492 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f968b1f3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=268.62735,-58.259663,36.052364 turn=27.809002,120.56614,100.06555 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=261.42264,-70.90245,41.974503 turn=26.819214,-96.4967,59.11664 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=240.19456,-63.001553,52.709984 turn=-62.461914,-102.61515,44.951035 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 26 clock=857 guid=63 ai=6 combat=0 motions=4 particles=1159 lcg=0xf7ca744e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=62719837 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=268.7789,-58.61878,35.04745 turn=26.468771,121.21531,99.19682 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=261.69797,-70.82661,41.374947 turn=27.534447,-98.54221,61.094837 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=240.27867,-63.67911,52.257633 turn=-61.270203,-105.903336,43.094856 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 27 clock=890 guid=63 ai=6 combat=0 motions=4 particles=1200 lcg=0x1afb741e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=421029ef detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=268.68066,-58.39354,34.061413 turn=25.380941,121.29771,95.74568 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=261.14822,-71.363464,41.597607 turn=30.840183,-101.40692,65.75468 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=239.74434,-66.176926,53.567543 turn=-57.31381,-108.32712,44.271626 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 28 clock=923 guid=63 ai=6 combat=0 motions=4 particles=1235 lcg=0x6f0ba7ee explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6ecad134 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=268.50897,-57.89326,32.8775 turn=24.144474,121.29432,90.24735 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.37683,-72.28499,42.24618 turn=35.675285,-106.86779,73.33953 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=239.32982,-70.12404,55.68714 turn=-51.02185,-112.00728,45.868958 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 29 clock=956 guid=63 ai=6 combat=0 motions=4 particles=1271 lcg=0xe9aaf2ea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e57a43e1 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=268.30664,-57.13448,31.690351 turn=23.069681,121.45007,82.92899 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.61957,-73.623344,43.241707 turn=40.77577,-116.11583,84.17816 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=239.43336,-75.303665,58.00653 turn=-42.8404,-117.03967,47.28512 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 30 clock=989 guid=63 ai=6 combat=0 motions=4 particles=1314 lcg=0xb77dab8e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=66412a89 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=268.11804,-56.153477,30.68464 turn=22.344046,122.12327,74.034256 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.04614,-75.33245,44.440075 turn=44.43818,-129.85373,98.24154 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=240.19374,-81.27611,59.85325 turn=-33.238853,-123.165504,48.229195 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 31 clock=1022 guid=63 ai=6 combat=0 motions=4 particles=1346 lcg=0x06d97b5e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=edb363a8 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=267.9758,-55.01128,30.021996 turn=21.938892,123.7014,63.873875 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=258.6966,-77.26183,45.69261 turn=45.041046,-146.88988,113.81098 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=241.38263,-87.37532,60.73423 turn=-22.70461,-129.90988,48.582664 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 32 clock=1055 guid=63 ai=6 combat=0 motions=4 particles=1388 lcg=0x26c4135a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2a0f1464 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=267.88562,-53.786957,29.836899 turn=21.599556,126.46036,52.867718 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=258.47742,-79.18016,46.942795 turn=42.174255,-164.0708,127.42981 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=242.49594,-92.84367,60.58856 turn=-11.735626,-136.70761,48.277325 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 33 clock=1088 guid=63 ai=6 combat=0 motions=4 particles=1415 lcg=0x3d8fc496 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8091262a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=267.79733,-52.565823,30.055075 turn=20.978106,130.45363,41.57695 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=258.22385,-80.847374,48.111206 turn=37.051086,-178.9897,136.64417 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=243.01854,-97.05776,59.701202 turn=-0.8063076,-142.94463,47.252937 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 34 clock=1121 guid=63 ai=6 combat=0 motions=4 particles=1456 lcg=0x1665f666 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=48f0869c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=267.6623,-51.43617,30.400393 turn=19.730036,135.37242,30.75066 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=257.8261,-82.10748,49.057804 turn=31.428066,168.80605,141.36221 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=242.70367,-99.737595,58.48101 turn=9.535048,-148.08014,45.47081 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 35 clock=1154 guid=63 ai=6 combat=0 motions=4 particles=1501 lcg=0x6aa6ebe2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9a58d5c1 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=267.46646,-50.46294,30.830479 turn=17.756186,140.55447,21.223852 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=257.2859,-82.9176,49.909927 turn=26.648792,159.03442,142.75009 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=241.68192,-100.98939,57.540955 turn=18.65071,-151.7461,42.998405 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 36 clock=1187 guid=63 ai=6 combat=0 motions=4 particles=1557 lcg=0xd03c20b2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9aaa32a0 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=267.18365,-49.677956,31.332027 turn=15.409742,145.31798,13.678354 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=256.68906,-83.340195,50.767643 turn=23.404871,151.50996,142.29109 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=240.36469,-101.224365,57.246643 turn=25.960938,-153.78072,40.12508 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 37 clock=1220 guid=63 ai=6 combat=0 motions=4 particles=1604 lcg=0x8a91c982 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=66b2314c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=265.8344,-48.84738,32.856033 turn=13.87352,150.78177,7.9905715 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=255.67537,-83.324265,52.725933 turn=22.60962,144.75294,141.79163 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=238.87703,-100.799965,59.107304 turn=32.191467,-152.98094,36.592747 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 38 clock=1253 guid=63 ai=6 combat=0 motions=4 particles=1631 lcg=0x2c8a9e3e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d6c7ff6b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=263.96115,-48.094467,35.088215 turn=13.492061,155.87398,4.65547 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=254.6896,-83.09333,55.289852 turn=23.688889,139.74982,142.12604 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=237.8989,-100.32279,62.327152 turn=36.276615,-150.10782,33.34153 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 39 clock=1286 guid=63 ai=6 combat=0 motions=4 particles=1666 lcg=0x7f4dda0e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0c535f23 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=258.90918,-45.78289,43.63491 turn=15.872765,170.28352,-0.55359995 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=253.20355,-83.01399,62.849518 turn=30.69716,135.85167,146.68272 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=238.2831,-100.46077,72.91412 turn=36.792618,-140.39575,30.32224 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 40 clock=1319 guid=63 ai=6 combat=0 motions=4 particles=1696 lcg=0x9bccbb0a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=25a39f7c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=254.1514,-41.55191,72.39736 turn=17.477034,-148.8789,-13.495767 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=255.10486,-83.02727,85.219055 turn=48.536034,117.84346,171.52866 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=248.85722,-100.11231,102.4636 turn=35.83761,-112.42564,26.707504 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 41 clock=1352 guid=63 ai=6 combat=0 motions=4 particles=1746 lcg=0xd4e259da explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=cf203f9d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=269.4619,-41.9887,107.34686 turn=14.095891,-98.87398,-24.872952 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=269.68246,-83.18666,110.54287 turn=48.29951,75.04309,-127.37643 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=279.68762,-95.86549,129.71187 turn=39.99334,-77.04962,32.936485 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 42 clock=1385 guid=63 ai=6 combat=0 motions=4 particles=1791 lcg=0x8bc10316 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9306e5f6 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=297.62173,-47.82113,125.021225 turn=11.026808,-56.215782,-34.192753 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=290.50922,-83.72096,125.54376 turn=23.943707,67.074936,-88.6007 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=312.53503,-86.99905,137.0513 turn=57.326103,-48.742428,45.21775 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 43 clock=1418 guid=63 ai=6 combat=0 motions=4 particles=1823 lcg=0x3ae0d4e6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8e2ddcd6 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=315.02536,-52.769844,126.88863 turn=8.435336,-33.769997,-41.16266 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=303.77866,-84.73392,130.13129 turn=9.9545,77.11282,-71.5549 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=328.00305,-80.91082,135.3147 turn=73.767586,-38.199913,55.51797 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 44 clock=1451 guid=65 ai=6 combat=0 motions=4 particles=1853 lcg=0xf3b54262 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6c8c0f17 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=316.7141,-53.583214,126.725365 turn=5.323071,-33.013565,-43.929134 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4d2646818c50d1d2 pack=5:158e1409ea815d08 arts=3540d9643b3fa507 fx=3:5302c270c88d5cc4
+t 61 template=torchU pos=305.9109,-85.63452,130.29543 turn=7.425979,80.17818,-74.395744 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=330.53134,-82.99601,134.19121 turn=77.708885,-37.3823,52.347607 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+t 63 template=ringTower pos=298,-74,0 turn=0,0,90 hp=0 flags=0x121 mode=- action=- body=4176570aecc53422
+t 64 template=sawToothBlue pos=298,-74,0 turn=0,-0,-179.99998 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 45 clock=1484 guid=65 ai=6 combat=0 motions=4 particles=1891 lcg=0x0b3a1732 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e3e25d32 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=317.34805,-54.864204,126.54465 turn=-3.46677,-37.41633,-52.035774 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4d2646818c50d1d2 pack=5:158e1409ea815d08 arts=3540d9643b3fa507 fx=2:00be9c35bfde7c75
+t 61 template=torchU pos=308.41428,-88.35307,129.7593 turn=2.8007877,83.83719,-88.53956 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=333.1814,-91.84118,131.4114 turn=83.23284,-24.499086,25.808727 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 46 clock=1517 guid=65 ai=6 combat=0 motions=4 particles=1940 lcg=0xe99a8256 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=98559bdc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=317.61633,-56.697517,126.51514 turn=-12.297129,-45.106834,-64.74774 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=310.18613,-92.23632,128.40038 turn=-3.773445,83.84061,-107.62153 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=332.47763,-103.63781,127.21689 turn=82.78044,31.57915,-48.99758 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 47 clock=1550 guid=65 ai=6 combat=0 motions=4 particles=1962 lcg=0x1cca2cbe explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=34c7d117 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=317.51642,-58.55221,126.706535 turn=-17.195194,-53.16337,-78.50777 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=310.3521,-95.76291,126.95712 turn=-8.434719,79.13987,-126.21834 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=327.76965,-113.56146,124.10291 turn=76.28024,38.203884,-73.61899 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 48 clock=1583 guid=65 ai=6 combat=0 motions=4 particles=2020 lcg=0x2baf4da2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8711f743 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=317.3396,-59.7172,126.89182 turn=-18.569147,-57.79616,-87.30847 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=309.917,-97.40764,126.20375 turn=-9.250505,73.96352,-137.84706 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=323.4642,-118.304695,123.35913 turn=71.54762,30.522482,-77.063675 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 49 clock=1616 guid=65 ai=6 combat=0 motions=4 particles=2048 lcg=0xe524618a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c0be2dfb detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=317.3344,-59.9227,126.8123 turn=-18.65739,-58.251183,-88.69481 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=310.09854,-96.924355,125.96777 turn=-8.08857,71.7213,-139.5748 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=323.0942,-118.24601,123.77559 turn=70.06766,24.376402,-72.647804 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 50 clock=1649 guid=65 ai=6 combat=0 motions=4 particles=2091 lcg=0xbd9c5c2e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=51f18255 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=317.07333,-60.083942,126.46521 turn=-18.44682,-58.389767,-90.24599 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=310.18805,-96.171875,125.52348 turn=-6.236927,70.141594,-140.15828 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=323.0392,-117.65437,124.23649 turn=69.22299,17.833963,-66.89941 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 51 clock=1682 guid=65 ai=6 combat=0 motions=4 particles=2130 lcg=0x4441d32a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=63232d9d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=316.55923,-60.273445,125.89983 turn=-18.029245,-58.46091,-92.43895 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=310.13342,-95.33281,124.856766 turn=-3.927707,68.936325,-140.38147 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=322.9481,-116.87456,124.64861 turn=68.58963,10.815188,-60.46616 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 52 clock=1715 guid=65 ai=6 combat=0 motions=4 particles=2177 lcg=0x093df9fa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=853971a8 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=315.83755,-60.475536,125.160965 turn=-17.47647,-58.401722,-95.05925 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=309.95737,-94.44854,124.01147 turn=-1.3387448,68.034546,-140.31514 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=322.80612,-115.94905,124.98283 turn=67.9958,3.5750751,-53.6304 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 53 clock=1748 guid=65 ai=6 combat=0 motions=4 particles=2210 lcg=0xb3b5d936 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0190b2af detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=314.95834,-60.67364,124.297714 turn=-16.860544,-58.175156,-97.899414 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=309.68216,-93.562,123.04152 turn=1.3658904,67.37058,-140.03198 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=322.60315,-114.92998,125.22412 turn=67.33156,-3.5460384,-46.759243 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 54 clock=1781 guid=65 ai=6 combat=0 motions=4 particles=2288 lcg=0xcc29736e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=27291068 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=313.97852,-60.85058,123.36896 turn=-16.243074,-57.78419,-100.76408 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=309.33136,-92.7169,122.013596 turn=4.032234,66.89381,-139.60092 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=322.33838,-113.87902,125.37345 turn=66.56362,-10.183274,-40.242237 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 55 clock=1814 guid=65 ai=6 combat=0 motions=4 particles=2321 lcg=0xd944266a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=1b90fb8d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=312.96246,-60.9893,122.44683 turn=-15.664675,-57.274895,-103.47238 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=308.93005,-91.957115,121.00784 turn=6.5135593,66.57357,-139.08485 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=322.02213,-112.86609,125.448364 turn=65.73415,-16.02312,-34.413578 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 56 clock=1847 guid=65 ai=6 combat=0 motions=4 particles=2360 lcg=0x0a3582a6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b9cc348f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=311.98074,-61.07372,121.61762 turn=-15.138345,-56.73097,-105.858284 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=308.50455,-91.32625,120.116325 turn=8.667901,66.39996,-138.54102 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=321.67517,-111.96739,125.481384 turn=64.94426,-20.846222,-29.508923 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 57 clock=1880 guid=65 ai=6 combat=0 motions=4 particles=2408 lcg=0xf2c92422 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=14bbf848 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=311.1077,-61.089184,120.97984 turn=-14.650666,-56.262955,-107.768456 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=308.08212,-90.86765,119.43939 turn=10.355581,66.38073,-138.0216 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=321.32687,-111.26275,125.51578 turn=64.32996,-24.516943,-25.675528 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 58 clock=1913 guid=65 ai=6 combat=0 motions=4 particles=2444 lcg=0x7e01e6de explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4b561d92 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=310.41833,-61.022373,120.63951 turn=-14.1725645,-55.995186,-109.05693 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=307.69055,-90.625114,119.08024 turn=11.435878,66.53491,-137.57442 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=321.012,-110.83299,125.5984 turn=64.038956,-26.931314,-23.025705 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 59 clock=1946 guid=65 ai=6 combat=0 motions=4 particles=2474 lcg=0x7955e6da explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e7e17cca detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=307.7262,-59.359364,120.60554 turn=-10.294206,-56.647026,-113.8518 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=305.90283,-91.16211,118.96287 turn=13.386247,68.95574,-134.65697 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=320.04797,-110.57362,126.133224 turn=65.22314,-33.53373,-13.620549 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 60 clock=1979 guid=65 ai=6 combat=0 motions=4 particles=2513 lcg=0xb52a8016 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=33222401 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=298.9539,-50.05682,118.1397 turn=6.8979354,-57.11277,-132.383 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=299.2646,-94.359215,117.842766 turn=21.71511,78.7877,-124.321304 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=315.6958,-110.496445,127.73775 turn=65.68603,-63.97633,27.497862 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 61 clock=2012 guid=65 ai=6 combat=0 motions=4 particles=2583 lcg=0x8c95807a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2c910587 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=294.37817,-35.76401,108.72287 turn=30.95656,-51.00082,-156.97179 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=291.4087,-99.66542,114.15861 turn=36.060165,92.37641,-115.10645 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=307.84088,-111.935455,128.57164 turn=53.87221,-93.25917,68.92635 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 62 clock=2045 guid=65 ai=6 combat=0 motions=4 particles=2613 lcg=0xb5bc57b6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=72d64ee5 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=298.00583,-26.536356,95.671 turn=51.22387,-35.66989,174.42014 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4d2646818c50d1d2 pack=5:158e1409ea815d08 arts=3540d9643b3fa507 fx=2:b3947555b295f889
+t 61 template=torchU pos=285.9236,-104.688705,108.58539 turn=51.043095,108.25422,-113.90453 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=299.46198,-114.99214,126.99348 turn=36.662144,-104.212,89.08 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 63 clock=2078 guid=65 ai=6 combat=0 motions=4 particles=2640 lcg=0x858d0432 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c4040092 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=302.46332,-24.899149,86.73291 turn=59.832302,-16.776514,148.40237 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=283.08084,-107.14718,104.099174 turn=60.838028,123.721535,-120.45486 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=293.44983,-117.24061,124.56653 turn=23.909498,-107.2121,96.937416 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 64 clock=2111 guid=65 ai=6 combat=0 motions=4 particles=2679 lcg=0x154d61ee explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=65af0e22 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=301.95746,-25.35333,84.002045 turn=58.58136,-9.236636,141.68661 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=279.85828,-105.606606,102.317986 turn=67.691315,126.95654,-123.712944 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=287.74362,-114.847176,124.24376 turn=17.657862,-103.85708,95.406235 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 65 clock=2144 guid=65 ai=6 combat=0 motions=4 particles=2709 lcg=0xf9c68cea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=744770bd detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=298.26526,-27.125479,80.741 turn=59.118958,1.2271093,137.57434 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=272.55786,-96.936676,98.548775 turn=83.39927,80.42359,-85.65602 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=275.01822,-100.84597,123.18554 turn=6.5083466,-88.89713,84.70486 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 66 clock=2177 guid=65 ai=6 combat=0 motions=4 particles=2758 lcg=0xe40c658e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2bce2d7b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=293.94397,-30.730732,76.56238 turn=61.74434,17.07346,130.51486 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=268.6101,-83.70364,91.15497 turn=68.23946,-22.204025,-0.86636794 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=267.12967,-78.07739,115.536514 turn=-8.053656,-69.71711,68.37249 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 67 clock=2210 guid=65 ai=6 combat=0 motions=4 particles=2788 lcg=0x544aae8a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=cc90eea6 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=290.71802,-35.61867,72.78524 turn=64.43873,36.741013,119.28418 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=272.30356,-72.60402,83.114426 turn=48.846203,-33.26684,-14.3595085 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=273.49042,-58.80629,104.007484 turn=-21.160633,-53.841335,49.352528 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 68 clock=2243 guid=65 ai=6 combat=0 motions=4 particles=2841 lcg=0x23ab2d5a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0c2d5d04 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=289.10123,-39.801247,70.5714 turn=65.59438,53.60934,108.14445 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=278.50964,-67.77192,78.31251 turn=38.496925,-37.832436,-30.925066 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=285.22693,-51.615677,96.26132 turn=-28.68779,-45.200256,33.275635 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 69 clock=2276 guid=65 ai=6 combat=0 motions=4 particles=2874 lcg=0x0462be96 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=85f88883 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=286.6091,-38.241055,71.64185 turn=67.46818,43.419567,119.12789 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=272.96207,-68.72028,79.83957 turn=42.95924,-39.21307,-15.214763 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=274.60925,-52.685524,99.035385 turn=-27.559715,-50.23759,45.70861 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 70 clock=2309 guid=65 ai=6 combat=0 motions=4 particles=2921 lcg=0xf1df7066 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ba71d9f3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=284.28723,-37.033672,72.838036 turn=69.12461,32.176975,131.00668 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=267.79745,-71.28762,81.74979 turn=48.688663,-41.807816,0.095036484 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=265.01294,-57.29148,102.357086 turn=-26.108908,-56.77126,56.20281 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 71 clock=2342 guid=65 ai=6 combat=0 motions=4 particles=2954 lcg=0xc80e45e2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=02d2e3ab detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=282.23465,-36.137478,74.064445 turn=70.48903,19.8194,143.79465 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=263.52267,-75.28197,83.95638 turn=55.46647,-46.087513,15.328419 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.56573,-64.83746,105.950325 turn=-24.103516,-64.48637,64.77561 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 72 clock=2375 guid=65 ai=6 combat=0 motions=4 particles=2973 lcg=0x67a261ca explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e2732f3a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=280.52698,-35.49717,75.21277 turn=71.48921,6.4410586,157.3548 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4e26f066bf151672 pack=4:abcb0002d72fadeb arts=3540d9643b3fa507 fx=2:b3947555b295f889
+t 61 template=torchU pos=260.53723,-80.3679,86.3467 turn=63.029106,-52.98819,31.341297 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=253.03639,-74.41021,109.51024 turn=-21.232609,-72.96814,71.56842 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 73 clock=2408 guid=65 ai=6 combat=0 motions=4 particles=3028 lcg=0x697e506e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=df63f435 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=279.20984,-35.055584,76.16849 turn=72.07777,-7.661858,171.35626 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.0922,-86.12001,88.787796 turn=70.9789,-64.98207,50.57262 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=251.76398,-84.95403,112.73031 turn=-17.177774,-81.70522,76.84551 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 74 clock=2441 guid=65 ai=6 combat=0 motions=4 particles=3058 lcg=0xc345f36a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e7d5d32b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.29657,-34.766346,76.81828 turn=72.25471,-22.033035,-174.68112 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.27344,-92.083694,91.134995 turn=78.30706,-90.6545,81.6039 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=253.6663,-95.44284,115.3338 turn=-11.692167,-90.135445,80.93552 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 75 clock=2474 guid=65 ai=6 combat=0 motions=4 particles=3105 lcg=0x6e4b2a3a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=aa4b9b0a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.25986,-34.753876,76.904686 turn=72.21717,-23.081684,-173.67888 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.33704,-92.386284,91.30068 turn=78.67804,-93.00368,84.09104 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=253.87193,-95.9792,115.4984 turn=-11.306201,-90.60109,81.02786 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+x 63
+f 76 clock=2507 guid=65 ai=6 combat=0 motions=4 particles=3149 lcg=0x2e19550a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b8cac40a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.26715,-34.75495,76.9775 turn=72.17263,-23.302036,-173.47261 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.34442,-92.33961,91.3438 turn=78.7042,-92.94382,83.91783 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=253.88365,-95.91783,115.54468 turn=-11.280699,-90.58772,80.91596 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 77 clock=2540 guid=65 ai=6 combat=0 motions=4 particles=3197 lcg=0x29805f46 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=af70c8ee detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.27548,-34.756214,77.0597 turn=72.12205,-23.549616,-173.24095 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.35812,-92.30725,91.398544 turn=78.75177,-92.95061,83.835686 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=253.91174,-95.87972,115.60351 turn=-11.23313,-90.58653,80.82739 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 78 clock=2573 guid=65 ai=6 combat=0 motions=4 particles=3242 lcg=0x7fef4ec2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d6c6fb70 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.2848,-34.757656,77.15065 turn=72.065735,-23.82191,-172.98625 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.3782,-92.29028,91.46471 turn=78.821014,-93.02811,83.85084 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=253.95642,-95.866455,115.67465 turn=-11.163181,-90.598114,80.764275 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 79 clock=2606 guid=65 ai=6 combat=0 motions=4 particles=3293 lcg=0xf6e6ff7e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=12de30a0 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.29504,-34.759285,77.24957 turn=72.00401,-24.116375,-172.71095 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.40472,-92.289795,91.54196 turn=78.912155,-93.18166,83.97094 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.018,-95.87962,115.757706 turn=-11.070541,-90.62316,80.72888 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 80 clock=2639 guid=65 ai=6 combat=0 motions=4 particles=3360 lcg=0x78909c62 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=3c39264b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.30618,-34.761116,77.35585 turn=71.93724,-24.430536,-172.41739 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.43768,-92.30646,91.62991 turn=79.02495,-93.41621,84.20224 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.0965,-95.92017,115.852196 turn=-10.955311,-90.66207,80.72254 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 81 clock=2672 guid=65 ai=6 combat=0 motions=4 particles=3404 lcg=0x0853f132 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2e08befc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.31818,-34.763134,77.46872 turn=71.86576,-24.76188,-172.10793 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.47665,-92.33915,91.72759 turn=79.15748,-93.73087,84.542015 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.19072,-95.986275,115.956985 turn=-10.819265,-90.71403,80.74352 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 82 clock=2705 guid=65 ai=6 combat=0 motions=4 particles=3455 lcg=0x42bc3eee explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9f6fcac2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.331,-34.765354,77.58752 turn=71.78993,-25.107983,-171.78488 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.52124,-92.38675,91.834045 turn=79.30783,-94.125374,84.98784 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.29951,-96.07606,116.07098 turn=-10.664141,-90.77819,80.78983 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 83 clock=2738 guid=65 ai=6 combat=0 motions=4 particles=3497 lcg=0x8fc259ea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=1ae6fdb2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.34457,-34.767773,77.71152 turn=71.710075,-25.466429,-171.45049 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.57098,-92.44813,91.948296 turn=79.474,-94.60021,85.53833 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.42169,-96.18768,116.19302 turn=-10.491712,-90.85377,80.859726 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 84 clock=2771 guid=65 ai=6 combat=0 motions=4 particles=3567 lcg=0x4ba1c28e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=821c079a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.35886,-34.770382,77.84007 turn=71.62661,-25.83488,-171.10698 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.6256,-92.5222,92.0694 turn=79.65392,-95.15622,86.1924 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.55626,-96.31933,116.322014 turn=-10.303752,-90.93997,80.95142 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 85 clock=2804 guid=65 ai=6 combat=0 motions=4 particles=3603 lcg=0x4164fb8a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=bda14fa8 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.37378,-34.77319,77.972435 turn=71.53993,-26.211054,-170.75652 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.68463,-92.607864,92.196365 turn=79.84553,-95.794586,86.94929 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.70197,-96.46914,116.45682 turn=-10.102043,-91.035965,81.063126 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 86 clock=2837 guid=65 ai=6 combat=0 motions=4 particles=3640 lcg=0x3f60162e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=22d3c119 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.38928,-34.776184,78.10792 turn=71.4504,-26.592724,-170.40117 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.74777,-92.70401,92.32827 turn=80.04677,-96.51658,87.80827 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=254.85788,-96.63526,116.59636 turn=-9.888275,-91.14094,81.192986 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 87 clock=2870 guid=65 ai=7 combat=0 motions=4 particles=3691 lcg=0x4b3f6d2a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=724059d4 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.4053,-34.779354,78.24583 turn=71.35849,-26.977753,-170.04295 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.81464,-92.80952,92.464134 turn=80.2555,-97.32356,88.76881 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.02283,-96.815834,116.73952 turn=-9.66424,-91.25407,81.33922 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 88 clock=2903 guid=65 ai=7 combat=0 motions=4 particles=3730 lcg=0xed2a2d66 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a41bfa4d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.4218,-34.782696,78.3855 turn=71.26462,-27.364048,-169.68382 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.88477,-92.92326,92.603096 turn=80.4696,-98.21645,89.82996 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.19568,-97.00899,116.8853 turn=-9.431683,-91.37445,81.500114 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 89 clock=2936 guid=65 ai=7 combat=0 motions=4 particles=3763 lcg=0x33eff2e2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9a7b8146 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.43866,-34.786194,78.52619 turn=71.169235,-27.749619,-169.32564 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=259.95786,-93.044136,92.744156 turn=80.68691,-99.19593,90.99042 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.37534,-97.212875,117.03259 turn=-9.192352,-91.50123,81.67378 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 90 clock=2969 guid=65 ai=7 combat=0 motions=4 particles=3807 lcg=0x4de2e7b2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=49f52921 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.45584,-34.789837,78.667244 turn=71.072784,-28.13252,-168.97021 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.0334,-93.17101,92.88646 turn=80.9054,-100.26185,92.24815 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.56062,-97.42563,117.180466 turn=-8.947919,-91.63347,81.85848 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 91 clock=3002 guid=65 ai=7 combat=0 motions=4 particles=3851 lcg=0xcb065082 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=71290926 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.47324,-34.793594,78.80794 turn=70.975815,-28.510921,-168.61923 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.11096,-93.30275,93.02911 turn=81.12294,-101.41316,93.60017 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.75032,-97.64537,117.32793 turn=-8.700147,-91.77023,82.05233 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 92 clock=3035 guid=65 ai=7 combat=0 motions=4 particles=3884 lcg=0x2c8af53e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=110d66ec detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.49075,-34.797462,78.94761 turn=70.87877,-28.88301,-168.27438 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.1901,-93.43821,93.17124 turn=81.33754,-102.64756,95.04226 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=255.94324,-97.870255,117.47407 turn=-8.450713,-91.910545,82.25353 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 93 clock=3068 guid=65 ai=7 combat=0 motions=4 particles=3911 lcg=0x62e8373a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=09a39219 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.5083,-34.801414,79.085556 turn=70.782166,-29.24711,-167.9372 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.27032,-93.57626,93.312 turn=81.54729,-103.96116,96.56868 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.13812,-98.09843,117.61798 turn=-8.201271,-92.05337,82.46029 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 94 clock=3101 guid=65 ai=7 combat=0 motions=4 particles=3961 lcg=0xe82da20a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=23f2c54c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.5258,-34.805416,79.22109 turn=70.68657,-29.60155,-167.6092 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.3511,-93.71574,93.45055 turn=81.750275,-105.34816,98.171684 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.33368,-98.32802,117.758835 turn=-7.9535627,-92.1977,82.670715 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 95 clock=3134 guid=65 ai=7 combat=0 motions=4 particles=3997 lcg=0xc9ce9c46 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=60480e3b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.5431,-34.80945,79.3535 turn=70.59247,-29.944763,-167.29187 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.43192,-93.85551,93.58608 turn=81.94489,-106.80067,99.841515 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.52856,-98.55721,117.89583 turn=-7.709148,-92.342415,82.882996 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 96 clock=3167 guid=65 ai=7 combat=0 motions=4 particles=4029 lcg=0x94197a16 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e09e3b43 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.56015,-34.81347,79.48213 turn=70.500435,-30.27522,-166.98656 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.51215,-93.99441,93.717804 turn=82.12956,-108.30835,101.56585 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.72137,-98.78416,118.02818 turn=-7.469702,-92.48644,83.09516 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 97 clock=3200 guid=65 ai=7 combat=0 motions=4 particles=4061 lcg=0xd9330be6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ca9542b1 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.57678,-34.817463,79.60628 turn=70.411026,-30.591463,-166.6946 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.59128,-94.13127,93.844955 turn=82.30295,-109.8582,103.32984 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=256.9108,-99.00702,118.15518 turn=-7.2368317,-92.62863,83.30538 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 98 clock=3233 guid=65 ai=7 combat=0 motions=4 particles=4109 lcg=0x142c4962 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=91530784 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.59296,-34.821392,79.725266 turn=70.324814,-30.892067,-166.4173 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.66864,-94.264946,93.966805 turn=82.463936,-111.43451,105.11586 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.09534,-99.224,118.27618 turn=-7.0121264,-92.76779,83.511734 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 99 clock=3266 guid=65 ai=7 combat=0 motions=4 particles=4157 lcg=0xdce1e81e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=30fc8ab6 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.60846,-34.825214,79.83839 turn=70.242355,-31.175655,-166.15585 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4e26f066bf151672 pack=4:2e0a94b3325f800b arts=3540d9643b3fa507 fx=2:b3947555b295f889
+t 61 template=torchU pos=260.74362,-94.39428,94.08257 turn=82.611694,-113.01899,106.90375 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.27356,-99.43328,118.39046 turn=-6.7971215,-92.902725,83.71233 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 100 clock=3299 guid=65 ai=7 combat=0 motions=4 particles=4181 lcg=0x1606041a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8062fa95 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.62326,-34.82889,79.944984 turn=70.16426,-31.44089,-165.9115 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.81552,-94.51808,94.191574 turn=82.74558,-114.59075,108.67067 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.44394,-99.633064,118.49745 turn=-6.5934,-93.0322,83.905205 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 101 clock=3332 guid=65 ai=7 combat=0 motions=4 particles=4216 lcg=0x99b226ea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8bd6f949 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.63718,-34.832394,80.044365 turn=70.09107,-31.68643,-165.68546 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.8837,-94.635216,94.293106 turn=82.86523,-116.12676,110.39163 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.60495,-99.82157,118.59656 turn=-6.4025316,-93.155,84.088356 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 102 clock=3365 guid=65 ai=7 combat=0 motions=4 particles=4272 lcg=0x8f923dba explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=bcf8ac1b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.65012,-34.835667,80.13583 turn=70.0234,-31.910994,-165.47882 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=260.94745,-94.7445,94.38648 turn=82.97054,-117.60222,112.040085 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.75504,-99.997025,118.68721 turn=-6.226036,-93.269844,84.25997 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 103 clock=3398 guid=65 ai=7 combat=0 motions=4 particles=4328 lcg=0x7c73488a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=fc9ef2b3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=278.6619,-34.838688,80.21872 turn=69.96184,-32.11328,-165.29282 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 61 template=torchU pos=261.00604,-94.844765,94.47102 turn=83.061745,-118.99104,113.58786 hp=0 flags=0x40 mode=- action=- body=0f4706061abd805a
+t 62 template=torchFlame_nosave pos=257.89264,-100.157616,118.76889 turn=-6.065362,-93.375404,84.41792 hp=0 flags=0x1a1 mode=- action=- body=529737def16705e6
+f 104 clock=3431 guid=65 ai=7 combat=0 motions=4 particles=4350 lcg=0xa48fb972 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4ab5f22d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=279.36383,-35.18573,78.87422 turn=71.06415,-17.07581,-179.68167 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:68d29a2ee7f23c03 arts=3540d9643b3fa507 fx=5:14ce6fc47614bd7b
+x 61
+x 62
+f 105 clock=3464 guid=65 ai=7 combat=0 motions=4 particles=4378 lcg=0x4c62475a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=7658ad7c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=280.4861,-35.71597,77.19972 turn=71.53352,-0.8388934,164.4754 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 106 clock=3497 guid=65 ai=7 combat=0 motions=4 particles=4431 lcg=0x22ac3a2a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=980d717f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=282.02213,-36.484043,75.332375 turn=71.21101,15.695945,148.10414 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 107 clock=3530 guid=65 ai=7 combat=0 motions=4 particles=4462 lcg=0xa086df12 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=dafb12ea detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=283.9284,-37.54681,73.413925 turn=70.06539,31.38608,132.37807 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 108 clock=3563 guid=65 ai=7 combat=0 motions=4 particles=4490 lcg=0x29de20fa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=29dec22a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=286.12912,-38.94956,71.57936 turn=68.19501,45.401276,118.16188 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 109 clock=3596 guid=65 ai=7 combat=0 motions=4 particles=4512 lcg=0x33459fe2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9a93118a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=288.52484,-40.715042,69.947716 turn=65.76716,57.47257,105.759575 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:05ba08e214f5a110 arts=3540d9643b3fa507 fx=5:14ce6fc47614bd7b
+f 110 clock=3629 guid=65 ai=7 combat=0 motions=4 particles=4552 lcg=0x63c4fbca explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d79d8289 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=288.63446,-40.845867,69.776146 turn=65.58011,58.283333,104.98937 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 111 clock=3662 guid=65 ai=7 combat=0 motions=4 particles=4577 lcg=0xe357d4b2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=30e50f86 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=288.5902,-40.85975,69.6843 turn=65.551125,58.44122,104.90348 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 112 clock=3695 guid=65 ai=7 combat=0 motions=4 particles=4602 lcg=0x796dca9a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=77e203b8 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=288.54456,-40.874363,69.58916 turn=65.521355,58.605125,104.81391 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 113 clock=3728 guid=65 ai=7 combat=0 motions=4 particles=4636 lcg=0x7b6a7d82 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2902c1c4 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=288.49847,-40.88938,69.49275 turn=65.49144,58.771492,104.72264 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 114 clock=3761 guid=65 ai=7 combat=0 motions=4 particles=4667 lcg=0x8b258d6a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4f6b1b44 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=288.45294,-40.904514,69.39714 turn=65.46201,58.936825,104.631516 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 115 clock=3794 guid=65 ai=7 combat=0 motions=4 particles=4689 lcg=0x256a9a52 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b7afaf09 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 3 template=weapon_trail pos=288.409,-40.919395,69.30441 turn=65.4337,59.097466,104.5426 hp=0 flags=0x21 mode=- action=- body=529737def16705e6
+f 116 clock=3827 guid=65 ai=7 combat=0 motions=4 particles=4734 lcg=0xa5a34e0e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d99c8e2c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=298,-74,0 turn=0,0,90 hp=100 flags=0x4000000 mode=party action=Cast body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:14ce6fc47614bd7b
+x 3
+f 117 clock=3860 guid=65 ai=7 combat=0 motions=4 particles=4771 lcg=0x8f646f76 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e4c9bbe2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 118 clock=3893 guid=65 ai=7 combat=0 motions=4 particles=4799 lcg=0xa1f1bdde explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c0da9cc3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 119 clock=3926 guid=65 ai=7 combat=0 motions=4 particles=4836 lcg=0x0bd0d946 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a09ca2b0 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 120 clock=3959 guid=65 ai=7 combat=0 motions=4 particles=4861 lcg=0x6c3b61ae explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=814ef919 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 121 clock=3992 guid=65 ai=7 combat=0 motions=5 particles=4901 lcg=0xe99ef716 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=04d48b94 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=294.20508,-73.97762,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:14ce6fc47614bd7b
+t 64 template=sawToothBlue pos=294.20508,-73.97762,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 122 clock=4025 guid=65 ai=7 combat=0 motions=5 particles=4984 lcg=0xb00bc8e6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=47e3e6be detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=290.41016,-73.955246,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:14ce6fc47614bd7b
+t 64 template=sawToothBlue pos=290.41016,-73.955246,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 123 clock=4058 guid=65 ai=9 combat=0 motions=5 particles=5015 lcg=0x1474454e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d343d418 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=286.61523,-73.93287,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 53 template=civ02passedout pos=389,397,0 turn=0,0,180 hp=100 flags=0x0 mode=donothing action=None body=1cd8e1b42e48c49e actor=0x40000,0x0,10,1 stats=799afdde9299b4b1 pack=0:cbf29ce484222325 fx=2:3a23a86c4fdaabac
+t 54 template=civ07drunk_sitting pos=-40,72,0 turn=0,0,90 hp=100 flags=0x0 mode=donothing action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:02053d9141381c10
+t 56 template=knightofstjohn_pe pos=360,360,0 turn=0,0,135 hp=100 flags=0x0 mode=enemysearch action=None body=da808ffa238daad1 actor=0x44000,0x0,11,1 stats=108a8b8b23d3f986 pack=0:cbf29ce484222325 fx=2:01fe0182a7ac74c4
+t 57 template=civ07drunk_pe pos=40,-224,0 turn=0,0,270 hp=100 flags=0x0 mode=pedwander action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:03bba9834efda460
+t 59 template=barkeep_prague pos=264,-234,0 turn=0,0,0 hp=100 flags=0x0 mode=- action=None body=aacb3c97977fca3f actor=0x85,0x0,9,1 stats=5ccd075865b31fbd pack=0:cbf29ce484222325 fx=2:80f2eb7558ba8c1c
+t 64 template=sawToothBlue pos=286.61523,-73.93287,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 124 clock=4091 guid=65 ai=9 combat=0 motions=5 particles=5052 lcg=0xa9944eb6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c1747b9b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=282.8203,-73.91049,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=282.8203,-73.91049,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 125 clock=4124 guid=65 ai=9 combat=0 motions=5 particles=5080 lcg=0xfb5d851e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=3bf9a731 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=279.0254,-73.888115,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=279.0254,-73.888115,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 126 clock=4157 guid=65 ai=9 combat=0 motions=5 particles=5135 lcg=0xb3f58886 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6c630521 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=275.23047,-73.86574,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=275.23047,-73.86574,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 127 clock=4190 guid=65 ai=9 combat=0 motions=5 particles=5174 lcg=0x05a81402 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f2dd94f7 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=271.43555,-73.84336,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=271.43555,-73.84336,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 128 clock=4223 guid=65 ai=9 combat=0 motions=5 particles=5231 lcg=0xa99aa0be explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c19d495e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=267.64062,-73.820984,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=267.64062,-73.820984,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 129 clock=4256 guid=65 ai=9 combat=0 motions=5 particles=5271 lcg=0x32761826 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2cf01123 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=263.8457,-73.79861,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=263.8457,-73.79861,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 130 clock=4289 guid=65 ai=9 combat=0 motions=5 particles=5296 lcg=0xcd687c8e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2c604960 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=260.05078,-73.77623,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=260.05078,-73.77623,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 131 clock=4322 guid=65 ai=9 combat=0 motions=5 particles=5324 lcg=0x924f6df6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6947202c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=256.25586,-73.75385,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=256.25586,-73.75385,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 132 clock=4355 guid=65 ai=9 combat=0 motions=5 particles=5343 lcg=0x34bc8c5e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=7b2fa358 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=252.46092,-73.731476,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=252.46092,-73.731476,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 133 clock=4388 guid=65 ai=9 combat=0 motions=5 particles=5367 lcg=0x992bd45a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=47cfd9fc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=248.66599,-73.7091,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=248.66599,-73.7091,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 134 clock=4421 guid=65 ai=9 combat=0 motions=5 particles=5389 lcg=0x4aa9bf42 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d4f96411 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=244.87105,-73.68672,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=244.87105,-73.68672,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 135 clock=4454 guid=65 ai=9 combat=0 motions=5 particles=5453 lcg=0xf20d072a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=3e7e9f64 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=241.07611,-73.664345,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=241.07611,-73.664345,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 136 clock=4487 guid=65 ai=10 combat=0 motions=5 particles=5487 lcg=0x11014c12 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d1698d59 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=237.28117,-73.64197,0 turn=0,0,89.66217 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=237.28117,-73.64197,0 turn=0,-0,179.66216 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 137 clock=4520 guid=65 ai=10 combat=0 motions=5 particles=5518 lcg=0xfea62dfa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=97d49ed4 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=233.48624,-73.61959,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=233.48624,-73.61959,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 138 clock=4553 guid=65 ai=10 combat=0 motions=5 particles=5545 lcg=0xc0d5cd36 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f752f0af detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=229.6913,-73.59721,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=229.6913,-73.59721,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 139 clock=4586 guid=65 ai=10 combat=0 motions=5 particles=5579 lcg=0xad4ed39e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=dca61c5b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=225.89636,-73.57484,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=225.89636,-73.57484,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 140 clock=4619 guid=65 ai=10 combat=0 motions=5 particles=5621 lcg=0xb174579a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=536ee377 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=222.10143,-73.55246,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=222.10143,-73.55246,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 141 clock=4652 guid=65 ai=10 combat=0 motions=5 particles=5637 lcg=0x2942aa82 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=200e578e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=218.30649,-73.53008,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=218.30649,-73.53008,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 142 clock=4685 guid=65 ai=10 combat=0 motions=5 particles=5656 lcg=0x09035a6a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=dd6f7e0c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=214.51155,-73.507706,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=214.51155,-73.507706,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 143 clock=4718 guid=65 ai=10 combat=0 motions=5 particles=5705 lcg=0x14020752 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=38eb37ed detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=210.71661,-73.48533,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=210.71661,-73.48533,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 144 clock=4751 guid=65 ai=10 combat=0 motions=5 particles=5721 lcg=0x16fe513a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0fa474d9 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=206.92168,-73.46295,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=206.92168,-73.46295,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 145 clock=4784 guid=65 ai=10 combat=0 motions=5 particles=5746 lcg=0x16abd822 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=40fa2e35 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=203.12674,-73.440575,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=203.12674,-73.440575,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 146 clock=4817 guid=65 ai=10 combat=0 motions=5 particles=5765 lcg=0x4e323c0a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=071ffea4 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=199.3318,-73.4182,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=199.3318,-73.4182,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 147 clock=4850 guid=65 ai=10 combat=0 motions=5 particles=5802 lcg=0xfdad1cf2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d27c5870 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=195.53687,-73.39582,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=195.53687,-73.39582,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 148 clock=4883 guid=65 ai=10 combat=0 motions=5 particles=5827 lcg=0x08ac1ada explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8587eefe detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=191.74193,-73.37344,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=191.74193,-73.37344,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 149 clock=4916 guid=65 ai=10 combat=0 motions=5 particles=5864 lcg=0x64b2d5c2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a5893b0a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=187.94699,-73.35107,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=187.94699,-73.35107,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 150 clock=4949 guid=65 ai=11 combat=0 motions=5 particles=5894 lcg=0x8886567e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0c3d554a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=184.15205,-73.32869,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=184.15205,-73.32869,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 151 clock=4982 guid=65 ai=11 combat=0 motions=5 particles=5919 lcg=0xb29885e6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2f3cbdff detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=180.35712,-73.30631,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=180.35712,-73.30631,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 152 clock=5015 guid=65 ai=11 combat=0 motions=5 particles=5958 lcg=0x0dbfa362 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=afcbddc3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=176.56218,-73.283936,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Drop body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:9a37c7c48399e50a arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=176.56218,-73.283936,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 153 clock=5048 guid=65 ai=12 combat=0 motions=5 particles=5995 lcg=0x6cff6f4a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6929e18b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 2 template=broadsword pos=167.26254,-73.22914,0 turn=0,0,0 hp=0 flags=0x4000000 mode=- action=- body=5da4e585a07ff3ba
+t 5 template=Christof pos=172.76724,-73.26156,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=None body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=3:348980a8b4eaaf3e arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=172.76724,-73.26156,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 154 clock=5081 guid=65 ai=13 combat=0 motions=5 particles=6041 lcg=0xe360b832 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b3790e13 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=168.9723,-73.23918,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=None body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:af03fd0afee75e60 arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=168.9723,-73.23918,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+x 2
+f 155 clock=5114 guid=65 ai=13 combat=0 motions=5 particles=6072 lcg=0x3a131e1a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=3cfe7eae detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=167.26247,-73.2291,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=None body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:af03fd0afee75e60 arts=3540d9643b3fa507 fx=5:df8449a5ffcfb124
+t 64 template=sawToothBlue pos=167.26247,-73.2291,0 turn=0,-0,179.66219 hp=0 flags=0x123 mode=- action=- body=529737def16705e6
+f 156 clock=5147 guid=65 ai=13 combat=0 motions=5 particles=6109 lcg=0x003a4102 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=75209cfc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 157 clock=5180 guid=65 ai=13 combat=0 motions=5 particles=6131 lcg=0x496dc0ea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=dc50c338 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 158 clock=5213 guid=65 ai=13 combat=0 motions=5 particles=6156 lcg=0x3c393dd2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=7ed4a1b2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 159 clock=5246 guid=65 ai=13 combat=0 motions=5 particles=6190 lcg=0x709c57ba explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=887a730b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 160 clock=5279 guid=65 ai=13 combat=0 motions=5 particles=6212 lcg=0x1e8aaea2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=cb239bc4 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 161 clock=5312 guid=65 ai=13 combat=0 motions=5 particles=6249 lcg=0x1c6be28a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a8af4a09 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 162 clock=5345 guid=65 ai=13 combat=0 motions=5 particles=6280 lcg=0xad9b9372 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8fa01187 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 163 clock=5378 guid=65 ai=13 combat=0 motions=5 particles=6313 lcg=0x138bad2e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8ca8b238 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 164 clock=5411 guid=65 ai=13 combat=0 motions=5 particles=6341 lcg=0xe278b296 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=86072669 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 165 clock=5444 guid=65 ai=13 combat=0 motions=5 particles=6384 lcg=0x83ae64fe explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=7c874e6b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 166 clock=5477 guid=65 ai=13 combat=0 motions=5 particles=6415 lcg=0xd5426466 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d4723f95 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 167 clock=5510 guid=65 ai=13 combat=0 motions=5 particles=6446 lcg=0x17fe50ce explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b079eb5f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 168 clock=5543 guid=65 ai=13 combat=0 motions=5 particles=6474 lcg=0x45dfca36 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2ed9359d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 169 clock=5576 guid=65 ai=13 combat=0 motions=5 particles=6502 lcg=0x3898709e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=99020e48 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 170 clock=5609 guid=65 ai=13 combat=0 motions=5 particles=6530 lcg=0xa00de406 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=caf5b0cb detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 171 clock=5642 guid=65 ai=13 combat=0 motions=5 particles=6549 lcg=0xc8d9c46e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=87264d58 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 172 clock=5675 guid=65 ai=13 combat=0 motions=5 particles=6592 lcg=0x32c9b1d6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4f7c5b89 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 173 clock=5708 guid=65 ai=13 combat=0 motions=5 particles=6631 lcg=0xfd0d7452 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=42fc4008 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 174 clock=5741 guid=65 ai=13 combat=0 motions=5 particles=6671 lcg=0x76775e3a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=dd064b4a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 175 clock=5774 guid=65 ai=13 combat=0 motions=5 particles=6704 lcg=0x8e1e6976 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ac00ad5b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 176 clock=5807 guid=65 ai=13 combat=0 motions=5 particles=6723 lcg=0x41eaf7de explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f16aa5ce detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 177 clock=5840 guid=65 ai=13 combat=0 motions=5 particles=6752 lcg=0xfca709f2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ae67830c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 178 clock=5873 guid=65 ai=13 combat=0 motions=5 particles=6774 lcg=0xbbe3a7da explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a6f887c5 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 179 clock=5906 guid=65 ai=13 combat=0 motions=5 particles=6793 lcg=0xf3dc02c2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=aea25eed detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 180 clock=5939 guid=65 ai=13 combat=0 motions=5 particles=6838 lcg=0x4e23737e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=751b75a4 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 181 clock=5972 guid=65 ai=13 combat=0 motions=5 particles=6872 lcg=0xb0d942e6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=fa090560 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 182 clock=6005 guid=65 ai=13 combat=0 motions=5 particles=6897 lcg=0x78f0ff4e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=5b4f0fe9 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 183 clock=6038 guid=65 ai=13 combat=0 motions=5 particles=6928 lcg=0x27a848b6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=007df13e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 53 template=civ02passedout pos=389,397,0 turn=0,0,180 hp=100 flags=0x0 mode=donothing action=None body=1cd8e1b42e48c49e actor=0x40000,0x0,10,1 stats=799afdde9299b4b1 pack=0:cbf29ce484222325 fx=2:62e1ee15907e41fb
+t 54 template=civ07drunk_sitting pos=-40,72,0 turn=0,0,90 hp=100 flags=0x0 mode=donothing action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:5083f68fe16228df
+t 56 template=knightofstjohn_pe pos=360,360,0 turn=0,0,135 hp=100 flags=0x0 mode=enemysearch action=None body=da808ffa238daad1 actor=0x44000,0x0,11,1 stats=108a8b8b23d3f986 pack=0:cbf29ce484222325 fx=2:fcc6d96003560833
+t 57 template=civ07drunk_pe pos=40,-224,0 turn=0,0,270 hp=100 flags=0x0 mode=pedwander action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:2ccf1e1ad2e24c6f
+t 59 template=barkeep_prague pos=264,-234,0 turn=0,0,0 hp=100 flags=0x0 mode=- action=None body=aacb3c97977fca3f actor=0x85,0x0,9,1 stats=5ccd075865b31fbd pack=0:cbf29ce484222325 fx=2:8e9d9b888d950f3b
+f 184 clock=6071 guid=65 ai=13 combat=0 motions=5 particles=6967 lcg=0xa7f7a532 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=1c64d37e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=167.26247,-73.2291,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=None body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=8d82ef06f02fad75 pack=4:af03fd0afee75e60 arts=3540d9643b3fa507 fx=5:2d6b3f1d662bc22d
+f 185 clock=6104 guid=65 ai=13 combat=0 motions=5 particles=7000 lcg=0xf27fb2ee explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=60301bed detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 186 clock=6137 guid=65 ai=13 combat=0 motions=5 particles=7019 lcg=0x33ad7056 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=81384d5c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 187 clock=6170 guid=65 ai=13 combat=0 motions=5 particles=7036 lcg=0x8f398dea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=451a2613 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 188 clock=6203 guid=65 ai=13 combat=0 motions=5 particles=7067 lcg=0xf07eaad2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=897bc21a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 189 clock=6236 guid=65 ai=13 combat=0 motions=5 particles=7106 lcg=0xa7ff368e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=90ce8f3e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 190 clock=6269 guid=65 ai=13 combat=0 motions=5 particles=7131 lcg=0x49bd67f6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e1aeb98b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 191 clock=6302 guid=65 ai=13 combat=0 motions=5 particles=7147 lcg=0xa3e9c65e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8016d5ef detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 192 clock=6335 guid=65 ai=13 combat=0 motions=5 particles=7163 lcg=0xd949f1c6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ede49202 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 193 clock=6368 guid=65 ai=13 combat=0 motions=5 particles=7191 lcg=0x05578a2e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=59deddad detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 194 clock=6401 guid=65 ai=13 combat=0 motions=5 particles=7221 lcg=0xb8aaa12a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=aa8e963c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 195 clock=6434 guid=65 ai=13 combat=0 motions=5 particles=7246 lcg=0x15522612 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=5e8f5680 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 196 clock=6467 guid=65 ai=13 combat=0 motions=5 particles=7274 lcg=0x371247fa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0ad22438 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 197 clock=6500 guid=65 ai=13 combat=0 motions=5 particles=7296 lcg=0xc5fea6e2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ece4e6fe detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 198 clock=6533 guid=65 ai=13 combat=0 motions=5 particles=7320 lcg=0x7b160d9e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f1e3ef91 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 199 clock=6566 guid=65 ai=13 combat=0 motions=5 particles=7331 lcg=0x466e9bb2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=041f23f3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 200 clock=6599 guid=65 ai=13 combat=0 motions=5 particles=7361 lcg=0xeb32a16e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0c693b83 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 201 clock=6632 guid=65 ai=13 combat=0 motions=5 particles=7380 lcg=0xe53e2ed6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=56947bc7 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 202 clock=6665 guid=65 ai=13 combat=0 motions=5 particles=7416 lcg=0xb08ce152 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4f8ed40f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 203 clock=6698 guid=65 ai=13 combat=0 motions=5 particles=7436 lcg=0x2bd7f0a6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=df3b3299 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 204 clock=6731 guid=65 ai=13 combat=0 motions=5 particles=7480 lcg=0x44896676 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=3f23e9fc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 205 clock=6764 guid=65 ai=13 combat=0 motions=5 particles=7514 lcg=0x2ab594de explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=88471ee3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 206 clock=6797 guid=65 ai=13 combat=0 motions=5 particles=7539 lcg=0xbc0f9046 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6a5eaf59 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 207 clock=6830 guid=65 ai=13 combat=0 motions=5 particles=7578 lcg=0x54792fc2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=5613ed50 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 208 clock=6863 guid=65 ai=13 combat=0 motions=5 particles=7606 lcg=0x6a4a87aa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=133688dc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 209 clock=6896 guid=65 ai=13 combat=0 motions=5 particles=7627 lcg=0x7acdffe6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f960260c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 210 clock=6929 guid=65 ai=13 combat=0 motions=5 particles=7649 lcg=0xa67d5c4e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f72c6ae5 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 211 clock=6962 guid=65 ai=13 combat=0 motions=5 particles=7677 lcg=0xcbc045b6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=36d62e40 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 212 clock=6995 guid=65 ai=13 combat=0 motions=5 particles=7698 lcg=0x85029232 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0ee1e6fa detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 213 clock=7028 guid=65 ai=13 combat=0 motions=5 particles=7729 lcg=0xb9f0381a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a8a766c0 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 214 clock=7061 guid=65 ai=13 combat=0 motions=5 particles=7756 lcg=0x017bed56 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4873f7bc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 215 clock=7094 guid=65 ai=13 combat=0 motions=5 particles=7773 lcg=0x88f95aea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c9de488e detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 216 clock=7127 guid=65 ai=13 combat=0 motions=5 particles=7801 lcg=0xd73817d2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=66cbdb75 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 217 clock=7160 guid=65 ai=13 combat=0 motions=5 particles=7847 lcg=0x157671ba explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c8675ede detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 218 clock=7193 guid=65 ai=13 combat=0 motions=5 particles=7894 lcg=0xb4347c8a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=159a64ac detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 219 clock=7226 guid=65 ai=13 combat=0 motions=5 particles=7920 lcg=0xd04e635e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c3776706 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 220 clock=7259 guid=65 ai=13 combat=0 motions=5 particles=7953 lcg=0x21407b5a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a2bb6a33 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 221 clock=7292 guid=65 ai=13 combat=0 motions=5 particles=7978 lcg=0x34534642 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=96eabeb3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 222 clock=7325 guid=65 ai=13 combat=0 motions=5 particles=7997 lcg=0x4fe76e2a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9d1309b0 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 223 clock=7358 guid=65 ai=13 combat=0 motions=5 particles=8028 lcg=0x49289312 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=13cc11f2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=167.26247,-73.2291,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=None body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4e26f066bf151672 pack=4:b5bc77850685d57a arts=3540d9643b3fa507 fx=2:14a0b64604767d73
+f 224 clock=7391 guid=65 ai=13 combat=0 motions=5 particles=8050 lcg=0x3ab654fa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6af7765b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 225 clock=7424 guid=65 ai=13 combat=0 motions=5 particles=8064 lcg=0x67170ace explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=04fd41e2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 226 clock=7457 guid=65 ai=13 combat=0 motions=5 particles=8099 lcg=0x44c7aa9e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=1257f4a1 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 227 clock=7490 guid=65 ai=13 combat=0 motions=5 particles=8127 lcg=0x3c245e06 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6e327877 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 228 clock=7523 guid=65 ai=13 combat=0 motions=5 particles=8154 lcg=0x43833182 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ef6ce006 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 229 clock=7556 guid=65 ai=13 combat=0 motions=5 particles=8179 lcg=0xaa54c16a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a6c98da9 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 230 clock=7589 guid=65 ai=13 combat=0 motions=5 particles=8198 lcg=0xfe804e52 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=edab7d47 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 231 clock=7622 guid=65 ai=13 combat=0 motions=5 particles=8228 lcg=0xaf38c20e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=1479294a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 232 clock=7655 guid=65 ai=13 combat=0 motions=5 particles=8271 lcg=0xdfa86376 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=8235d6b6 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 233 clock=7688 guid=65 ai=14 combat=0 motions=5 particles=8308 lcg=0x8eb431de explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=dd071d43 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 234 clock=7721 guid=65 ai=14 combat=0 motions=5 particles=8334 lcg=0x77f6e3f2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=91b89687 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 235 clock=7754 guid=65 ai=14 combat=0 motions=5 particles=8373 lcg=0xbb6ad5ae explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a903ace2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 236 clock=7787 guid=65 ai=14 combat=0 motions=5 particles=8389 lcg=0x32bceb16 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=6ccf8aed detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 237 clock=7820 guid=65 ai=14 combat=0 motions=5 particles=8414 lcg=0x18f9ad7e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4f3fc1b0 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 238 clock=7853 guid=65 ai=14 combat=0 motions=5 particles=8442 lcg=0xe076bce6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=03cc9a17 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 239 clock=7886 guid=65 ai=14 combat=0 motions=5 particles=8467 lcg=0xe63db94e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=26e98e60 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 240 clock=7919 guid=65 ai=14 combat=0 motions=5 particles=8486 lcg=0xc88c42b6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=bc693fdf detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 241 clock=7952 guid=65 ai=14 combat=0 motions=5 particles=8514 lcg=0x8d53f91e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=41e45082 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 242 clock=7985 guid=65 ai=14 combat=0 motions=5 particles=8539 lcg=0x98ba7c86 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=663a1418 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 243 clock=8018 guid=65 ai=14 combat=0 motions=5 particles=8561 lcg=0x73996cee explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c788e779 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 244 clock=8051 guid=65 ai=14 combat=0 motions=5 particles=8577 lcg=0x61fe6a56 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ebdafade detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=167.26247,-73.2291,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Staked body=c6a6db7c360aa57a actor=0x21008200,0x1080,0,1 stats=4e26f066bf151672 pack=4:b5bc77850685d57a arts=3540d9643b3fa507 fx=4:c9b6f69d2d9dfd2f
+f 245 clock=8084 guid=65 ai=15 combat=0 motions=5 particles=8604 lcg=0xc06584d2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=698b174a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=167.26247,-73.2291,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=Staked body=c6a6db7c360aa57a actor=0x21008200,0x1080,0,1 stats=4e26f066bf151672 pack=4:b5bc77850685d57a arts=3540d9643b3fa507 fx=4:c6d1fc00607680ca
+t 53 template=civ02passedout pos=389,397,0 turn=0,0,180 hp=100 flags=0x0 mode=donothing action=None body=1cd8e1b42e48c49e actor=0x40000,0x0,10,1 stats=799afdde9299b4b1 pack=0:cbf29ce484222325 fx=2:9be999ba4781ce21
+t 54 template=civ07drunk_sitting pos=-40,72,0 turn=0,0,90 hp=100 flags=0x0 mode=donothing action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:bfb5c13b4fda277d
+t 56 template=knightofstjohn_pe pos=360,360,0 turn=0,0,135 hp=100 flags=0x0 mode=enemysearch action=None body=da808ffa238daad1 actor=0x44000,0x0,11,1 stats=108a8b8b23d3f986 pack=0:cbf29ce484222325 fx=2:a367e14dcd1c7391
+t 57 template=civ07drunk_pe pos=40,-224,0 turn=0,0,270 hp=100 flags=0x0 mode=pedwander action=None body=5296ae4ded6557d3 actor=0x40000,0x0,10,1 stats=73e3a6675fc9d9f9 pack=0:cbf29ce484222325 fx=2:755fe87bcde84b35
+t 59 template=barkeep_prague pos=264,-234,0 turn=0,0,0 hp=100 flags=0x0 mode=- action=None body=aacb3c97977fca3f actor=0x85,0x0,9,1 stats=5ccd075865b31fbd pack=0:cbf29ce484222325 fx=2:b7feddfb1b87ac21
+f 246 clock=8117 guid=65 ai=15 combat=0 motions=5 particles=8641 lcg=0x79517eba explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=68ebd9d8 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 247 clock=8150 guid=65 ai=15 combat=0 motions=5 particles=8690 lcg=0x1ce4b5a2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a57f46d1 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 248 clock=8183 guid=65 ai=15 combat=0 motions=5 particles=8733 lcg=0xa506c98a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=84660f24 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 249 clock=8216 guid=65 ai=15 combat=0 motions=5 particles=8758 lcg=0xe8935a72 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=282e669b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 250 clock=8249 guid=65 ai=15 combat=0 motions=5 particles=8783 lcg=0x39da085a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=552acfe2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 251 clock=8282 guid=65 ai=15 combat=0 motions=5 particles=8814 lcg=0xd51e7342 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=2a5d02c9 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 252 clock=8315 guid=65 ai=15 combat=0 motions=5 particles=8844 lcg=0x95efbbfe explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=fbe3718d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 253 clock=8348 guid=65 ai=15 combat=0 motions=6 particles=8866 lcg=0xbeae9b66 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=0d76d168 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 254 clock=8381 guid=65 ai=15 combat=0 motions=6 particles=8906 lcg=0x9df167ce explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=188e22ad detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 255 clock=8414 guid=65 ai=15 combat=0 motions=6 particles=8942 lcg=0x6c497cca explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b117d8e1 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 256 clock=8447 guid=65 ai=15 combat=0 motions=6 particles=8961 lcg=0x056c75b2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=5a57c56c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 257 clock=8480 guid=65 ai=15 combat=0 motions=6 particles=8977 lcg=0x07168b9a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e812fcbe detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 258 clock=8513 guid=65 ai=15 combat=0 motions=6 particles=9042 lcg=0xf8028e6a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=811af117 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 259 clock=8546 guid=65 ai=15 combat=0 motions=6 particles=9071 lcg=0x7d07a33e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=9636f38f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 260 clock=8579 guid=65 ai=15 combat=0 motions=6 particles=9104 lcg=0x6a9a853a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=160ece8a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 261 clock=8612 guid=65 ai=15 combat=0 motions=6 particles=9128 lcg=0x2f7b6076 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a8dda815 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 262 clock=8645 guid=65 ai=15 combat=0 motions=6 particles=9153 lcg=0x3de6cede explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b0a1be95 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 263 clock=8678 guid=65 ai=15 combat=0 motions=6 particles=9199 lcg=0x3f680a46 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4b9d8179 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 264 clock=8711 guid=65 ai=15 combat=0 motions=6 particles=9227 lcg=0x4bb8b2ae explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c02d961d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 265 clock=8744 guid=65 ai=15 combat=0 motions=6 particles=9257 lcg=0xbcac21aa explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ed2d4629 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 266 clock=8777 guid=65 ai=15 combat=0 motions=6 particles=9268 lcg=0xbe32ca7e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4803302b detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 267 clock=8810 guid=65 ai=15 combat=0 motions=6 particles=9290 lcg=0xb1d379e6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=73372b6f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 268 clock=8843 guid=65 ai=15 combat=0 motions=6 particles=9312 lcg=0x0832164e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c81e36b2 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 269 clock=8876 guid=65 ai=15 combat=0 motions=6 particles=9334 lcg=0xee0c3fb6 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a5e80702 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 270 clock=8909 guid=65 ai=15 combat=0 motions=6 particles=9362 lcg=0xc7d3961e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e5afd33c detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 271 clock=8942 guid=65 ai=15 combat=0 motions=6 particles=9414 lcg=0x282db986 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=eb993171 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 272 clock=8975 guid=65 ai=15 combat=0 motions=6 particles=9438 lcg=0x210af502 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=bd790dd3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 273 clock=9008 guid=65 ai=15 combat=0 motions=6 particles=9460 lcg=0xd854f4ea explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b1853403 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 274 clock=9041 guid=65 ai=15 combat=0 motions=6 particles=9484 lcg=0xdd5ec926 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=cbceb148 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 275 clock=9074 guid=65 ai=15 combat=0 motions=6 particles=9533 lcg=0x8e674d8e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=a30b0226 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 276 clock=9107 guid=65 ai=15 combat=0 motions=6 particles=9566 lcg=0xc3cd168a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=10527478 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 277 clock=9140 guid=65 ai=15 combat=0 motions=6 particles=9588 lcg=0x15234772 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=aa5c7eea detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 278 clock=9173 guid=65 ai=15 combat=0 motions=6 particles=9616 lcg=0xcd67955a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=af02fc07 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 279 clock=9206 guid=65 ai=15 combat=0 motions=6 particles=9647 lcg=0x4f5da042 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=4c420419 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+t 5 template=Christof pos=167.26247,-73.2291,0 turn=0,0,89.66219 hp=100 flags=0x4000000 mode=party action=None body=c6a6db7c360aa57a actor=0x21008000,0x1000,0,1 stats=4e26f066bf151672 pack=4:b5bc77850685d57a arts=3540d9643b3fa507 fx=2:27c577562462f9f6
+f 280 clock=9239 guid=65 ai=15 combat=0 motions=6 particles=9666 lcg=0xf63d082a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e231e08a detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 281 clock=9272 guid=65 ai=15 combat=0 motions=6 particles=9696 lcg=0xf3e55866 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d3b09353 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 282 clock=9305 guid=65 ai=15 combat=0 motions=6 particles=9718 lcg=0x9effc4ce explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=07f02a5f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 283 clock=9338 guid=65 ai=15 combat=0 motions=6 particles=9772 lcg=0x070cc9ca explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=95773432 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 284 clock=9371 guid=65 ai=15 combat=0 motions=6 particles=9794 lcg=0x2d9962b2 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=35071518 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 285 clock=9404 guid=65 ai=15 combat=0 motions=6 particles=9819 lcg=0x09e1189a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=155df164 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 286 clock=9437 guid=65 ai=15 combat=0 motions=6 particles=9850 lcg=0xd8478b82 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c38a9479 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 287 clock=9470 guid=65 ai=15 combat=0 motions=6 particles=9889 lcg=0xd6a7c03e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=c7b5c81f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 288 clock=9503 guid=65 ai=15 combat=0 motions=6 particles=9913 lcg=0x0de3923a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=cb6bde32 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 289 clock=9536 guid=65 ai=15 combat=0 motions=6 particles=9932 lcg=0xb3393922 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=72d98a01 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 290 clock=9569 guid=65 ai=15 combat=0 motions=6 particles=9974 lcg=0x084d6bde explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=90f036db detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 291 clock=9602 guid=65 ai=15 combat=0 motions=6 particles=9999 lcg=0x5ba24746 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=7864faed detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 292 clock=9635 guid=65 ai=15 combat=0 motions=6 particles=10021 lcg=0x943a8fae explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=64b914bc detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 293 clock=9668 guid=65 ai=15 combat=0 motions=6 particles=10043 lcg=0xaf83e516 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=b3494f8f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 294 clock=9701 guid=65 ai=15 combat=0 motions=6 particles=10068 lcg=0xf89fe77e explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=f5d02ae7 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 295 clock=9734 guid=65 ai=15 combat=0 motions=6 particles=10095 lcg=0xc07bf57a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d5758dd3 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 296 clock=9767 guid=65 ai=15 combat=0 motions=6 particles=10120 lcg=0x561e0462 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=e61e653d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 297 clock=9800 guid=65 ai=15 combat=0 motions=6 particles=10157 lcg=0xaa29f04a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=fefa89d8 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 298 clock=9833 guid=65 ai=15 combat=0 motions=6 particles=10188 lcg=0xcedb5932 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=863e313f detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 299 clock=9866 guid=65 ai=16 combat=0 motions=6 particles=10225 lcg=0xbde1df1a explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=ff0f4c4d detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5
+f 300 clock=9899 guid=65 ai=16 combat=0 motions=6 particles=10253 lcg=0x46e12202 explosions=0 decals=0 sounds=0 console=0 treasure=0 lights=d63ae372 detours=df34a307 dice=dfa5e669 story=811c9dc5 scripts=7/0/811c9dc5

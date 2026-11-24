@@ -1,0 +1,19 @@
+{
+  // An arena spec for the tuning goal - most
+  // ordinary people are not hard one on one, guards are. The combat rules' newly Embraced (sandbox.newly_embraced, 1.1's Rapier, no shield)
+  // against the combat rules' townsperson (sandbox.townsperson_reference: Strength 14, Dexterity 21, Melee 0) with 1.1's Club, drawn as Christof's
+  // body (no armour: a 1.1 template dresses rudolfGuard in mail), both with the default duelling brain (it blocks half the blows,
+  // times its guard skill), in the proving ground's free yard; the newly Embraced's Melee 0, 3, 5. Twin: fight-townsman-*.json.
+  "title": "The townsman: newly Embraced (Melee 0-5) against an untrained townsman with a club, no shields, no armour",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Townsman", "template": "Christof", "weapon": "Club", "shield": false, "sheet": "sandbox.townsperson_reference",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "melee", "values": [0, 3, 5] }
+}

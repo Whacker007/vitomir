@@ -1,0 +1,100 @@
+{
+  "schema": "VITOMIR_COMBAT_MATTER",
+  "status": "SANDBOX",
+  "title": "What a blow is swept with and what it meets: the active window, the weapons' matter, the shields, the bodies, the level",
+  "note": "SANDBOX: the engine's research numbers until the rules package's anatomy, its materials and armour and gate-18 (attack timing, null in the sandbox profile). activeWindow: a blow is swept for contact over the run of its clip round its Strike mark where its striking point (the blade's tip, or bare-handed the weapon hand) moves at least shareOfPeak of the fastest it moves in the clip, measured every sampleSeconds of clip time (a slow moment of at most bridgeSeconds between fast stretches bridged: a motion's key can brake the point mid-swing), and at least leastSeconds long (chrisAttackSword: about frames 10 to 18 of 29). strikeStarts (the upward hook on the sword path in the drawn arc is only the wind-up; the arc across the body is the actual swing and damage): for the clips a row names, the window begins no earlier than where the strike proper begins in that run: level, the tip within metres of the guard's height (a side blow's sweep, in the body's frame before the aim bends it); top, the raised tip's highest point (an overhead starting down); forward, where the tip starts forward (a thrust); none found, or less than leastSeconds left, the run's start is kept; the switch window-from-windup empties the list (the earlier build's windows). classes: each 1.1 carry class (WEAPON_TYPE1: 0 bare hands, 1 one-handed, 2 two-handed blunt, 3 two-handed sword, 4 a pole) has a material and a mass (kg), which a weapon of that class has unless weapons names its template; a contact's impulse is the striker's mass times the impact speed. shields: a held shield's material by the 1.1 template of the model it is part of, else the default. body: what a body is (flesh; armour is the rules package's materials'). level: the level's surface by its materials' names (the first rule whose 'contains' is in the name, case aside), else the default. parry: whether a held blade stops a blow it meets: never, whileBlocking (its holder holds the block) or always. handRadius: the ball (m) a bare hand strikes with. reachAtMost: how far round a fighter's feet (m) a blow can reach at most, the near test before any volume is posed. stop (the blade stops where it stops): a blow that meets a body bites, its clip held there biteSeconds while the rules decide; it goes on only when they say so (a part severed), else it stops there and is brought back to guard over the rest of the swing's time, at least readySecondsLeast and at most readySecondsMost, by the stopped pose blended into the stance (blend) or the clip played backwards to its start (reverse); a shield, a parrying blade or the level makes it spring back first, its clip played backwards for reboundSeconds at the rate that moves its tip reboundMetres at the speed it met with, at most reboundRate times its rate (at 2x alone a forehand met at 48 m/s is thrown back into its wind-up). enabled false (the switch contact-stop-off) is the earlier build's contact: the blade through bodies, one contact per swing and person, a stop cut short at once. stopFreesOwnerAtOnce: a stop cut short and faded at once, with no bring-back. blockedStaggerSeconds: a blocked owner busy that much longer.",
+  "activeWindow": {
+    "shareOfPeak": 0.4, "sampleSeconds": 0.0041666667, "bridgeSeconds": 0.05, "leastSeconds": 0.1,
+    "strikeStarts": [
+      { "clips": ["windup:left", "windup:right"], "rule": "level", "metres": 0.1, "source": "ENGINE_SANDBOX, ours: the side blows' windows begin where the blade is level (its sweep), not as it comes down out of the ready pose; measured on Christof's broadsword (the guards' the same): the right's window from the blow's frame 12.25 to 13.25 (the tip from 2.37 m, coming down out of the ready pose at the right shoulder, to 1.49 m, 0.08 m over the guard, at the right side), 1.0 frame, 54 ms at the 0.70 tempo; the left's from 10.5 to 11.88 (from 2.03 m behind the left shoulder to 1.42 m), 1.4 frames, 75 ms" },
+      { "clips": ["windup:overhead"], "rule": "top", "source": "ENGINE_SANDBOX, ours: the overhead's window begins where the raised tip starts down (its top, 2.33 m, the blow's frame 12.13), not as it rises from behind the head (from 11.25): 0.9 frames, 40 ms at the 0.70 tempo; left shorter than leastSeconds, it is grown at its end by 0.38 frames, past its Strike mark" },
+      { "clips": ["windup:thrust"], "rule": "forward", "source": "ENGINE_SANDBOX, ours: the thrust's window begins where the tip starts forward: the earlier build's (the least span stood round the mark from 13.25) began an eighth of a frame before it (13.38), 7 ms; as long as before" }
+    ]
+  },
+  "parry": "whileBlocking",
+  "handRadius": 0.06,
+  "reachAtMost": 3.5,
+  "body": "flesh",
+  "classes": {
+    "0": { "name": "bare hands", "material": "flesh", "massKg": 0.6 },
+    "1": { "name": "one-handed", "material": "steel", "massKg": 1.4 },
+    "2": { "name": "two-handed blunt", "material": "steel", "massKg": 3.0 },
+    "3": { "name": "two-handed sword", "material": "steel", "massKg": 2.5 },
+    "4": { "name": "a pole", "material": "steel", "massKg": 3.0 }
+  },
+  "weapons": {
+    "BroadSword": { "material": "steel", "massKg": 1.4 },
+    "Rapier": { "material": "steel", "massKg": 1.1 },
+    "weapRapier_shield": { "material": "steel", "massKg": 1.1 },
+    "Falchion": { "material": "steel", "massKg": 1.3 },
+    "GreatSword": { "material": "steel", "massKg": 2.5 },
+    "axe": { "material": "steel", "massKg": 1.2 },
+    "battleaxe2": { "material": "steel", "massKg": 2.6 },
+    "Mace": { "material": "steel", "massKg": 1.6 },
+    "PointyMace": { "material": "steel", "massKg": 2.4 },
+    "WarHammer": { "material": "steel", "massKg": 2.4 },
+    "Halberd": { "material": "steel", "massKg": 3.0 },
+    "Poleaxe": { "material": "steel", "massKg": 3.2 },
+    "Dagger": { "material": "steel", "massKg": 0.4 },
+    "Punch": { "material": "flesh", "massKg": 0.6 },
+    "Stake": { "material": "wood", "massKg": 0.5 }
+  },
+  "shields": { "default": "wood", "byTemplate": { "weapRapier_shield": "wood" } },
+  "level": {
+    "default": "stone",
+    "surfaces": [
+      { "contains": "wood", "material": "wood" },
+      { "contains": "woo", "material": "wood" },
+      { "contains": "door", "material": "wood" },
+      { "contains": "shingle", "material": "wood" },
+      { "contains": "straw", "material": "earth" },
+      { "contains": "dirt", "material": "earth" },
+      { "contains": "grass", "material": "earth" },
+      { "contains": "mud", "material": "earth" },
+      { "contains": "bush", "material": "earth" },
+      { "contains": "brick", "material": "stone" },
+      { "contains": "stone", "material": "stone" },
+      { "contains": "wall", "material": "stone" },
+      { "contains": "floor", "material": "stone" },
+      { "contains": "arch", "material": "stone" },
+      { "contains": "steps", "material": "stone" }
+    ]
+  },
+  "stop": {
+    "enabled": true,
+    "biteSeconds": 0.05,
+    "reboundSeconds": 0.1,
+    "reboundMetres": 0.15,
+    "reboundRate": 2.0,
+    "readySecondsLeast": 0.15,
+    "readySecondsMost": 0.8,
+    "bringBack": "blend",
+    "stopFreesOwnerAtOnce": false,
+    "blockedStaggerSeconds": 0,
+    "scaled": {
+      "note": "ENGINE_SANDBOX, ours: a swing whose weapon bounces off, as it looks in Bannerlord when a swing is blocked: a light rebound of the weapon. A blade stopped by a shield, a parrying blade or the level springs back along its own path (its clip played backwards) by metresPerImpulse x the contact's normal impulse (the weapon's mass x the speed into what it met: a cleaner, faster or heavier blow further, a glancing one less), within leastMetres and mostMetres (then times guard.json's parry_rebound_scale for a parried or deflected blade; times levelByMaterial off the level), over seconds; then the bring-back as before. Measured on the proving ground (survey, Christof's broadsword quick blow): a raised shield 28.5 N.s (0.34 m), a guarding rapier 13.7 (0.16 m), a parry 20.9 (0.25 m x 2), the 4.5 m stone wall 47.3 (0.5 m). byImpulse false (the switch rebound-fixed) is the earlier build's reboundMetres for every blow, with no recoil and no stun. The switches rebound-small and rebound-large halve and nearly double the distances (the film's sizes). the distances 1.5 times the earlier build's (metresPerImpulse 0.012, leastMetres 0.15, mostMetres 0.5; the recoil's 0.003 and 0.12), between the earlier build's and the film's 'large' (x1.8), chosen from the films; guard.json's parry_rebound_scale 2 -> 1.4 so a parried blade springs back about as far as before did; the switch rebound-two-thirds gives the earlier build's sizes and parry scale.",
+      "byImpulse": true,
+      "metresPerImpulse": 0.018,
+      "leastMetres": 0.22,
+      "mostMetres": 0.75,
+      "seconds": 0.12,
+      "levelByMaterial": { "note": "ENGINE_SANDBOX (ours): a wall's rebound by what it is made of; a shield and a blade are 1 (their guard's verdict scales them).", "stone": 1.0, "steel": 1.0, "wood": 0.8, "leather": 0.5, "earth": 0.4, "cloth": 0.3, "flesh": 0.3 },
+      "recoil": {
+        "note": "ENGINE_SANDBOX (ours; Bannerlord's developers: part of a blow's energy goes to 'kicking-back the attacker's hand(s)'): an additive layer on the attacker (src/Vitomir.Platform/Animation/Recoil.cs) - the weapon hand pushed out of what the blade met by min(metresPerImpulse x impulse, mostMetres) (x the parry's scale), the shoulder and elbow following by IK, the wrist tipping the blade back by wristPerMetre radians a metre and the upper spine leaning by leanPerMetre; at its most after peakSeconds, springing back critically damped (x = A (t/T) e^(1 - t/T)), let go at settleSeconds. A shield met at 28.5 N.s pushes the hand 8.6 cm, the blade's tip turned 12 degrees, the chest leaned 6 degrees (the earlier build's numbers; metresPerImpulse 0.003 -> 0.0045, mostMetres 0.12 -> 0.18, so 12.8 cm, 18 and 9 degrees).",
+        "metresPerImpulse": 0.0045,
+        "mostMetres": 0.18,
+        "peakSeconds": 0.06,
+        "settleSeconds": 0.45,
+        "leanPerMetre": 1.2,
+        "wristPerMetre": 2.5
+      },
+      "stun": {
+        "note": "ENGINE_SANDBOX (ours; Bannerlord's 'attacker stun', 'unable to attack again for a short while after your current attack connects or is blocked': 0.5 s unmodded, 0.25 s in Realistic Combat Adjustments, a modder's figures): after a blade is held at a guard its owner begins no attack for heldSeconds from the meeting (parriedSeconds for a parried or deflected blade); a press in it is refused (AttackRefused Stunned) and buffered, its blow beginning as the stun and the busy time end; a dodge is allowed, and with guardAfterRebound the guard may be raised once the rebound is over though the busy time (1.1's RELOADTIME, the whole swing's time) runs on and holds the next blow. At 1.1's timing a quick blow met at a guard has more busy time left than the stun, so the stun delays a blow only when the swing is fast (Celerity) or met late; fromSwingEnd true counts it from the end of the busy time instead: the stun on top of the whole swing's time. fromSwingEnd true by default; the switch rebound-stun-at-meeting gives the earlier build's (from the meeting).",
+        "heldSeconds": 0.25,
+        "parriedSeconds": 0.5,
+        "guardAfterRebound": true,
+        "fromSwingEnd": true
+      }
+    }
+  }
+}

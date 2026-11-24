@@ -1,0 +1,18 @@
+{
+  // An arena spec: flurry-matched.json's bout with the trained guard dodging in place of blocking (his
+  // brain's dodgeChance 0.5, blockChance 0, as dodge-newly-embraced.json's Christof), at Celerity 0, 3 and 5; to be run under
+  // each of the three models (as it is, --flurry-compressed, --flurry-off): what a moving target does to each model's extra
+  // blows (the rules package's "moving targets").
+  "title": "Celerity's extra blows against a dodging guard: newly Embraced with Celerity 0, 3 and 5 against a trained guard who dodges",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": { "kind": "duel", "dodgeChance": 0.5, "blockChance": 0 } }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "power": "celerity", "options": ["celerity.active"], "values": [0, 3, 5] }
+}

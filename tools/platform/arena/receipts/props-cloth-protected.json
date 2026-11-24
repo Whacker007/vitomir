@@ -1,0 +1,18 @@
+{
+  // Receipt: what a blade meets on a drunk with a bottle in his hand (a prop skinned to the hand bone), on a monk's robe,
+  // and on a merchant (a protected person: met, not harmed, the attempt seen). Three attackers, each before its own
+  // dummy, apart in the free yard.
+  "title": "Receipt: a prop in the hand, a robe, a protected merchant",
+  "fighters": [
+    { "name": "A1", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.newly_embraced",
+      "place": [28, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1, attack@3^-25, attack@5^10" } },
+    { "name": "Drunk", "template": "Civ07drunk", "sheet": "sandbox.townsperson", "place": [29.6, 3], "facing": 180, "brain": { "kind": "dummy", "mode": "stand" } },
+    { "name": "A2", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1, attack@3^-25" } },
+    { "name": "Monk", "template": "Civ10monk2", "sheet": "sandbox.townsperson", "place": [39.6, 3], "facing": 180, "brain": { "kind": "dummy", "mode": "stand" } },
+    { "name": "A3", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.newly_embraced",
+      "place": [48, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1, attack@3" } },
+    { "name": "Merchant", "template": "Civ03merchant1", "sheet": "sandbox.townsperson", "place": [49.6, 3], "facing": 180, "brain": { "kind": "dummy", "mode": "stand" } }
+  ],
+  "bouts": 1, "seed": 1, "seconds": 7, "tapes": 1
+}

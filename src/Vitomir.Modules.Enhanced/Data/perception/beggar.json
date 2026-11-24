@@ -1,0 +1,26 @@
+{
+  "schema": "VITOMIR_OBSERVER_KIND",
+  "status": "SANDBOX",
+  "title": "A beggar: sharp eyes in the dark, timid, does not run to the guards",
+  "note": "SANDBOX (by design: broad and diverse profiles, each with traits). Traits 0 to 1; SightRange in metres (daylight, open ground, a running body), ConeDegrees the half-angle, NoticeSeconds, MakeOutSeconds, ConcludeSeconds (each step up the ladder), HoldSeconds and CoolDownSeconds (calming down) in seconds (the proposed values). Voice 0.2: a mutter heard 3 m off, not a cry for the watch.",
+  "characters": [
+    "Civ02beggar"
+  ],
+  "numbers": {
+    "SightRange": 25.0,
+    "ConeDegrees": 70.0,
+    "Eyesight": 1.0,
+    "NightEyes": 0.6,
+    "Attention": 0.8,
+    "Bravery": 0.1,
+    "Curiosity": 0.3,
+    "Duty": 0.0,
+    "Excitability": 0.5,
+    "Voice": 0.2,
+    "NoticeSeconds": 0.5,
+    "MakeOutSeconds": 2.0,
+    "ConcludeSeconds": 3.0,
+    "HoldSeconds": 20.0,
+    "CoolDownSeconds": 150.0
+  }
+}

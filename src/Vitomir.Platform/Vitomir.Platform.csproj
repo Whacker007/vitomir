@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The platform: the mechanics every game module on it shares —
+       time, the world and its entities, space and collision, bodies and movement, cameras and the
+       reticle as maths, input actions and the tape, animation posed in the simulation, assets,
+       configuration, traces. It knows nothing of SDL, of a GPU, of any module, or of the old engine
+       (Vitomir.Engine, Vitomir.Render, Vitomir.Scripting, vitomir-tools): PlatformBoundaryTests keeps it so.
+       It reads files through Vitomir.Formats, which it shares with the faithful game and which
+       changes only by addition. -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Platform</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Formats\Vitomir.Formats.csproj" />
+    <!-- The logging API only (ILogger); the sinks are the program's. -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+    <!-- Detour (zlib), for routes over the levels' navigation meshes. -->
+    <PackageReference Include="DotRecast.Detour" Version="2026.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The setup's manifest: the files of 1.1 Vitomir reads, by name, size and SHA-256 only (no game content). -->
+    <EmbeddedResource Include="Setup\Manifests\*.tsv" LogicalName="Setup/%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Vitomir.Platform.Tests" />
+  </ItemGroup>
+  <!--
+    The development tag beside the release version (Directory.Build.props), for the version line (ReleaseVersion): a file
+    beside the assembly, vitomir-batch.txt, copied into every program's folder that references this project. Not an
+    attribute of the assembly: a portable PDB records the module version of every assembly it was compiled against, so a
+    tag compiled into Vitomir.Platform would change the module versions of the engine, the classic game and the scripts
+    above it, and a public build (which has no tag) and a private one of the same code could not join (NetIdentity).
+  -->
+  <Target Name="VitomirBatchFile" BeforeTargets="BeforeBuild" Condition="'$(VitomirBatch)' != ''">
+    <WriteLinesToFile File="$(IntermediateOutputPath)vitomir-batch.txt" Lines="$(VitomirBatch)" Overwrite="true" WriteOnlyWhenDifferent="true" />
+  </Target>
+  <ItemGroup Condition="'$(VitomirBatch)' != ''">
+    <None Include="$(IntermediateOutputPath)vitomir-batch.txt" Link="vitomir-batch.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <!--
+    The notice after the version line (VitomirNotice, Directory.Build.props: empty but in a package, tools/package.ps1's
+    -Notice), the same way and for the same reason: vitomir-notice.txt beside the assembly, UTF-8, not compiled in.
+  -->
+  <Target Name="VitomirNoticeFile" BeforeTargets="BeforeBuild" Condition="'$(VitomirNotice)' != ''">
+    <WriteLinesToFile File="$(IntermediateOutputPath)vitomir-notice.txt" Lines="$([MSBuild]::Escape('$(VitomirNotice)'))" Overwrite="true" WriteOnlyWhenDifferent="true" Encoding="utf-8" />
+  </Target>
+  <ItemGroup Condition="'$(VitomirNotice)' != ''">
+    <None Include="$(IntermediateOutputPath)vitomir-notice.txt" Link="vitomir-notice.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,168 @@
+{
+  "schema": "VITOMIR_ENHANCED_ARMOR",
+  "status": "SANDBOX",
+  "title": "Armour: the pieces, the parts each covers, its soak by kind of harm, and who wears what",
+  "note": "SANDBOX: the rules package asks for 'actual locally covering armor' and says 'an armor item in inventory cannot protect an uncovered arm' ; the combat rules make material armour 'an independent data-defined eligible contribution, not an unconditional immunity' (ArmorPool) and leaves its numbers open (gate-13, armor_matrix_profile, OPEN_NUMERIC). So: each piece covers named body regions (the hit volumes' names) and gives soak dice there by the harm's kind; a blow on a covered part adds them to the soak as their own pool (made whole and rolled at the soak's difficulty), a blow on a part no piece covers gets none (a gap is a gap). The numbers are 1.1's: each piece's three soak rows (ef_soak_normal, ef_soak_lethal, ef_soak_aggravated of misc/effects.ned at the level its template names) in 1.1's points, made dice by the bridge below. 1.1's armour soaks the whole body (1.1's actor code adds every worn piece's soak to every blow); the parts each piece covers here are ours. Who wears what: the people the platform dresses by their 1.1 template (dress, below; the guards and the watch), the arena's specs ('armor' per fighter) and --armor who=piece,piece for play. What a person wears is its sheet's condition (condition, below): saved, digested and given with the sheet.",
+  "bridge": {
+    "points_per_die": 20,
+    "source": "ours: 1.1's soak points are on Stamina's scale (its soak roll adds a piece's points to the wearer's Stamina: rand01 * (soak + stamina), src/Vitomir.Engine/Rpg/Combat.cs Soak), so they take the dice Stamina takes here: raw_to_soak_dice's raw/20 below 100 (the sandbox profile). Plate's 80 lethal points are 4 dice, mail's 45 are 2.25."
+  },
+  "layering": "sum",
+  "layering_source": "ours: pieces worn over one another on a part add (a padded coat under mail is how mail was worn), as 1.1 adds every worn piece's soak; one piece a slot (1.1 wears one suit, one helmet, one pair of gloves), so two suits cannot be summed. 'highest' (the most a part's pieces give) is the other rule this module knows.",
+  "kinds": {
+    "bashing": true,
+    "lethal": true,
+    "aggravated_classes": ["claws", "fangs"],
+    "source": "H1 C2: 'For aggravated damage, ordinary Stamina does not automatically soak; learned Fortitude and only certain source-appropriate armor do. Fire/sunlight ignore ordinary armor under source comparator; claws/fangs may use eligible armor.' Chapter 06: 'ordinary human Stamina does not soak lethal, but armor and actual guard can protect'. So armour soaks bashing and lethal harm for every species, and aggravated harm only from the classes named (rules/harm's claws and fangs, the only aggravated classes now): fire and sunlight, when they come, pass it."
+  },
+  "condition": "worn_armor",
+  "slots": ["under", "body", "head", "hands", "legs"],
+  "slots_source": "1.1's slots for armour: one suit (ITEM_TYPE 8, the body), one helmet (2, the head), one pair for the hands (6) (src/Vitomir.Engine/Rpg/Item.cs ItemType; Equipment.cs, one item a slot). Ours: 'under' for a padded layer worn beneath the suit, 'legs' for greaves (1.1 has no leg armour).",
+  "pieces": {
+    "padded_coat": {
+      "name": "a padded coat (a gambeson)",
+      "slot": "under",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm", "left forearm", "right forearm"],
+      "covers_source": "ours: a quilted coat to the hips with sleeves to the wrists, worn alone or under mail",
+      "points": { "bashing": 10, "lethal": 10, "aggravated": 10 },
+      "oneone": "paddedClothing",
+      "source": "1.1: darkAges.not paddedClothing (ITEM_TYPE 8, ITEM_BASECOST 75): ef_soak_normal, ef_soak_lethal, ef_soak_aggravated each at level 0 (effects.ned: 10, 10, 10). 1.1 makes it a suit; here it is the layer under one."
+    },
+    "leather_coat": {
+      "name": "a leather coat",
+      "slot": "body",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm"],
+      "covers_source": "ours: a jerkin to the hips with short sleeves",
+      "points": { "bashing": 10, "lethal": 15, "aggravated": 10 },
+      "oneone": "leatherClothing",
+      "source": "1.1: darkAges.not leatherClothing (ITEM_BASECOST 250, ARMOR_MODEL leather): ef_soak_normal level 0, ef_soak_lethal level 1, ef_soak_aggravated level 0 (10, 15, 10; its fire and electric soak are not kinds of harm here)."
+    },
+    "studded_leather": {
+      "name": "a studded leather coat",
+      "slot": "body",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm"],
+      "covers_source": "ours: the leather coat's cut",
+      "points": { "bashing": 15, "lethal": 30, "aggravated": 15 },
+      "oneone": "studdedLeather",
+      "source": "1.1: darkAges.not studdedLeather (ITEM_BASECOST 500, ARMOR_MODEL leather): ef_soak_normal level 1, ef_soak_lethal level 2, ef_soak_aggravated level 1 (15, 30, 15)."
+    },
+    "mail_shirt": {
+      "name": "a mail shirt (a haubergeon)",
+      "slot": "body",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm"],
+      "covers_source": "ours: a short mail coat, its skirt to the hips and its sleeves to the elbows (the forearms, the thighs, the neck and the hands bare)",
+      "points": { "bashing": 15, "lethal": 45, "aggravated": 20 },
+      "oneone": "chainMail",
+      "source": "1.1: darkAges.not chainMail (ITEM_BASECOST 1000, ARMOR_MODEL chain, worn at Strength 35: ITEM_RESTRTYPE0 1, ITEM_RESTRVALUE0 35, not enforced here): ef_soak_normal level 1, ef_soak_lethal level 3, ef_soak_aggravated level 2 (15, 45, 20)."
+    },
+    "mail_hauberk": {
+      "name": "a mail hauberk",
+      "slot": "body",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm", "left forearm", "right forearm", "left thigh", "right thigh"],
+      "covers_source": "ours: a long mail coat, its sleeves to the wrists and its skirt to the knees",
+      "points": { "bashing": 15, "lethal": 45, "aggravated": 20 },
+      "oneone": "chainMail",
+      "source": "1.1's mail (darkAges.not chainMail, as mail_shirt): 1.1 has one mail coat; the longer cut is ours, the same mail."
+    },
+    "scale_shirt": {
+      "name": "a scale shirt",
+      "slot": "body",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm"],
+      "covers_source": "ours: the mail shirt's cut",
+      "points": { "bashing": 30, "lethal": 45, "aggravated": 20 },
+      "oneone": "scaleMail",
+      "source": "1.1: darkAges.not scaleMail (ITEM_BASECOST 1500, ARMOR_MODEL chain, Strength 35): ef_soak_normal level 2, ef_soak_lethal level 3, ef_soak_aggravated level 2 (30, 45, 20)."
+    },
+    "half_plate": {
+      "name": "half plate (a breastplate with arms)",
+      "slot": "body",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm", "left forearm", "right forearm"],
+      "covers_source": "ours: plate on the trunk and the arms, the legs bare",
+      "points": { "bashing": 30, "lethal": 60, "aggravated": 25 },
+      "oneone": "halfPlate",
+      "source": "1.1: darkAges.not halfPlate (ITEM_BASECOST 2500, ARMOR_MODEL plate, Strength 45): ef_soak_normal level 2, ef_soak_lethal level 4, ef_soak_aggravated level 3 (30, 60, 25)."
+    },
+    "plate_harness": {
+      "name": "a plate harness",
+      "slot": "body",
+      "covers": ["chest", "belly", "hips", "left upper arm", "right upper arm", "left forearm", "right forearm", "left thigh", "right thigh", "left shin", "right shin", "left foot", "right foot"],
+      "covers_source": "ours: the whole body but the head, the neck and the hands (the helmet and the gauntlets are their own pieces, as in 1.1)",
+      "points": { "bashing": 30, "lethal": 80, "aggravated": 30 },
+      "oneone": "plateMail",
+      "source": "1.1: darkAges.not plateMail (ITEM_BASECOST 5000, ARMOR_MODEL plate, Strength 55): ef_soak_normal level 2, ef_soak_lethal level 5, ef_soak_aggravated level 4 (30, 80, 30)."
+    },
+    "skullcap": {
+      "name": "a skullcap",
+      "slot": "head",
+      "covers": ["head"],
+      "covers_source": "ours: an iron cap",
+      "points": { "bashing": 10, "lethal": 10, "aggravated": 10 },
+      "oneone": "skullcap",
+      "source": "1.1: darkAges.not skullcap (ITEM_TYPE 2, ITEM_BASECOST 60): ef_soak_normal, ef_soak_lethal, ef_soak_aggravated at level 0 (10, 10, 10)."
+    },
+    "light_helm": {
+      "name": "a light helm (open-faced)",
+      "slot": "head",
+      "covers": ["head"],
+      "covers_source": "ours: an open helm, the neck bare",
+      "points": { "bashing": 15, "lethal": 15, "aggravated": 15 },
+      "oneone": "lightHelm",
+      "source": "1.1: darkAges.not lightHelm (ITEM_TYPE 2, ITEM_BASECOST 150, model helmetHalf.nod): the three soaks at level 1 (15, 15, 15)."
+    },
+    "full_helm": {
+      "name": "a full helm with its aventail",
+      "slot": "head",
+      "covers": ["head", "neck"],
+      "covers_source": "ours: a closed helm whose mail aventail falls to the shoulders, so the neck is covered (a full helm in 1.1 is helmetFull.nod)",
+      "points": { "bashing": 30, "lethal": 30, "aggravated": 20 },
+      "oneone": "fullHelm",
+      "source": "1.1: darkAges.not fullHelm (ITEM_TYPE 2, ITEM_BASECOST 350): the three soaks at level 2 (30, 30, 20)."
+    },
+    "leather_gloves": {
+      "name": "leather gloves",
+      "slot": "hands",
+      "covers": ["left hand", "right hand"],
+      "covers_source": "ours",
+      "points": { "bashing": 0, "lethal": 10, "aggravated": 10 },
+      "oneone": "leathergloves",
+      "source": "1.1: global.not leathergloves (ITEM_TYPE 6, ITEM_BASECOST 65): ef_soak_lethal and ef_soak_aggravated at level 0 (no bashing soak: 0, 10, 10)."
+    },
+    "gauntlets": {
+      "name": "gauntlets",
+      "slot": "hands",
+      "covers": ["left hand", "right hand"],
+      "covers_source": "ours: the hands to the wrists (vambraces are not a piece yet)",
+      "points": { "bashing": 10, "lethal": 10, "aggravated": 10 },
+      "oneone": "gauntlets",
+      "source": "1.1: global.not gauntlets (ITEM_TYPE 6, ITEM_BASECOST 150): the three soaks at level 0 (10, 10, 10)."
+    },
+    "heavy_gauntlets": {
+      "name": "heavy gauntlets",
+      "slot": "hands",
+      "covers": ["left hand", "right hand"],
+      "covers_source": "ours",
+      "points": { "bashing": 15, "lethal": 15, "aggravated": 15 },
+      "oneone": "gauntlets_heavy",
+      "source": "1.1: global.not gauntlets_heavy (ITEM_TYPE 6, ITEM_BASECOST 250): the three soaks at level 1 (15, 15, 15)."
+    },
+    "greaves": {
+      "name": "greaves",
+      "slot": "legs",
+      "covers": ["left shin", "right shin"],
+      "covers_source": "ours: plates over the shins",
+      "points": { "bashing": 30, "lethal": 80, "aggravated": 30 },
+      "oneone": "",
+      "source": "ours: 1.1 has no leg armour; plate's numbers (darkAges.not plateMail: 30, 80, 30), the same steel over the shins."
+    }
+  },
+  "dress": {
+    "rudolfGuard": {
+      "pieces": ["mail_hauberk", "light_helm"],
+      "source": "1.1: darkAges.not rudolfGuard wears no armour item; its soaks are its template's (from _Lawmen_DA: SOAK_NORMAL 30, SOAK_LETHAL 60, SOAK_AGGRAVATED 30), which 1.1's own mail (chainMail 15, 45, 20) and light helm (lightHelm 15, 15, 15) together give within five points (30, 60, 35). The cut is its model's (rudolfGuard.nod, looked at in the arena): mail to the knees and on the forearms under a surcoat and a cloak, an open iron helm; the dark gloves it wears are not counted (1.1's soaks have no room for them)."
+    },
+    "KnightOfStJohn_torch": {
+      "pieces": ["mail_hauberk", "light_helm"],
+      "source": "1.1: darkAges.not KnightOfStJohn_torch: the same _Lawmen_DA soaks (30, 60, 30), and its model (KnightStJohn.nod) the same mail skirt to the knees and open helm, so the same."
+    }
+  }
+}

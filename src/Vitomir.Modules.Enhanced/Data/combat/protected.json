@@ -1,0 +1,7 @@
+{
+  "schema": "VITOMIR_PROTECTED",
+  "status": "SANDBOX",
+  "title": "The people weapons never harm",
+  "note": "By design, some people are protected from any weapon (the smith, a merchant, a story figure). A blow or a shot at one is found (its contact says Protected) but does nothing: no harm, no hurt; the attempt is violence the world sees, and they protest. Each is named by the kind of character it is drawn as: a 1.1 template (Civ03merchant1) or the platform's catalogue name (Merchant). The program's --protected <who> marks more, for a run (on its tape). SANDBOX: the merchants stand in for the smith until the enhanced module's own people are made.",
+  "people": [ "Merchant", "Civ03merchant1", "Civ04merchant2" ]
+}

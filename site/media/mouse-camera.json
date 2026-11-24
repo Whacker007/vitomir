@@ -1,0 +1,44 @@
+{
+ "source": "mouse-camera",
+ "size": [
+  1280,
+  720
+ ],
+ "keep": [
+  [
+   2.3,
+   23.6
+  ]
+ ],
+ "poster": 4.5,
+ "segments": [
+  {
+   "from": 2.3,
+   "to": 9.6,
+   "tag": "new",
+   "title": "Swivel with the mouse",
+   "line": "Hold the middle button and drag.",
+   "mouse": true,
+   "gauge": true,
+   "hold": 0.8
+  },
+  {
+   "from": 9.6,
+   "to": 16.2,
+   "tag": "new",
+   "title": "Look up and down",
+   "line": "Drag up or down, within the camera's limits.",
+   "mouse": true,
+   "gauge": true
+  },
+  {
+   "from": 16.2,
+   "to": 23.6,
+   "tag": "new",
+   "title": "Zoom with the wheel",
+   "line": "The camera is smoothed and stays within the level.",
+   "mouse": true,
+   "gauge": true
+  }
+ ]
+}

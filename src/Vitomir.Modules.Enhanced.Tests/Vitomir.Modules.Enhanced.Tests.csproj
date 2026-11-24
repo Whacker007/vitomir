@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Vitomir.Modules.Enhanced.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Referenced to test its types, and laid out as Modules\Enhanced\ in the output, so the tests read the
+         module through the loader and the registry as the program does. -->
+    <ProjectReference Include="..\Vitomir.Modules.Enhanced\Vitomir.Modules.Enhanced.csproj" LayOutAsModule="true" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+</Project>

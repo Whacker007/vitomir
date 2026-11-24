@@ -1,0 +1,21 @@
+{
+  // An arena spec: armor-matched.json's bout (the trained guard in a mail
+  // shirt and a light helm, both with the Rapier, no shields) with the newly Embraced's Strength swept from his own 15 to the
+  // developed ninth's 42, 200 and the elite stress fixture's 400: armour's dice are fixed (2.25 on the mail, 0.75 under the
+  // helm), so as Strength's damage dice grow (15: 2.75 with the Rapier; 42: 4.1; 200: 12; 400: 22) the armour keeps a smaller
+  // share of a blow off: as the strength and combat stats go up, the attacker comes to plough
+  // through any defences, armour and soak. Paired seeds: bout b has seed 3000 + b at every Strength. Its twin without armour:
+  // the same with --armor-off.
+  "title": "Strength 15 to 400 (newly Embraced) against a trained guard in a mail shirt and a light helm, matched, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel", "armor": ["mail_shirt", "light_helm"] }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [15, 42, 200, 400] }
+}

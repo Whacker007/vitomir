@@ -1,0 +1,33 @@
+{
+  "schema": "VITOMIR_ARENA_GUARD_CANDIDATES",
+  "status": "ENGINE_SANDBOX",
+  "title": "The guards' one-on-one strength as knobs",
+  "note": "Ours, not the rules package's: three candidate settings for the combat rules' trained guard (rudolfGuard, rapier and kite shield, sandbox.guard_trained: Strength 21, Dexterity 26, Stamina 25, Melee 2) and the night watchman (rudolfGuard, broadsword, sandbox.watchman: Strength 70, Dexterity 45, Stamina 70, Melee 3), each found so the player's own sheet (sandbox.player, Melee 0, Christof's BroadSword) beats one of them about 60, 70 and 80 % of the time (200 bouts, seeds from 3000). Guards are not necessarily hard, but powerful enough that a human or fledgling player does not go wild on the townsfolk; the real danger is being overwhelmed by too many foes. The defaults are NOT changed: a candidate is an arena spec's fighter (its sheet's values over the template, its duelling brain's numbers), made by guard_candidates.py (beside it), to choose from. The levers: values (the sheet's purchased ratings: strength is how hard each blow lands, stamina its soak, melee its tempo, guard, riposte and shield read), brain.pace (the pause after each run of blows, seconds, least and most: the guards' kind is 1.0 to 2.2, the townsfolk's 2 to 4) and brain.blockChance (the chance its brain raises its guard against a blow, before the guard by skill's factor and the response scale: 0.5 by default); armor is also taken (an arena armor list). Not an arena spec: the arena's specs are the .json files directly in tools/platform/arena.",
+  "foes": {
+    "guard": { "name": "Guard", "template": "rudolfGuard", "weapon": "weapRapier_shield", "shield": true, "sheet": "sandbox.guard_trained" },
+    "watchman": { "name": "Watchman", "template": "rudolfGuard", "weapon": "BroadSword", "shield": false, "sheet": "sandbox.watchman" }
+  },
+  "matchups": [
+    { "name": "player-guard", "title": "the player (Melee 0, BroadSword) against the trained guard", "sheet": "sandbox.player", "weapon": "BroadSword", "foe": "guard" },
+    { "name": "player-watchman", "title": "the player (Melee 0, BroadSword) against the watchman", "sheet": "sandbox.player", "weapon": "BroadSword", "foe": "watchman" },
+    { "name": "ne-guard", "title": "the newly Embraced (Rapier) against the trained guard", "sheet": "sandbox.newly_embraced", "weapon": "Rapier", "foe": "guard", "melee": [0, 3, 5] },
+    { "name": "ne-watchman", "title": "the newly Embraced (Rapier) against the watchman", "sheet": "sandbox.newly_embraced", "weapon": "Rapier", "foe": "watchman", "melee": [0, 3, 5] }
+  ],
+  "candidates": {
+    "as_built": {},
+    "c60": {
+      "guard": { "values": { "strength": 12, "melee": 1 }, "brain": { "pace": [2.2, 4.0], "blockChance": 0.25 } },
+      "note": "The guard: Strength 21 to 12 (his blows land about as a weak man's), Melee 2 to 1 (still trained: he guards with his blade), pauses 2.2-4.0 s, block chance halved. The watchman as built (the player already beats him 60.5 %)."
+    },
+    "c70": {
+      "guard": { "values": { "strength": 8, "melee": 1, "stamina": 15 }, "brain": { "pace": [2.2, 4.0], "blockChance": 0.25 } },
+      "watchman": { "brain": { "pace": [2.2, 4.0], "blockChance": 0.25 } },
+      "note": "The guard: as c60 and Strength 8, Stamina 25 to 15 (less soak). The watchman: his sheet as built, pauses 2.2-4.0 s, block chance halved."
+    },
+    "c80": {
+      "guard": { "values": { "strength": 6, "melee": 1, "stamina": 12 }, "brain": { "pace": [2.2, 4.0], "blockChance": 0.25 } },
+      "watchman": { "values": { "strength": 50, "melee": 2 }, "brain": { "pace": [2.2, 4.0], "blockChance": 0.25 } },
+      "note": "The guard: as c70 and Strength 6, Stamina 12. The watchman: as c70 and Strength 70 to 50, Melee 3 to 2."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.townsperson_reference",
+  "title": "A townsperson (the combat rules' reference)",
+  "note": "SANDBOX (the rules package's research-only baseline reference sheets): Strength 14, Dexterity 21, Stamina 19 as the combat rules give them; the other six Attributes the rules package's Option B means, rounded (research-only): Charisma 17, Manipulation 17, Appearance 22, Perception 17, Intelligence 17, Wits 14 (until then ours: a flat mean of the three); a townsperson: every Ability 0 but Alertness 1; every Ability not listed 0. The townsfolk's default (a role and no characters dresses every townsperson no other template names; until then the placeholder sandbox.townsperson, every Attribute 25, did). Health from rules/harm (the engine-sandbox Health). A research fixture, not a rule.",
+  "role": "townsperson",
+  "species": "human",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 18,
+  "purchased": {
+    "strength": 14,
+    "dexterity": 21,
+    "stamina": 19,
+    "charisma": 17,
+    "manipulation": 17,
+    "appearance": 22,
+    "perception": 17,
+    "intelligence": 17,
+    "wits": 14,
+    "alertness": 1
+  },
+  "powers": []
+}

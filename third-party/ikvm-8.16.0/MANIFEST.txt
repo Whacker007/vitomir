@@ -1,0 +1,6 @@
+IKVM 8.16.0, from https://github.com/ikvmnet/ikvm at the tag 8.16.0
+OpenJDK: https://github.com/ikvmnet/jdk8u.git at 5c75a45a66cc5be500bda366c6f0812e9cd17aed
+16707 OpenJDK files, those IKVM's build compiles into IKVM.Java.dll
+
+7c99573e134b002998e90b694d807b7cc17fa30bc9a7fc66575a72be3f7f9c00  ikvm-8.16.0-source.zip
+d17e7bf3f79d311388562d2498863a3c1fc1915d5c500104a07eb3a2e720b41e  openjdk-5c75a45a66cc-used.tar.xz

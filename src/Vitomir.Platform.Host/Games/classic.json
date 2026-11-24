@@ -1,0 +1,6 @@
+{
+  "id": "classic",
+  "name": "Vampire: The Masquerade - Redemption, the base game (1.1)",
+  "description": "1.1 as a module on the platform (release 1): the Classic module, which keeps its own time. headless only (vitomir-platform --game classic --headless ...).",
+  "modules": ["classic"]
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "VITOMIR_ENHANCED_BLOOD",
+  "status": "ENGINE_SANDBOX",
+  "title": "Blood (minimal): a vampire's pool on 1.1's scale, bought into up to 1000",
+  "note": "Ours, not the rules package's: the profile's blood_max_purchase_curve and blood_throughput_purchase_curve (gate-19) are null, so the maximum is the purchased value 1:1 (ENGINE_SANDBOX) until the rules package gives a curve. The blood pool scales somewhat like 1.1's but can be bought up to 1000 points; a point is not one of the tabletop game's ten, it is more akin to 1.1's. A mortal has no Blood to spend. No regeneration: 1.1's vampires refill by feeding, and Feed, Theft and transfers are not built.",
+  "resource": "blood",
+  "species": [ "vampire" ],
+  "purchase": {
+    "id": "blood_pool",
+    "minimum": 0,
+    "maximum": 1000,
+    "default": 100,
+    "status": "ENGINE_SANDBOX",
+    "source": "1.1's Christof.NPC line 29: 'bloodpool 0 1000 100' (a pool of 100, a ceiling of 1000); line 30 'blood 0 1000 100' (he starts full)"
+  },
+  "maximum": {
+    "rule": "purchased",
+    "status": "ENGINE_SANDBOX",
+    "gate": "gate-19",
+    "source": "ours: the purchased blood_pool 1:1 while the profile's blood_max_purchase_curve is null"
+  },
+  "start": {
+    "rule": "full",
+    "status": "ENGINE_SANDBOX",
+    "source": "ours, as 1.1's Christof.NPC line 30 (blood 100 of a pool of 100): a new person starts full"
+  },
+  "spend_limits": {
+    "per_action": 0,
+    "per_second": 0,
+    "status": "ENGINE_SANDBOX",
+    "gate": "gate-19",
+    "source": "ours: 0 is no limit, as 1.1 has none. The rules package keeps capacity (the bought blood_pool) apart from throughput (the most spent in one action, and in an interval: here any one second, the D1 resource's per-cycle limit with a cycle of 1 s); its blood_throughput_purchase_curve is null"
+  }
+}

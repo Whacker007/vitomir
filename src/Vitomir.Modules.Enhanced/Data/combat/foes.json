@@ -1,0 +1,62 @@
+{
+  "schema": "VITOMIR_ENHANCED_FOES",
+  "status": "SANDBOX",
+  "title": "Foes to fight in play: the presets --foe names",
+  "note": "Ours, SANDBOX: a development control, not the game's people. A fight the player can go after one in. The program's --foe <who>@x,y,z[,yaw] places a hostile fighter who comes for the player with the duelling brain (its default numbers), dressed and armed as the arena's fight-*.json fighters are: the 1.1 character it is drawn and animated as (template), the 1.1 weapon it holds (weapon; none: the character's own), whether it carries a shield (shield, checked: in 1.1 a shield is part of the weapon) and the sheet template this module gives it (sheet). shown is the name the cursor and the log give it, with '(foe)' after it. movement (how it moves: a movement profile, human, neonate or elder, or template, its 1.1 template's own walk and run read from the install; not given, the human's) and approach (how its brain comes on from beyond its striking range: duel, the duelling brain's straight run, or oneone, 1.1's manoeuvre with its 1.1 AI file's numbers; not given, duel).",
+  "wake_metres": 8,
+  "wake_why": "SANDBOX, ours: a foe stands where it was put, facing where it was put, until the player comes within this many metres (across the ground) or a blow meets it (its body, shield or blade), then fights; so the player walks up to it rather than its running at the player across the yard from the first tick. 8 m: a little more than the free yard's 4.5 m wall is long. A preset may give its own; 0 makes it come at once.",
+  "foes": {
+    "szlachta": {
+      "template": "Szlachta",
+      "sheet": "sandbox.szlachta",
+      "shown": "Szlachta",
+      "movement": "template",
+      "approach": "oneone",
+      "why": "1.1's szlachta (template Szlachta, its claws Claw_szlachta) on sandbox.szlachta: the arena's fight-szlachta.json. it moves at its 1.1 template's own walk and run (movement template: ACTOR_WALKSPEED and ACTOR_RUNSPEED, read from the install at run time; the 1.1 file and value, not ours) and comes on as 1.1's enemy does (approach oneone: a step turned within 30 degrees of the line to the player, of a random length up to its AI file's chaseDist, at its run, every moveRate, standing when a step ends early; enemySzlachta.nai read from the install). The switch foes-uniform gives the earlier build's (the human's movement, the duelling brain's approach)."
+    },
+    "guard": {
+      "template": "rudolfGuard",
+      "weapon": "weapRapier_shield",
+      "shield": true,
+      "sheet": "sandbox.guard_trained",
+      "shown": "Guard",
+      "why": "The combat rules' trained guard as 1.1 arms him: rudolfGuard's own weapRapier_shield (the rapier and the kite shield); the arena's fight-guard-rapier-shield.json."
+    },
+    "watchman": {
+      "template": "rudolfGuard",
+      "weapon": "BroadSword",
+      "shield": false,
+      "sheet": "sandbox.watchman",
+      "shown": "Watchman",
+      "why": "A watchman (sandbox.watchman: Melee 3) drawn as the town's guard with 1.1's BroadSword and no shield; the arena's fight-watchman-broadsword.json."
+    },
+    "townsman-club": {
+      "template": "Christof",
+      "weapon": "Club",
+      "shield": false,
+      "sheet": "sandbox.townsperson_reference",
+      "shown": "Townsman",
+      "why": "The combat rules' untrained townsperson with 1.1's Club, drawn as Christof's body (no armour; a 1.1 template would dress him in mail); the arena's fight-townsman-club.json."
+    },
+    "archer": {
+      "template": "Christof",
+      "weapon": "BroadSword",
+      "shield": false,
+      "sheet": "sandbox.archer",
+      "shown": "Archer",
+      "ranged": "war_bow",
+      "arrows": 24,
+      "brain": "archer",
+      "wake_metres": 30,
+      "why": "Ours (some randomness for the AI, so that it does not always shoot with laser accuracy): an archer with the war bow (this module's ranged.json; drawn as 1.1's longBow) and 24 arrows, driven by the archer brain (ranged.json's archer_brain: it keeps its range, aims at the chest, draws, holds and looses, its aim's error by its Range seen in where the bow points; within its sword range it draws its BroadSword and fights with the duelling brain). 1.1 has no human archer of its own but Christof (Christof.nms has the bow's modes: stand_bow, walk_bow, run_bow, the shot bow chrisAttackBow), so it is drawn as Christof's body, as the townsmen are. sandbox.archer: a trained guard with Range (Firearms) 2. It wakes at 30 m (its own wake_metres): an archer starts shooting from afar."
+    },
+    "townsman-dagger": {
+      "template": "Christof",
+      "weapon": "Dagger",
+      "shield": false,
+      "sheet": "sandbox.townsperson_reference",
+      "shown": "Townsman",
+      "why": "The combat rules' untrained townsperson with 1.1's Dagger, drawn as Christof's body; the arena's fight-townsman-dagger.json."
+    }
+  }
+}

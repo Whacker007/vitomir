@@ -1,0 +1,6 @@
+{
+  "id": "enhanced",
+  "name": "Vitomir: the enhanced game",
+  "description": "The FPS/TPS action RPG on the platform: its rules module; the remade city's content modules come later (levels are given by --level for now).",
+  "modules": ["enhanced"]
+}

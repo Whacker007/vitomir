@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The platform's program, vitomir-platform.exe: the
+       window, the main loop (fixed simulation ticks, the picture drawn between them), the command line,
+       the player's settings and bindings, recording and replaying. Its player data is its own
+       (%LOCALAPPDATA%\Vitomir, or VITOMIR_USERDATA; an older Vitomir's folder there is never taken without its mark). -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>vitomir-platform</AssemblyName>
+    <!-- Vitomir's icon in the program (the launcher's is the same); its windows take the same picture (WindowIcon). -->
+    <ApplicationIcon>..\Vitomir.Platform.Render\Art\vitomir.ico</ApplicationIcon>
+    <RootNamespace>Vitomir.Platform.Host</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform\Vitomir.Platform.csproj" />
+    <ProjectReference Include="..\Vitomir.Platform.Render\Vitomir.Platform.Render.csproj" />
+    <!-- The interface's screens: the pause menu and the Controls page. -->
+    <ProjectReference Include="..\Vitomir.Platform.Interface\Vitomir.Platform.Interface.csproj" />
+    <!-- The window and its events are the program's (the renderer draws into the window it is given). -->
+    <PackageReference Include="ppy.SDL3-CS" Version="2026.722.0" />
+  </ItemGroup>
+  <!-- The modules the program is built with: built first and laid out as
+       folders beside it (Modules\<name>\, by ..\Vitomir.ModuleLayout.targets), never compiled against: the
+       program knows a module only through the loader and the platform's IModule. The games it can play are
+       Games\<id>.json. -->
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Modules.Enhanced\Vitomir.Modules.Enhanced.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+    <ProjectReference Include="..\Vitomir.Modules.Classic\Vitomir.Modules.Classic.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+    <None Update="Games\*.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+  <!-- (a scenario's results must name the source a program was built from, however it was built): the
+       clone's commit, branch and whether its tree was dirty are written into the program at build time (AssemblyMetadata
+       VitomirSourceCommit, VitomirSourceBranch, VitomirSourceDirty), read by the scenario runner's GitInfo when it finds no clone
+       round itself and no build-info.json beside it. No git, no metadata: the build never fails for it. -->
+  <Target Name="VitomirSourceIdentity" BeforeTargets="GetAssemblyAttributes">
+    <Exec Command="git rev-parse HEAD" WorkingDirectory="$(MSBuildProjectDirectory)" ConsoleToMSBuild="true" StandardOutputImportance="low" StandardErrorImportance="low" IgnoreExitCode="true" ContinueOnError="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_VitomirCommit" />
+    </Exec>
+    <Exec Command="git rev-parse --abbrev-ref HEAD" WorkingDirectory="$(MSBuildProjectDirectory)" ConsoleToMSBuild="true" StandardOutputImportance="low" StandardErrorImportance="low" IgnoreExitCode="true" ContinueOnError="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_VitomirBranch" />
+    </Exec>
+    <Exec Command="git status --porcelain --untracked-files=no" WorkingDirectory="$(MSBuildProjectDirectory)" ConsoleToMSBuild="true" StandardOutputImportance="low" StandardErrorImportance="low" IgnoreExitCode="true" ContinueOnError="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_VitomirStatus" />
+    </Exec>
+    <ItemGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(_VitomirCommit)', '^[0-9a-f]{40}$'))">
+      <AssemblyMetadata Include="VitomirSourceCommit" Value="$(_VitomirCommit)" />
+      <AssemblyMetadata Include="VitomirSourceBranch" Value="$(_VitomirBranch)" />
+      <AssemblyMetadata Include="VitomirSourceDirty" Value="true" Condition="'$(_VitomirStatus.Trim())' != ''" />
+      <AssemblyMetadata Include="VitomirSourceDirty" Value="false" Condition="'$(_VitomirStatus.Trim())' == ''" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,0 +1,77 @@
+{
+  "schema": "VITOMIR_ENHANCED_RANGED",
+  "status": "SANDBOX",
+  "title": "Bows (the bow v0, headless): the draw, the arrow's flight, the aim's spread by the ranged Skill (Firearms, the module's Range), an arrow's harm",
+  "note": "Ours, not the rules package's: every number here is SANDBOX, a development control, until the rules package gives them. By design: real projectiles with gravity and drag, a war bow's arrow about 50-60 m/s at full draw; aim nocks, attack held draws to full draw, release looses at the speed the draw reached, cancel lets down. The platform reads the bows (src/Vitomir.Platform/Combat/Bow.cs, Projectiles.cs); the module reads the spread and the harm.",
+  "weapons": {
+    "war_bow": {
+      "name": "a war bow (a long self bow; the items set's long bow, bow_long_x01)",
+      "draw_weight_newtons": 533.8,
+      "full_draw_seconds": 1.0,
+      "speed_at_full_draw_metres_per_second": 58.2,
+      "speed_exponent": 1.0,
+      "least_share_to_loose": 0.2,
+      "arrow_mass_kg": 0.0545,
+      "arrow_drag_per_metre": 0.0005,
+      "arrow_radius_metres": 0.005,
+      "nock_seconds": 0.6,
+      "raise_seconds": 0.25,
+      "release_height_share": 0.8,
+      "release_forward_metres": 0.45,
+      "flight_seconds_at_most": 8,
+      "fallen_below_metres": 30,
+      "swap_seconds": 0.6,
+      "arrows_heavy": {
+        "draw_weight_newtons": 445,
+        "speed_at_full_draw_metres_per_second": 53.34,
+        "arrow_mass_kg": 0.08748,
+        "source": "The heavy war arrow, as before, used in place of the bow's own numbers with the switch arrows-heavy (and for a tape made earlier, which has no note 'arrows'): a 1,350-grain war arrow (87.48 g) at 175 fps (53.34 m/s) from a 100 lbf bow; its drag the bow's own, 0.0005"
+      },
+      "sources": {
+        "draw_weight_newtons": "SANDBOX, for the record only (nothing reads it): an earlier build: the items set's long bow bow_long_x01, rated 120 lbf (533.8 N), 123.2 J stored at full draw (100 lbf); a medieval war bow's draw weight is commonly put at 80-150 lbf",
+        "full_draw_seconds": "SANDBOX, ours: about a second from nocked to full draw, the draw share rising evenly with time held (the longer, the further, to full draw); the time for an archer with no sheet (a test's body) - an archer with a sheet draws in draw_time's seconds by its Range",
+        "speed_at_full_draw_metres_per_second": "SANDBOX (the items set's arrow numbers govern the flight): the long bow bow_long_x01's war arrow leaves at about 58.2 m/s at full draw (92.3 J of its 123.2 J stored, 75 %); its hunting arrow, 57.7 g at about 56.6 m/s (92.4 J), has no place here yet (a bow carries one arrow: a second needs a quiver of kinds, the platform's). the earlier build's was a table's, a 1,350-grain war arrow at 175 fps = 53.34 m/s (arrows_heavy, the switch arrows-heavy); for the rules package to replace",
+        "speed_exponent": "SANDBOX, ours: speed = full x share^1. A draw force rising in a straight line from the brace stores work as the square of the draw, so the speed goes as the draw",
+        "least_share_to_loose": "SANDBOX, ours: a draw let go below a fifth of full is let down, not loosed (a twitch of the button is no shot)",
+        "arrow_mass_kg": "SANDBOX: the items set's war arrow for the long bow, 54.5 g (the heavy war arrow's table, 1, 350 grains = 87.48 g, arrows_heavy; the earlier build's 75 g); for the rules package to replace",
+        "arrow_drag_per_metre": "SANDBOX, ours: k in a = g - k|v|v (k = air density x drag coefficient x area / (2 x mass)); 0.0005, a small drag for the 'minimal drag' table: the heavy arrow keeps 99 % of its speed over 20 m (exp(-0.01)) and its level drop at 40 yd is 1.2 % over the table's (no drag: 0.0 %). kept for the items set's lighter arrow (a shaft of the same shape at 54.5 g would have 1.6 times it, 0.0008: an open question)",
+        "arrow_radius_metres": "SANDBOX, ours: a shaft and head about 10 mm across, swept as a ball of this radius",
+        "nock_seconds": "SANDBOX, ours: aim held to an arrow drawn from the quiver, nocked and the bow raised",
+        "raise_seconds": "SANDBOX, ours: the bow raised again with an arrow already on the string",
+        "release_height_share": "SANDBOX: the design's 'the point of release is the shoulder's height in front of the chest'; a shoulder at about 0.8 of a body's height",
+        "release_forward_metres": "SANDBOX, ours: the arrow's head at release, in front of the body along the aim",
+        "flight_seconds_at_most": "ENGINE_SANDBOX, ours: a flight that has met nothing in this long is given up (ArrowSpent TimedOut)",
+        "fallen_below_metres": "ENGINE_SANDBOX, ours: a flight that has fallen this far below its release without meeting anything is given up (ArrowSpent Fell: out of the level)",
+        "swap_seconds": "ENGINE_SANDBOX, ours: the player's swap between the melee weapon and this bow, each way (the swapWeapon key, F): a short sheathe of one and draw of the other, long enough to be seen and short enough not to be a chore; still to be set"
+      }
+    }
+  },
+  "draw_time": {
+    "trait": "firearms",
+    "seconds_by_rating": [1.3, 1.2, 1.1, 1.0, 0.9, 0.8],
+    "source": "SANDBOX, ours (the Range skill affects draw speed): the seconds from nocked to full draw by the archer's effective Range (the registry's firearms) 0 to 5, for everyone (the player and every other archer; above 5 the last). 1.0 s at Range 3 is the earlier build's full_draw_seconds kept for a competent archer; a tenth of a second a dot either way, 1.3 s untrained to 0.8 s for a master, a war bow being drawn in about a second by the trained (a heavy draw is not held long). The rules package's to set"
+  },
+  "aim_spread": {
+    "trait": "firearms",
+    "degrees_by_rating": [2.0, 1.4, 1.0, 0.7, 0.5, 0.35],
+    "source": "SANDBOX, ours: one standard deviation of the arrow's direction off the aim, each way (yaw and pitch), by the archer's effective rating in the trait above, 0, 1, 2, 3, 4, 5 (above 5: the last). for every archer but the player, whose arrow leaves exactly along his aim; the archer brain draws it once a shot into where its bow points, a scripted archer at its loose as before. At 20 m, 1.0 degree is 0.35 m. The trait is the registry's firearms, whose agreed working name in the enhanced module is Range (USER_AGREED_WORKING_ALIAS): one ranged Skill for bows and guns, so no new trait (a new one would change every sheet's digest); the Dark Ages' Archery would be a separate Skill if the rules package wants one. What the Skill reads (the aim's spread, the draw's steadiness or its time) is the rules package's"
+  },
+  "archer_brain": {
+    "keep_metres": 20,
+    "sword_metres": 4,
+    "hold_seconds": 0.5,
+    "error_scale": 1.0,
+    "sources": {
+      "keep_metres": "ENGINE_SANDBOX, ours: the archer brain comes on at a run until its foe is this near, then stands and shoots: a bow shot's ordinary fighting range, well inside a full draw's flat reach (230 m at 42.8 degrees, measured: PlayerBowTests) and where Range 0's 2-degree error is still 0.7 m",
+      "sword_metres": "ENGINE_SANDBOX, ours: its foe this near (a sword's reach and a step or two), it puts the bow away and fights with its melee weapon (the duelling brain) from then on; it does not back off (v0)",
+      "hold_seconds": "ENGINE_SANDBOX, ours: how long it holds a full draw on its aim before it looses (a short settle; with the nock's 0.6 s and the draw's 0.8 to 1.3 s by its Range, a shot every 1.9 to 2.4 s)",
+      "error_scale": "ENGINE_SANDBOX, ours: its aim's error is aim_spread's degrees by its Range (one standard deviation each way, yaw and pitch) times this, drawn once a shot as the arrow is nocked and seen in where the bow points (no hidden roll after the shot); no hold sway and no fatigue (sway and draw fatigue left out for now)"
+    }
+  },
+  "arrow_harm": {
+    "class": "arrow",
+    "joules_per_die": 30,
+    "dice_at_most": 8,
+    "source": "SANDBOX, ours: an arrow's damage potential is its work at contact, 1/2 m v^2 (v its speed against the thing met), over joules_per_die, at most dice_at_most; not the archer's Strength, no Potence, no contest, no severance; soak and armour as for any blow. the items set's 54.5 g war arrow at 58.2 m/s has 92.3 J: 3.08 dice (the heavy war arrow, 87.48 g at 53.34 m/s: 124.4 J, 4.15 dice; the earlier build's 75 g at 55 m/s: 113 J, 3.8 dice) (a human's sword cut is about 2.75: Strength 15's 0.75 and the sword's 2). For the rules package to replace"
+  }
+}

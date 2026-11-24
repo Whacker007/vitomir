@@ -1,0 +1,55 @@
+{
+  // Worked example 12: the archer brain (control.ai "archer") shooting at a standing target, its aim's error by its Range
+  // (the registry's ranged Skill, "firearms"): some randomness for the AI, so that it does not always shoot
+  // with laser accuracy. The archer aims at the target's chest, draws, holds and looses; its error for each shot is drawn as the arrow is
+  // nocked (the bow's spread by its Range, one standard deviation each way: 2.0 degrees at 0, 1.0 at 2, 0.35 at 5) and is seen in where
+  // the bow points (no sway) — never a hidden roll after the shot; its draw takes 1.3, 1.1 and 0.8 s at Range 0, 2 and 5. keepMetres 40 keeps it where it stands (it comes on beyond
+  // that). The target stands (the arena's dummy) with 1000 Health, so every shot of the ten is at a standing man.
+  "format": "vitomir-scenario/1",
+  "title": "An archer brain at a standing man 10, 20 and 30 m away, by its Range 0, 2 and 5",
+  "notes": "Measures the share of arrows that meet the target's body (and his chest) by the distance and the archer's Range: 10 arrows a run.",
+  "ground": "free-yard",
+  "time": "day",
+
+  "actors": [
+    {
+      "name": "Archer",
+      "preset": "archer",                                         // Christof's body with the war bow and a BroadSword, sandbox.archer
+      "sheet": { "template": "sandbox.archer", "values": { "firearms": 2 } },   // swept below
+      "gear": { "weapon": "BroadSword", "shield": false, "ranged": { "weapon": "war_bow", "arrows": 10 } },
+      "place": [21, 9],
+      "facing": { "toward": "Target" },
+      "foe": "Target",
+      "control": { "ai": { "kind": "archer", "keepMetres": 40 } }   // its other numbers the module's (ranged.json's archer_brain)
+    },
+    {
+      "name": "Target",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Archer", "distanceMetres": 20, "bearingDegrees": 0 },   // swept below
+      "facing": { "toward": "Archer" },
+      "control": { "ai": "stand" }
+    }
+  ],
+
+  "stop": { "afterSeconds": 30, "onHarnessStops": "first" },
+  "runs": 5, "seed": 12000,
+  "sweep": [ { "set": "Target.place.distanceMetres", "values": [10, 20, 30] },
+             { "set": "Archer.sheet.values.firearms", "values": [0, 2, 5] } ],
+
+  "measures": [
+    { "name": "arrowsLoosed", "count": { "event": "ArrowLoosed", "by": "Archer" } },
+    { "name": "arrowsOnBody", "count": { "event": "ContactMade", "by": "Archer", "on": "Target", "where": { "weaponClass": "arrow", "met": "body" } } },
+    { "name": "arrowsInTorso", "count": { "event": "ContactMade", "by": "Archer", "on": "Target", "where": { "weaponClass": "arrow", "met": "body", "region": ["chest", "belly"] } } },
+    { "name": "aimsDrawn", "count": { "event": "ArcherAimed", "by": "Archer" } }
+  ],
+
+  "assertions": [
+    { "name": "ten arrows loosed each run", "measure": "arrowsLoosed", "equals": 10, "scope": "eachRun" },
+    { "name": "an error drawn for every arrow", "measure": "aimsDrawn", "atLeast": 10, "scope": "eachRun" },
+    { "name": "every arrow accounted for", "check": "arrowsAccounted", "isTrue": true, "scope": "eachRun" }
+  ],
+
+  "outputs": { "tracePolicy": "NONE" }
+}

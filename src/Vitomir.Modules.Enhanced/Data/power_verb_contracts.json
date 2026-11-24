@@ -1,0 +1,483 @@
+{
+  "limitations": [
+    "Representative contracts only. Full 186-index catalog in REL13-REL18 remains a separate expansion task.",
+    "Original 1.1 campaign utilities NATIVE/SCRIPT/GAP are target usefulness categories, NOT powers shipped in vanilla.",
+    "Source rank 6-10 named options cannot inherit generic extra action/possession rights by rank alone."
+  ],
+  "powers": [
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "GRAPPLE_FEED",
+      "learned_individual_option_required": "common.feed",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "blood.transfer",
+        "target.grapple_status"
+      ],
+      "power_id": "common.feed",
+      "prerequisites": [
+        "legal_bite",
+        "contact_or_safe_approach"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "COMMON",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "grappled_eligible_victim"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "RECOVERY",
+      "learned_individual_option_required": "common.blood_healing",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "health.wound_recovery"
+      ],
+      "power_id": "common.blood_healing",
+      "prerequisites": [
+        "blood_available",
+        "recoverable_injury"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "COMMON",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self_or_valid_blood_receiver"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "TEMP_ATTRIBUTE",
+      "learned_individual_option_required": "common.blood_strength",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "attribute.temporary_strength"
+      ],
+      "power_id": "common.blood_strength",
+      "prerequisites": [
+        "blood_available"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "COMMON",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "TEMP_ATTRIBUTE",
+      "learned_individual_option_required": "common.blood_dexterity",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "attribute.temporary_dexterity"
+      ],
+      "power_id": "common.blood_dexterity",
+      "prerequisites": [
+        "blood_available"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "COMMON",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "TEMP_ATTRIBUTE",
+      "learned_individual_option_required": "common.blood_stamina",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "attribute.temporary_stamina"
+      ],
+      "power_id": "common.blood_stamina",
+      "prerequisites": [
+        "blood_available"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "COMMON",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "TORPOR_RESCUE",
+      "learned_individual_option_required": "common.awaken",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "torpor.awaken"
+      ],
+      "power_id": "common.awaken",
+      "prerequisites": [
+        "torpor_recoverable",
+        "caster_action_and_resources"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "COMMON",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "eligible_party_actor"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "AUTHORIZED_HAVEN_TRAVEL",
+      "learned_individual_option_required": "common.walk_the_abyss",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "party.travel"
+      ],
+      "power_id": "common.walk_the_abyss",
+      "prerequisites": [
+        "noncombat",
+        "masquerade_safe",
+        "registered_valid_haven"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "COMMON",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "party"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "PASSIVE_AUTO_SUCCESS",
+      "learned_individual_option_required": "potence.passive",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "damage.auto_successes",
+        "strength.feat_auto_successes"
+      ],
+      "power_id": "potence.passive",
+      "prerequisites": [
+        "learned"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "zero",
+      "source_rank_reference": 1,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "PASSIVE_SOAK",
+      "learned_individual_option_required": "fortitude.passive",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "soak.fortitude",
+        "soak.aggravated_permission"
+      ],
+      "power_id": "fortitude.passive",
+      "prerequisites": [
+        "learned"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "zero",
+      "source_rank_reference": 1,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "PAID_DISCRETE_PHYSICAL_ACTIONS",
+      "learned_individual_option_required": "celerity.active",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "action.next_cycle_physical_rights"
+      ],
+      "power_id": "celerity.active",
+      "prerequisites": [
+        "learned",
+        "deliberate_activation",
+        "blood_available"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "source_like_one_blood",
+      "source_rank_reference": 1,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "SENSE_SCALAR",
+      "learned_individual_option_required": "auspex.heightened_senses",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "sense.perception",
+        "sense.counter_stealth"
+      ],
+      "power_id": "auspex.heightened_senses",
+      "prerequisites": [
+        "learned",
+        "legal_sense"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "at_will_source_control",
+      "source_rank_reference": 1,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "OBSERVER_SPECIFIC_CONCEALMENT",
+      "learned_individual_option_required": "obfuscate.unseen_presence",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "observer.detectability"
+      ],
+      "power_id": "obfuscate.unseen_presence",
+      "prerequisites": [
+        "learned",
+        "source_compatible_behavior"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "source_power_specific",
+      "source_rank_reference": 2,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "BOUNDED_MENTAL_COMMAND",
+      "learned_individual_option_required": "dominate.command",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "control.command"
+      ],
+      "power_id": "dominate.command",
+      "prerequisites": [
+        "learned",
+        "gaze",
+        "heard_and_understood",
+        "legal_order"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "source_power_specific",
+      "source_rank_reference": 1,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "legal_actor"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "MORTAL_HOST_CONTROL",
+      "learned_individual_option_required": "dominate.possession",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "control.host",
+        "caster.body_vulnerable"
+      ],
+      "power_id": "dominate.possession",
+      "prerequisites": [
+        "learned",
+        "gaze",
+        "sustained_contest",
+        "vulnerable_caster_body"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "source_power_specific",
+      "source_rank_reference": 5,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "eligible_mortal_host"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "RESOURCE_THEFT",
+      "learned_individual_option_required": "thaum.path_blood.theft_of_vitae",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "blood.transfer"
+      ],
+      "power_id": "thaum.path_blood.theft_of_vitae",
+      "prerequisites": [
+        "learned",
+        "line_of_sight",
+        "range_le_50_feet",
+        "blood_available"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "one_blood_on_legal_attempt",
+      "source_rank_reference": 4,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "visible_blood_having_actor"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "FORCED_BLOOD_EXPENDITURE",
+      "learned_individual_option_required": "thaum.path_blood.blood_rage",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "blood.force_spend",
+        "frenzy.possible_trigger"
+      ],
+      "power_id": "thaum.path_blood.blood_rage",
+      "prerequisites": [
+        "learned",
+        "touch",
+        "blood_available"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "one_blood_on_legal_attempt",
+      "source_rank_reference": 2,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "touched_blood_having_actor"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "AGGRAVATED_BLOOD_BOIL",
+      "learned_individual_option_required": "thaum.path_blood.cauldron_of_blood",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "blood.boil",
+        "health.aggravated",
+        "mortal.source_fatal"
+      ],
+      "power_id": "thaum.path_blood.cauldron_of_blood",
+      "prerequisites": [
+        "learned",
+        "touch",
+        "blood_available"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "one_blood_on_legal_attempt",
+      "source_rank_reference": 5,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "touched_actor"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "CONJURE_AND_RELEASE_FIRE",
+      "learned_individual_option_required": "thaum.lure_of_flames",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "projectile.fire_release",
+        "health.fire_aggravated"
+      ],
+      "power_id": "thaum.lure_of_flames",
+      "prerequisites": [
+        "learned",
+        "blood_available",
+        "valid_cast"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "one_blood_on_legal_attempt",
+      "source_rank_reference": 1,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "aimed_scene_position"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "FORM_TRANSFORMATION",
+      "learned_individual_option_required": "protean.forms",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "form.rig",
+        "form.movement",
+        "form_senses"
+      ],
+      "power_id": "protean.forms",
+      "prerequisites": [
+        "individual_learned_option",
+        "available_compatible_rig"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "POWER_SPECIFIC",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "self"
+    },
+    {
+      "campaign_utility_class": "NATIVE",
+      "effect_type": "CONTROL_OR_FEAR",
+      "learned_individual_option_required": "presence.fear",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "ai.emotion_or_fear"
+      ],
+      "power_id": "presence.fear",
+      "prerequisites": [
+        "individual_learned_option"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": "POWER_SPECIFIC",
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "eligible_actor"
+    },
+    {
+      "campaign_utility_class": "GAP",
+      "effect_type": "SHROUD_TRANSIT",
+      "learned_individual_option_required": "necromancy.ex_nihilo",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "world.shroud_entry"
+      ],
+      "power_id": "necromancy.ex_nihilo",
+      "prerequisites": [
+        "individual_learned_option",
+        "registered_shroud_world"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": 4,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "authored_spectral_scene"
+    },
+    {
+      "campaign_utility_class": "GAP",
+      "effect_type": "PERSISTENT_AUTHORED_CONDITIONING",
+      "learned_individual_option_required": "dominate.conditioning",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "actor.conditioning"
+      ],
+      "power_id": "dominate.conditioning",
+      "prerequisites": [
+        "individual_learned_option",
+        "named_authorized_hook"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": 4,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "named_recurring_actor"
+    },
+    {
+      "campaign_utility_class": "GAP",
+      "effect_type": "AUTHORED_IDENTITY_REWRITE",
+      "learned_individual_option_required": "obfuscate.create_name",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "actor.known_identity"
+      ],
+      "power_id": "obfuscate.create_name",
+      "prerequisites": [
+        "individual_learned_option",
+        "real_identity_checks"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": 9,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "named_recognition_scene"
+    },
+    {
+      "campaign_utility_class": "GAP",
+      "effect_type": "TORPOR_ASTRAL_ACCESS",
+      "learned_individual_option_required": "auspex.false_slumber",
+      "numerical_coefficients": "OPEN_UNLESS_MODULE_PROFILE_OVERRIDE",
+      "outputs": [
+        "sense.astral"
+      ],
+      "power_id": "auspex.false_slumber",
+      "prerequisites": [
+        "individual_learned_option",
+        "torpor",
+        "spectral_view_registered"
+      ],
+      "range_and_visibility_policy": "per_power",
+      "resource_cost_policy": "explicit_per_power",
+      "source_rank_reference": 9,
+      "status": "SOURCE_PARAPHRASE_OR_APPROVED_DESIGN",
+      "target_type": "torpid_self"
+    }
+  ],
+  "schema": "VTMR_H1_POWER_VERBS"
+}

@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/engine/">
+    <Project Path="Vitomir.Classic/Vitomir.Classic.csproj" />
+    <Project Path="Vitomir.Engine/Vitomir.Engine.csproj" />
+    <Project Path="Vitomir.Formats/Vitomir.Formats.csproj" />
+    <Project Path="Vitomir.Render/Vitomir.Render.csproj" />
+    <Project Path="Vitomir.Scripting/Vitomir.Scripting.csproj" />
+  </Folder>
+  <Folder Name="/platform/">
+    <Project Path="Vitomir.Platform/Vitomir.Platform.csproj" />
+    <Project Path="Vitomir.Platform.Interface/Vitomir.Platform.Interface.csproj" />
+    <Project Path="Vitomir.Platform.Render/Vitomir.Platform.Render.csproj" />
+    <Project Path="Vitomir.Platform.Host/Vitomir.Platform.Host.csproj" />
+    <Project Path="Vitomir.Platform.Cli/Vitomir.Platform.Cli.csproj" />
+    <Project Path="Vitomir.Launcher/Vitomir.Launcher.csproj" />
+    <Project Path="Vitomir.Modules.Enhanced/Vitomir.Modules.Enhanced.csproj" />
+    <Project Path="Vitomir.Modules.Classic/Vitomir.Modules.Classic.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="Vitomir.Tools/Vitomir.Tools.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Vitomir.Engine.Tests/Vitomir.Engine.Tests.csproj" />
+    <Project Path="Vitomir.Formats.Tests/Vitomir.Formats.Tests.csproj" />
+    <Project Path="Vitomir.Platform.Tests/Vitomir.Platform.Tests.csproj" />
+    <Project Path="Vitomir.Platform.Host.Tests/Vitomir.Platform.Host.Tests.csproj" />
+    <Project Path="Vitomir.Platform.Interface.Tests/Vitomir.Platform.Interface.Tests.csproj" />
+    <Project Path="Vitomir.Platform.Render.Tests/Vitomir.Platform.Render.Tests.csproj" />
+    <Project Path="Vitomir.Modules.Enhanced.Tests/Vitomir.Modules.Enhanced.Tests.csproj" />
+    <Project Path="Vitomir.Modules.Classic.Tests/Vitomir.Modules.Classic.Tests.csproj" />
+    <Project Path="Vitomir.Render.Tests/Vitomir.Render.Tests.csproj" />
+    <Project Path="Vitomir.Scripting.Tests/Vitomir.Scripting.Tests.csproj" />
+  </Folder>
+</Solution>

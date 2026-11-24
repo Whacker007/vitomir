@@ -1,0 +1,18 @@
+{
+  // An arena spec: the bare hands' references (q_ref,
+  // rules/quality.json) — blow-quality-strength.json's bout with Christof's fists (1.1's Punch) in place of the Rapier:
+  // The combat rules' newly Embraced against the combat rules' trained guard of 1000 bought Health, Strength 100, 200, 400. Run with --blow-quality-off.
+  "title": "Blow quality's references: newly Embraced bare-handed against a trained guard of 1000 Health",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Punch", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 100,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [100, 200, 400] }
+}

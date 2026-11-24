@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The renderer, and the only project that knows SDL exists. It takes a Location the engine has
+       already built — its mesh, its materials, its draw modes — and puts it on a screen; it makes no
+       decisions about what a level looks like, because those are the original's and live in
+       Vitomir.Engine.
+
+       Shaders are HLSL, compiled at build time by DXC to SPIR-V (Vulkan) and DXIL (Direct3D 12) and
+       embedded in this assembly. On Windows DXC comes from the Microsoft.Direct3D.DXC package;
+       elsewhere set DXC_PATH (or put dxc on PATH). -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Render</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Engine\Vitomir.Engine.csproj" />
+    <!-- The device (Gpu, GpuDrivers, Png, the presenter) and the shaders the 1.1 look draws with are the platform renderer's;
+ this project's copies of them are gone. -->
+    <ProjectReference Include="..\Vitomir.Platform.Render\Vitomir.Platform.Render.csproj" />
+    <PackageReference Include="ppy.SDL3-CS" Version="2026.722.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Direct3D.DXC" Version="1.9.2607.13" Condition="'$(OS)' == 'Windows_NT'"
+                      GeneratePathProperty="true" ExcludeAssets="all" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- ===== Shader build: every Shaders/*.hlsl provides VSMain and PSMain ===== -->
+  <ItemGroup>
+    <HlslShader Include="Shaders\*.hlsl" />
+    <HlslInclude Include="Shaders\*.hlsli" />
+    <None Include="@(HlslShader);@(HlslInclude)" />
+  </ItemGroup>
+  <PropertyGroup>
+    <DxcExe Condition="'$(DxcExe)' == '' and '$(OS)' == 'Windows_NT'">$(PkgMicrosoft_Direct3D_DXC)\build\native\bin\x64\dxc.exe</DxcExe>
+    <DxcExe Condition="'$(DxcExe)' == '' and '$(DXC_PATH)' != ''">$(DXC_PATH)</DxcExe>
+    <DxcExe Condition="'$(DxcExe)' == ''">dxc</DxcExe>
+    <ShaderOutDir>$(BaseIntermediateOutputPath)shaders\</ShaderOutDir>
+  </PropertyGroup>
+  <!-- Off Windows dxc has to be on PATH. When it is not, the shader binaries already in
+       obj/shaders are used as they stand: the cloud container builds and tests the engine
+       without a GPU, and only a change to a .hlsl file needs the compiler. -->
+  <Target Name="ProbeDxc" BeforeTargets="CompileHlsl" Condition="'$(OS)' != 'Windows_NT' and '$(DxcExe)' == 'dxc'">
+    <Exec Command="command -v dxc 2&gt;/dev/null || echo __missing__" ConsoleToMSBuild="true" StandardOutputImportance="low" StandardErrorImportance="low">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_DxcProbe" />
+    </Exec>
+    <PropertyGroup>
+      <SkipShaderCompile Condition="$(_DxcProbe.Contains('__missing__'))">true</SkipShaderCompile>
+    </PropertyGroup>
+    <Warning Condition="'$(SkipShaderCompile)' == 'true'" Text="dxc is not on PATH; keeping the shader binaries already in $(ShaderOutDir). Install DirectXShaderCompiler to rebuild them." />
+  </Target>
+  <Target Name="CompileHlsl" BeforeTargets="BeforeBuild" Condition="'$(SkipShaderCompile)' != 'true'" Inputs="@(HlslShader);@(HlslInclude)"
+          Outputs="@(HlslShader->'$(ShaderOutDir)%(Filename).vert.spv');@(HlslShader->'$(ShaderOutDir)%(Filename).frag.spv');@(HlslShader->'$(ShaderOutDir)%(Filename).vert.dxil');@(HlslShader->'$(ShaderOutDir)%(Filename).frag.dxil')">
+    <MakeDir Directories="$(ShaderOutDir)" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -T vs_6_0 -E VSMain -spirv -fspv-target-env=vulkan1.0 -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).vert.spv&quot; &quot;%(HlslShader.FullPath)&quot;" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -T ps_6_0 -E PSMain -spirv -fspv-target-env=vulkan1.0 -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).frag.spv&quot; &quot;%(HlslShader.FullPath)&quot;" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -Wno-ignored-attributes -T vs_6_0 -E VSMain -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).vert.dxil&quot; &quot;%(HlslShader.FullPath)&quot;" />
+    <Exec Command="&quot;$(DxcExe)&quot; -nologo -Wno-ignored-attributes -T ps_6_0 -E PSMain -Fo &quot;$(ShaderOutDir)%(HlslShader.Filename).frag.dxil&quot; &quot;%(HlslShader.FullPath)&quot;" />
+  </Target>
+  <Target Name="EmbedShaders" AfterTargets="CompileHlsl" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <!-- Only the shaders whose source is here (a binary left in obj/shaders by an earlier build, of a shader that moved to
+           the platform's renderer, is not embedded). -->
+      <_CompiledShader Include="@(HlslShader->'$(ShaderOutDir)%(Filename).vert.spv');@(HlslShader->'$(ShaderOutDir)%(Filename).frag.spv');@(HlslShader->'$(ShaderOutDir)%(Filename).vert.dxil');@(HlslShader->'$(ShaderOutDir)%(Filename).frag.dxil')" />
+      <EmbeddedResource Include="@(_CompiledShader)" LogicalName="Shaders/%(_CompiledShader.Filename)%(_CompiledShader.Extension)" />
+    </ItemGroup>
+  </Target>
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+    <!-- The platform renderer's device. -->
+    <Using Include="Vitomir.Platform.Render" />
+    <!-- The 1.1 look, moved from Vitomir.Render. -->
+    <Using Include="Vitomir.Platform.Render.Classic" />
+  </ItemGroup>
+</Project>

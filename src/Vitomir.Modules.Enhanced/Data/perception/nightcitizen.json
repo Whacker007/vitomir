@@ -1,0 +1,26 @@
+{
+  "schema": "VITOMIR_OBSERVER_KIND",
+  "status": "SANDBOX",
+  "title": "A citizen out after dark: wary, quick to alarm, eyes used to the dark",
+  "note": "SANDBOX (by design: broad and diverse profiles, each with traits). Traits 0 to 1; SightRange in metres (daylight, open ground, a running body), ConeDegrees the half-angle, NoticeSeconds, MakeOutSeconds, ConcludeSeconds (each step up the ladder), HoldSeconds and CoolDownSeconds (calming down) in seconds (the proposed values).",
+  "characters": [
+    "Civ11female"
+  ],
+  "numbers": {
+    "SightRange": 25.0,
+    "ConeDegrees": 60.0,
+    "Eyesight": 0.8,
+    "NightEyes": 0.4,
+    "Attention": 0.9,
+    "Bravery": 0.3,
+    "Curiosity": 0.3,
+    "Duty": 0.0,
+    "Excitability": 0.9,
+    "Voice": 0.9,
+    "NoticeSeconds": 0.6,
+    "MakeOutSeconds": 2.5,
+    "ConcludeSeconds": 3.0,
+    "HoldSeconds": 20.0,
+    "CoolDownSeconds": 150.0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  // An arena spec: dodge-newly-embraced.json's bouts at Dodge 3 with the newly Embraced's brain doing
+  // NEITHER (blockChance 0, dodgeChance 0): the floor the other two are read against, the same seeds.
+  "title": "Neither: newly Embraced (Dodge 3, neither blocking nor dodging) against a trained guard, the same sword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "dodge": 3 } },
+      "place": [38, 3], "facing": 0, "brain": { "kind": "duel", "blockChance": 0 } },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

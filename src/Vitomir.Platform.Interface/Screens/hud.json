@@ -1,0 +1,70 @@
+{
+  "title": "HUD",
+  "note": "A STAND-IN, not the designed HUD: the interface's design offers two or three arrangements as pictures first, to choose from. It shows the quick slots (the key as bound, the power's label, its state), Health and Blood with their numbers (Health's band, Injured or Crippled, as a label beside its number), and the masquerade's mode, all from the views the module writes (PowerSlots, Vitals, IPowerCatalogue) and the player's MasqueradeState; with none of them, eight empty slots.",
+  "veil": "none",
+  "root": {
+    "type": "anchor", "at": "bottom", "margin": 72,
+    "child": {
+      "type": "column", "id": "hud", "gap": 12, "align": "centre",
+      "children": [
+        {
+          "type": "row", "id": "vitals", "gap": 28,
+          "children": [
+            {
+              "type": "panel", "id": "healthBox", "fill": "hudPlate", "padding": [14, 8], "width": 440, "visible": "hasVitals",
+              "child": {
+                "type": "column", "gap": 4,
+                "children": [
+                  {
+                    "type": "row", "gap": 14,
+                    "children": [
+                      { "type": "text", "text": "Health", "style": "hudName", "width": "fill" },
+                      { "type": "text", "id": "healthBand", "text": "{healthBand}", "style": "hudState", "visible": "hasBand" },
+                      { "type": "text", "id": "healthText", "text": "{healthText}", "style": "hudValue", "align": "end" }
+                    ]
+                  },
+                  { "type": "meter", "id": "health", "bind": "healthShare", "fill": "health", "track": "track", "edge": "cellEdge", "height": 14 }
+                ]
+              }
+            },
+            {
+              "type": "panel", "id": "bloodBox", "fill": "hudPlate", "padding": [14, 8], "width": 440, "visible": "hasBlood",
+              "child": {
+                "type": "column", "gap": 4,
+                "children": [
+                  {
+                    "type": "row",
+                    "children": [
+                      { "type": "text", "text": "Blood", "style": "hudName", "width": "fill" },
+                      { "type": "text", "id": "bloodText", "text": "{bloodText}", "style": "hudValue", "align": "end" }
+                    ]
+                  },
+                  { "type": "meter", "id": "blood", "bind": "bloodShare", "fill": "blood", "track": "track", "edge": "cellEdge", "height": 14 }
+                ]
+              }
+            },
+            {
+              "type": "panel", "id": "modeBox", "fill": "hudPlate", "edge": "{modeEdge}", "padding": [18, 10], "visible": "hasMode",
+              "child": { "type": "text", "id": "mode", "text": "{mode}", "style": "hudMode", "align": "centre" }
+            }
+          ]
+        },
+        {
+          "type": "list", "id": "slots", "items": "slots", "across": true, "gap": 10,
+          "template": {
+            "type": "panel", "fill": "{slotFill}", "edge": "{slotEdge}", "padding": [8, 6], "width": 156, "height": 108,
+            "child": {
+              "type": "column", "gap": 2,
+              "children": [
+                { "type": "text", "text": "{key}", "style": "hudKey" },
+                { "type": "text", "text": "{power}", "style": "hudPower", "align": "centre" },
+                { "type": "meter", "bind": "left", "fill": "slotTime", "track": "track", "height": 5, "visible": "live" },
+                { "type": "text", "text": "{status}", "style": "hudState", "align": "centre" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

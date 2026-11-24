@@ -1,0 +1,20 @@
+{
+  // An arena spec: the combat rules' newly
+  // Embraced against the combat rules' trained guard (matched-blade-no-shield.json's fighters, places and seeds), his Melee swept 0, 3 and 5.
+  // Melee's edge (rules/severance melee_edge, ENGINE_SANDBOX) multiplies the cut share of a normal or acute blow by
+  // 2.25^((Melee - 2)/10), at most 1: normal 0.85 / 1 / 1, acute 0.51 / 0.65 / 0.76. Melee also quickens his swing (the
+  // Abilities' tempo), so the bouts differ in more than the cut. Paired seeds: bout b has seed 3000 + b at every
+  // Melee. Run it again with --severance-melee-off for the bands' own shares, with --severance-angle-off for the test.
+  "title": "Melee 0, 3, 5 (newly Embraced) against a trained guard, matched, no shields: severance by angle and Melee's edge",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "melee", "values": [0, 3, 5] }
+}

@@ -1,0 +1,72 @@
+{
+  // Worked example 6: fixed contacts — the rules package harness as a scenario. One contact a run, placed at 0.5 s on
+  // the trained guard's left upper arm (no swing, no animation), swept over the striking point's closing speed and the squareness of
+  // the meeting; each goes through the same harm, soak, wounds, severance and stop as a swept contact, with the same receipts
+  // (FixedContactPlaced -> ContactMade -> HarmResolved). Format vitomir-scenario/1, "kind": "contact" (execution mode FIXED_CONTACT).
+  "format": "vitomir-scenario/1",
+  "title": "Fixed contacts on the trained guard's upper arm, by closing speed and squareness",
+  "notes": "The combat rules' newly Embraced (the Rapier) against the combat rules' trained guard (the Rapier, no shield, no armour), both standing where placed. One fixed contact a run: Christof's quick blow from the right (its clip gives blow quality's reference and peak), the edge (0.4 of the way along the blade), on the guard's left upper arm. Closing speed 2 to 40 m/s by squareness 10 to 90 degrees; the earlier build's typical contact is 25.8 m/s at 56 degrees. Every number is the module's ENGINE_SANDBOX or SANDBOX data.",
+  "kind": "contact",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.newly_embraced" },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": [38, 3],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard"
+      // no control: he stands (a contact scenario has no native blows; a duelling brain would be muted on attack)
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained" },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 1.2, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "foe": "Christof"
+    }
+  ],
+
+  "contacts": [
+    { "label": "the upper arm", "atSeconds": 0.5, "attacker": "Christof", "defender": "Guard", "region": "leftUpperArm", "part": "edge",
+      "closingSpeedMetresPerSecond": 25.8, "squarenessDegrees": 56, "swing": "right" }
+  ],
+
+  "stop": { "afterSeconds": 1.0, "onHarnessStops": "first" },
+  "runs": 100, "seed": 4700,
+  "sweep": [
+    { "set": "contacts.0.closingSpeedMetresPerSecond", "values": [2, 5, 10, 15, 25.8, 40] },
+    { "set": "contacts.0.squarenessDegrees", "values": [10, 20, 33, 56, 90] }
+  ],
+
+  "measures": [
+    { "name": "woundsPerContact", "rate": { "of":  { "event": "HarmResolved", "by": "Christof", "on": "Guard", "sum": "wounds" },
+                                            "per": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "fixed": true } } } },
+    { "name": "meanQuality",      "rate": { "of":  { "event": "HarmResolved", "by": "Christof", "on": "Guard", "sum": "quality" },
+                                            "per": { "event": "HarmResolved", "by": "Christof", "on": "Guard" } } },
+    { "name": "cutShare",         "rate": { "of":  { "event": "PartSevered", "by": "Christof" },
+                                            "per": { "event": "ContactMade", "by": "Christof", "on": "Guard" } } },
+    { "name": "lowWorkShare",     "rate": { "of":  { "event": "HarmResolved", "by": "Christof", "where": { "resistedBy": "LowWork" } },
+                                            "per": { "event": "HarmResolved", "by": "Christof" } } }
+  ],
+
+  "assertions": [
+    { "name": "every placed contact reached the rules: one harm a run",
+      "count": { "event": "HarmResolved", "by": "Christof", "on": "Guard", "where": { "fixed": true } }, "equals": 1, "scope": "eachRun" },
+    { "name": "no harm without a contact (the receipts chain)",
+      "check": "noHarmWithoutContact", "isTrue": true, "scope": "eachRun" },
+    { "name": "a faster contact deals more (square-ish, 56 degrees)",
+      "measure": "woundsPerContact", "scope": "trend", "over": "contacts.0.closingSpeedMetresPerSecond", "direction": "rising",
+      "points": { "contacts.0.squarenessDegrees": 56 } },
+    { "name": "a squarer contact has more quality (at the typical 25.8 m/s)",
+      "measure": "meanQuality", "scope": "trend", "over": "contacts.0.squarenessDegrees", "direction": "rising",
+      "points": { "contacts.0.closingSpeedMetresPerSecond": 25.8 } }
+  ],
+
+  "outputs": { "tracePolicy": "SAMPLED", "traceRuns": 1, "csv": true, "summaryPage": false, "wideBouts": false }
+}

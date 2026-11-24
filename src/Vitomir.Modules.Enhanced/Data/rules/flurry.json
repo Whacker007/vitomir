@@ -1,0 +1,28 @@
+{
+  "schema": "VITOMIR_ENHANCED_FLURRY",
+  "status": "ENGINE_SANDBOX",
+  "title": "Celerity's flurry: when a swing's extra blows fall and how far the blade's line reaches for each",
+  "note": "Ours, not the rules package's: every number here is ENGINE_SANDBOX, a development control. By design (option b): each extra blow of a Celerity swing is its own strike that must still find its target at its own moment, not the same contact resolved several times (the rules package: 'one visible body collision repeated as several damage events is not automatically the same thing as several eligible physical strikes ... keep distinct logical action IDs from unique physical-contact IDs, and retain side-by-side trials of real-contacts-only, compressed-flurry and pure-tempo'). How many blows a swing carries is powers.json's (Celerity's split: K = (1 + rank)^0.5, the fraction carried swing to swing). The module's switches choose the model: flurry-compressed (every extra blow resolved at once on the one contact) and flurry-off (pure tempo: no extra blows); the default is the geometric check below.",
+  "spacing": {
+    "kind": "fixed",
+    "seconds": 0.04,
+    "status": "ENGINE_SANDBOX",
+    "source": "ours: the flurry cue's spacing now (Combat/BlowCues.cs, Spacing 0.04 s), so the cue and the check fall together",
+    "note": "fixed: blow k falls k x seconds after the contact (at least k ticks); swing: the blows spread evenly through the rest of the swing (the attacker's busy time at the contact, divided by the blows + 1). Both measured: fixed is quicker than a human's reaction (about 0.2 s), so only motion already under way (a dodge, a guard rising) can take a later blow away; swing gives a guard or a step time to matter."
+  },
+  "line": {
+    "approach_m": 0.5,
+    "reach_m": 0.15,
+    "status": "ENGINE_SANDBOX",
+    "source": "ours, unmeasured choices: approach about a forearm's length before the struck place, so a shield or a guarding blade held before the body since the first blow is met there first; reach about a hand's breadth past the struck place, the depth a blade's arc may still carry past where its first blow met - a target that stepped back further is out of reach. What they did in the runs: at 0.04 s apart 0.01 to 0.05 extra blows a bout found the target out of reach",
+    "note": "The check sweeps the blade's segment at the contact, carried with the attacker's body (its feet and yaw now), along the way it went into the body, from approach_m before the struck place to reach_m past it, against the target's shield, its guarding blade and its hit volumes as they are at the blow's moment (Combat/FlurryBlows.cs)."
+  },
+  "motion": {
+    "on": false,
+    "pull_back_clip_s": 0.07,
+    "rate_most": 3,
+    "status": "ENGINE_SANDBOX",
+    "source": "ours (the engine stitches the motion it needs, as before rebound plays the swing's clip backwards). pull_back_clip_s: about a fifth of Christof's quick forehand's active window (chrisAttackSword 0.313-0.625 s of clip time), so the re-strike is a short cut, not a new swing - looked at in pictures: 0.12 drew the forehand's blade all the way back over the shoulder and spun the strong blow's body round, 0.07 lifts the blade to about upright and draws the thrust back a hand's length; rate_most: at most three times the rate the swing met at, so a short spacing pulls back less rather than whipping",
+    "note": "The re-strike motion: for each extra blow the swing's clip, bitten at the contact, is pulled back pull_back_clip_s (of clip time) over the first half of the time to the blow's moment and driven forward over the second, arriving at the contact's pose at the moment - the blade seen re-striking along the line the check sweeps. Off by default (the switch flurry-motion turns it on) until it has been seen in play; it changes the picture, not the check."
+  }
+}

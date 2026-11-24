@@ -1,0 +1,24 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.christof",
+  "title": "Christof, a neonate of the Dark Ages, as a fighter in the sandbox",
+  "note": "HIGH-STAT STRESS fixture (the combat rules' baseline reference sheets are the fair baselines, sandbox.human_reference and the rest; this one is kept with its id so the specs that name it still work; it dresses nobody: the combat rules' fixtures do). SANDBOX (ours): Strength, Dexterity and Stamina 300 (the brief's example), the other six Attributes 100; Melee 3, Brawl 2, Athletics 2, Dodge 2, Alertness 1; Potence 1 with its passive (one automatic damage success a blow). Not a rule: the rules package's cohort templates replace it (a fledgling Christof is not a developed ninth-equivalent). Health comes from rules/harm (the engine-sandbox Health) unless a resource here gives one.",
+  "species": "vampire",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 100,
+  "purchased": {
+    "strength": 300,
+    "dexterity": 300,
+    "stamina": 300,
+    "melee": 3,
+    "brawl": 2,
+    "athletics": 2,
+    "dodge": 2,
+    "alertness": 1
+  },
+  "powers": [
+    { "power": "potence", "rank": 1, "options": ["potence.passive"] }
+  ]
+}

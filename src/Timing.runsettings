@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The timing tests' run (the README's "Build, test and run"), given with the filter Category=Timing and
+  MSBuild's one node, so the test assemblies run one after another: inside each assembly the tests run one after another
+  too, so a timing test's figure is its own code's alone. The plain run needs no settings file (src/Directory.Build.props
+  leaves the timing tests out of it).
+-->
+<RunSettings>
+  <xUnit>
+    <ParallelizeTestCollections>false</ParallelizeTestCollections>
+  </xUnit>
+</RunSettings>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The enhanced module: the FPS/TPS/ARPG game's rules,
+       as the rules package specifies them. Its configuration and profiles and its actor
+       sheet first. It references the platform only: never the renderer,
+       never the old engine. Its data files (Data/) are the rules package's, kept with their source and hash
+       (Data/SOURCES.md). It is a module folder: module.json, its assembly in
+       bin\ and Data\, laid out as Modules\Enhanced\ beside the program by ..\Vitomir.ModuleLayout.targets,
+       where the loader finds it and a player can read its data too. -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Modules.Enhanced</RootNamespace>
+    <VitomirModuleFolder>Enhanced</VitomirModuleFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform\Vitomir.Platform.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Vitomir.Modules.Enhanced.Tests" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+</Project>

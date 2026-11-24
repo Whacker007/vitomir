@@ -1,0 +1,16 @@
+{
+  // Metadata invariance (the rules package asks it): the contact set with the attacker's sheet given whole from a file
+  // whose generation and era alone differ from its twin's; the events must be the same. Based on contact-set.json.
+  // The rules package's first receipt (its data request, items 2 and 3): one
+  // scripted attacker, one standing guard, the same seed. Level blows, a blow aimed high (head) and one aimed low (legs),
+  // a blow into his raised shield, and a strong blow. Run with --tapes 1: the event and harm traces sit beside the tape.
+  "title": "Receipt: the same sheet, generation and era changed (metadata-13th-dark-ages)",
+  "fighters": [
+    { "name": "Attacker", "template": "Christof", "weapon": "BroadSword", "sheet": { "file": "metadata-13th-dark-ages.sheet.json" },
+      "place": [39, 3], "facing": 0,
+      "brain": { "kind": "script", "actions": "attack@1, attack@3^20, attack@5^-30, attack@8, strong@11" } },
+    { "name": "Guard", "template": "rudolfGuard", "sheet": "sandbox.guard_trained", "place": [40.6, 3], "facing": 180,
+      "brain": { "kind": "script", "actions": "block@7.5+2" } }
+  ],
+  "bouts": 1, "seed": 1, "seconds": 14, "tapes": 1
+}

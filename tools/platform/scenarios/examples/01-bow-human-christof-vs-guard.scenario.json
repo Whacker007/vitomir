@@ -1,0 +1,103 @@
+{
+  // Worked example 1: "a single human Christof with a bow vs a standard guard, they start so and so
+  // apart over even ground". Format vitomir-scenario/1.
+  //
+  // an earlier build built the bow (headless) and the runner; an earlier build gave the guard an answer to a drawn bow (a duelling brain with a shield raises
+  // it toward an archer drawing at him; the switch shield-at-bow-off turns it off). Both guards are swept here, so the bow is
+  // measured against the guard as he is now and against the earlier build's, who had no answer to it.
+  "format": "vitomir-scenario/1",
+  "title": "A human Christof with a bow against the standard guard, 10, 20 and 30 m apart on even ground",
+  "notes": "Christof looses at the guard's chest as he comes, then draws his sword when the guard is within 4 m and fights on the duelling brain. The guard closes and fights.",
+  "ground": "free-yard",            // the proving ground's free yard; y = 9 is a clear straight line from x 20 to 56 between its
+                                    // 4.5 m wall (y 0-6) and its house (y 12-18), both standing from x 32
+  "time": "night",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.human_reference",          // human: the combat rules' reference adult, Strength 15, Dexterity 23, Stamina 20
+                 "values": { "melee": 2, "firearms": 2 } },      // the bow's aim reads the registry's one ranged Skill, "firearms"
+                                                                 // (working name "Range"; no separate "archery")
+      "gear": {
+        "weapon": "BroadSword", "shield": false,                 // his sidearm, drawn at the hand-over
+        "ranged": { "weapon": "war_bow", "arrows": 6 } // NEEDS the bow: Data/combat/ranged.json's "war_bow" (SANDBOX: the heavy war arrow, 53.3 m/s at full draw)
+      },
+      "place": [21, 9],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard",
+      "control": {
+        "ai": "duel",                                            // after the script: the duelling brain with its defaults
+        "script": [
+          { "equip": "ranged" },
+          { "repeat": "untilStop", "steps": [
+              { "aim": { "at": "Guard", "region": "chest" } },   // the bow up, an arrow nocked, the aim held on his chest
+              { "draw": { "toShare": 1.0 } },                    // to full draw (the bow's draw time, SANDBOX)
+              { "wait": 0.4, "label": "settle" },               // held at full draw
+              { "loose": true, "label": "loose" }
+          ] }
+        ],
+        "then": "ai"
+      }
+    },
+    {
+      "name": "Guard",
+      "preset": "guard",                                         // the standard guard: rudolfGuard, rapier and kite shield, sandbox.guard_trained
+      "place": { "from": "Christof", "distanceMetres": 20, "bearingDegrees": 0 },   // swept below
+      "facing": { "toward": "Christof" },
+      "foe": "Christof",
+      "control": { "ai": "duel" }                                // closes at a run beyond walkWithin, walks within, fights
+    }
+  ],
+
+  "triggers": [
+    { "label": "sword out at 4 m",                               // the guard is near: the bow away, the brain fights
+      "when": { "value": "Guard.distanceTo.Christof", "atMost": 4.0 },
+      "do": [ { "actor": "Christof", "step": { "cancelDraw": true } },
+              { "actor": "Christof", "step": { "equip": "melee" } },
+              { "actor": "Christof", "step": { "handOver": "ai" } } ] },
+    { "label": "out of arrows",
+      "when": { "count": { "event": "ArrowLoosed", "by": "Christof" }, "atLeast": 6 },
+      "do": [ { "actor": "Christof", "step": { "equip": "melee" } }, { "actor": "Christof", "step": { "handOver": "ai" } } ] }
+  ],
+
+  "overrides": { "switches": [] },
+  "stop": { "afterSeconds": 40, "onHarnessStops": "first" },
+
+  "runs": 200, "seed": 3000,
+  "sweep": [ { "set": "Guard.place.distanceMetres", "values": [10, 20, 30] },
+             { "set": "overrides.switches.shield-at-bow-off", "values": [false, true] } ], // false: his shield answers the bow (the earlier build's default)
+
+  "measures": [
+    { "name": "arrowsLoosed",     "count": { "event": "ArrowLoosed", "by": "Christof" } },
+    { "name": "arrowsOnBody",     "count": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "weaponClass": "arrow", "met": "body" } } },
+    { "name": "arrowsOnShield",   "count": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "weaponClass": "arrow", "met": "shield" } } },
+    { "name": "arrowTorsoShare",  "rate": { "of":  { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "weaponClass": "arrow", "met": "body", "region": ["chest", "belly"] } },
+                                            "per": { "event": "ArrowLoosed", "by": "Christof" } } },
+    { "name": "arrowWoundsEach",  "rate": { "of":  { "event": "HarmResolved", "by": "Christof", "on": "Guard", "where": { "weaponClass": "arrow" }, "sum": "wounds" },
+                                            "per": { "event": "ArrowLoosed", "by": "Christof" } } },
+    { "name": "guardHealthAtContact", "value": "Guard.health", "atEvent": { "event": "TriggerFired", "where": { "label": "sword out at 4 m" } } },
+    { "name": "timeToFirstArrowHit",  "timeOf": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "weaponClass": "arrow", "met": "body" } } }
+  ],
+
+  "assertions": [
+    { "name": "every arrow loosed is accounted for (body, shield, blade, level or nothing)",
+      "check": "arrowsAccounted", "isTrue": true, "scope": "eachRun" },   // a built-in check: ArrowLoosed = arrows that met something + ArrowSpent
+    { "name": "at 10 m most arrows meet the guard (his body or his shield)",
+      "points": { "Guard.place.distanceMetres": 10 },
+      "rate": { "of": { "event": "ContactMade", "by": "Christof", "on": "Guard", "where": { "weaponClass": "arrow" } },
+                "per": { "event": "ArrowLoosed", "by": "Christof" } },
+      "atLeast": 0.5, "scope": "aggregate" },
+    { "name": "with his answer to the bow, his shield takes arrows at 10 m",
+      "points": { "Guard.place.distanceMetres": 10, "overrides.switches.shield-at-bow-off": false },
+      "measure": "arrowsOnShield", "statistic": "mean", "atLeast": 0.5, "scope": "aggregate" },
+    // From 20 m. Christof's Range 2 now sets his draw at 1.1 s (Range sets draw speed), and from 10 m the guard
+    // is within 4 m before the first arrow is loosed: no arrow, no harm, which is itself the finding at 10 m.
+    { "name": "without it (the earlier build's guard), he is hurt before he reaches Christof from 20 m or more (Health 70 or less: two wounds)",
+      "points": { "Guard.place.distanceMetres": [20, 30], "overrides.switches.shield-at-bow-off": true },
+      "measure": "guardHealthAtContact", "statistic": "median", "atMost": 70, "scope": "aggregate" }
+  ],
+
+  "outputs": { "events": "first", "traceRuns": 2, "ticks": { "everyTicks": 12, "runs": "first" }, "csv": true, "summaryPage": true,
+               "film": { "fromSeconds": 0, "toSeconds": 6, "view": "side", "run": 0 } }
+}

@@ -1,0 +1,48 @@
+{
+  // A scene for the blocked blade's rebound - Christof (the newly Embraced's
+  // sheet, the broadsword) taps one quick forehand at 1.0 s from 1.3 m; the blade meets at 1.55 s. Film it with
+  // --film-at 1.35:2.05 --film-view first,third (and --rebound-fixed, --rebound-small, --rebound-large to compare).
+  "title": "A film: Christof's quick forehand at a rapier parrying (block pressed at 1.38 s: its parry window meets the blow at 1.55 s; Melee 5, so the contest parries, 98 %)",
+  "fighters": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "weapon": "BroadSword",
+      "sheet": "sandbox.newly_embraced",
+      "place": [
+        38.7,
+        3
+      ],
+      "facing": 0,
+      "brain": {
+        "kind": "script",
+        "actions": "attack@1^20"
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "weapon": "Rapier",
+      "shield": false,
+      "sheet": {
+        "template": "sandbox.guard_trained",
+        "values": {
+          "melee": 5
+        }
+      },
+      "place": [
+        40,
+        3
+      ],
+      "facing": 180,
+      "brain": {
+        "kind": "script",
+        "actions": "block@1.38+1.2"
+      }
+    }
+  ],
+  "bouts": 1,
+  "seed": 1,
+  "seconds": 3,
+  "tapes": 0
+}

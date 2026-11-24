@@ -1,0 +1,64 @@
+{
+  "schema": "VITOMIR_ENHANCED_SKILL",
+  "status": "SANDBOX",
+  "title": "Abilities in the fight: the body's tempo and the contested pool on contact",
+  "note": "Ours, not the rules package's. The contest runs only with the module's skill-contest switch: the rules package allows it 'only as an explicitly selectable research comparator, not a committed default'; with the tempo on too, Melee counts twice (in the animation and after impact), which the rules package forbids for a rule — allowed here as a comparator and said so on the run's banner, log and summary. By design, 'Both body and dice: Melee and Brawl make a swing come and recover faster and a block rise sooner; on contact a contested pool (Dexterity + Melee against the defender's Dexterity + Dodge or Melee) adds or takes damage dice — a well-placed blow, never a gate on whether it landed.' Two channels, each authored on its own with its own numbers and each switchable (the module's switches skill-tempo-off and skill-contest), so the arena can measure each alone and both together (never one Ability factor multiplied into aim, contact, speed and damage at once). Every number here is SANDBOX: a development control, not a rule, until the rules package answers (gate-04 Ability response, gate-01 Attribute envelopes, gate-18 attack timing).",
+  "abilities": {
+    "armed": "melee",
+    "bare_handed": "brawl",
+    "bare_handed_classes": ["fists", "claws", "fangs"],
+    "dodge": "dodge",
+    "dexterity": "dexterity",
+    "note": "A blow from a weapon of one of rules/harm's bare-handed classes (and bare hands, rules/harm's bare_hands class) uses Brawl; every other class uses Melee. A defender 'holds a weapon' when its weapon's class is not one of these."
+  },
+  "tempo": {
+    "curve": "power",
+    "curve_note": "rate(b) = R^(b/10) for Ability b in 0..10 (clamped), R the rate at Ability 10: the shape of the profile's ability_factor_max_10 (F^(b/10), gate gate-04), rescaled to our own endpoints; 'linear' is 1 + (R-1)*b/10. Ability 0 is 1.1's own timing.",
+    "at_ability_10": {
+      "swing": 1.3,
+      "recovery": 1.3,
+      "rise": 1.5
+    },
+    "why": "SANDBOX. A master (10 dots, beyond a human's 5) swings and recovers 30 % faster — the broadsword's quick blow from 1.1 s to 0.85 s, a five-dot human's 1.14x to 0.96 s: plain to see and to feel, far below what Celerity's extra actions should give, and with the backhand's tip at 98 m/s still inside what contact's swept test handles. Swing and recovery are equal so a blow's clip and its busy time still end together at any Ability. The block's rise is a short motion (a 0.1 s fade and the shield's raise) whose speed decides whether it is up in time, so it gets the larger 1.5x."
+  },
+  "dodge": {
+    "status": "SANDBOX",
+    "note": "Ours, not the rules package's; the package's Dodge row (chapter 07: 'Reactively authorized bodily evasion and its execution - Visible evasive action/real motion; no imaginary passive movement'; ABILITIES_30_ACTION_ROLES: Dodge, Dexterity / Wits, 'No automatic or passive body relocation on every incoming hit') is kept by the platform: the dodge is a press (the player's Dodge key, a brain's choice), the body really moves through the level, and a blade that still reaches it meets it. Each factor its own channel (the combat rules' 'never one factor in every channel'): the Dodge Ability the start and the recovery, Dexterity the burst's speed; Celerity's body tempo is the platform's (the pace scale, divided into every time), and the masquerade holds the burst to a human's and ignores Celerity.",
+    "human": {
+      "distance": 1.0,
+      "move_seconds": 0.3,
+      "ready_seconds": 0.15,
+      "recover_seconds": 0.4,
+      "why": "SANDBOX. A human of Dexterity 23 (the combat rules' reference human) with no Dodge: a quick evasive step of 1 m (a step and a half, about a fencer's lunge's length) in 0.3 s (3.3 m/s, a lunge's pace; a run is 3.5 to 4), after 0.15 s getting the weight onto the pushing leg, then 0.4 s to have the feet under the body again (0.85 s in all, against 1.1's dodge clip of 1.3 s). Out of a blade's line in time to matter against a blow seen coming (a quick blow's strike is about 0.4 to 0.5 s after it begins), and not so far that a dodge is a free escape: a long blade's reach is about 1.6 m."
+    },
+    "ability": {
+      "curve": "power",
+      "rate_at_ability_10": 2.0,
+      "why": "SANDBOX. The Dodge Ability shortens the start and the recovery (both divided by rate(b) = R^(b/10), the tempo channel's shape, R = 2 at 10): Dodge 1 x1.07, 3 x1.23, 5 x1.41 (a human's best: start 0.106 s, recovery 0.28 s), 10 x2 (a master: half a novice's). The burst's speed is not the Ability's (Dexterity's): one factor, one channel."
+    },
+    "dexterity": {
+      "on": true,
+      "human_mean": 23,
+      "exponent": 0.25,
+      "least": 0.7,
+      "most": 3.0,
+      "masquerade_most_dexterity": 100,
+      "why": "SANDBOX. The burst's speed (its time divided) by s(D) = (D / 23)^0.25 within 0.7 to 3.0: the combat rules' reference human's 23 gives 1x, the trained guard's 26 1.03x, the developed ninth's 43 1.17x, 100 (five tabletop dots at raw/20) 1.44x, 330 1.95x, 1000 2.57x - gentle about the human mean, so a vampire's Dexterity shows without the dodge becoming a teleport. In the masquerade's mode the burst is held to a human's: Dexterity counted to at most 100 (five dots, a human's best). The module's switch dodge-dexterity-off sets s to 1 for every body (Dexterity's link off), to measure the Ability's channel alone."
+    }
+  },
+  "contest": {
+    "dexterity_dice": "raw/20",
+    "dexterity_dice_note": "SANDBOX φ for Dexterity (the profile has none: gate-01 and gate-04 are open): raw/20, the scale the damage pool already uses (raw 20 is one tabletop dot). Abilities add their dots.",
+    "difficulty_profile_value": "damage_d10_difficulty",
+    "defence": "dexterity_plus_guard_when_performed",
+    "defence_note": "No unperformed defence (the rules package: 'A passive defender cannot claim a chosen Block/Parry/Dodge they never performed'): the defender's pool is φ(Dexterity), plus Melee only while it was guarding (its block raised) when struck on the body (Brawl when it guards bare-handed). Dodge counts only while a dodge is being performed (the platform's active Dodge, its start or its burst, when the blow lands; never in its recovery, never without one), in place of the guard's Ability: the dodge lowers the block, so the two are never performed together.",
+    "add_most": null,
+    "take_most_share_of_pool": 0.5,
+    "limits_note": "A positive net is added to the damage pool in full (add_most: a cap, null for none). A negative net is taken from it, but never more than floor(0.5 x the pool): a blow that landed keeps at least half its dice — a defence turns it into a glancing blow, never into no blow (no hidden miss). The pool never falls below nothing; a pool that comes to nothing is a contact resisted, as ever.",
+    "streams": {
+      "pool": "enhanced.skill.pool",
+      "attack": "enhanced.skill.attack",
+      "defence": "enhanced.skill.defence"
+    }
+  }
+}

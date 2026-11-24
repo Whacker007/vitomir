@@ -1,0 +1,19 @@
+{
+  // An arena spec: humans moving at human speeds.
+  // The player's own sheet (sandbox.player: every Ability 0 but Alertness 1, no quick slots) with Christof's BroadSword against
+  // The combat rules' trained guard as 1.1 arms him (rudolfGuard, weapRapier_shield), both with the default duelling brain, in the proving
+  // ground's free yard. "combat_tempo" is the global combat tempo every bout plays (0.25 to 4; the module's pace.json gives 0.70,
+  // --combat-tempo overrides the spec's, --combat-tempo-off plays the earlier build's pace): copy the spec with another value to sweep it.
+  "title": "The human pace: the player (Melee 0, broadsword) against the trained guard (rapier and shield)",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false, "sheet": "sandbox.player", "slots": [],
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "weapRapier_shield", "shield": true, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "combat_tempo": 0.70,
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1
+}

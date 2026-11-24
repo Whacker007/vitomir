@@ -1,0 +1,29 @@
+{
+  // Receipt (vii), an earlier build ("a hand cut off, then a more proximal cut and a separate torso contact", at Strength 1000):
+  // The combat rules' newly Embraced at Strength 1000 (52 damage dice; his broadsword) against the combat rules' trained guard holding his composed
+  // guard up (the rapier, no shield), his purchased Health 600 (a hand 270, a forearm 360, an upper arm 450, the trunk 1200: the
+  // thresholds are shares of it, rules/severance). Blows: quick forehand and backhand by turns, level, then aimed up and down.
+  // What happens (seed 34): blow 1, the forehand, meets his raised right hand acute (cut share 0.51): not cut; blow 2, the
+  // backhand, meets it square on and CUTS IT OFF, and the blade GOES ON with the budget the cut did not need into his left thigh
+  // (a separate contact, its own staged harm from that share: no wound); blow 3 meets the right forearm (the stump) and CUTS IT
+  // OFF too (a more proximal cut: the union's structural loss is the forearm's 15 % less the hand's 5 % already gone), its harm
+  // the last of his Health. WHAT THE GEOMETRY WOULD NOT GIVE: a torso contact after the cut. Over 64 seeds at each of four
+  // Health (550 to 700) this script's blades went on from a cut into the left upper arm or the left thigh, never the trunk (the
+  // backhand's arc leaves the body past the raised hand); the trunk was met from a chain only after a blade went through his
+  // held rapier (650: seeds 3, 6, 8, 11, 12, 13, 15). So the separate contact here is the thigh's;
+  // the torso contact after a cut is part 2's (receipt-7b-arm-then-chest.json: the guard standing, an upper arm cut, the blade into the chest). The bystander, standing 9 m
+  // off and doing nothing, is there only because the arena ends a two-fighter bout when a fighter's weapon hand is cut off
+  // (DISARMED): with three, the bout goes on to the more proximal cut.
+  "title": "Receipt (vii): a hand cut off, then a more proximal cut, and a separate contact from the cut's budget (Strength 1000)",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "strength": 1000 } },
+      "place": [39, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1, attack@3, attack@5^10, attack@7^-5, attack@9^5, attack@11^20" }, "foe": "Guard" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 600 } },
+      "place": [40.6, 3], "facing": 180, "brain": { "kind": "script", "actions": "block@0.5+12" }, "foe": "Christof" },
+    { "name": "Bystander", "template": "Civ12male", "sheet": "sandbox.human_reference", "place": [40, 12], "facing": 0,
+      "brain": { "kind": "dummy", "mode": "stand" }, "foe": "Christof" }
+  ],
+  "bouts": 1, "seed": 34, "seconds": 13, "tapes": 1
+}

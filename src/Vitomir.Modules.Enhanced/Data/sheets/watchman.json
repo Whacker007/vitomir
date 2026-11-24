@@ -1,0 +1,21 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.watchman",
+  "title": "A night watchman: a Knight of St John with a torch and a sword",
+  "note": "HIGH-STAT STRESS fixture (the combat rules' baseline reference sheets are the fair baselines, sandbox.human_reference and the rest; this one is kept with its id so the specs that name it still work; it dresses nobody: the combat rules' fixtures do). SANDBOX (ours): a strong human man-at-arms of a military order. Strength 70, Dexterity 45, Stamina 70, the other six Attributes 25; Melee 3, Brawl 2, Athletics 2, Alertness 3. No powers. Health from rules/harm (the engine-sandbox Health).",
+  "species": "human",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 25,
+  "purchased": {
+    "strength": 70,
+    "dexterity": 45,
+    "stamina": 70,
+    "melee": 3,
+    "brawl": 2,
+    "athletics": 2,
+    "alertness": 3
+  },
+  "powers": []
+}

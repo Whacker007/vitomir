@@ -1,0 +1,17 @@
+{
+  // A scene for the wind-ups' films and
+  // pictures - Christof (the newly Embraced's sheet, the broadsword) presses each direction in turn, holds it ready for a second
+  // and lets it go, at the combat rules' trained guard standing 1.6 m before him (his rapier, no shield, a dummy): from the left at 1.0 s,
+  // from the right at 3.4 s, overhead at 5.8 s and with a thrust at 8.2 s (the scripted directions, as the duelling brain chooses
+  // them). Film it with --film-at 0.8:10.6 --film-view first,third,side; each ready pose is held from about 0.35 s after its press.
+  "title": "A film: the four wind-ups, each held ready a second and struck",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.newly_embraced",
+      "place": [38.4, 3], "facing": 0, "brain": { "kind": "script", "actions": "left@1+1.35,right@3.4+1.35,overhead@5.8+1.35,thrust@8.2+1.35" } },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [40, 3], "facing": 180, "brain": "dummy" }
+  ],
+  "bouts": 1,
+  "seed": 3000,
+  "seconds": 10.8
+}

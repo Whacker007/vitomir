@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The platform's interface framework: screens as
+       trees of pieces written in JSON, laid out in units of a 1440-high screen, the pointer and the keyboard
+       taken through them to named actions, and a draw list of rectangles, letters and clips that the renderer
+       draws. It knows no SDL and no GPU: the faces' measures are read here, their atlases stay with the
+       renderer. It references the platform only (for the bindings' names on the Controls page). -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Platform.Interface</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform\Vitomir.Platform.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Vitomir.Platform.Interface.Tests" />
+  </ItemGroup>
+  <!-- Our lettering's measures (made by tools/ui/font), copied from src/Vitomir.Engine/Fonts at
+       b4185ef: the book face, the uncial and the capitals the uncial borrows its capitals from. -->
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\*.json" LogicalName="Fonts/%(Filename)%(Extension)" />
+    <!-- The screens, loaded by name (a later batch reads them from module folders too). -->
+    <EmbeddedResource Include="Screens\*.json" LogicalName="Screens/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

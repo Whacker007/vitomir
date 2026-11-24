@@ -1,0 +1,19 @@
+{
+  // An arena spec: overpowering. The combat rules' trained guard
+  // (sandbox.guard_trained) with 1.1's rapier and his kite shield against the combat rules' newly Embraced (sandbox.newly_embraced, the
+  // rapier, no shield) at Strength 15 (the combat rules'), 42, 200 and 400 (elite_stress's), the same seeds. Both brains the default (each
+  // blocks half the blows); the guard's shield and his raised blade meet most of Christof's blows, and the rules' contest
+  // (data/combat/guard.json) decides whether they hold or are pushed through.
+  "title": "Overpowering: newly Embraced (Strength 15-400, rapier) against a trained guard with a shield",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "shield": true, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [15, 42, 200, 400] }
+}

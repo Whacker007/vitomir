@@ -1,0 +1,12 @@
+{
+  // Christof against a guard who only holds his block (a dummy), sweeping Christof's Strength: what gets past a shield,
+  // and how soon? contacts.csv says what each blow met (body, shield, weapon, level).
+  "title": "Christof against a blocking dummy, by his Strength",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "sheet": "sandbox.christof",
+      "brain": { "kind": "duel", "blockChance": 0, "backOffChance": 0.2 } },
+    { "name": "Dummy", "template": "rudolfGuard", "sheet": "sandbox.guard", "brain": { "kind": "dummy", "mode": "block" } }
+  ],
+  "bouts": 20, "seed": 1, "seconds": 30, "tapes": 2,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [25, 60, 150, 300] }
+}

@@ -1,0 +1,19 @@
+{
+  // An arena spec: flurry-matched.json's bout with the trained guard in a mail shirt and a light helm
+  // (armor-matched.json's set-up, chest, belly, hips and upper arms 2.25 lethal soak dice, the head 0.75; his
+  // forearms, hands, neck and legs bare), at Celerity 0, 3 and 5; to be run under each of the three models (as it is,
+  // --flurry-compressed, --flurry-off): what armour does to each model's extra blows (under the default each blow soaks on
+  // the part it met at its own moment).
+  "title": "Celerity's extra blows against mail: newly Embraced with Celerity 0, 3 and 5 against a trained guard in a mail shirt and a light helm",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel", "armor": ["mail_shirt", "light_helm"] }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "power": "celerity", "options": ["celerity.active"], "values": [0, 3, 5] }
+}

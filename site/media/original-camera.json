@@ -1,0 +1,44 @@
+{
+ "source": "original-camera",
+ "size": [
+  1280,
+  720
+ ],
+ "keep": [
+  [
+   25.5,
+   52.4
+  ]
+ ],
+ "poster": 2.0,
+ "segments": [
+  {
+   "from": 25.5,
+   "to": 31.6,
+   "tag": "original",
+   "title": "Turn the camera",
+   "line": "The keypad turns it around the character.",
+   "keys": "numpad",
+   "gauge": true,
+   "hold": 0.8
+  },
+  {
+   "from": 31.6,
+   "to": 39.6,
+   "tag": "original",
+   "title": "Tilt the camera",
+   "line": "Up and down, as far as its limits.",
+   "keys": "numpad",
+   "gauge": true
+  },
+  {
+   "from": 39.6,
+   "to": 52.4,
+   "tag": "original",
+   "title": "Zoom",
+   "line": "In and out with the minus and equals keys.",
+   "keys": "zoom",
+   "gauge": true
+  }
+ ]
+}

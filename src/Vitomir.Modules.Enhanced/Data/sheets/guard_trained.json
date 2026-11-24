@@ -1,0 +1,32 @@
+{
+  "schema": "VITOMIR_ENHANCED_SHEET_TEMPLATE",
+  "status": "SANDBOX",
+  "id": "sandbox.guard_trained",
+  "title": "A trained town guard (the combat rules' reference)",
+  "note": "SANDBOX (the rules package's research-only baseline reference sheets): Strength 21, Dexterity 26, Stamina 25 as the combat rules give them; the other six Attributes the rules package's Option B means, rounded (research-only): Charisma 17, Manipulation 17, Appearance 22, Perception 17, Intelligence 17, Wits 14 (until then ours: a flat mean of the three); a trained guard: Melee 2, Dodge 1, Alertness 2, Athletics 1; every Ability not listed 0. Dresses the guards and the watch (the rules package's fixtures by default; until then sandbox.guard and sandbox.watchman did): rudolfGuard and KnightOfStJohn_torch. Health from rules/harm (the engine-sandbox Health). A research fixture, not a rule.",
+  "role": "townsperson",
+  "characters": [
+    "rudolfGuard",
+    "KnightOfStJohn_torch"
+  ],
+  "species": "human",
+  "generation": "",
+  "era": "dark-ages",
+  "unlisted_attributes": 24,
+  "purchased": {
+    "strength": 21,
+    "dexterity": 26,
+    "stamina": 25,
+    "charisma": 17,
+    "manipulation": 17,
+    "appearance": 22,
+    "perception": 17,
+    "intelligence": 17,
+    "wits": 14,
+    "melee": 2,
+    "dodge": 1,
+    "athletics": 1,
+    "alertness": 2
+  },
+  "powers": []
+}

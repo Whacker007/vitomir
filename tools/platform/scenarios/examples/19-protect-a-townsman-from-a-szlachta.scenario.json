@@ -1,0 +1,40 @@
+{
+  // Worked example 19: protect. A townsman with a club stands at [36, 9] (the arena's standing dummy: he never strikes);
+  // a szlachta comes for him from [48, 9] (its foe: the townsman). A human Christof (the combat rules' human reference,
+  // Melee 2, his broadsword) on his duelling brain goes for the szlachta from [30, 9] to keep the townsman from a harness stop for 40 s
+  // ("protect"). Sides: Christof and the townsman are "town", the szlachta alone. "swap": the townsman and Christof exchange places (and
+  // facings) on the same seeds: with Christof nearer, does the townsman fare better? results.json's "swaps" counts it seed by seed.
+  "format": "vitomir-scenario/1",
+  "title": "Protect: Christof keeps a townsman from a szlachta",
+  "notes": "The townsman's result is his own; Christof's protect fails the moment the townsman reaches a harness stop (never a death), whoever struck.",
+  "ground": "free-yard",
+  "time": "night",
+
+  "actors": [
+    { "name": "Christof", "template": "Christof", "sheet": { "template": "sandbox.human_reference", "values": { "melee": 2 } },
+      "gear": { "weapon": "BroadSword" }, "place": [30, 9], "facing": 0, "foe": "Szlachta", "side": "town",
+      "control": { "ai": { "kind": "duel" } } },
+    { "name": "Townsman", "preset": "townsman-club", "place": [36, 9], "facing": 0, "foe": "Szlachta", "side": "town",
+      "control": { "ai": "stand" } },
+    { "name": "Szlachta", "preset": "szlachta", "place": [48, 9], "facing": 180, "foe": "Townsman", "side": "szlachta",
+      "control": { "ai": { "kind": "duel" } } }
+  ],
+
+  "objectives": [
+    { "name": "keep him standing", "actor": "Christof", "protect": "Townsman", "untilSeconds": 40 },
+    { "name": "take the townsman", "actor": "Szlachta", "defeat": "Townsman", "bySeconds": 40 },
+    { "name": "put it down", "actor": "Christof", "defeat": "Szlachta", "bySeconds": 40 }
+  ],
+  "swap": { "actors": ["Christof", "Townsman"] },
+  "stop": { "afterSeconds": 40, "onHarnessStops": "never", "onObjectives": "all" },
+  "runs": 10, "seed": 15000,
+
+  "measures": [
+    { "name": "townsmanHealthEnd", "value": "Townsman.health" },
+    { "name": "christofFirstBlowSeconds", "timeOf": { "event": "AttackBegun", "by": "Christof" } }
+  ],
+  "assertions": [
+    { "name": "the protect is decided in every run", "count": { "event": "ObjectiveFailed", "where": { "objective": "keep him standing" } }, "atMost": 1, "scope": "eachRun" }
+  ],
+  "outputs": { "tracePolicy": "SAMPLED", "traceRuns": 1 }
+}

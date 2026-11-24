@@ -1,0 +1,31 @@
+{
+  "schema": "VITOMIR_OBSERVER_KIND",
+  "status": "SANDBOX",
+  "title": "A town guard: on duty, good eyes, brave, quick",
+  "note": "SANDBOX (by design: broad and diverse profiles, each with traits). Traits 0 to 1; SightRange in metres (daylight, open ground, a running body), ConeDegrees the half-angle, NoticeSeconds, MakeOutSeconds, ConcludeSeconds (each step up the ladder), HoldSeconds and CoolDownSeconds (calming down) in seconds (the proposed values). By design, an armed guard is \"more inclined to investigate\". At night he sees a running body 30 x 0.405 = 12.2 m off. \"duel\" is how one of this kind fights when it does (the duelling brain's numbers by the arena's names; the rest the brain's defaults), SANDBOX.",
+  "characters": [
+    "rudolfGuard"
+  ],
+  "duel": {
+    "strongShare": 0.3,
+    "blockChance": 0.6,
+    "backOffChance": 0.3
+  },
+  "numbers": {
+    "SightRange": 30.0,
+    "ConeDegrees": 70.0,
+    "Eyesight": 1.0,
+    "NightEyes": 0.3,
+    "Attention": 0.9,
+    "Bravery": 0.9,
+    "Curiosity": 0.5,
+    "Duty": 1.0,
+    "Excitability": 0.5,
+    "Voice": 1.0,
+    "NoticeSeconds": 0.4,
+    "MakeOutSeconds": 1.5,
+    "ConcludeSeconds": 2.0,
+    "HoldSeconds": 30.0,
+    "CoolDownSeconds": 240.0
+  }
+}

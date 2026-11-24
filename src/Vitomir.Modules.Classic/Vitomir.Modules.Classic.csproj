@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The Classic module: 1.1, the base game,
+       as a module on the platform. Release 1 is this module (repackage now). Its game keeps its own time
+       (IModule.Loop): the program hands it each frame's wall time and it steps 1.1's simulation as 1.1 does. It references
+       the platform and 1.1's own libraries, Vitomir.Engine and Vitomir.Scripting (kept as they are: the module's
+       libraries). For a while it referenced no SDL and no renderer; now it carries
+       1.1's frame controller as a library of its own (Vitomir.Classic), which draws through the old glue (Vitomir.Render, also
+       in bin\) and the platform's renderer and asks the program's host for its window (IClassicHost): the module's own assembly
+       still names no SDL type (PlatformBoundaryTests), and the controller's library none either (ControllerBoundaryTests).
+
+       It is a module folder: module.json and bin\, laid out as Modules\Classic\ beside the
+       program by ..\Vitomir.ModuleLayout.targets. Unlike the enhanced module it ships libraries of its own
+       (VitomirModuleDependencies): the engine, the scripting, IKVM's runtime and its ikvm\ folder, the converted ecj,
+       NLayer, DotRecast and BCnEncoder all go into bin\, where the loader finds them (ModuleDependencies). -->
+  <PropertyGroup>
+    <RootNamespace>Vitomir.Modules.Classic</RootNamespace>
+    <VitomirModuleFolder>Classic</VitomirModuleFolder>
+    <VitomirModuleDependencies>true</VitomirModuleDependencies>
+    <!-- A library's output holds only its project references; the packages' assemblies (IKVM's, NLayer, DotRecast,
+         BCnEncoder) are copied too, so the output folder is the module's whole closure. -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <!-- IKVM0100: the converted ecj's nine Ant and JDT Core classes (Vitomir.Scripting.csproj says why they are noise). -->
+    <NoWarn>$(NoWarn);IKVM0100</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform\Vitomir.Platform.csproj" />
+    <ProjectReference Include="..\Vitomir.Engine\Vitomir.Engine.csproj" />
+    <ProjectReference Include="..\Vitomir.Scripting\Vitomir.Scripting.csproj" />
+    <!-- 1.1's frame controller, the module's library (and with it the old glue, Vitomir.Render), played in a
+         window on the platform program's host (the host contract in Vitomir.Platform.Render.Classic; handed to the loop
+         at its start, the program running its frames). It is carried in bin\; the platform's renderer is the program's one copy. -->
+    <ProjectReference Include="..\Vitomir.Classic\Vitomir.Classic.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Vitomir.Modules.Classic.Tests" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+  <ItemGroup>
+    <!-- The Classic snapshot's data types: the platform's. -->
+    <Using Include="Vitomir.Platform.Presentation.Classic" />
+  </ItemGroup>
+</Project>

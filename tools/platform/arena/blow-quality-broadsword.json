@@ -1,0 +1,19 @@
+{
+  // An arena spec: blow-quality-strength.json's bout with
+  // Christof's BroadSword in place of the Rapier, to measure the broadsword's own references (q_ref, rules/quality.json): the combat rules'
+  // newly Embraced against the combat rules' trained guard of 1000 bought Health (so a bout gives many contacts), Strength 100, 200, 400.
+  // Run with --blow-quality-off to measure the earlier build's contacts as they are (the references are medians over them).
+  "title": "Blow quality's references: newly Embraced with a broadsword against a trained guard of 1000 Health, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 100,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "trait": "strength", "values": [100, 200, 400] }
+}

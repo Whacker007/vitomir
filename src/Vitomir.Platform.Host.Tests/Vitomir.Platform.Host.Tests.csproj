@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The program's own tests (the arena): its commands' pieces driven in-process, with the game's modules laid out
+       beside the tests as they are beside the program (Modules\<name>\, Games\*.json), so a session loads them the same way. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Vitomir.Platform.Host.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform.Host\Vitomir.Platform.Host.csproj" />
+    <!-- The launcher's working half (its location check, its Setup page through SetupService, Play with a fake game). -->
+    <ProjectReference Include="..\Vitomir.Launcher\Vitomir.Launcher.csproj" />
+    <ProjectReference Include="..\Vitomir.Modules.Enhanced\Vitomir.Modules.Enhanced.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+    <ProjectReference Include="..\Vitomir.Modules.Classic\Vitomir.Modules.Classic.csproj" ReferenceOutputAssembly="false" Private="false" LayOutAsModule="true" />
+    <None Include="..\Vitomir.Platform.Host\Games\*.json" Link="Games\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Tapes recorded on an earlier build (no accel or arrows note), which must replay digest for digest. -->
+    <None Include="TestData\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Import Project="..\Vitomir.ModuleLayout.targets" />
+  <ItemGroup>
+    <!-- 1.1's character file built byte by byte: one builder, the Formats tests' own. -->
+    <Compile Include="..\Vitomir.Formats.Tests\NpfBytes.cs" Link="NpfBytes.cs" />
+  </ItemGroup>
+</Project>

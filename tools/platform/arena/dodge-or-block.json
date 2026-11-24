@@ -1,0 +1,17 @@
+{
+  // An arena spec: dodge-newly-embraced.json's bouts at Dodge 3 with the newly Embraced's brain BLOCKING
+  // (the default brain: blockChance 0.5, dodgeChance 0) in place of dodging — the same seeds, so the two are paired bout for
+  // bout. With the contest off (the default) his Dodge counts for nothing here: no dodge is performed.
+  "title": "Blocking: newly Embraced (Dodge 3, blocking) against a trained guard, the same sword, no shields",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "dodge": 3 } },
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "Rapier", "shield": false, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2
+}

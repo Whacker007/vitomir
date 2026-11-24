@@ -1,0 +1,18 @@
+{
+  // Receipt (iii): an overpowered guard and the blade going on. The combat rules' newly Embraced at Strength 400 (the combat rules'
+  // elite stress figure; his broadsword) strikes the combat rules' trained guard behind his raised kite shield (weapRapier_shield, block
+  // from 0.5 s); his purchased Health raised to 1000 so one blow does not stop him. The rules' guard contest (Strength first)
+  // pushes a raised shield through 85 % of the time at Strength 400 (guard-overpower-strength.json): GuardResolved Overpowered,
+  // the blade goes on with the budget left and meets the body behind it, its own staged harm from that budget.
+  // Three blows, two seconds apart, in case one is held.
+  "title": "Receipt (iii): an overpowered guard and the blade going on",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "BroadSword", "shield": false,
+      "sheet": { "template": "sandbox.newly_embraced", "values": { "strength": 400 } },
+      "place": [39, 3], "facing": 0, "brain": { "kind": "script", "actions": "attack@1, attack@3, attack@5" } },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "weapRapier_shield", "shield": true,
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "place": [40.6, 3], "facing": 180, "brain": { "kind": "script", "actions": "block@0.5+6" } }
+  ],
+  "bouts": 1, "seed": 1, "seconds": 7, "tapes": 1
+}

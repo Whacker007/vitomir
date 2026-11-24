@@ -1,0 +1,19 @@
+{
+  // An arena spec:
+  // 'the real danger comes from getting overwhelmed by too many foes'. The combat rules' newly Embraced (sandbox.newly_embraced, 1.1's Rapier, no
+  // shield) alone (side christof) against three of the combat rules' townsperson (sandbox.townsperson_reference) with 1.1's Club, drawn as Christof's body (side foes), every fighter with the default duelling brain:
+  // each foe fights the subject, the subject the nearest foe still up; the bout ends when one side is left. The proving ground's free
+  // yard; the newly Embraced's Melee 0, 3, 5; seeds as fight-*.json's (3000 on). Its one-against-one twin: fight-*.json.
+  "title": "One against three: newly Embraced (Melee 0-5, rapier) against three of townsman-club",
+  "fighters": [
+    {"name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced", "place": [38, 3], "facing": 0, "brain": "duel", "side": "christof"},
+    {"name": "Townsman1", "template": "Christof", "weapon": "Club", "shield": false, "sheet": "sandbox.townsperson_reference", "place": [42, 0], "facing": 180, "brain": "duel", "side": "foes"},
+    {"name": "Townsman2", "template": "Christof", "weapon": "Club", "shield": false, "sheet": "sandbox.townsperson_reference", "place": [42, 3], "facing": 180, "brain": "duel", "side": "foes"},
+    {"name": "Townsman3", "template": "Christof", "weapon": "Club", "shield": false, "sheet": "sandbox.townsperson_reference", "place": [42, 6], "facing": 180, "brain": "duel", "side": "foes"}
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 2,
+  "sweep": {"fighter": "Christof", "trait": "melee", "values": [0, 3, 5]}
+}

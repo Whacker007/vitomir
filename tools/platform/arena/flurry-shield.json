@@ -1,0 +1,18 @@
+{
+  // An arena spec: flurry-matched.json's bout with the trained guard holding a shield (1.1's Rapier and
+  // shield; Christof's Rapier alone), at Celerity 0, 3 and 5; to be run under each of the three models (as it is,
+  // --flurry-compressed, --flurry-off): what a shield does to each model's extra blows ("Celerity flurry must not
+  // bypass intact shields").
+  "title": "Celerity's extra blows against a shield: newly Embraced with Celerity 0, 3 and 5 against a trained guard with a shield",
+  "fighters": [
+    { "name": "Christof", "template": "Christof", "weapon": "Rapier", "shield": false, "sheet": "sandbox.newly_embraced",
+      "place": [38, 3], "facing": 0, "brain": "duel" },
+    { "name": "Guard", "template": "rudolfGuard", "weapon": "weapRapier_shield", "shield": true, "sheet": "sandbox.guard_trained",
+      "place": [42, 3], "facing": 180, "brain": "duel" }
+  ],
+  "bouts": 200,
+  "seed": 3000,
+  "seconds": 60,
+  "tapes": 1,
+  "sweep": { "fighter": "Christof", "power": "celerity", "options": ["celerity.active"], "values": [0, 3, 5] }
+}

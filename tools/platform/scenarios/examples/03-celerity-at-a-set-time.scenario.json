@@ -1,0 +1,95 @@
+{
+  // Worked example 3: a discipline used at a set time and its effect measured on the blows after it. Christof strikes a standing
+  // guard with the same four blows before and after he uses Celerity at a set moment; Celerity's rank is swept 0 to 5 (0: no slot
+  // shows Celerity, so the step is refused as NoSlot and nothing is paid: rank 0 is the paired baseline on the same seeds).
+  // Format vitomir-scenario/1.
+  //
+  // NEEDS (not): the runner; the steps usePower, attack-when-ready and mark; windows on selectors (fromMarker/toMarker);
+  // the "delay" measure — an earlier build. TODAY the nearest is tools/platform/arena/celerity-matched.json, where the duelling brain presses
+  // Celerity as it engages (no set time) and the measures are bouts.csv's swings while live against the unpaid rate.
+  "format": "vitomir-scenario/1",
+  "title": "Celerity used at 8 s: the four blows before against the four after, by rank",
+  "notes": "The guard stands (no guard raised, no shield, Health 1000 so no stop), so every blow's contact is the blow's own and only Christof's tempo and flurry change. Blood 100 at the start: Celerity costs 30 at every rank.",
+  "ground": "free-yard",
+
+  "actors": [
+    {
+      "name": "Christof",
+      "template": "Christof",
+      "sheet": { "template": "sandbox.newly_embraced",
+                 "values": { "blood_pool": 100 },
+                 "powers": { "celerity": { "rank": 1, "options": ["celerity.active"] } } },   // rank swept below (0 unlearns it)
+      "blood": 100,
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": [39, 3],
+      "facing": { "toward": "Guard" },
+      "foe": "Guard",
+      "control": {
+        "script": [
+          { "wait": 1.0 },
+          { "mark": "before" },
+          { "attack": "right", "holdSeconds": 0.0 },            // a tap; each attack waits until he may swing again, then presses
+          { "attack": "left",  "holdSeconds": 0.0 },
+          { "attack": "right", "holdSeconds": 0.0 },
+          { "attack": "left",  "holdSeconds": 0.0 },
+          { "mark": "beforeEnd" }, // the before window ends with its blows, so the rates are like for like
+          { "usePower": "celerity", "at": 8.0, "label": "celerity" },   // at 8 s of the run (the four blows take about 5-6 s from 1 s;
+                                                                         // were they still going, it would start as they end: StepLate)
+          { "mark": "after" },
+          { "attack": "right", "holdSeconds": 0.0 },
+          { "attack": "left",  "holdSeconds": 0.0 },
+          { "attack": "right", "holdSeconds": 0.0 },
+          { "attack": "left",  "holdSeconds": 0.0 },
+          { "mark": "done" },
+          { "wait": 1.5 } // the last blow lands before the script (and the run) ends
+        ],
+        "then": "end"                                          // the run ends when the script does
+      }
+    },
+    {
+      "name": "Guard",
+      "template": "rudolfGuard",
+      "sheet": { "template": "sandbox.guard_trained", "values": { "health_pool": 1000 } },
+      "gear": { "weapon": "Rapier", "shield": false },
+      "place": { "from": "Christof", "distanceMetres": 1.25, "bearingDegrees": 0 },
+      "facing": { "toward": "Christof" },
+      "control": { "ai": "stand" }                             // the arena's dummy: does nothing, keeps his facing
+    }
+  ],
+
+  "stop": { "afterSeconds": 20, "onHarnessStops": "first" },
+  "runs": 100, "seed": 5000,
+  "sweep": [ { "set": "Christof.sheet.powers.celerity.rank", "values": [0, 1, 2, 3, 4, 5] } ],
+
+  "measures": [
+    { "name": "windUpBefore",  "delay": { "from": { "event": "AttackBegun", "by": "Christof", "fromMarker": "before", "toMarker": "beforeEnd" },
+                                          "to":   { "event": "ContactMade", "by": "Christof" }, "pairBy": "swing" } },
+    { "name": "windUpAfter",   "delay": { "from": { "event": "AttackBegun", "by": "Christof", "fromMarker": "after", "toMarker": "done" },
+                                          "to":   { "event": "ContactMade", "by": "Christof" }, "pairBy": "swing" } },
+    { "name": "blowsPerSecondBefore", "rate": { "of": { "event": "AttackBegun", "by": "Christof", "fromMarker": "before", "toMarker": "beforeEnd" }, "perSecond": true } },
+    { "name": "blowsPerSecondAfter",  "rate": { "of": { "event": "AttackBegun", "by": "Christof", "fromMarker": "after",  "toMarker": "done"  }, "perSecond": true } },
+    { "name": "flurryBlowsAfter", "count": { "event": "FlurryStrike", "by": "Christof", "fromMarker": "after", "where": { "check": "met" } } }, // FlurryStrike's Check: Met = the blow lands (the earlier build's --check found the design's "landed")
+    { "name": "woundsBefore",         "count": { "event": "HarmResolved", "by": "Christof", "fromMarker": "before", "toMarker": "after", "sum": "wounds" } },
+    { "name": "woundsAfter",          "count": { "event": "HarmResolved", "by": "Christof", "fromMarker": "after", "sum": "wounds" } },
+    { "name": "bloodPaid",            "value": "Christof.bloodSpent" },
+    { "name": "celerityRefusedAs",    "count": { "event": "PowerRefused", "by": "Christof", "where": { "power": "celerity" } } }
+  ],
+
+  "assertions": [
+    { "name": "rank 0: the press is refused and nothing is paid",
+      "points": { "Christof.sheet.powers.celerity.rank": 0 },
+      "measure": "bloodPaid", "equals": 0, "scope": "eachRun" },
+    { "name": "ranks 1-5: one use, 30 Blood paid",
+      "points": { "Christof.sheet.powers.celerity.rank": [1, 2, 3, 4, 5] },
+      "measure": "bloodPaid", "equals": 30, "scope": "eachRun" },
+    { "name": "the blows before are the same at every rank (the power is not live yet)",
+      "measure": "windUpBefore", "statistic": "median", "scope": "trend", "over": "Christof.sheet.powers.celerity.rank", "direction": "flat" },
+    { "name": "the wind-up after shortens as the rank rises",
+      "measure": "windUpAfter", "statistic": "median", "scope": "trend", "over": "Christof.sheet.powers.celerity.rank", "direction": "falling" },
+    { "name": "Celerity live: more blows a second after than before (rank 1 and up)",
+      "points": { "Christof.sheet.powers.celerity.rank": [1, 2, 3, 4, 5] },
+      "difference": ["blowsPerSecondAfter", "blowsPerSecondBefore"], "statistic": "mean", "above": 0, "scope": "aggregate" }
+  ],
+
+  "outputs": { "events": "first", "traceRuns": 1, "ticks": { "everyTicks": 6, "runs": "first" }, "csv": true, "summaryPage": true }
+}

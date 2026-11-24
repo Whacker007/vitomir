@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The platform's tests, headless. The ones that need a level package or the player's 1.1 install
+       find them by VITOMIR_TEST_LEVEL and VTMR_GAME_DIR (or C:\Games\VTMR) and skip when absent. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Vitomir.Platform.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vitomir.Platform\Vitomir.Platform.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- A small content module of the tests' own (ours, no game content), laid out beside them (ModuleTests). -->
+    <None Update="TestModules\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 1.1's character file built byte by byte: one builder, the Formats tests' own. -->
+    <Compile Include="..\Vitomir.Formats.Tests\NpfBytes.cs" Link="NpfBytes.cs" />
+  </ItemGroup>
+</Project>
