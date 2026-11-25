@@ -42,8 +42,9 @@ param(
     [string]$ModelsRepo = $env:VITOMIR_MODELS_DIR,
     [string]$Runtime = "win-x64",
     # The notice after the version line (the game's main menu, the launcher's footer and About) and the packaged README's
-    # first line: the build's VitomirNotice (src\Directory.Build.props). "" for none. Public 1.0 changes this default alone.
-    [string]$Notice = "Private beta - please do not distribute"
+    # first line: the build's VitomirNotice (src\Directory.Build.props). "" for none, the default since public 1.0 (until
+    # then "Private beta - please do not distribute"; a test build for testers can still pass it).
+    [string]$Notice = ""
 )
 $ErrorActionPreference = "Stop"
 $repo = Split-Path -Parent $PSScriptRoot

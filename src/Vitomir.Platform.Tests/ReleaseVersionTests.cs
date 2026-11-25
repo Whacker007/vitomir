@@ -66,6 +66,6 @@ public class ReleaseVersionTests
         string package = File.ReadAllText(Path.Combine(PlatformBoundaryTests.SourceRoot(""), "..", "tools", "package.ps1"));
         Assert.Contains("\"-p:VitomirNotice=$Notice\"", package);
         Assert.Contains("notice = $Notice", package);
-        Assert.Contains("[string]$Notice = \"Private beta - please do not distribute\"", package);
+        Assert.Contains("[string]$Notice = \"\"", package);                    // none by default since public 1.0
     }
 }

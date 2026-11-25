@@ -14,15 +14,16 @@
 
     A development build may carry a development tag beside the number: a props file beside src/, when
     there is one, sets VitomirBatch, and Vitomir.Platform alone records it, in a file beside its assembly
-    (vitomir-batch.txt), so the version line reads "Vitomir Platform 1.0.0-rc.1 (tag)". Without the file the line is the release version alone.
+    (vitomir-batch.txt), so the version line reads "Vitomir Platform 1.0.0 (tag)". Without the file the line is the release version alone.
   -->
   <PropertyGroup>
-    <Version>1.0.0-rc.1</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
   <!--
     The notice after the version line where a player sees it (the game's main menu, the launcher's footer and About):
-    empty here, so a developer's build shows none; tools/package.ps1 sets it (-Notice, "Private beta - please do not
-    distribute" until public 1.0). Recorded like the tag, in a file beside Vitomir.Platform (vitomir-notice.txt).
+    empty here, so a developer's build shows none; tools/package.ps1 sets it (-Notice, none by default since public 1.0;
+    "Private beta - please do not distribute" until then). Recorded like the tag, in a file beside Vitomir.Platform
+    (vitomir-notice.txt).
   -->
   <PropertyGroup>
     <VitomirNotice Condition="'$(VitomirNotice)' == ''"></VitomirNotice>

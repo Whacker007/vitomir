@@ -253,7 +253,7 @@ static partial class ReplayFolder
 
     /// <summary>
     /// The build's name in a file's: its one word (<see cref="Vitomir.Platform.ReleaseVersion.Word"/>: the development tag, else the
-    /// release version, <c>1.0.0-rc.1</c>), with nothing a file name cannot hold.
+    /// release version, <c>1.0.0</c>), with nothing a file name cannot hold.
     /// </summary>
     internal static string Build
     {

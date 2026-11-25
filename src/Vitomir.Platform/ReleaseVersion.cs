@@ -6,15 +6,15 @@ namespace Vitomir.Platform;
 
 /// <summary>
 /// **The build's version line** (<c>src/Directory.Build.props</c>): the release version, one semantic number for the whole
-/// build, and in a development build its development tag, in brackets — "Vitomir Platform 1.0.0-rc.1", or
-/// "Vitomir Platform 1.0.0-rc.1 (tag)". Both are read once: the informational version from this assembly's attribute
+/// build, and in a development build its development tag, in brackets — "Vitomir Platform 1.0.0", or
+/// "Vitomir Platform 1.0.0 (tag)". Both are read once: the informational version from this assembly's attribute
 /// (without a source revision after a <c>+</c>, which the build no longer adds), and the tag from <c>vitomir-batch.txt</c>
 /// beside the assembly, which only a development build writes (the tag is kept out of the assembly so that it cannot change
 /// the join's build: <c>Vitomir.Platform.csproj</c>).
 /// </summary>
 public static class ReleaseVersion
 {
-    /// <summary>The release version, "1.0.0-rc.1"; "0.0.0" when the assembly says none.</summary>
+    /// <summary>The release version, "1.0.0"; "0.0.0" when the assembly says none.</summary>
     public static string Number { get; } = ReadNumber();
 
     /// <summary>The development tag of this build, or null in a build without one (the public build).</summary>
