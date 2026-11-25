@@ -14,7 +14,8 @@
 
     A development build may carry a development tag beside the number: a props file beside src/, when
     there is one, sets VitomirBatch, and Vitomir.Platform alone records it, in a file beside its assembly
-    (vitomir-batch.txt), so the version line reads "Vitomir Platform 1.0.0 (tag)". Without the file the line is the release version alone.
+    (vitomir-batch.txt), so the version line reads "Vitomir Platform 1.0.0 (tag)". With the file empty (every build writes
+    it) the line is the release version alone.
   -->
   <PropertyGroup>
     <Version>1.0.0</Version>

@@ -9,8 +9,9 @@ namespace Vitomir.Platform;
 /// build, and in a development build its development tag, in brackets — "Vitomir Platform 1.0.0", or
 /// "Vitomir Platform 1.0.0 (tag)". Both are read once: the informational version from this assembly's attribute
 /// (without a source revision after a <c>+</c>, which the build no longer adds), and the tag from <c>vitomir-batch.txt</c>
-/// beside the assembly, which only a development build writes (the tag is kept out of the assembly so that it cannot change
-/// the join's build: <c>Vitomir.Platform.csproj</c>).
+/// beside the assembly, which every build writes and only a development build fills (the tag is kept out of the assembly so
+/// that it cannot change the join's build; the file is written empty in a public build so that a package unzipped over an
+/// older one cannot keep the older one's tag: <c>Vitomir.Platform.csproj</c>).
 /// </summary>
 public static class ReleaseVersion
 {
@@ -40,7 +41,7 @@ public static class ReleaseVersion
     /// </summary>
     public static string? Notice { get; } = ReadNotice(AssemblyFolder());
 
-    /// <summary>The file beside the assembly that holds the notice, in a build that has one.</summary>
+    /// <summary>The file beside the assembly that holds the notice: empty in a build without one.</summary>
     public const string NoticeFile = "vitomir-notice.txt";
 
     /// <summary>A version line as a player sees it: <paramref name="line"/>, then the build's notice after a dot when there is one.</summary>
@@ -65,7 +66,7 @@ public static class ReleaseVersion
         return string.IsNullOrEmpty(dir) ? AppContext.BaseDirectory : dir;
     }
 
-    /// <summary>The file beside the assembly that holds the development tag, in a development build.</summary>
+    /// <summary>The file beside the assembly that holds the development tag: empty in a build without one.</summary>
     public const string BatchFile = "vitomir-batch.txt";
 
     static string? ReadBatch()

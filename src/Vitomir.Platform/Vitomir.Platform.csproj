@@ -30,21 +30,24 @@
     attribute of the assembly: a portable PDB records the module version of every assembly it was compiled against, so a
     tag compiled into Vitomir.Platform would change the module versions of the engine, the classic game and the scripts
     above it, and a public build (which has no tag) and a private one of the same code could not join (NetIdentity).
+    Written in every build, empty in one without a tag (the public build's), so that a package unzipped over an older one
+    replaces the older one's tag instead of leaving it to be read.
   -->
-  <Target Name="VitomirBatchFile" BeforeTargets="BeforeBuild" Condition="'$(VitomirBatch)' != ''">
+  <Target Name="VitomirBatchFile" BeforeTargets="BeforeBuild">
     <WriteLinesToFile File="$(IntermediateOutputPath)vitomir-batch.txt" Lines="$(VitomirBatch)" Overwrite="true" WriteOnlyWhenDifferent="true" />
   </Target>
-  <ItemGroup Condition="'$(VitomirBatch)' != ''">
+  <ItemGroup>
     <None Include="$(IntermediateOutputPath)vitomir-batch.txt" Link="vitomir-batch.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <!--
     The notice after the version line (VitomirNotice, Directory.Build.props: empty but in a package, tools/package.ps1's
-    -Notice), the same way and for the same reason: vitomir-notice.txt beside the assembly, UTF-8, not compiled in.
+    -Notice), the same way and for the same reasons: vitomir-notice.txt beside the assembly, UTF-8, not compiled in, and
+    written empty when there is none.
   -->
-  <Target Name="VitomirNoticeFile" BeforeTargets="BeforeBuild" Condition="'$(VitomirNotice)' != ''">
+  <Target Name="VitomirNoticeFile" BeforeTargets="BeforeBuild">
     <WriteLinesToFile File="$(IntermediateOutputPath)vitomir-notice.txt" Lines="$([MSBuild]::Escape('$(VitomirNotice)'))" Overwrite="true" WriteOnlyWhenDifferent="true" Encoding="utf-8" />
   </Target>
-  <ItemGroup Condition="'$(VitomirNotice)' != ''">
+  <ItemGroup>
     <None Include="$(IntermediateOutputPath)vitomir-notice.txt" Link="vitomir-notice.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

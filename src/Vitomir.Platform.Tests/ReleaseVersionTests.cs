@@ -38,7 +38,9 @@ public class ReleaseVersionTests
         // them), the join's four among them, so a build with a tag and one without could not join (NetIdentity.Build).
         Assert.DoesNotContain(typeof(ReleaseVersion).Assembly.GetCustomAttributes<AssemblyMetadataAttribute>(), a => a.Key == "VitomirBatch");
         string file = Path.Combine(Path.GetDirectoryName(typeof(ReleaseVersion).Assembly.Location)!, ReleaseVersion.BatchFile);
-        Assert.Equal(File.Exists(file), ReleaseVersion.Batch is not null);
+        // Every build writes it, empty without a tag, so a package unzipped over an older one replaces the older one's tag.
+        Assert.True(File.Exists(file));
+        Assert.Equal(File.ReadAllText(file).Trim().Length > 0, ReleaseVersion.Batch is not null);
     }
     [Fact]
     public void A_packages_notice_reaches_the_shown_line_after_the_version_and_a_build_without_one_shows_none()
@@ -58,9 +60,10 @@ public class ReleaseVersionTests
             Assert.Equal("Vitomir Platform 0.9.0-dev", ReleaseVersion.Shown("Vitomir Platform 0.9.0-dev", ""));
         }
         finally { Directory.Delete(dir, true); }
-        // This build: a developer's (no VitomirNotice) has no file and shows the line alone.
+        // This build: a developer's (no VitomirNotice) has an empty file and shows the line alone.
         string beside = Path.Combine(Path.GetDirectoryName(typeof(ReleaseVersion).Assembly.Location)!, ReleaseVersion.NoticeFile);
-        Assert.Equal(File.Exists(beside), ReleaseVersion.Notice is not null);
+        Assert.True(File.Exists(beside));                                                   // written in every build, empty without a notice
+        Assert.Equal(File.ReadAllText(beside).Trim().TrimStart('\uFEFF').Length > 0, ReleaseVersion.Notice is not null);
         if (ReleaseVersion.Notice is null) Assert.Equal(ReleaseVersion.Line("Vitomir"), ReleaseVersion.Shown(ReleaseVersion.Line("Vitomir")));
         // The package sets it, by -Notice, and puts it in build-info.json and the packaged README's first line.
         string package = File.ReadAllText(Path.Combine(PlatformBoundaryTests.SourceRoot(""), "..", "tools", "package.ps1"));
