@@ -1,0 +1,6 @@
+# Issues are for bugs; anything else starts from the FAQ.
+blank_issues_enabled: false
+contact_links:
+  - name: Questions
+    url: https://whacker007.github.io/vitomir/faq.html
+    about: Most questions are answered in the FAQ.

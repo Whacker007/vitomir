@@ -54,8 +54,9 @@ Everything about building Vitomir, running its tests and making the zip is in [`
 
 The best way to support Vitomir is to buy the game it plays, on [GOG](https://www.gog.com/en/game/vampire_the_masquerade_redemption)
 or [Steam](https://store.steampowered.com/app/559680), and to [report what you find](https://github.com/Whacker007/vitomir/issues).
-If circumstances allow, there is also [Patreon](https://www.patreon.com/cw/Whacker007) and
-[Ko-fi](https://ko-fi.com/whacker007). Nothing is ever unlocked by paying, and Vitomir stays free for everyone.
+If circumstances allow, there is also [Patreon](https://www.patreon.com/cw/Whacker007),
+[Ko-fi](https://ko-fi.com/whacker007) and [GitHub Sponsors](https://github.com/sponsors/Whacker007). Nothing is ever
+unlocked by paying, and Vitomir stays free for everyone.
 
 ## Credits
 

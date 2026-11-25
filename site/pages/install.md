@@ -29,7 +29,7 @@
 5. **Setup** finds your copy of the game, checks its files and imports them into your user folder. It finds the Steam
    and GOG copies by itself; if yours is somewhere else, point it at the folder. Then press **Play**.
 
-> **Fill in (Whacker007): screenshot** of the launcher's Setup page with a copy found and checked.
+<figure class="shot"><img src="assets/media/launcher-setup.webp" alt="The launcher's Setup page with a GOG copy and a Steam copy found, and the buttons to check and import the files" width="1400" height="712" loading="lazy"><figcaption>The Setup page finds your GOG or Steam copy (the folders are blurred here).</figcaption></figure>
 
 ## Your old saves
 

@@ -14,7 +14,9 @@ Goat
 ## The original game
 
 *Vampire: The Masquerade – Redemption* was made by **Nihilistic Software** and published by **Activision** in 2000.
-Vitomir exists because of the game they made.
+Vitomir exists because they made the original. Those of us who know, know, and those of us who were there in the
+beginning remember the growing pains. If you are seeing this, think of it as a massive thank you, and an effort to keep
+your work alive.
 
 ## Built on
 
@@ -30,4 +32,11 @@ in full):
 
 Vitomir's typefaces, Vitomir Text, Wedge and Knife, are its own, under the SIL Open Font License.
 
-> **Fill in (Whacker007):** anyone else you want to thank.
+## Last, and by no means least
+
+Thank you to my family: you have supported me through all the crazy turns my life has taken. You are loved and
+appreciated.
+
+Thank you to my friends out there on the interwebs. You lot are nuts and I'm glad I found y'all. You are my tribe.
+
+And thank you to every one of you reading this and playing the game.

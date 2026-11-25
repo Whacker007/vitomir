@@ -1,0 +1,48 @@
+# Makes a release when a version tag is pushed (v1.0.0, say): builds the package from the tagged commit on GitHub's Windows
+# machines, as the Build workflow does, and opens a DRAFT release with the zip, its checksum and the notes of that
+# version from the site's Changes page. Nothing is public until the draft is published by hand on the Releases page.
+# The tag must be the release version (src/Directory.Build.props), or the run stops before building.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - name: The tag is the release version
+        shell: pwsh
+        run: |
+          $version = (Select-String -Path src\Directory.Build.props -Pattern '<Version>([^<]+)</Version>').Matches[0].Groups[1].Value
+          if ("${{ github.ref_name }}" -ne "v$version") { throw "the tag ${{ github.ref_name }} is not v$version (src\Directory.Build.props)" }
+          "VERSION=$version" >> $env:GITHUB_ENV
+      - name: Build
+        run: dotnet build src\Vitomir.slnx -c Release -warnaserror
+      - name: Package
+        shell: pwsh
+        run: tools\package.ps1
+      - name: The notes, from the Changes page
+        shell: pwsh
+        run: |
+          $lines = @(Get-Content site\pages\changelog.md -Encoding utf8)
+          $start = [array]::IndexOf($lines, "## $env:VERSION")
+          if ($start -lt 0) { throw "site\pages\changelog.md has no section '## $env:VERSION'" }
+          $notes = for ($i = $start + 1; $i -lt $lines.Count -and -not $lines[$i].StartsWith('## '); $i++) { $lines[$i] }
+          # The pages' links to each other (features.md) made the web site's own addresses.
+          $text = ($notes -join "`n").Trim() -replace '\(([a-z0-9-]+)\.md(#[^)]*)?\)', '(https://whacker007.github.io/vitomir/$1.html$2)'
+          $text += "`n`nUnzip it somewhere like C:\Games\Vitomir and start vitomir-launcher.exe; [the install guide](https://whacker007.github.io/vitomir/install.html) has the rest. You need your own copy of the game (GOG or Steam)."
+          [IO.File]::WriteAllText("notes.md", $text + "`n")
+      - name: A draft release with the zip and its checksum
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.ref_name }}" (Get-Item out\package\*.zip).FullName out\package\SHA256SUMS.txt --draft --verify-tag --title "Vitomir $env:VERSION" --notes-file notes.md

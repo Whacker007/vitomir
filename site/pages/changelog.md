@@ -11,5 +11,3 @@ The first public release: the original game, faithfully, on a modern PC.
 - The launcher: Setup imports your Steam or GOG copy and your old saves; player modules; upscaled movies; your user
   folder anywhere, or portable.
 - Network games over the internet, with the router opened by itself where it can, and streamer mode.
-
-> **Fill in (Whacker007):** anything you want to say about the first release.

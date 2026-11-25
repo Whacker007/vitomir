@@ -1,0 +1,43 @@
+name: Bug report
+description: Something in Vitomir doesn't work as it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time. Please look at the [FAQ](https://whacker007.github.io/vitomir/faq.html) first, and
+        report one problem at a time.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead. If it's in the game, where.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: The launcher's details
+      description: >
+        On the launcher's About page, press "Copy details for a bug report" and paste them here. They name the folders
+        Vitomir uses, with your own Windows folder written %USERPROFILE% so your user name isn't in them.
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: copy
+    attributes:
+      label: Your copy of the game
+      options:
+        - GOG
+        - Steam
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Screenshots, saves or logs
+      description: >
+        Drag files here if they help. In a network game, type /bundle on the chat line and attach the zip it names. Logs
+        and bundles can show your Windows user name in folder paths, so look them over first.

@@ -1512,9 +1512,27 @@ public sealed partial class Launcher
 
     /// <summary>
     /// **The details for a bug report** (About's <b>Copy details for a bug report</b>): Vitomir's version, the system, .NET, where it runs
-    /// from, the user folder and how it was chosen, <c>vitomir.ini</c>'s state, and FFmpeg's, one per line.
+    /// from, the user folder and how it was chosen, <c>vitomir.ini</c>'s state, and FFmpeg's, one per line. A report is posted in
+    /// public, so the player's own Windows folder (which holds their user name) is written <c>%USERPROFILE%</c> throughout
+    /// (<see cref="WithoutTheUser"/>).
     /// </summary>
-    public string BugReport()
+    public string BugReport() => WithoutTheUser(Details(), Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
+
+    /// <summary>
+    /// <paramref name="text"/> with every path in the player's own Windows folder (<paramref name="profile"/>, any case) written
+    /// from <c>%USERPROFILE%</c>, so no user name is in it; a folder whose name merely begins the same (Anna's and Annabel's)
+    /// is left alone.
+    /// </summary>
+    internal static string WithoutTheUser(string text, string? profile)
+    {
+        string root = (profile ?? "").TrimEnd('\\', '/');
+        if (root.Length < 3) return text;                                     // none, or a drive's root
+        // Not followed by more of a folder's name: a separator, a space, the line's end or punctuation.
+        return System.Text.RegularExpressions.Regex.Replace(text, System.Text.RegularExpressions.Regex.Escape(root) + @"(?![\w.-])",
+            "%USERPROFILE%", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+    }
+
+    string Details()
     {
         var lines = new List<string>
         {

@@ -3,7 +3,7 @@
 ## What is Vitomir, in a sentence?
 
 A new engine for *Vampire: The Masquerade – Redemption* that plays the game you own as patch 1.1 did, on today's
-Windows, with modern comforts you can switch off. See the [features](features.md).
+Windows, with modern comforts you can switch on or off. See the [features](features.md).
 
 ## Do I need to own the game?
 
@@ -56,13 +56,15 @@ such as `C:\Games\Vitomir`, is fine.
 ## There are no movies.
 
 The movies need FFmpeg, which Vitomir does not ship. Setup can install it for you. The upscaled versions are optional, on
-the launcher's **Movies** page.
+the launcher's **Movies** page. Be aware that on a PC without serious hardware (even a moderate dedicated graphics
+card), making the upscaled movies can take an extremely long time: days, even. It is up to you whether that is worth the
+time, the storage space and the processing.
 
 ## Will Vitomir play mods made for the original game?
 
-Their files, yes: texture packs, models, sounds, interface art and fan chronicles are added as player modules from the
+Roughly, yes: texture packs, models, sounds, interface art and fan chronicles are added as player modules from the
 launcher's **Modules** page. Changes a mod makes to the original game's program are not run. In short, *Neural
-Redemption* works fully, *Crimson Edition*'s files work (and what its program changes were for, Vitomir does itself), and
+Redemption* works fully, *Crimson Edition*'s asset files work (and what its program changes were for, Vitomir does itself), and
 *Age of Redemption* isn't supported right now, because it depends on its own patched program and scripts; possibly in
 the future. The [Features](features.md#mods-for-the-original-game)
 page has the details.
@@ -78,7 +80,8 @@ kept the game's own AI as it was, to keep the original experience. See [Known li
 
 Host from the game's multiplayer menu. Vitomir asks your router to open its port by itself, and the log says the outside
 address your friends type. Allow `vitomir-platform.exe` through Windows' firewall when it asks. Everyone needs the same
-Vitomir release and an unmodified GOG or Steam copy.
+Vitomir release (and an unmodified GOG or Steam copy for the original game's files). Multiplayer hasn't been tested
+extensively yet, so issues may crop up: save often.
 
 When the router won't open the port, forward **UDP port 4994** to your PC in the router's own page. When your internet
 provider shares one address among many customers (the log says so), no forward can reach you: all of you join one free
@@ -104,7 +107,9 @@ No. It is an unofficial fan project, not affiliated with or endorsed by the owne
 
 Not officially. Vitomir is made and tested on Windows only: there is no Linux or Mac machine to test it on, and a
 release nobody has tested is not one to offer. Much of it is already written to be portable, so this may change; if you
-try it elsewhere, reports are welcome.
+try it elsewhere, reports are welcome. As for controllers: the original game was made for the keyboard and mouse and
+uses a lot of both, so adapting it to a controller would be exceptionally difficult. It's likely not impossible, but it is
+low priority unless there's enough interest in it.
 
 ## Does Vitomir change how the game plays?
 
@@ -137,14 +142,25 @@ its author before sharing it. Nothing of the original game's files may ever be s
 
 Yes, monetised or not. That is what streamer mode is for.
 
+## This is AI slop!
+
+\*sigh\* No. This is a labour of love that I've sunk hundreds of hours into. Yes, AI helped: in fact this would not be
+possible without it. I've been fairly open about what my core skills are and where AI has helped. When it comes to
+writing code, anyone who doesn't use AI these days is hamstringing themselves, in my opinion. It's absolutely a force
+multiplier, and it can fill in skill gaps and extend what a person is able to do. That said, it is very much a
+double-edged sword: many are using it as a low-effort, throw-it-at-the-wall-until-something-sticks cash grab, or rushing
+to replace skilled labour in areas where it just isn't ready yet. The genie is out of the bottle, so to speak, and yes, I
+used it and will keep using it to help me. But I make a very concerted and serious effort to use it ethically in
+everything I do, Vitomir included.
+
 ## Can I help?
 
 Yes: [bug reports](https://github.com/Whacker007/vitomir/issues) with the launcher's details are the most useful thing.
-Changes to the code are welcome too: open an issue first to talk it over.
+Contributions to the code will be opened up to everyone eventually. Writing code isn't my primary technical skill set
+(though I'm decent at it), and until recently I had never done any game programming or heavy development work, so I ask
+for some patience as I keep learning.
 
 ## Why the name?
 
 It plays on VTMR, the game's usual abbreviation, and Vitomir is a real Slavic given name, fitting a story that begins in
-Prague.
-
-> **Fill in (Whacker007):** any questions your testers asked that belong here.
+Prague and central Europe.

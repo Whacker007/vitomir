@@ -42,7 +42,11 @@ tr:nth-child(even) td { background: var(--band-alt); }
 img { max-width: 100%; height: auto; }
 figure.clip { margin: 1.4em 0; }
 figure.clip video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--gold-line); border-radius: 6px; }
-figure.clip figcaption { color: var(--muted); font-size: 0.9em; margin-top: 0.5em; }
+figure.shot { margin: 1.4em 0; }
+figure.shot img { display: block; border: 1px solid var(--gold-line); border-radius: 6px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 16px; align-items: start; }
+figure.shot.narrow img { max-width: min(100%, 520px); margin: 0 auto; }
+figure.shot figcaption, figure.clip figcaption { color: var(--muted); font-size: 0.9em; margin-top: 0.5em; }
 
 /* The art thread's icons (decorative: the words beside them say the same). In a list, each item's icon sits in a column of
    its own to the left; in a heading, before the words. */

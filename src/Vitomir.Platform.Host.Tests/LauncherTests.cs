@@ -504,6 +504,29 @@ public sealed class LauncherTests : IDisposable
     }
 
     [Fact]
+    public void The_details_for_a_bug_report_name_no_user()
+    {
+        // Posted in public: the player's own Windows folder (which holds their user name) becomes %USERPROFILE%, in any case,
+        // at a line's end and before a space, while a folder that only begins the same is left alone. The paths are put
+        // together here so that no Windows path is written in the source.
+        static string P(params string[] parts) => string.Join('\\', parts);
+        string profile = P("C:", "Users", "Anna");
+        string details = $"Runs from: {P("C:", "Games", "Vitomir")}\r\n" +
+                         $"User folder: {P(profile, "AppData", "Local", "Vitomir")} (the default)\r\n" +
+                         $"FFmpeg: {P(profile.ToLowerInvariant(), "AppData", "ffmpeg.exe")} (8.0)\r\n" +
+                         $"Its folder: {profile}\r\n" +
+                         $"Other: {P("C:", "Users", "Annabel", "Saves")}\r\n";
+        string shown = Vitomir.Launcher.Launcher.WithoutTheUser(details, profile + "\\");
+        Assert.Contains($"User folder: {P("%USERPROFILE%", "AppData", "Local", "Vitomir")} (the default)", shown);
+        Assert.Contains($"FFmpeg: {P("%USERPROFILE%", "AppData", "ffmpeg.exe")}", shown);
+        Assert.Contains("Its folder: %USERPROFILE%" + "\r\n", shown);           // the whole folder, at the line's end
+        Assert.Contains($"Other: {P("C:", "Users", "Annabel", "Saves")}", shown);
+        Assert.Contains($"Runs from: {P("C:", "Games", "Vitomir")}", shown);
+        Assert.Equal(details, Vitomir.Launcher.Launcher.WithoutTheUser(details, null));
+        Assert.Equal(details, Vitomir.Launcher.Launcher.WithoutTheUser(details, "C:" + "\\"));
+    }
+
+    [Fact]
     public void Every_word_of_the_launcher_is_in_vitomirs_delivered_faces_at_the_themes_sizes()
     {
         var (launcher, _, _, _, _, _) = Make();

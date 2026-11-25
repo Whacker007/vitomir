@@ -11,7 +11,7 @@ off. Its changes come in three kinds:
 
 Every switch is on the game's options page, with a line saying what it does.
 
-> **Fill in (Whacker007): screenshot** of the options page with the Fixes and quality-of-life switches.
+<figure class="shot narrow"><img src="assets/media/options-fixes.webp" alt="The game's Fixes page: Gameplay Fixes and Visual Fixes, each with a box to tick" width="900" height="1117" loading="lazy"><figcaption>The Fixes page in the game's options. The pointer over a switch says what it does.</figcaption></figure>
 
 ## <img class="icon" src="assets/art/icons/feature-faithful.svg" alt=""> Faithful to 1.1
 
@@ -26,8 +26,6 @@ switch.
   its original proportions, centred. The original 4:3 is one setting away.
 - **Full screen, borderless or windowed**, at your desktop's resolution or any other.
 - **Direct3D 12 or Vulkan**, on today's graphics cards, with no compatibility layer to set up.
-
-> **Fill in (Whacker007): screenshot**, the same place in 4:3 and in widescreen.
 
 ## <img class="icon" src="assets/art/icons/mark-quality-of-life.svg" alt=""> Quality of life (on by default)
 
@@ -68,12 +66,14 @@ yours are on the options page's Keys screen.
 The camera eases into each move instead of jumping, and it keeps within the level: in a small room the walls hold it in,
 so zooming out does little until there is space behind the character.
 
+<figure class="shot"><img src="assets/media/show-objects.webp" alt="Christof in Prague's Old Town with Left Alt held: the things he could use or take glow" width="1600" height="900" loading="lazy"><figcaption>New: hold Left Alt and everything on screen you can use or take glows, as it would under the pointer (characters are left out).</figcaption></figure>
+
 <figure class="clip"><video class="clip" muted loop playsinline preload="none" poster="assets/media/driving.jpg" aria-label="New: steer with W, A, S and D, and hold Shift to run."><source src="assets/media/driving.mp4" type="video/mp4"></video><figcaption>New: steer with W, A, S and D, and hold Shift to run.</figcaption></figure>
 
 Steered with the keys, a character walks, and Shift runs. **Always run**, a box on the Gameplay options page, turns that
 round: the keys run, and Shift walks. Clicks are not affected.
 
-> **Fill in (Whacker007): screenshot** of the Gameplay options page with Always run ticked.
+<figure class="shot"><img src="assets/media/options-always-run.webp" alt="The game options page with Always run ticked and its explanation under the pointer" width="1180" height="720" loading="lazy"><figcaption>Always run on the game options page.</figcaption></figure>
 
 <figure class="clip"><video class="clip" muted loop playsinline preload="none" poster="assets/media/swivel-lock.jpg" aria-label="New: Ctrl + middle click locks the camera to the mouse; a click still walks."><source src="assets/media/swivel-lock.mp4" type="video/mp4"></video><figcaption>New: Ctrl + middle click locks the camera to the mouse; a click still walks.</figcaption></figure>
 
@@ -114,7 +114,7 @@ each blow is rolled once.
 - **Movies** makes and manages the upscaled movies.
 - **Folders** shows and moves your user folder, or makes Vitomir portable.
 
-> **Fill in (Whacker007): screenshot** of the launcher's Modules page with a texture pack added.
+<figure class="shot"><img src="assets/media/launcher-modules.webp" alt="The launcher's Modules page: the original game first, then a texture and interface pack, in load order" width="1400" height="468" loading="lazy"><figcaption>The launcher's Modules page with a texture and interface pack added.</figcaption></figure>
 
 ## Mods for the original game
 
@@ -138,7 +138,7 @@ free tools Real-ESRGAN and RIFE, which it downloads for you. Two versions, **Bes
 frames) and **Fast** (twice both), and you choose for each movie which one plays, or the original. It can stop part way
 and pick up where it left off, and every file it makes, tools included, can be removed from the same page.
 
-> **Fill in (Whacker007): short clip**, a movie side by side: the original and the Best version.
+<figure class="clip"><video class="clip" muted loop playsinline preload="none" poster="assets/media/movie-intro.jpg" aria-label="The opening movie's knight, the original (left) and the Best version (right): four seconds, enlarged to show the detail."><source src="assets/media/movie-intro.mp4" type="video/mp4"></video><figcaption>The opening movie's knight, the original (left) and the Best version (right): four seconds, enlarged to show the detail.</figcaption></figure>
 
 ## <img class="icon" src="assets/art/icons/feature-multiplayer.svg" alt=""> Multiplayer and the Storyteller
 
@@ -149,8 +149,6 @@ and pick up where it left off, and every file it makes, tools included, can be r
 - **Streamer mode** hides every network address, your user name and join details wherever text is on screen, so you
   can stream a session safely.
 - A **dedicated host** can run in its own window, with no player at it.
-
-> **Fill in (Whacker007): short clip** of a network game.
 
 ## Known limitations
 
